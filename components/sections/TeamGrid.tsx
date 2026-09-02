@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/asset";
 import { team } from "@/content/team";
 import { loc } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
@@ -11,7 +12,7 @@ export function TeamGrid({ locale }: { locale: Locale }) {
           {member.photo ? (
             <div className="relative aspect-[3/4] overflow-hidden rounded-[16px] border border-border bg-bg-alt">
               <Image
-                src={member.photo}
+                src={assetPath(member.photo)}
                 alt={loc(member.photoAlt, locale)}
                 fill
                 sizes="200px"

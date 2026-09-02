@@ -78,6 +78,7 @@ export default async function HomePage({
               src={sampleAdvent.image}
               alt={dict.sample.adventAlt}
               className="mt-8"
+              priority
             />
           </div>
         </div>

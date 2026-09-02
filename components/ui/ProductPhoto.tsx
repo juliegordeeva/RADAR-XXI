@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 export function ProductPhoto({
@@ -14,7 +15,7 @@ export function ProductPhoto({
 }) {
   return (
     <Image
-      src={src}
+      src={assetPath(src)}
       alt={alt}
       width={1024}
       height={1536}
