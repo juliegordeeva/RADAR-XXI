@@ -3,6 +3,8 @@ import { products } from "@/content/products";
 import { locales } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const pages = [

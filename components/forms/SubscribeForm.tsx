@@ -8,6 +8,7 @@ import { subscribeSchema } from "@/lib/schemas";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/locale-path";
+import { sendSubscribeFromBrowser } from "@/lib/submit-form";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -35,12 +36,7 @@ export function SubscribeForm({
   async function onSubmit(values: FormValues) {
     setStatus("loading");
     try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, consent: true }),
-      });
-      if (!response.ok) throw new Error("fail");
+      sendSubscribeFromBrowser(values.email);
       setStatus("success");
     } catch {
       setStatus("error");

@@ -8,6 +8,7 @@ import { leadSchema, type LeadInput } from "@/lib/schemas";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/locale-path";
+import { sendLeadFromBrowser } from "@/lib/submit-form";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -59,12 +60,12 @@ export function LeadForm({
         consent: true,
         website: values.website ?? "",
       };
-      const response = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      sendLeadFromBrowser({
+        name: payload.name,
+        contact: payload.contact,
+        product: payload.product,
+        childAge: payload.childAge,
       });
-      if (!response.ok) throw new Error("fail");
       setStatus("success");
       form.reset({ ...values, name: "", contact: "", childAge: "", consent: false });
     } catch {

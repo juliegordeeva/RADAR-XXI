@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
+const onGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  images: {
-    formats: ["image/webp"],
-  },
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  basePath: onGitHubPages ? "/RADAR-XXI" : "",
 };
 
 export default nextConfig;
