@@ -22,8 +22,8 @@ export const faqItems: FaqItem[] = [
       en: "What are universal competencies, in plain words?",
     },
     answer: {
-      ru: "Три способности, которые нужны в любой жизни: думать, договариваться с другими и управлять собой. Плюс грамотность — информация и базовые знания о безопасности. Самостоятельность не отдельный пункт: она появляется, когда работают остальные.",
-      en: "Three abilities needed in any life: think, work with others, manage yourself. Plus literacy — information and basic safety. Independence is not a separate item: it appears when the others work together.",
+      ru: "Универсальные компетенции — думать, договариваться с другими и управлять собой. Плюс грамотность: информация и базовые знания о безопасности. Самостоятельность не отдельный пункт: она появляется, когда работают остальные.",
+      en: "Universal competencies: think, work with others, manage yourself. Plus literacy — information and basic safety. Independence is not a separate item: it appears when the others work together.",
     },
   },
   {

@@ -21,10 +21,7 @@ export function Memorandum({
           <p key={paragraph}>{paragraph}</p>
         ))}
       </div>
-      <p className="mt-10 max-w-[62ch] text-[15px] text-deep-text/80">
-        {dict.memo.footnote}
-      </p>
-      <p className="mt-6">
+      <p className="mt-10">
         <Link
           href={localePath(locale, "/podhod")}
           className="underline underline-offset-2 hover:text-deep-text"

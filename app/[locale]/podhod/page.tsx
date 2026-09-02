@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import { CompetenciesBlock } from "@/components/sections/CompetenciesBlock";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import { products } from "@/content/products";
 import { competencyByKey } from "@/content/competencies";
@@ -78,6 +79,11 @@ export default async function ApproachPage({
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-16">
+          <CompetenciesBlock locale={locale} dict={dict} />
+        </div>
+        <div className="mt-16 max-w-[65ch] space-y-12">
           {rest.map((block) => (
             <div key={block.title}>
               <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
@@ -119,12 +125,6 @@ export default async function ApproachPage({
                 </tbody>
               </table>
             </div>
-          </div>
-          <div>
-            <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
-              {a.sourceTitle}
-            </h2>
-            <p>{a.source}</p>
           </div>
         </div>
         <div className="mt-14">

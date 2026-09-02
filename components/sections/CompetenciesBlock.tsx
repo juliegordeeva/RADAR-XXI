@@ -2,7 +2,6 @@ import { BookOpen } from "lucide-react";
 import {
   competencies,
   competencyGroupOrder,
-  groupReportName,
   groupTitle,
 } from "@/content/competencies";
 import type { Dictionary } from "@/lib/dictionary";
@@ -26,12 +25,9 @@ export function CompetenciesBlock({
       <div className="space-y-12">
         {competencyGroupOrder.map((group) => (
           <div key={group}>
-            <h3 className="font-heading text-[20px] md:text-[24px]">
+            <h3 className="font-heading text-[20px] md:text-[24px] mb-5">
               {loc(groupTitle[group], locale)}
             </h3>
-            <p className="text-[15px] text-text-muted mt-1 mb-5">
-              {loc(groupReportName[group], locale)}
-            </p>
             <div className="grid gap-4 md:grid-cols-3">
               {competencies
                 .filter((item) => item.group === group)

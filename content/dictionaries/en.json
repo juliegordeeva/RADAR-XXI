@@ -13,7 +13,7 @@
     "privacyTitle": "Privacy policy — RADAR XXI",
     "privacyDescription": "How we use the name, phone and email you send through the forms.",
     "approachTitle": "Universal competencies in children: what they are — RADAR XXI",
-    "approachDescription": "Three abilities from an HSE report: think, work with others, manage yourself. Why the family has this job, and how it is trained at home.",
+    "approachDescription": "Universal competencies: think, work with others, manage yourself. Why this is the family’s job, and how it is trained at home.",
     "productTitleSuffix": "— RADAR XXI"
   },
   "nav": {
@@ -65,7 +65,7 @@
   "how": {
     "title": "Three steps",
     "steps": [
-      "Pick a kit by age, or by the ability you want to train",
+      "Pick a kit by age, or by the competency you want to train",
       "Spend 10–20 minutes a day with the script",
       "After two to four weeks, notice what changed"
     ]
@@ -74,7 +74,7 @@
     "title": "Choose a kit",
     "all": "All",
     "byAge": "By age",
-    "byAbility": "By ability",
+    "byAbility": "By competency",
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
     "priceAsk": "Ask for the price",
@@ -95,7 +95,7 @@
   },
   "why": {
     "title": "Why 15 minutes a day works better than a long weekly class",
-    "text": "An ability is built by repeating a real situation, not by learning a rule. A child takes in what they do next to an adult, not what they listen to. Ten minutes a day fits an evening more easily than one long session a week."
+    "text": "A competency is built by repeating a real situation, not by learning a rule. A child takes in what they do next to an adult, not what they listen to. Ten minutes a day fits an evening more easily than one long session a week."
   },
   "team": {
     "title": "Who makes this"
@@ -115,23 +115,20 @@
     "title": "Questions"
   },
   "memo": {
-    "title": "What a child actually needs to learn",
+    "title": "Universal competencies",
     "paragraphs": [
-      "School teaches subjects. Whether a child can cope with adult life is not decided by grades.",
-      "In 2020 the Institute of Education at HSE University, with an international consortium, reviewed more than 180 skill frameworks and reduced them to three abilities needed in any field: think, work with others, and manage yourself. They called these universal competencies: they work at school, in friendship, at work, and in a family.",
-      "The finding is awkward. Mass schooling does not teach this on purpose. It relies on these abilities and quietly leaves them to the family. A survey of 4,500 teachers in 85 Russian regions confirmed it: teachers put this job on parents first. More than a third say creativity cannot be taught at all.",
-      "So this is our work. Not extra. The main work.",
-      "The good news: lectures do not teach it. A child learns these abilities by acting — choosing, erring, agreeing, finishing. At home, in ordinary situations, about 15 minutes a day. We put those situations into kits so you do not have to invent them."
+      "Grades will not tell you if they can cope when lost. If they can agree without shouting. If they can stop when they are angry.",
+      "School teaches subjects. Thinking in a new situation, agreeing, holding yourself — it does not. When you are not there, that is what remains.",
+      "Not lectures. Fifteen minutes at home: choose, get it wrong, agree, finish."
     ],
-    "footnote": "The school’s idea draws on Universal Competencies and New Literacy: From Slogans to Reality (ed. M. S. Dobryakova and I. D. Froumin, HSE Institute of Education, 2020).",
-    "more": "Read the approach →"
+    "more": "Read our approach →"
   },
   "abilities": {
-    "title": "Eight abilities a child will need in any life",
-    "subtitle": "We split the report’s three competencies into eight plain phrases. Every kit is built around them.",
+    "title": "What universal competencies are made of",
+    "subtitle": "Eight plain phrases. Every kit is built around them.",
     "literacyLead": "And literacy — without it the rest does not work.",
-    "literacy": "Finding information, checking it, telling truth from fiction. Plus basic knowledge of safety, health and money. The report calls this new literacy.",
-    "ninth": "Independence and decision-making are not a ninth skill on the list. They appear when the others work together.",
+    "literacy": "Find information, check it, tell truth from fiction. And know what to do if they get lost: safety, health, money.",
+    "ninth": "Independence is not a ninth item on the list. It appears when the others work together.",
     "ninthNote": "A child decides for themselves when they think, take others into account, and manage themselves — at the same time."
   },
   "approach": {
@@ -149,16 +146,14 @@
     "literacyTitle": "And literacy",
     "literacy": "Instrumental: find information, judge it, tell fact from opinion — including digital. Subject: basic safety, health, money. Example: check whether a chat message is true, and know what to do if you get lost.",
     "familyTitle": "Why this is the family’s job",
-    "family": "The report is direct: mass school did not set out to form these competencies. It relied on them and left them to the family. A survey of 4,500 teachers in 85 regions confirmed it: they put the job on parents. More than a third say creativity cannot be taught. This is not “school is bad”. School has a different job, and it says so.",
+    "family": "School teaches subjects. Thinking in a new situation, agreeing, and holding yourself — it does not teach that on purpose. That stays with the family. Not because school is bad. School has a different job.",
     "practiceTitle": "How it is trained",
     "practice": "A short daily practice in a real situation, with an adult, with room to get it wrong. Lectures do not work here. A child takes in what they do themselves.",
     "kitsTitle": "How our kits are built",
-    "kits": "Each line covers its own abilities. You see that in the tags and the filter. A 24-day advent moves through several abilities. A 14-day kit stays on one, without jumping topics.",
+    "kits": "Each line covers its own competencies. You see that in the tags and the filter. A 24-day advent moves through several competencies. A 14-day kit stays on one, without jumping topics.",
     "tableProduct": "Kit",
-    "tableAbilities": "Abilities",
-    "tableAge": "Age",
-    "sourceTitle": "Source",
-    "source": "The school’s idea draws on Universal Competencies and New Literacy: From Slogans to Reality (ed. M. S. Dobryakova and I. D. Froumin, HSE Institute of Education, 2020). We did not take part in the report and we do not claim a partnership with HSE."
+    "tableAbilities": "Competencies",
+    "tableAge": "Age"
   },
   "footer": {
     "tagline": "Kits for parent and child. Ages 4–16.",
@@ -192,13 +187,13 @@
     "price": "Price and format",
     "related": "Similar kits",
     "request": "Request this kit",
-    "abilities": "Which abilities it trains",
+    "abilities": "Which competencies it trains",
     "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
     "safetySteps": ["Notice", "Stop", "Pick a safe adult", "Call for help"]
   },
   "productsPage": {
     "title": "Kits",
-    "intro": "Start with age or ability. Then pick a format: cards, calendar, quest or course."
+    "intro": "Start with age or competency. Then pick a format: cards, calendar, quest or course."
   },
   "aboutPage": {
     "title": "Who makes this",

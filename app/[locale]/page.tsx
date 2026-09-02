@@ -7,7 +7,6 @@ import { Section } from "@/components/ui/Section";
 import { Catalog } from "@/components/sections/Catalog";
 import { SampleDay } from "@/components/sections/SampleDay";
 import { Memorandum } from "@/components/sections/Memorandum";
-import { CompetenciesBlock } from "@/components/sections/CompetenciesBlock";
 import { Reviews } from "@/components/sections/Reviews";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { TeamGrid } from "@/components/sections/TeamGrid";
@@ -127,10 +126,6 @@ export default async function HomePage({
             </Card>
           ))}
         </div>
-      </Section>
-
-      <Section>
-        <CompetenciesBlock locale={locale} dict={dict} />
       </Section>
 
       <Section id="catalog" alt>

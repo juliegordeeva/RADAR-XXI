@@ -190,22 +190,6 @@ export const groupTitle: Record<CompetencyGroup, Localized> = {
   literacy: { ru: "Грамотность", en: "Literacy" },
 };
 
-export const groupReportName: Record<CompetencyGroup, Localized> = {
-  thinking: {
-    ru: "компетентность мышления",
-    en: "competence of thinking",
-  },
-  others: {
-    ru: "компетентность взаимодействия с другими",
-    en: "competence of interaction with others",
-  },
-  self: {
-    ru: "компетентность взаимодействия с собой",
-    en: "competence of interaction with oneself",
-  },
-  literacy: { ru: "новая грамотность", en: "new literacy" },
-};
-
 export const competencyByKey = Object.fromEntries(
   competencies.map((item) => [item.key, item]),
 ) as Record<CompetencyKey, Competency>;
