@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #fdfaf4;
+  --color-bg-alt: #f4eee3;
+  --color-surface: #ffffff;
+  --color-text: #1f2421;
+  --color-text-muted: #5a6360;
+  --color-border: #e5ded2;
+  --color-accent: #c2542f;
+  --color-accent-hover: #a2431f;
+  --color-deep: #2f5d50;
+  --color-deep-text: #fdfaf4;
+  --color-comp-thinking: #3d6e9e;
+  --color-comp-others: #4a8f6e;
+  --color-comp-self: #c2542f;
+  --color-comp-literacy: #7a5c9e;
+  --color-age-4-6: #e8a33d;
+  --color-age-7-9: #4a8f6e;
+  --color-age-10-12: #3d6e9e;
+  --color-age-13-16: #7a5c9e;
+  --color-age-parents: #c2542f;
+
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-btn: 12px;
+  --radius-card: 16px;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-deep);
+  outline-offset: 3px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+
+  .fade-in {
+    animation: fade-in 0.45s ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "homeTitle": "Home kits for kids 4–16 — RADAR XXI",
+    "homeDescription": "Cards, calendars and family quests. 10–20 minutes a day, with a ready script for parent and child.",
+    "productsTitle": "Kits by age — RADAR XXI",
+    "productsDescription": "Parent calendars, safety cards, 24-day skill advents, 14-day kits, family quests and a teen course.",
+    "aboutTitle": "Who makes RADAR XXI — Julia Gordeeva and Elizabeth Sarycheva",
+    "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
+    "b2bTitle": "Programmes for companies and employees’ families — RADAR XXI",
+    "b2bDescription": "Corporate family games, offsite camps and an olympiad of abilities for staff and their children.",
+    "contactsTitle": "Contact — RADAR XXI",
+    "contactsDescription": "Message us on Telegram or call in Russia and Europe. You can also request a kit.",
+    "privacyTitle": "Privacy policy — RADAR XXI",
+    "privacyDescription": "How we use the name, phone and email you send through the forms.",
+    "approachTitle": "Universal competencies in children: what they are — RADAR XXI",
+    "approachDescription": "Three abilities from an HSE report: think, work with others, manage yourself. Why the family has this job, and how it is trained at home.",
+    "productTitleSuffix": "— RADAR XXI"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Kits",
+    "about": "About",
+    "approach": "Our approach",
+    "contacts": "Contact",
+    "b2b": "For business",
+    "privacy": "Privacy policy",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Home kits for parents and children · ages 4–16",
+    "title": "Kids grow up. Help them think, speak up, and stay safe.",
+    "subtitle": "Cards, quests and family games. About 15 minutes a day. You follow a script — nothing to invent.",
+    "cta": "Choose by age",
+    "leadLink": "Or download a free sample: one safety card and one advent day."
+  },
+  "pain": {
+    "title": "Sound familiar?",
+    "items": [
+      "Your child waits for you to say what to do",
+      "You are not sure they would cope if they got lost or a stranger approached",
+      "Too many clubs, almost no time together",
+      "You worry more than you want to, and you compare yourself with other parents"
+    ],
+    "footer": "These are skills. They are trained in short daily actions, not lectures."
+  },
+  "what": {
+    "title": "Games that teach children to think and cope",
+    "cards": [
+      {
+        "title": "Cards",
+        "text": "A situation on the front, four steps on the back. Repeat until it sticks."
+      },
+      {
+        "title": "Calendars",
+        "text": "One sheet a day: a thought, an action, a question. Five to fifteen minutes. No prep."
+      },
+      {
+        "title": "Quests",
+        "text": "A story for an evening or a long trip. The child chooses and sees what follows."
+      }
+    ],
+    "note": "We are parents. We made this for our own children first."
+  },
+  "how": {
+    "title": "Three steps",
+    "steps": [
+      "Pick a kit by age, or by the ability you want to train",
+      "Spend 10–20 minutes a day with the script",
+      "After two to four weeks, notice what changed"
+    ]
+  },
+  "catalog": {
+    "title": "Choose a kit",
+    "all": "All",
+    "byAge": "By age",
+    "byAbility": "By ability",
+    "empty": "No kit matches this yet.",
+    "reset": "Clear filters",
+    "priceAsk": "Ask for the price",
+    "priceFrom": "from {price} ₽"
+  },
+  "sample": {
+    "title": "What one day looks like",
+    "cardLabel": "Safety card",
+    "cardFace": "Front",
+    "cardBack": "Back, for the parent",
+    "adventLabel": "Advent day 1, ages 4–6",
+    "stepsTitle": "Four steps on the back",
+    "cardAlt": "Sample safety card: lost in a shop",
+    "adventAlt": "Sample advent day 1: detail hunt, ages 4–6"
+  },
+  "reviews": {
+    "title": "What parents say"
+  },
+  "why": {
+    "title": "Why 15 minutes a day works better than a long weekly class",
+    "text": "An ability is built by repeating a real situation, not by learning a rule. A child takes in what they do next to an adult, not what they listen to. Ten minutes a day fits an evening more easily than one long session a week."
+  },
+  "team": {
+    "title": "Who makes this"
+  },
+  "lead": {
+    "title": "Try a free sample",
+    "text": "One safety card and one advent day. The samples are on this page. We will email the PDF when the files are ready.",
+    "email": "Email",
+    "submit": "Get the PDF",
+    "success": "Check your inbox. If nothing arrives, look in spam.",
+    "successCatalog": "See the kits",
+    "error": "It did not send.",
+    "consent": "I agree to the processing of my personal data.",
+    "consentLink": "Policy"
+  },
+  "faq": {
+    "title": "Questions"
+  },
+  "memo": {
+    "title": "What a child actually needs to learn",
+    "paragraphs": [
+      "School teaches subjects. Whether a child can cope with adult life is not decided by grades.",
+      "In 2020 the Institute of Education at HSE University, with an international consortium, reviewed more than 180 skill frameworks and reduced them to three abilities needed in any field: think, work with others, and manage yourself. They called these universal competencies: they work at school, in friendship, at work, and in a family.",
+      "The finding is awkward. Mass schooling does not teach this on purpose. It relies on these abilities and quietly leaves them to the family. A survey of 4,500 teachers in 85 Russian regions confirmed it: teachers put this job on parents first. More than a third say creativity cannot be taught at all.",
+      "So this is our work. Not extra. The main work.",
+      "The good news: lectures do not teach it. A child learns these abilities by acting — choosing, erring, agreeing, finishing. At home, in ordinary situations, about 15 minutes a day. We put those situations into kits so you do not have to invent them."
+    ],
+    "footnote": "The school’s idea draws on Universal Competencies and New Literacy: From Slogans to Reality (ed. M. S. Dobryakova and I. D. Froumin, HSE Institute of Education, 2020).",
+    "more": "Read the approach →"
+  },
+  "abilities": {
+    "title": "Eight abilities a child will need in any life",
+    "subtitle": "We split the report’s three competencies into eight plain phrases. Every kit is built around them.",
+    "literacyLead": "And literacy — without it the rest does not work.",
+    "literacy": "Finding information, checking it, telling truth from fiction. Plus basic knowledge of safety, health and money. The report calls this new literacy.",
+    "ninth": "Independence and decision-making are not a ninth skill on the list. They appear when the others work together.",
+    "ninthNote": "A child decides for themselves when they think, take others into account, and manage themselves — at the same time."
+  },
+  "approach": {
+    "title": "Our approach",
+    "cta": "Choose a kit",
+    "changedTitle": "What changed",
+    "changed": "Routine work is shrinking. Work that needs non-routine decisions and hard communication is growing. The main difficulty is uncertainty: you cannot learn everything in advance. You will have to solve unfamiliar problems and learn again.",
+    "threeTitle": "What universal competencies are",
+    "thinkingTitle": "Think",
+    "thinking": "Understand a task, see cause and effect, offer more than one solution when there is no single right answer. Everyday example: why you do not get in a lift with a stranger, but you can with a neighbour.",
+    "othersTitle": "Work with others",
+    "others": "Cooperate, state your view, take the other person’s into account, settle a conflict. Example: how to share one toy without tears.",
+    "selfTitle": "Manage yourself",
+    "self": "Notice an emotion, not act on autopilot, plan a step and finish it. Example: not throwing the exercise book when it will not work.",
+    "literacyTitle": "And literacy",
+    "literacy": "Instrumental: find information, judge it, tell fact from opinion — including digital. Subject: basic safety, health, money. Example: check whether a chat message is true, and know what to do if you get lost.",
+    "familyTitle": "Why this is the family’s job",
+    "family": "The report is direct: mass school did not set out to form these competencies. It relied on them and left them to the family. A survey of 4,500 teachers in 85 regions confirmed it: they put the job on parents. More than a third say creativity cannot be taught. This is not “school is bad”. School has a different job, and it says so.",
+    "practiceTitle": "How it is trained",
+    "practice": "A short daily practice in a real situation, with an adult, with room to get it wrong. Lectures do not work here. A child takes in what they do themselves.",
+    "kitsTitle": "How our kits are built",
+    "kits": "Each line covers its own abilities. You see that in the tags and the filter. A 24-day advent moves through several abilities. A 14-day kit stays on one, without jumping topics.",
+    "tableProduct": "Kit",
+    "tableAbilities": "Abilities",
+    "tableAge": "Age",
+    "sourceTitle": "Source",
+    "source": "The school’s idea draws on Universal Competencies and New Literacy: From Slogans to Reality (ed. M. S. Dobryakova and I. D. Froumin, HSE Institute of Education, 2020). We did not take part in the report and we do not claim a partnership with HSE."
+  },
+  "footer": {
+    "tagline": "Kits for parent and child. Ages 4–16.",
+    "phoneRu": "Russia",
+    "phoneEu": "Europe",
+    "telegram": "Telegram",
+    "language": "Language"
+  },
+  "cta": {
+    "telegram": "Message on Telegram"
+  },
+  "forms": {
+    "name": "Name",
+    "contact": "Phone or email",
+    "childAge": "Child’s age",
+    "product": "Kit",
+    "submitLead": "Send request",
+    "sending": "Sending…",
+    "leadSuccess": "Request sent. We will reply in the next few days.",
+    "required": "Please fill this in.",
+    "invalidContact": "Use a phone number or email address.",
+    "invalidEmail": "Use an email address.",
+    "honeypot": "Leave this field empty"
+  },
+  "productPage": {
+    "audience": "Who it is for",
+    "inside": "What is inside",
+    "how": "How to use it",
+    "sample": "A sample task",
+    "result": "What changes in 2–4 weeks",
+    "price": "Price and format",
+    "related": "Similar kits",
+    "request": "Request this kit",
+    "abilities": "Which abilities it trains",
+    "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
+    "safetySteps": ["Notice", "Stop", "Pick a safe adult", "Call for help"]
+  },
+  "productsPage": {
+    "title": "Kits",
+    "intro": "Start with age or ability. Then pick a format: cards, calendar, quest or course."
+  },
+  "aboutPage": {
+    "title": "Who makes this",
+    "intro": "RADAR XXI Kids is made by Julia Gordeeva and Elizabeth Sarycheva. Family kits for home: a short script for each day, not a weekly club and not a lecture course.",
+    "body": "Julia Gordeeva has worked in business education for over 15 years: MBA programmes, work with leaders, Russian and English. In parallel she built short activities for her own family — how to talk, how to decide, what to do if you get lost. Together with Elizabeth Sarycheva that became the cards, calendars and quests you can now use as they are."
+  },
+  "b2bPage": {
+    "title": "For companies and employees’ families",
+    "intro": "The same skills as the home kits, in a team format: a game, an offsite, an olympiad.",
+    "formatsTitle": "Formats",
+    "formats": [
+      {
+        "title": "Corporate board games",
+        "text": "Games on talking things through, decisions and teamwork — for staff and their children."
+      },
+      {
+        "title": "Family activity camp",
+        "text": "Parents and children complete tasks together. Not children in one room and adults in another."
+      },
+      {
+        "title": "Modular activities",
+        "text": "Team games, project tasks and workshops that fit into a company day."
+      },
+      {
+        "title": "Olympiad of abilities",
+        "text": "Problem-solving, project missions, communication and leadership for employees and their children."
+      }
+    ],
+    "cta": "Request a company programme",
+    "note": "This page is separate from the parent shop. Timing and format are discussed one to one."
+  },
+  "contactsPage": {
+    "title": "Contact",
+    "intro": "Message us on Telegram — that is the fastest way. You can also call or use the form below.",
+    "formTitle": "Request a kit or ask a question"
+  },
+  "privacyPage": {
+    "title": "Privacy policy",
+    "updated": "Updated 2 September 2026.",
+    "legalTodo": "TODO: legal entity or self-employed status, registration number, legal address.",
+    "sections": [
+      {
+        "title": "Who processes the data",
+        "text": "The operator of the RADAR XXI Kids website. Until legal details are published, requests are handled by the founders, Julia Gordeeva and Elizabeth Sarycheva. Contacts are on the Contact page."
+      },
+      {
+        "title": "What we collect",
+        "text": "Kit request: name, phone or email, child’s age, chosen kit. Free PDF form: email. We do not ask for a passport or card, and we do not collect data about the child beyond age."
+      },
+      {
+        "title": "Why",
+        "text": "To send the PDF, reply to a request, and confirm format and delivery. We do not run a daily newsletter without a separate opt-in."
+      },
+      {
+        "title": "How we store it",
+        "text": "Requests go to the operator’s email and, if a mail service is connected, to its servers. We keep them while we need to reply, then delete them on request."
+      },
+      {
+        "title": "Your rights",
+        "text": "You can ask for a copy, a correction or deletion. Write to the contacts on this site. The consent checkbox is required: we do not send the form without it."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "This page does not exist",
+    "text": "Go home or open the kit list.",
+    "home": "Home"
+  },
+  "common": {
+    "brand": "RADAR XXI Kids"
+  }
+}
