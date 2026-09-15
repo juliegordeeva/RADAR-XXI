@@ -25,5 +25,31 @@ export const subscribeSchema = z.object({
   website: z.string().optional(),
 });
 
+const businessBaseSchema = z.object({
+  name: z.string().trim().min(2).max(80),
+  companyRole: z.string().trim().min(2).max(160),
+  contact: contactField,
+  city: z.string().trim().min(2).max(80),
+  date: z.string().trim().max(80).optional(),
+  comment: z.string().trim().max(2000).optional(),
+  product: z.string().trim().min(1).max(80),
+  consent: z.boolean().refine((value) => value === true),
+  website: z.string().optional(),
+});
+
+export const businessFormSchema = businessBaseSchema.extend({
+  childrenCount: z.string().trim().max(40).optional(),
+  familiesCount: z.string().trim().max(40).optional(),
+  ages: z.string().trim().max(80).optional(),
+});
+
+export const officeDaySchema = businessFormSchema;
+export const familyHikesSchema = businessFormSchema;
+export const businessGeneralSchema = businessFormSchema;
+
 export type LeadInput = z.infer<typeof leadSchema>;
 export type SubscribeInput = z.infer<typeof subscribeSchema>;
+export type BusinessFormInput = z.infer<typeof businessFormSchema>;
+export type OfficeDayInput = BusinessFormInput;
+export type FamilyHikesInput = BusinessFormInput;
+export type BusinessGeneralInput = BusinessFormInput;

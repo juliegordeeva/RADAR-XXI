@@ -1,35 +1,83 @@
 import { site } from "@/lib/site";
+import type { TrackingFields } from "@/lib/utm";
 
 function mailLink(subject: string, body: string) {
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function sendLeadFromBrowser(fields: {
+function formatBody(fields: Record<string, string | undefined>) {
+  return Object.entries(fields)
+    .filter(([, value]) => value && value.trim())
+    .map(([key, value]) => `${key}: ${value}`)
+    .join("\n");
+}
+
+export async function sendFormFromBrowser(
+  subject: string,
+  fields: Record<string, string | undefined>,
+) {
+  const body = formatBody(fields);
+
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(body);
+    } catch {
+      // Буфер недоступен — заявка всё равно уйдёт через почту или Telegram.
+    }
+  }
+
+  if (site.email) {
+    window.location.href = mailLink(subject, body);
+    return;
+  }
+
+  const telegramUrl = new URL(site.telegram);
+  window.open(telegramUrl.toString(), "_blank", "noopener,noreferrer");
+}
+
+export function withTracking(
+  fields: Record<string, string | undefined>,
+  tracking: TrackingFields,
+) {
+  return {
+    ...fields,
+    Страница: tracking.page,
+    Источник: tracking.source,
+    utm_source: tracking.utm_source,
+    utm_medium: tracking.utm_medium,
+    utm_campaign: tracking.utm_campaign,
+    utm_content: tracking.utm_content,
+    utm_term: tracking.utm_term,
+  };
+}
+
+export async function sendLeadFromBrowser(fields: {
   name: string;
   contact: string;
   product?: string;
   childAge?: string;
+  tracking: TrackingFields;
 }) {
-  const body = [
-    `Имя: ${fields.name}`,
-    `Контакт: ${fields.contact}`,
-    fields.product ? `Набор: ${fields.product}` : "",
-    fields.childAge ? `Возраст ребёнка: ${fields.childAge}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
-
-  if (site.email) {
-    window.location.href = mailLink("Заявка RADAR XXI Kids", body);
-    return;
-  }
-  window.open(site.telegram, "_blank", "noopener,noreferrer");
+  await sendFormFromBrowser(
+    "Заявка RADAR KIDS",
+    withTracking(
+      {
+        Имя: fields.name,
+        Контакт: fields.contact,
+        Набор: fields.product,
+        "Возраст ребёнка": fields.childAge,
+      },
+      fields.tracking,
+    ),
+  );
 }
 
-export function sendSubscribeFromBrowser(email: string) {
-  if (site.email) {
-    window.location.href = mailLink("PDF RADAR XXI Kids", `Почта: ${email}`);
-    return;
-  }
-  window.open(site.telegram, "_blank", "noopener,noreferrer");
+export async function sendSubscribeFromBrowser(
+  email: string,
+  tracking: TrackingFields,
+) {
+  await sendFormFromBrowser(
+    "Запрос образца RADAR KIDS",
+    withTracking({ Почта: email }, tracking),
+  );
 }

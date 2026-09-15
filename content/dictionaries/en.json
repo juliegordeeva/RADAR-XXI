@@ -1,28 +1,32 @@
 {
   "meta": {
-    "homeTitle": "Home kits for kids 4–16 — RADAR XXI",
+    "homeTitle": "Home kits for kids 4–16 — RADAR KIDS",
     "homeDescription": "Cards, calendars and family quests. 10–20 minutes a day, with a ready script for parent and child.",
-    "productsTitle": "Kits by age — RADAR XXI",
+    "productsTitle": "Kits by age — RADAR KIDS",
     "productsDescription": "Parent calendars, safety cards, 24-day skill advents, 14-day kits, family quests and a teen course.",
-    "aboutTitle": "Who makes RADAR XXI — Julia Gordeeva and Elizabeth Sarycheva",
+    "aboutTitle": "Who makes RADAR KIDS — Julia Gordeeva and Elizabeth Sarycheva",
     "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
-    "b2bTitle": "Programmes for companies and employees’ families — RADAR XXI",
-    "b2bDescription": "Corporate family games, offsite camps and an olympiad of abilities for staff and their children.",
-    "contactsTitle": "Contact — RADAR XXI",
+    "b2bTitle": "Семейные корпоративные программы — RADAR KIDS",
+    "b2bDescription": "Office Day и корпоративные семейные походы для сотрудников с детьми. Сценарий, адаптация под компанию, организация и сопровождение.",
+    "contactsTitle": "Contact — RADAR KIDS",
     "contactsDescription": "Message us on Telegram or call in Russia and Europe. You can also request a kit.",
-    "privacyTitle": "Privacy policy — RADAR XXI",
+    "privacyTitle": "Privacy policy — RADAR KIDS",
     "privacyDescription": "How we use the name, phone and email you send through the forms.",
-    "approachTitle": "Universal competencies in children: what they are — RADAR XXI",
+    "approachTitle": "Universal competencies in children: what they are — RADAR KIDS",
     "approachDescription": "Universal competencies: think, work with others, manage yourself. Why this is the family’s job, and how it is trained at home.",
-    "productTitleSuffix": "— RADAR XXI"
+    "productTitleSuffix": "— RADAR KIDS",
+    "officeTitle": "Детский день в офисе под ключ — RADAR KIDS Office Day",
+    "officeDescription": "Офисный квест, деловая игра и знакомство детей сотрудников с работой родителей. Программа адаптируется под бизнес и пространство компании.",
+    "hikesTitle": "Корпоративные семейные походы — RADAR KIDS",
+    "hikesDescription": "Организованные походы для сотрудников с детьми: маршрут, семейные задания, сопровождение и программа под состав корпоративной группы."
   },
   "nav": {
     "home": "Home",
-    "products": "Kits",
+    "products": "Products",
     "about": "About",
     "approach": "Our approach",
     "contacts": "Contact",
-    "b2b": "For business",
+    "b2b": "Для компаний",
     "privacy": "Privacy policy",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -32,7 +36,7 @@
     "title": "Kids grow up. Help them think, speak up, and stay safe.",
     "subtitle": "Cards, quests and family games. About 15 minutes a day. You follow a script — nothing to invent.",
     "cta": "Choose by age",
-    "leadLink": "Or download a free sample: one safety card and one advent day."
+    "leadLink": "Или запросить образец: карточка безопасности и один день адвента."
   },
   "pain": {
     "title": "Sound familiar?",
@@ -73,7 +77,7 @@
   "catalog": {
     "title": "Choose a kit",
     "all": "All",
-    "byAge": "By age",
+    "byAge": "По возрасту. Календари для взрослых — фильтр «Родителям».",
     "byAbility": "By competency",
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
@@ -101,11 +105,11 @@
     "title": "Who makes this"
   },
   "lead": {
-    "title": "Try a free sample",
-    "text": "One safety card and one advent day. The samples are on this page. We will email the PDF when the files are ready.",
+    "title": "Запросить образец",
+    "text": "На этой странице уже есть образцы: карточка безопасности и один день адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
     "email": "Email",
-    "submit": "Get the PDF",
-    "success": "Check your inbox. If nothing arrives, look in spam.",
+    "submit": "Запросить образец",
+    "success": "Заявка ушла. Мы ответим в ближайшие дни в Telegram и уточним, как передать образец.",
     "successCatalog": "See the kits",
     "error": "It did not send.",
     "consent": "I agree to the processing of my personal data.",
@@ -172,7 +176,7 @@
     "product": "Kit",
     "submitLead": "Send request",
     "sending": "Sending…",
-    "leadSuccess": "Request sent. We will reply in the next few days.",
+    "leadSuccess": "Заявка ушла. Мы ответим в ближайшие дни в Telegram.",
     "required": "Please fill this in.",
     "invalidContact": "Use a phone number or email address.",
     "invalidEmail": "Use an email address.",
@@ -189,7 +193,12 @@
     "request": "Request this kit",
     "abilities": "Which competencies it trains",
     "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
-    "safetySteps": ["Notice", "Stop", "Pick a safe adult", "Call for help"]
+    "safetySteps": [
+      "Notice",
+      "Stop",
+      "Pick a safe adult",
+      "Call for help"
+    ]
   },
   "productsPage": {
     "title": "Kits",
@@ -197,33 +206,11 @@
   },
   "aboutPage": {
     "title": "Who makes this",
-    "intro": "RADAR XXI Kids is made by Julia Gordeeva and Elizabeth Sarycheva. Family kits for home: a short script for each day, not a weekly club and not a lecture course.",
+    "intro": "RADAR KIDS is made by Julia Gordeeva and Elizabeth Sarycheva. Family kits for home: a short script for each day, not a weekly club and not a lecture course.",
     "body": "Julia Gordeeva has worked in business education for over 15 years: MBA programmes, work with leaders, Russian and English. In parallel she built short activities for her own family — how to talk, how to decide, what to do if you get lost. Together with Elizabeth Sarycheva that became the cards, calendars and quests you can now use as they are."
   },
   "b2bPage": {
-    "title": "For companies and employees’ families",
-    "intro": "The same skills as the home kits, in a team format: a game, an offsite, an olympiad.",
-    "formatsTitle": "Formats",
-    "formats": [
-      {
-        "title": "Corporate board games",
-        "text": "Games on talking things through, decisions and teamwork — for staff and their children."
-      },
-      {
-        "title": "Family activity camp",
-        "text": "Parents and children complete tasks together. Not children in one room and adults in another."
-      },
-      {
-        "title": "Modular activities",
-        "text": "Team games, project tasks and workshops that fit into a company day."
-      },
-      {
-        "title": "Olympiad of abilities",
-        "text": "Problem-solving, project missions, communication and leadership for employees and their children."
-      }
-    ],
-    "cta": "Request a company programme",
-    "note": "This page is separate from the parent shop. Timing and format are discussed one to one."
+    "formTitle": "Запросить программу"
   },
   "contactsPage": {
     "title": "Contact",
@@ -233,19 +220,19 @@
   "privacyPage": {
     "title": "Privacy policy",
     "updated": "Updated 2 September 2026.",
-    "legalTodo": "TODO: legal entity or self-employed status, registration number, legal address.",
+    "legalTodo": "Реквизиты юридического лица пока не опубликованы. Заявки принимают основательницы проекта.",
     "sections": [
       {
         "title": "Who processes the data",
-        "text": "The operator of the RADAR XXI Kids website. Until legal details are published, requests are handled by the founders, Julia Gordeeva and Elizabeth Sarycheva. Contacts are on the Contact page."
+        "text": "The operator of the RADAR KIDS website. Until legal details are published, requests are handled by the founders, Julia Gordeeva and Elizabeth Sarycheva. Contacts are on the Contact page."
       },
       {
         "title": "What we collect",
-        "text": "Kit request: name, phone or email, child’s age, chosen kit. Free PDF form: email. We do not ask for a passport or card, and we do not collect data about the child beyond age."
+        "text": "В заявке на набор: имя, телефон или почта, возраст ребёнка, выбранный набор. В заявке на образец: контакты. В корпоративной заявке: имя, компания и должность, телефон или почта, город, дата и ориентиры по составу группы. Имена детей и медицинские данные на первой форме не собираем."
       },
       {
         "title": "Why",
-        "text": "To send the PDF, reply to a request, and confirm format and delivery. We do not run a daily newsletter without a separate opt-in."
+        "text": "Чтобы ответить на заявку и уточнить формат. Рассылку «каждый день» без отдельного согласия не ведём."
       },
       {
         "title": "How we store it",
@@ -263,6 +250,25 @@
     "home": "Home"
   },
   "common": {
-    "brand": "RADAR XXI Kids"
+    "brand": "RADAR KIDS"
+  },
+  "b2bForm": {
+    "name": "Имя",
+    "companyRole": "Компания и должность",
+    "contact": "Телефон или email",
+    "city": "Город",
+    "cityRegion": "Город или регион",
+    "date": "Предполагаемая дата",
+    "childrenCount": "Ориентировочное количество детей",
+    "familiesCount": "Количество семей",
+    "ages": "Возрастные группы детей",
+    "comment": "Комментарий",
+    "submitOffice": "Запросить программу Office Day",
+    "submitHikes": "Запросить формат семейного похода",
+    "submitGeneral": "Запросить программу",
+    "success": "Заявка ушла. Мы ответим в ближайшие дни в Telegram и уточним формат.",
+    "error": "Не отправилось.",
+    "consent": "Соглашаюсь на обработку персональных данных.",
+    "consentLink": "Политика"
   }
 }

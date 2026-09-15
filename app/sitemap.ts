@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/podhod",
     "/o-nas",
     "/dlya-biznesa",
+    "/dlya-biznesa/office-day",
+    "/dlya-biznesa/family-hikes",
     "/kontakty",
     "/politika",
     ...products.map((product) => `/produkty/${product.slug}`),

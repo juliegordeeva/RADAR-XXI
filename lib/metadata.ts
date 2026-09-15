@@ -32,7 +32,7 @@ export function pageMetadata({
       title,
       description,
       url: canonical,
-      siteName: "RADAR XXI Kids",
+      siteName: "RADAR KIDS",
       locale: locale === "ru" ? "ru_RU" : "en_GB",
       type: "website",
     },

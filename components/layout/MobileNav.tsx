@@ -36,12 +36,13 @@ export function MobileNav({
     { href: "/", label: dict.nav.home },
     { href: "/produkty", label: dict.nav.products },
     { href: "/podhod", label: dict.nav.approach },
+    { href: "/dlya-biznesa", label: dict.nav.b2b },
     { href: "/o-nas", label: dict.nav.about },
     { href: "/kontakty", label: dict.nav.contacts },
   ];
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         className="inline-flex size-12 items-center justify-center rounded-[12px] text-text"

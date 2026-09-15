@@ -76,8 +76,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Формат: печать почтой, PDF или оба варианта — уточняется.",
-      en: "TODO: price. Print by post, PDF, or both — to be confirmed.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 4. Дыхательная пауза перед реакцией",
@@ -164,8 +164,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF — уточняется.",
-      en: "TODO: price. Print or PDF — to be confirmed.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 1. Где я сейчас?",
@@ -252,8 +252,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать колодой или PDF — уточняется.",
-      en: "TODO: price. Printed deck or PDF — to be confirmed.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "Карточка «Потерялся в магазине»",
@@ -340,8 +340,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF, любой сезон.",
-      en: "TODO: price. Print or PDF, any season.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 5. Герой выбирает",
@@ -428,8 +428,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 12. Семейная выставка",
@@ -516,8 +516,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 6. Скажи иначе",
@@ -604,8 +604,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "День 9. План на неделю",
@@ -692,8 +692,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "Станция 2. Кто грустит в городе",
@@ -780,8 +780,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "Станция 3. Что важнее",
@@ -868,8 +868,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена. Печать или PDF.",
-      en: "TODO: price. Print or PDF.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "Шаг 1. Вечер настолок",
@@ -956,8 +956,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "TODO: цена курса и сессии, слоты, город очных встреч.",
-      en: "TODO: course and session prices, slots, city for in-person meetings.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Format and how you receive a specific kit are confirmed when you order.",
     },
     sampleTitle: {
       ru: "Как устроена сессия",

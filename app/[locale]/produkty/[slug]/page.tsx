@@ -81,13 +81,10 @@ export default async function ProductPage({
           {hasProductPhoto(product.image) ? (
             <ProductPhoto src={product.image} alt={loc(product.title, locale)} />
           ) : (
-            <>
-              <ProductVisual
-                kind={product.kind}
-                title={loc(product.title, locale)}
-              />
-              <p className="mt-3 text-[15px] text-text-muted">TODO: фото набора</p>
-            </>
+            <ProductVisual
+              kind={product.kind}
+              title={loc(product.title, locale)}
+            />
           )}
         </div>
       </Section>

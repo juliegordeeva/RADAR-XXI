@@ -1,5 +1,5 @@
 export const site = {
-  name: "RADAR XXI Kids",
+  name: "RADAR KIDS",
   phones: {
     ru: "+7 916 637 49 86",
     eu: "+33 66 24 334 24",

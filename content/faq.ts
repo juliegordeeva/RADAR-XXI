@@ -42,8 +42,8 @@ export const faqItems: FaqItem[] = [
       en: "Is it print or PDF?",
     },
     answer: {
-      ru: "Задуманы оба формата. Какой уйдёт в первую поставку — уточним в заявке. TODO: зафиксировать способ доставки по каждому продукту.",
-      en: "Both formats are planned. Which one ships first will be confirmed when you request a kit. TODO: lock delivery per product.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
+      en: "Формат и способ получения конкретного набора уточняются при заказе.",
     },
   },
   {
@@ -62,8 +62,8 @@ export const faqItems: FaqItem[] = [
       en: "How fast does it arrive, and do you ship abroad?",
     },
     answer: {
-      ru: "PDF можно отправить письмом после оплаты. Печать и доставка за границу — TODO: сроки, службы, страны. Европейский телефон уже есть: удобно созвониться по часовому поясу.",
-      en: "A PDF can go by email after payment. Print shipping abroad — TODO: times, carriers, countries. There is a European number, so a call in your time zone is possible.",
+      ru: "Формат и способ получения конкретного набора уточняются при заказе. Позвонить можно и в Россию, и в Европу — удобно созвониться по часовому поясу.",
+      en: "Формат и способ получения конкретного набора уточняются при заказе. Позвонить можно и в Россию, и в Европу — удобно созвониться по часовому поясу.",
     },
   },
   {
@@ -92,8 +92,8 @@ export const faqItems: FaqItem[] = [
       en: "Can we try before we buy?",
     },
     answer: {
-      ru: "Да. На главной лежат образцы: карточка «Потерялся в магазине» и день 1 адвента. PDF пришлём на почту, когда файлы будут готовы.",
-      en: "Yes. The home page shows samples: the “lost in a shop” card and advent day 1. We will email the PDF when the files are ready.",
+      ru: "Да. На главной лежат образцы: карточка «Потерялся в магазине» и день 1 адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
+      en: "Да. На главной лежат образцы: карточка «Потерялся в магазине» и день 1 адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
     },
   },
 ];

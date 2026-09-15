@@ -30,7 +30,7 @@ export default function UiKitPage() {
       <Section>
         <h1 className="font-heading text-[34px] md:text-[56px] leading-tight">Дизайн-система</h1>
         <p className="mt-4 max-w-[65ch] text-text-muted">
-          Витрина токенов и компонентов RADAR XXI Kids. Не для индексации.
+          Витрина токенов и компонентов RADAR KIDS. Не для индексации.
         </p>
       </Section>
       <Section alt>

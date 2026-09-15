@@ -9,7 +9,7 @@ export function OrganizationJsonLd({ locale }: { locale: Locale }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "RADAR XXI Kids",
+    name: "RADAR KIDS",
     url: `${getSiteUrl()}${localePath(locale, "/")}`,
     telephone: ["+7 916 637 49 86", "+33 66 24 334 24"],
     sameAs: [site.telegram],
@@ -52,7 +52,7 @@ export function ArticleJsonLd({ locale }: { locale: Locale }) {
         ? "Универсальные компетенции у детей: что это и зачем"
         : "Universal competencies in children: what they are",
     url: `${getSiteUrl()}${localePath(locale, "/podhod")}`,
-    publisher: { "@type": "Organization", name: "RADAR XXI Kids" },
+    publisher: { "@type": "Organization", name: "RADAR KIDS" },
   };
   return (
     <script
@@ -77,7 +77,7 @@ export function ProductJsonLd({
     name: loc(product.title, locale),
     description: loc(product.tagline, locale),
     url: `${getSiteUrl()}${localePath(locale, `/produkty/${product.slug}`)}`,
-    brand: { "@type": "Brand", name: "RADAR XXI Kids" },
+    brand: { "@type": "Brand", name: "RADAR KIDS" },
   };
   return (
     <script

@@ -10,6 +10,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const links = [
     { href: "/produkty", label: dict.nav.products },
     { href: "/podhod", label: dict.nav.approach },
+    { href: "/dlya-biznesa", label: dict.nav.b2b },
     { href: "/o-nas", label: dict.nav.about },
     { href: "/kontakty", label: dict.nav.contacts },
   ];
@@ -23,7 +24,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         >
           {dict.common.brand}
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-[15px]">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[15px]">
           {links.map((link) => (
             <Link
               key={link.href}

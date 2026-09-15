@@ -9,6 +9,7 @@ import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/locale-path";
 import { sendLeadFromBrowser } from "@/lib/submit-form";
+import { collectTracking } from "@/lib/utm";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -50,6 +51,10 @@ export function LeadForm({
   const consent = form.watch("consent");
 
   async function onSubmit(values: FormValues) {
+    if (values.website) {
+      setStatus("success");
+      return;
+    }
     setStatus("loading");
     try {
       const payload: LeadInput = {
@@ -60,11 +65,12 @@ export function LeadForm({
         consent: true,
         website: values.website ?? "",
       };
-      sendLeadFromBrowser({
+      await sendLeadFromBrowser({
         name: payload.name,
         contact: payload.contact,
         product: payload.product,
         childAge: payload.childAge,
+        tracking: collectTracking(product ? `produkty/${product}` : "lead"),
       });
       setStatus("success");
       form.reset({ ...values, name: "", contact: "", childAge: "", consent: false });

@@ -9,6 +9,7 @@ import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/locale-path";
 import { sendSubscribeFromBrowser } from "@/lib/submit-form";
+import { collectTracking } from "@/lib/utm";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -34,9 +35,13 @@ export function SubscribeForm({
   const consent = form.watch("consent");
 
   async function onSubmit(values: FormValues) {
+    if (values.website) {
+      setStatus("success");
+      return;
+    }
     setStatus("loading");
     try {
-      sendSubscribeFromBrowser(values.email);
+      await sendSubscribeFromBrowser(values.email, collectTracking("sample-request"));
       setStatus("success");
     } catch {
       setStatus("error");
