@@ -38,6 +38,9 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               {dict.footer.telegram}
             </a>
           </p>
+          <p className="mt-4 max-w-[65ch] text-[15px] text-text-muted">
+            {dict.footer.radarGroup}
+          </p>
         </div>
         <div className="flex flex-col gap-3 text-[15px]">
           <Link href={localePath(locale, "/podhod")} className="hover:underline underline-offset-2">

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -17,6 +18,7 @@ import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
+import { localePath } from "@/lib/locale-path";
 import { sampleAdvent, sampleSafety } from "@/content/samples";
 import { ProductPhoto } from "@/components/ui/ProductPhoto";
 
@@ -158,6 +160,16 @@ export default async function HomePage({
           {dict.team.title}
         </h2>
         <TeamGrid locale={locale} />
+        <p className="mt-8 max-w-[65ch] text-text-muted">
+          {dict.aboutPage.experts}{" "}
+          <Link
+            href={localePath(locale, "/dlya-biznesa")}
+            className="underline underline-offset-2"
+          >
+            {dict.nav.b2b}
+          </Link>
+          .
+        </p>
       </Section>
 
       <Section id="lead" alt>

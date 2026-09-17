@@ -16,9 +16,9 @@
   --color-comp-self: #c2542f;
   --color-comp-literacy: #7a5c9e;
   --color-age-4-6: #e8a33d;
-  --color-age-7-9: #4a8f6e;
-  --color-age-10-12: #3d6e9e;
-  --color-age-13-16: #7a5c9e;
+  --color-age-7-10: #4a8f6e;
+  --color-age-11-12: #3d6e9e;
+  --color-age-12-16: #7a5c9e;
   --color-age-parents: #c2542f;
 
   --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;

@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input, Textarea } from "@/components/ui/Input";
 
-export type BusinessFormVariant = "general" | "office" | "hikes";
+export type BusinessFormVariant = "general" | "office" | "hikes" | "diary";
 
 type FormValues = BusinessFormInput;
 
@@ -22,6 +22,7 @@ const productByVariant: Record<BusinessFormVariant, string> = {
   general: "b2b-program",
   office: "office-day",
   hikes: "family-hikes",
+  diary: "ezhednevnik",
 };
 
 export function BusinessForm({
@@ -85,7 +86,9 @@ export function BusinessForm({
       ? labels.submitOffice
       : variant === "hikes"
         ? labels.submitHikes
-        : labels.submitGeneral;
+        : variant === "diary"
+          ? labels.submitDiary
+          : labels.submitGeneral;
 
   async function onSubmit(values: FormValues) {
     if (values.website) {
@@ -184,24 +187,28 @@ export function BusinessForm({
           {...form.register("date")}
           error={fieldError("date")}
         />
-        {variant === "hikes" ? (
-          <Input
-            label={labels.familiesCount}
-            {...form.register("familiesCount")}
-            error={fieldError("familiesCount")}
-          />
-        ) : (
-          <Input
-            label={labels.childrenCount}
-            {...form.register("childrenCount")}
-            error={fieldError("childrenCount")}
-          />
+        {variant !== "diary" && (
+          <>
+            {variant === "hikes" ? (
+              <Input
+                label={labels.familiesCount}
+                {...form.register("familiesCount")}
+                error={fieldError("familiesCount")}
+              />
+            ) : (
+              <Input
+                label={labels.childrenCount}
+                {...form.register("childrenCount")}
+                error={fieldError("childrenCount")}
+              />
+            )}
+            <Input
+              label={labels.ages}
+              {...form.register("ages")}
+              error={fieldError("ages")}
+            />
+          </>
         )}
-        <Input
-          label={labels.ages}
-          {...form.register("ages")}
-          error={fieldError("ages")}
-        />
       </div>
       <Textarea
         label={labels.comment}

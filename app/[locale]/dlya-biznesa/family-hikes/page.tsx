@@ -53,6 +53,13 @@ export default async function FamilyHikesPage({
         </h1>
         <p className="mt-6 max-w-[65ch] font-medium">{loc(familyHikes.subtitle, locale)}</p>
         <p className="mt-4 max-w-[65ch] text-text-muted">{loc(familyHikes.intro, locale)}</p>
+        <Card className="mt-8 max-w-3xl space-y-2">
+          <h2 className="font-heading text-[20px] md:text-[24px]">
+            {loc(familyHikes.expertTitle, locale)}
+          </h2>
+          <p className="font-medium">{loc(familyHikes.expertName, locale)}</p>
+          <p className="text-text-muted">{loc(familyHikes.expert, locale)}</p>
+        </Card>
         <div className="mt-8">
           <Button href="#zayavka">{loc(familyHikes.cta, locale)}</Button>
         </div>

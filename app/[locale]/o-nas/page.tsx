@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { TeamGrid } from "@/components/sections/TeamGrid";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
+import { localePath } from "@/lib/locale-path";
 import { pageMetadata } from "@/lib/metadata";
 
 export const dynamic = "force-static";
@@ -42,6 +44,16 @@ export default async function AboutPage({
       <div className="mt-12">
         <TeamGrid locale={locale} />
       </div>
+      <p className="mt-8 max-w-[65ch] text-text-muted">
+        {dict.aboutPage.experts}{" "}
+        <Link
+          href={localePath(locale, "/dlya-biznesa")}
+          className="underline underline-offset-2"
+        >
+          {dict.nav.b2b}
+        </Link>
+        .
+      </p>
     </Section>
   );
 }

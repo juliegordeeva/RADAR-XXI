@@ -3,7 +3,7 @@
     "homeTitle": "Home kits for kids 4–16 — RADAR KIDS",
     "homeDescription": "Cards, calendars and family quests. 10–20 minutes a day, with a ready script for parent and child.",
     "productsTitle": "Kits by age — RADAR KIDS",
-    "productsDescription": "Parent calendars, safety cards, 24-day skill advents, 14-day kits, family quests and a teen course.",
+    "productsDescription": "Календарь для родителей, карточки безопасности, 24 дня компетенций, наборы на 14 дней, семейные квесты и «Учимся побеждать».",
     "aboutTitle": "Who makes RADAR KIDS — Julia Gordeeva and Elizabeth Sarycheva",
     "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
     "b2bTitle": "Семейные корпоративные программы — RADAR KIDS",
@@ -18,7 +18,9 @@
     "officeTitle": "Детский день в офисе под ключ — RADAR KIDS Office Day",
     "officeDescription": "Офисный квест, деловая игра и знакомство детей сотрудников с работой родителей. Программа адаптируется под бизнес и пространство компании.",
     "hikesTitle": "Корпоративные семейные походы — RADAR KIDS",
-    "hikesDescription": "Организованные походы для сотрудников с детьми: маршрут, семейные задания, сопровождение и программа под состав корпоративной группы."
+    "hikesDescription": "Организованные походы для сотрудников с детьми: маршрут, семейные задания, сопровождение и программа под состав корпоративной группы.",
+    "diaryTitle": "Ежедневник «Две роли / одна жизнь» — RADAR KIDS",
+    "diaryDescription": "Корпоративный подарок: дневник баланса работы и семьи. Первый тираж только под заказ компании."
   },
   "nav": {
     "home": "Home",
@@ -82,7 +84,8 @@
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
     "priceAsk": "Ask for the price",
-    "priceFrom": "from {price} ₽"
+    "priceFrom": "from {price} ₽",
+    "comingSoon": "Скоро"
   },
   "sample": {
     "title": "What one day looks like",
@@ -164,7 +167,8 @@
     "phoneRu": "Russia",
     "phoneEu": "Europe",
     "telegram": "Telegram",
-    "language": "Language"
+    "language": "Language",
+    "radarGroup": "Проект группы RADAR, основанной Юлией Гордеевой. [TODO: добавить ли ссылки на bureau.radarexec.ru / experience.radarexec.ru / gordeeva.radarexec.ru — решение с собрания]"
   },
   "cta": {
     "telegram": "Message on Telegram"
@@ -207,7 +211,8 @@
   "aboutPage": {
     "title": "Who makes this",
     "intro": "RADAR KIDS is made by Julia Gordeeva and Elizabeth Sarycheva. Family kits for home: a short script for each day, not a weekly club and not a lecture course.",
-    "body": "Julia Gordeeva has worked in business education for over 15 years: MBA programmes, work with leaders, Russian and English. In parallel she built short activities for her own family — how to talk, how to decide, what to do if you get lost. Together with Elizabeth Sarycheva that became the cards, calendars and quests you can now use as they are."
+    "body": "Julia Gordeeva has worked in business education for over 15 years: MBA programmes, work with leaders, Russian and English. In parallel she built short activities for her own family — how to talk, how to decide, what to do if you get lost. Together with Elizabeth Sarycheva that became the cards, calendars and quests you can now use as they are.",
+    "experts": "Отдельные эксперты ведут Office Day и семейные походы — подробнее в разделе"
   },
   "b2bPage": {
     "formTitle": "Запросить программу"
@@ -269,6 +274,7 @@
     "success": "Заявка ушла. Мы ответим в ближайшие дни в Telegram и уточним формат.",
     "error": "Не отправилось.",
     "consent": "Соглашаюсь на обработку персональных данных.",
-    "consentLink": "Политика"
+    "consentLink": "Политика",
+    "submitDiary": "Запросить корпоративный тираж"
   }
 }

@@ -49,12 +49,22 @@ export default async function OfficeDayPage({
         </h1>
         <p className="mt-6 max-w-[65ch] font-medium">{loc(officeDay.subtitle, locale)}</p>
         <p className="mt-4 max-w-[65ch] text-text-muted">{loc(officeDay.intro, locale)}</p>
+        <p className="mt-4 max-w-[65ch] text-[15px] text-text-muted">
+          {loc(officeDay.priceNote, locale)}
+        </p>
         <div className="mt-8">
           <Button href="#zayavka">{loc(officeDay.cta, locale)}</Button>
         </div>
       </Section>
 
       <Section alt>
+        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">
+          {loc(officeDay.expertTitle, locale)}
+        </h2>
+        <p className="max-w-[65ch]">{loc(officeDay.expert, locale)}</p>
+      </Section>
+
+      <Section>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-4">
           {loc(officeDay.taskTitle, locale)}
         </h2>

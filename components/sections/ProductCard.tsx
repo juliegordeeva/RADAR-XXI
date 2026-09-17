@@ -18,8 +18,10 @@ export function ProductCard({
   locale: Locale;
   dict: Dictionary;
 }) {
-  const priceLabel =
-    product.price === null
+  const comingSoon = Boolean(product.comingSoon);
+  const priceLabel = comingSoon
+    ? dict.catalog.comingSoon
+    : product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
 
@@ -41,6 +43,9 @@ export function ProductCard({
           {loc(product.title, locale)}
         </h3>
         <p className="text-text-muted">{loc(product.tagline, locale)}</p>
+        {product.author && (
+          <p className="text-[15px]">{loc(product.author, locale)}</p>
+        )}
       </div>
       <ul className="space-y-2 text-[15px]">
         {product.bullets.map((bullet) => (
@@ -51,9 +56,11 @@ export function ProductCard({
       </ul>
       <p className="text-[15px] text-text-muted mt-auto">{loc(product.format, locale)}</p>
       <p className="font-medium">{priceLabel}</p>
-      <Button href={localePath(locale, `/produkty/${product.slug}`)}>
-        {loc(product.ctaLabel, locale)}
-      </Button>
+      {!comingSoon && (
+        <Button href={localePath(locale, `/produkty/${product.slug}`)}>
+          {loc(product.ctaLabel, locale)}
+        </Button>
+      )}
     </Card>
   );
 }

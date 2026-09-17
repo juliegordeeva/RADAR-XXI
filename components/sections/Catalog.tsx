@@ -59,6 +59,7 @@ export function Catalog({
   );
 
   const visible = products.filter((product) => {
+    if (product.inMainCatalog === false && !age) return false;
     if (age && !product.ageGroups.includes(age)) return false;
     if (competency && !product.competencies.includes(competency)) return false;
     return true;

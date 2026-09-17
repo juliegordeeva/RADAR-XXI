@@ -107,7 +107,9 @@ export default async function ApproachPage({
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => (
+                  {products
+                    .filter((product) => product.inMainCatalog !== false)
+                    .map((product) => (
                     <tr key={product.slug} className="border-t border-border align-top">
                       <td className="py-3 pr-4">{loc(product.title, locale)}</td>
                       <td className="py-3 pr-4">

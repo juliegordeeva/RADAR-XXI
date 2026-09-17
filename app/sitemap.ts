@@ -15,9 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/dlya-biznesa",
     "/dlya-biznesa/office-day",
     "/dlya-biznesa/family-hikes",
+    "/dlya-biznesa/ezhednevnik",
     "/kontakty",
     "/politika",
-    ...products.map((product) => `/produkty/${product.slug}`),
+    ...products
+      .filter((product) => product.inMainCatalog !== false)
+      .map((product) => `/produkty/${product.slug}`),
   ];
 
   return locales.flatMap((locale) =>

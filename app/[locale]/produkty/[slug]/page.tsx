@@ -55,9 +55,11 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product) notFound();
   const dict = getDictionary(locale);
-  const related = getRelated(product);
-  const priceLabel =
-    product.price === null
+  const related = getRelated(product).filter((item) => item.inMainCatalog !== false);
+  const comingSoon = Boolean(product.comingSoon);
+  const priceLabel = comingSoon
+    ? dict.catalog.comingSoon
+    : product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
 
@@ -77,6 +79,9 @@ export default async function ProductPage({
           {loc(product.title, locale)}
         </h1>
         <p className="mt-5 max-w-[65ch] text-text-muted">{loc(product.tagline, locale)}</p>
+        {product.author && (
+          <p className="mt-3 max-w-[65ch]">{loc(product.author, locale)}</p>
+        )}
         <div className="mt-10 max-w-md">
           {hasProductPhoto(product.image) ? (
             <ProductPhoto src={product.image} alt={loc(product.title, locale)} />
@@ -172,6 +177,7 @@ export default async function ProductPage({
         <p className="font-medium">{priceLabel}</p>
         <p className="mt-3 max-w-[65ch] text-text-muted">{loc(product.delivery, locale)}</p>
         <p className="mt-3 text-[15px] text-text-muted">{loc(product.format, locale)}</p>
+        {!comingSoon && (
         <div id="zayavka" className="mt-10 max-w-xl space-y-6">
           <h3 className="font-heading text-[20px] md:text-[24px]">
             {dict.productPage.request}
@@ -181,6 +187,7 @@ export default async function ProductPage({
           </StickyCta>
           <LeadForm locale={locale} dict={dict} product={product.slug} compact />
         </div>
+        )}
       </Section>
 
       {related.length > 0 && (

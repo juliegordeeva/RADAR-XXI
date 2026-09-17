@@ -10,7 +10,7 @@ import { isLocale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
 import { localePath } from "@/lib/locale-path";
 import { pageMetadata } from "@/lib/metadata";
-import { Building2, Trees } from "lucide-react";
+import { BookOpen, Building2, Trees } from "lucide-react";
 
 export const dynamic = "force-static";
 
@@ -59,7 +59,7 @@ export default async function BusinessPage({
       </Section>
 
       <Section alt>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           <Card className="flex flex-col gap-5">
             <div className="flex size-12 items-center justify-center rounded-[12px] bg-bg-alt text-deep">
               <Building2 className="size-6" strokeWidth={1.75} aria-hidden />
@@ -88,6 +88,21 @@ export default async function BusinessPage({
               className="mt-auto"
             >
               {loc(b2bHub.hikesCta, locale)}
+            </Button>
+          </Card>
+          <Card className="flex flex-col gap-5">
+            <div className="flex size-12 items-center justify-center rounded-[12px] bg-bg-alt text-deep">
+              <BookOpen className="size-6" strokeWidth={1.75} aria-hidden />
+            </div>
+            <h2 className="font-heading text-[20px] md:text-[24px]">
+              {loc(b2bHub.diaryTitle, locale)}
+            </h2>
+            <p className="text-text-muted">{loc(b2bHub.diaryText, locale)}</p>
+            <Button
+              href={localePath(locale, "/dlya-biznesa/ezhednevnik")}
+              className="mt-auto"
+            >
+              {loc(b2bHub.diaryCta, locale)}
             </Button>
           </Card>
         </div>
