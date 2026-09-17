@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kontakty",
     "/politika",
     ...products
-      .filter((product) => product.inMainCatalog !== false)
+      .filter((product) => product.inMainCatalog !== false && !product.comingSoon)
       .map((product) => `/produkty/${product.slug}`),
   ];
 

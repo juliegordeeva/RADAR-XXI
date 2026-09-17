@@ -1,4 +1,48 @@
-import type { Product } from "@/content/types";
+import type { AgeGroup, Localized, Product } from "@/content/types";
+
+function ru(text: string): Localized {
+  return { ru: text, en: text };
+}
+
+const brelokAgeLabel: Record<Exclude<AgeGroup, "parents">, string> = {
+  "4-6": "4–6 лет",
+  "7-10": "7–10 лет",
+  "11-12": "11–12 лет",
+  "12-16": "12–16 лет",
+};
+
+function brelokSamoorganizacii(
+  age: Exclude<AgeGroup, "parents">,
+  tagline: string,
+): Product {
+  const years = brelokAgeLabel[age];
+  return {
+    slug: `brelok-samoorganizacii-${age}`,
+    kind: "cards",
+    title: ru(`Брелок самоорганизации — 14 карточек на кольце, ${years}`),
+    tagline: ru(tagline),
+    audience: ru(`Семьи с детьми ${years}.`),
+    result: ru("Ребёнок проверяет себя по карточкам, без напоминаний взрослого."),
+    bullets: [
+      ru("14 карточек на кольце-карабине — носит с собой"),
+      ru("Сам себя проверяет, вы не бегаете следом"),
+    ],
+    format: ru("14 карточек на кольце."),
+    ageGroups: [age],
+    competencies: ["organization"],
+    ctaLabel: ru("Скоро"),
+    price: null,
+    image: "",
+    featured: false,
+    comingSoon: true,
+    composition: [ru("[TODO: состав карточек]")],
+    howTo: [ru("[TODO: как пользоваться]")],
+    delivery: ru("[TODO: цена и формат]"),
+    sampleTitle: ru("[TODO: пример карточки]"),
+    sampleBody: ru("[TODO: пример карточки]"),
+    related: age === "11-12" ? ["nabor-14-samoorg"] : [],
+  };
+}
 
 export const products: Product[] = [
   {
@@ -525,6 +569,22 @@ export const products: Product[] = [
     },
     related: ["kvest-organizuem-sobytie", "kurs-podrostki"],
   },
+  brelokSamoorganizacii(
+    "4-6",
+    "Сам собирает рюкзак в садик, а вы не бегаете следом?",
+  ),
+  brelokSamoorganizacii(
+    "7-10",
+    "Сам собирает портфель, а вы не бегаете следом?",
+  ),
+  brelokSamoorganizacii(
+    "11-12",
+    "Сам проверяет школу и кружки, а вы не стоите над душой?",
+  ),
+  brelokSamoorganizacii(
+    "12-16",
+    "Свой список с собой — без напоминаний взрослого.",
+  ),
   {
     slug: "kvest-igrushechnyy-gorod",
     kind: "quest",

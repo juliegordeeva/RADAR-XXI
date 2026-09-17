@@ -23,7 +23,9 @@ export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    products.map((product) => ({ locale, slug: product.slug })),
+    products
+      .filter((product) => !product.comingSoon)
+      .map((product) => ({ locale, slug: product.slug })),
   );
 }
 
@@ -36,7 +38,7 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const product = getProduct(slug);
   const dict = getDictionary(locale);
-  if (!product) return {};
+  if (!product || product.comingSoon) return {};
   return pageMetadata({
     locale,
     path: `/produkty/${slug}`,
@@ -53,9 +55,11 @@ export default async function ProductPage({
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
   const product = getProduct(slug);
-  if (!product) notFound();
+  if (!product || product.comingSoon) notFound();
   const dict = getDictionary(locale);
-  const related = getRelated(product).filter((item) => item.inMainCatalog !== false);
+  const related = getRelated(product).filter(
+    (item) => item.inMainCatalog !== false && !item.comingSoon,
+  );
   const comingSoon = Boolean(product.comingSoon);
   const priceLabel = comingSoon
     ? dict.catalog.comingSoon
