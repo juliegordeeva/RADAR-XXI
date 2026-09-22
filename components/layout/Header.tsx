@@ -16,11 +16,11 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 md:px-10 h-[72px]">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/95 backdrop-blur-sm overflow-x-clip">
+      <div className="mx-auto flex max-w-[1200px] min-w-0 w-full items-center justify-between gap-4 px-5 md:px-10 h-[72px]">
         <Link
           href={localePath(locale, "/")}
-          className="font-heading text-[20px] leading-none"
+          className="font-heading font-bold text-[20px] leading-none shrink-0"
         >
           {dict.common.brand}
         </Link>

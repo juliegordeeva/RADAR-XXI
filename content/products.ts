@@ -1,4 +1,5 @@
 import type { AgeGroup, Localized, Product } from "@/content/types";
+import { isPlaceholderLoc } from "@/lib/placeholder";
 
 function ru(text: string): Localized {
   return { ru: text, en: text };
@@ -1107,3 +1108,20 @@ export function getRelated(product: Product) {
     .map((slug) => getProduct(slug))
     .filter((item): item is Product => Boolean(item));
 }
+
+export function forCatalog(product: Product): Product {
+  return {
+    ...product,
+    author: isPlaceholderLoc(product.author) ? undefined : product.author,
+    bullets: product.bullets.filter((item) => !isPlaceholderLoc(item)),
+    composition: [],
+    howTo: [],
+    sampleTitle: { ru: "", en: "" },
+    sampleBody: { ru: "", en: "" },
+    audience: { ru: "", en: "" },
+    result: { ru: "", en: "" },
+    delivery: { ru: "", en: "" },
+  };
+}
+
+export const catalogProducts = products.map(forCatalog);

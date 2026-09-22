@@ -10,10 +10,12 @@ export function PurchaseButtons({
   product,
   locale,
   dict,
+  showHint = true,
 }: {
   product: Product;
   locale: Locale;
   dict: Dictionary;
+  showHint?: boolean;
 }) {
   if (product.comingSoon) return null;
 
@@ -27,7 +29,7 @@ export function PurchaseButtons({
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex min-w-0 flex-col gap-2">
       {formats.map((format, index) => (
         <Button
           key={format}
@@ -36,11 +38,14 @@ export function PurchaseButtons({
             locale,
             `/produkty/${product.slug}?format=${format}#zayavka`,
           )}
-          className="w-full md:w-full"
+          className="w-full md:w-full px-4 text-[15px] md:text-[17px]"
         >
           {purchaseButtonLabel(format, dict)}
         </Button>
       ))}
+      {showHint && (
+        <p className="text-[15px] text-text-muted">{dict.catalog.payHint}</p>
+      )}
     </div>
   );
 }

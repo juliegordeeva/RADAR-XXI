@@ -54,7 +54,7 @@ export default async function ApproachPage({
     <>
       <ArticleJsonLd locale={locale} />
       <Section className="md:pt-20">
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
           {a.title}
         </h1>
         <div className="mt-12 max-w-[65ch] space-y-12">

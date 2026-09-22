@@ -10,11 +10,11 @@ export const ageOrder: AgeGroup[] = [
 ];
 
 export const ageLabels: Record<AgeGroup, Localized> = {
-  "4-6": { ru: "4–6 лет", en: "4–6 лет" },
-  "7-9": { ru: "7–9 лет", en: "7–9 лет" },
-  "10-12": { ru: "10–12 лет", en: "10–12 лет" },
-  "13-16": { ru: "13–16 лет", en: "13–16 лет" },
-  parents: { ru: "Родителям", en: "Родителям" },
+  "4-6": { ru: "4–6 лет", en: "ages 4–6" },
+  "7-9": { ru: "7–9 лет", en: "ages 7–9" },
+  "10-12": { ru: "10–12 лет", en: "ages 10–12" },
+  "13-16": { ru: "13–16 лет", en: "ages 13–16" },
+  parents: { ru: "Родителям", en: "For parents" },
 };
 
 export const ageFilterLabels: Record<AgeGroup, Localized> = {
@@ -22,7 +22,7 @@ export const ageFilterLabels: Record<AgeGroup, Localized> = {
   "7-9": { ru: "7–9", en: "7–9" },
   "10-12": { ru: "10–12", en: "10–12" },
   "13-16": { ru: "13–16", en: "13–16" },
-  parents: { ru: "Родителям", en: "Родителям" },
+  parents: { ru: "Родителям", en: "Parents" },
 };
 
 export const ageBadgeClass: Record<AgeGroup, string> = {

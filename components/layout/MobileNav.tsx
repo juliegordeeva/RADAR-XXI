@@ -67,7 +67,7 @@ export function MobileNav({
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-8">
-              <p id={titleId} className="font-heading text-xl">
+              <p id={titleId} className="font-heading font-bold text-xl">
                 {dict.common.brand}
               </p>
               <button

@@ -25,7 +25,7 @@ export function Section({
         className,
       )}
     >
-      <div className="mx-auto max-w-[1200px] px-5 md:px-10">{children}</div>
+      <div className="mx-auto max-w-[1200px] min-w-0 px-5 md:px-10">{children}</div>
     </section>
   );
 }

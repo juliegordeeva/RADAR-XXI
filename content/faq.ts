@@ -42,8 +42,8 @@ export const faqItems: FaqItem[] = [
       en: "Is it print or PDF?",
     },
     answer: {
-      ru: "Мы разрабатываем оба формата. Сейчас можно скачать PDF или получать задания в чат-боте. Печатный формат делаем по предзаказу на данный момент.",
-      en: "We are developing both formats. Right now you can download a PDF or get the tasks in a chatbot. Print is made to pre-order for now.",
+      ru: "Готовим оба формата. PDF и задания в чат-боте присылаем на почту после заявки и оплаты. Печать пока по предзаказу.",
+      en: "We are preparing both formats. We email the PDF and the chatbot tasks after the request and payment. Print is made to pre-order for now.",
     },
   },
   {
@@ -62,8 +62,8 @@ export const faqItems: FaqItem[] = [
       en: "How fast does it arrive, and do you ship abroad?",
     },
     answer: {
-      ru: "PDF и ссылку на чат-бот вы получаете на почту сразу после оплаты. Доставка возможна по Европе в течение 5–7 дней.",
-      en: "You get the PDF and the chatbot link by email right after payment. Delivery in Europe takes 5–7 days.",
+      ru: "Оплаты на сайте нет. После заявки мы напишем, как оплатить. PDF и ссылку на чат-бот пришлём на почту после оплаты. Печать — по предзаказу; доставка по Европе занимает 5–7 дней, когда тираж запущен.",
+      en: "There is no payment on the site. After the request we will write how to pay. We email the PDF and the chatbot link after payment. Print is made to pre-order; delivery in Europe takes 5–7 days once a print run is underway.",
     },
   },
   {
@@ -92,8 +92,8 @@ export const faqItems: FaqItem[] = [
       en: "Can we look at the products before we buy?",
     },
     answer: {
-      ru: "Да. Вы можете оставить свою почту — мы пришлём бесплатный набор в формате PDF: карточка адвента, карточка брелка самоорганизации для 10–12 лет и один день календаря для родителей.",
-      en: "Yes. Leave your email and we will send a free PDF kit: an advent card, a self-organisation keyring card for ages 10–12, and one day of the parents’ calendar.",
+      ru: "Да. Оставьте почту — пришлём бесплатный PDF: карточку адвента и один день календаря для родителей. Карточку брелка самоорганизации 10–12 лет добавим, когда текст карточек будет готов.",
+      en: "Yes. Leave your email and we will send a free PDF: an advent card and one day of the parents’ calendar. We will add a self-organisation keyring card for ages 10–12 when the card texts are ready.",
     },
   },
 ];

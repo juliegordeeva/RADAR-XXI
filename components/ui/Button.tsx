@@ -27,7 +27,7 @@ type ButtonAsLink = Base & {
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { children, className, variant = "primary" } = props;
   const classes = cn(
-    "inline-flex items-center justify-center min-h-12 h-[54px] px-7 md:px-9 rounded-[12px] text-[17px] font-medium border transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none",
+    "inline-flex items-center justify-center min-h-[54px] h-auto py-3 px-5 md:px-9 rounded-[12px] text-[17px] font-medium border text-center whitespace-normal leading-snug transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none max-w-full",
     variants[variant],
     className,
   );

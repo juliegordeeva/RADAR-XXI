@@ -16,7 +16,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     <footer className="border-t border-border bg-bg-alt">
       <div className="mx-auto max-w-[1200px] px-5 md:px-10 py-12 md:py-16 grid gap-10 md:grid-cols-3">
         <div>
-          <p className="font-heading text-xl">{dict.common.brand}</p>
+          <p className="font-heading font-bold text-xl">{dict.common.brand}</p>
           <p className="mt-3 max-w-[65ch] text-text-muted text-[15px]">
             {isB2b ? dict.footer.taglineB2b : dict.footer.tagline}
           </p>

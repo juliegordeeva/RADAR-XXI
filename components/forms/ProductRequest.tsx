@@ -26,7 +26,7 @@ export function ProductRequest({
   return (
     <div id="zayavka" className="mt-10 max-w-xl space-y-6">
       {product.purchaseFormats?.length ? (
-        <PurchaseButtons product={product} locale={locale} dict={dict} />
+        <PurchaseButtons product={product} locale={locale} dict={dict} showHint={false} />
       ) : null}
       <h3 className="font-heading text-[20px] md:text-[24px]">
         {purchaseRequestTitle(format, dict)}

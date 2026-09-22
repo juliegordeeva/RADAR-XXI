@@ -37,7 +37,7 @@ export default async function AboutPage({
 
   return (
     <Section className="md:pt-20">
-      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
+      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
         {dict.aboutPage.title}
       </h1>
       <div className="mt-6 max-w-[65ch] space-y-4">

@@ -37,7 +37,7 @@ export const team: TeamMember[] = [
     name: { ru: "Елизавета Сарычева", en: "Elizabeth Sarycheva" },
     role: { ru: "Со-основательница", en: "Co-founder" },
     bio: {
-      ru: "Магистр управления организацией во Франции, образование в менеджменте туризма. Десять лет в международном консалтинге, в т.ч. по темам лидерской устойчивости и баланса. Мама двух мальчиков.",
+      ru: "Магистр управления организацией во Франции, образование в менеджменте туризма. Десять лет в международном консалтинге, в том числе по темам лидерской устойчивости и баланса. Мама двух мальчиков.",
       en: "Master’s in organisational management in France, background in tourism management. Ten years in international consulting, including leadership resilience and balance. Mother of two boys.",
     },
     photo: "/images/elizaveta-sarycheva.webp",

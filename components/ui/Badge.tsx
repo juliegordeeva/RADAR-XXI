@@ -18,7 +18,7 @@ export function Badge({
     <Link
       href={localePath(locale, `/produkty?age=${age}`)}
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-[15px] font-medium leading-none hover:opacity-90",
+        "inline-flex max-w-full items-center rounded-full px-3 py-2 text-[15px] font-medium leading-snug whitespace-normal hover:opacity-90",
         ageBadgeClass[age],
         className,
       )}

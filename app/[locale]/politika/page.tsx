@@ -34,7 +34,7 @@ export default async function PrivacyPage({
 
   return (
     <Section className="md:pt-20">
-      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
+      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
         {dict.privacyPage.title}
       </h1>
       <p className="mt-4 text-[15px] text-text-muted">{dict.privacyPage.updated}</p>

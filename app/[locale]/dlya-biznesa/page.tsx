@@ -43,7 +43,7 @@ export default async function BusinessPage({
     <>
       <Section className="md:pt-20">
         <p className="text-[15px] text-text-muted mb-4">{loc(b2bHub.eyebrow, locale)}</p>
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[18ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[18ch]">
           {loc(b2bHub.title, locale)}
         </h1>
         <p className="mt-6 max-w-[65ch] text-text-muted">{loc(b2bHub.subtitle, locale)}</p>

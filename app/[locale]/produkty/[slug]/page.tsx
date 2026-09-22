@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getProduct, getRelated, products } from "@/content/products";
+import { getProduct, getRelated, products, forCatalog } from "@/content/products";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale, locales } from "@/lib/i18n";
 import { loc } from "@/lib/age";
@@ -17,6 +17,7 @@ import { ProductCard } from "@/components/sections/ProductCard";
 import { ProductRequest } from "@/components/forms/ProductRequest";
 import { ProductJsonLd } from "@/components/seo/JsonLd";
 import { sampleSafety } from "@/content/samples";
+import { visibleItems, visibleText } from "@/lib/placeholder";
 
 export const dynamic = "force-static";
 
@@ -56,15 +57,21 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product || product.comingSoon) notFound();
   const dict = getDictionary(locale);
-  const related = getRelated(product).filter(
-    (item) => item.inMainCatalog !== false && !item.comingSoon,
-  );
+  const related = getRelated(product)
+    .filter((item) => item.inMainCatalog !== false && !item.comingSoon)
+    .map(forCatalog);
   const comingSoon = Boolean(product.comingSoon);
   const priceLabel = comingSoon
     ? dict.catalog.comingSoon
     : product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
+  const author = visibleText(product.author, locale);
+  const composition = visibleItems(product.composition);
+  const howTo = visibleItems(product.howTo);
+  const delivery = visibleText(product.delivery, locale);
+  const sampleTitle = visibleText(product.sampleTitle, locale);
+  const sampleBody = visibleText(product.sampleBody, locale);
 
   return (
     <>
@@ -78,13 +85,11 @@ export default async function ProductPage({
             <CompetencyTag key={key} competencyKey={key} locale={locale} />
           ))}
         </div>
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[22ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[22ch]">
           {loc(product.title, locale)}
         </h1>
         <p className="mt-5 max-w-[65ch] text-text-muted">{loc(product.tagline, locale)}</p>
-        {product.author && (
-          <p className="mt-3 max-w-[65ch]">{loc(product.author, locale)}</p>
-        )}
+        {author && <p className="mt-3 max-w-[65ch]">{author}</p>}
         <div className="mt-10 max-w-md">
           {hasProductPhoto(product.image) ? (
             <ProductPhoto src={product.image} alt={loc(product.title, locale)} />
@@ -121,36 +126,43 @@ export default async function ProductPage({
         <p className="max-w-[65ch]">{loc(product.audience, locale)}</p>
       </Section>
 
+      {composition.length > 0 && (
       <Section>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-6">{dict.productPage.inside}</h2>
         <ul className="space-y-3 max-w-[65ch]">
-          {product.composition.map((item) => (
+          {composition.map((item) => (
             <li key={item.ru} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-deep">
               {loc(item, locale)}
             </li>
           ))}
         </ul>
       </Section>
+      )}
 
+      {howTo.length > 0 && (
       <Section alt>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-6">{dict.productPage.how}</h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {product.howTo.map((step, index) => (
-            <Card key={step.ru} className="space-y-3">
+        <div className="grid gap-4 min-w-0 md:grid-cols-3">
+          {howTo.map((step, index) => (
+            <Card key={step.ru} className="space-y-3 min-w-0">
               <p className="font-heading text-[40px] text-deep leading-none">{index + 1}</p>
               <p>{loc(step, locale)}</p>
             </Card>
           ))}
         </div>
       </Section>
+      )}
 
+      {(sampleTitle || sampleBody) && (
       <Section>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.sample}</h2>
         <Card className="max-w-3xl space-y-3">
-          <h3 className="font-heading text-[20px] md:text-[24px]">
-            {loc(product.sampleTitle, locale)}
-          </h3>
-          <p className="max-w-[65ch]">{loc(product.sampleBody, locale)}</p>
+          {sampleTitle && (
+            <h3 className="font-heading text-[20px] md:text-[24px]">
+              {sampleTitle}
+            </h3>
+          )}
+          {sampleBody && <p className="max-w-[65ch]">{sampleBody}</p>}
         </Card>
         {product.kind === "cards" && (
           <div className="mt-8">
@@ -169,6 +181,7 @@ export default async function ProductPage({
           </div>
         )}
       </Section>
+      )}
 
       <Section alt>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.result}</h2>
@@ -178,11 +191,13 @@ export default async function ProductPage({
       <Section>
         <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.price}</h2>
         <p className="font-medium">{priceLabel}</p>
-        <p className="mt-3 max-w-[65ch] text-text-muted">{loc(product.delivery, locale)}</p>
+        {delivery && (
+          <p className="mt-3 max-w-[65ch] text-text-muted">{delivery}</p>
+        )}
         <p className="mt-3 text-[15px] text-text-muted">{loc(product.format, locale)}</p>
         {!comingSoon && (
           <Suspense>
-            <ProductRequest product={product} locale={locale} dict={dict} />
+            <ProductRequest product={forCatalog(product)} locale={locale} dict={dict} />
           </Suspense>
         )}
       </Section>

@@ -94,7 +94,7 @@ export function Catalog({
                 replaceQuery({ age: filter.id === "all" ? null : filter.id })
               }
               className={cn(
-                "min-h-12 px-4 rounded-full border text-[15px] transition-colors duration-150",
+                "min-h-12 h-auto py-2 px-4 max-w-full rounded-full border text-[15px] whitespace-normal leading-snug text-left transition-colors duration-150",
                 active
                   ? "bg-deep text-deep-text border-deep"
                   : "bg-surface text-text border-border hover:border-text",
@@ -117,7 +117,7 @@ export function Catalog({
           aria-selected={!competency}
           onClick={() => replaceQuery({ competency: null })}
           className={cn(
-            "min-h-12 px-4 rounded-full border text-[15px] transition-colors duration-150",
+            "min-h-12 h-auto py-2 px-4 max-w-full rounded-full border text-[15px] whitespace-normal leading-snug text-left transition-colors duration-150",
             !competency
               ? "bg-deep text-deep-text border-deep"
               : "bg-surface text-text border-border hover:border-text",
@@ -128,7 +128,7 @@ export function Catalog({
         {competencyGroupOrder
           .filter((group) => group !== "literacy")
           .map((group) => (
-            <span key={group} className="inline-flex flex-wrap gap-2">
+            <span key={group} className="inline-flex max-w-full flex-wrap gap-2">
               {filterCompetencyKeys
                 .filter((key) => competencyByKey[key].group === group)
                 .map((key) => {
@@ -142,7 +142,7 @@ export function Catalog({
                       aria-selected={active}
                       onClick={() => replaceQuery({ competency: key })}
                       className={cn(
-                        "min-h-12 px-4 rounded-full border text-[15px] inline-flex items-center gap-2 transition-colors duration-150",
+                        "min-h-12 h-auto py-2 px-4 max-w-full rounded-full border text-[15px] inline-flex items-center gap-2 whitespace-normal leading-snug text-left transition-colors duration-150",
                         active
                           ? "bg-deep text-deep-text border-deep"
                           : "bg-surface text-text border-border hover:border-text",

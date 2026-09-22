@@ -13,7 +13,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { TeamGrid } from "@/components/sections/TeamGrid";
 import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
-import { products } from "@/content/products";
+import { catalogProducts } from "@/content/products";
 import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -57,12 +57,15 @@ export default async function HomePage({
       <FaqJsonLd locale={locale} />
       <Section className="md:pt-28">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-[15px] text-text-muted mb-4">{dict.hero.eyebrow}</p>
-            <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[22ch]">
+          <div className="min-w-0">
+            <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[22ch]">
               {dict.hero.title}
             </h1>
-            <p className="mt-6 max-w-[65ch] text-text-muted">{dict.hero.subtitle}</p>
+            <div className="mt-6 max-w-[65ch] space-y-4 text-text-muted">
+              {dict.hero.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
             <div className="mt-8">
               <Button href="#catalog">{dict.hero.cta}</Button>
             </div>
@@ -72,17 +75,22 @@ export default async function HomePage({
               </a>
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-start">
-            <ProductPhoto
-              src={sampleAdvent.image}
-              alt={dict.sample.adventAlt}
-              priority
-            />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 items-start min-w-0">
+            <figure className="min-w-0">
+              <ProductPhoto
+                src={sampleAdvent.image}
+                alt={dict.sample.adventAlt}
+                priority
+              />
+              <figcaption className="mt-2 text-[15px] text-text-muted">
+                {loc(sampleAdvent.day, locale)}. {loc(sampleAdvent.title, locale)}
+              </figcaption>
+            </figure>
             <ProductVisual
               kind="cards"
               title={loc(sampleBrelok.title, locale)}
             />
-            <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px]">
+            <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px] min-w-0">
               <p className="font-medium">{loc(sampleCalendar.day, locale)}</p>
               <p className="text-text-muted">{loc(sampleCalendar.thought, locale)}</p>
             </div>
@@ -107,7 +115,7 @@ export default async function HomePage({
       <Memorandum locale={locale} dict={dict} />
 
       <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8 max-w-[20ch] md:max-w-[18ch]">
+        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8 max-w-full md:max-w-[18ch]">
           {dict.what.title}
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
@@ -138,7 +146,7 @@ export default async function HomePage({
       <Section id="catalog" alt>
         <Suspense>
           <Catalog
-            products={products}
+            products={catalogProducts}
             locale={locale}
             dict={dict}
             title={dict.catalog.title}
@@ -153,7 +161,7 @@ export default async function HomePage({
       <Reviews locale={locale} dict={dict} />
 
       <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-6 max-w-[20ch]">
+        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-6 max-w-full md:max-w-[20ch]">
           {dict.why.title}
         </h2>
         <p className="max-w-[65ch]">{dict.why.text}</p>
@@ -183,8 +191,13 @@ export default async function HomePage({
               {dict.lead.title}
             </h2>
             <p className="max-w-[65ch] text-text-muted mb-6">{dict.lead.text}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <ProductPhoto src={sampleAdvent.image} alt={dict.sample.adventAlt} />
+            <div className="grid grid-cols-1 gap-3 min-w-0">
+              <figure className="min-w-0">
+                <ProductPhoto src={sampleAdvent.image} alt={dict.sample.adventAlt} />
+                <figcaption className="mt-2 text-[15px] text-text-muted">
+                  {loc(sampleAdvent.day, locale)}. {loc(sampleAdvent.title, locale)}
+                </figcaption>
+              </figure>
               <ProductVisual
                 kind="cards"
                 title={loc(sampleBrelok.title, locale)}

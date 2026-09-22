@@ -2,6 +2,7 @@ import type { Product } from "@/content/types";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
+import { visibleItems, visibleText } from "@/lib/placeholder";
 import { Badge } from "@/components/ui/Badge";
 import { CompetencyTag } from "@/components/ui/CompetencyTag";
 import { PurchaseButtons } from "@/components/sections/PurchaseButtons";
@@ -23,6 +24,7 @@ export function ProductCard({
     : product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
+  const author = visibleText(product.author, locale);
 
   return (
     <Card as="article" className="flex flex-col gap-5">
@@ -42,12 +44,10 @@ export function ProductCard({
           {loc(product.title, locale)}
         </h3>
         <p className="text-text-muted">{loc(product.tagline, locale)}</p>
-        {product.author && (
-          <p className="text-[15px]">{loc(product.author, locale)}</p>
-        )}
+        {author && <p className="text-[15px]">{author}</p>}
       </div>
       <ul className="space-y-2 text-[15px]">
-        {product.bullets.map((bullet) => (
+        {visibleItems(product.bullets).map((bullet) => (
           <li key={bullet.ru} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.65em] before:size-1.5 before:rounded-full before:bg-deep">
             {loc(bullet, locale)}
           </li>

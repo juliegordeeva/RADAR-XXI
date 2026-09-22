@@ -18,7 +18,7 @@ export function CompetenciesBlock({
 }) {
   return (
     <div>
-      <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4 max-w-[20ch] md:max-w-[18ch]">
+      <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4 max-w-full md:max-w-[18ch]">
         {dict.abilities.title}
       </h2>
       <p className="max-w-[65ch] text-text-muted mb-10">{dict.abilities.subtitle}</p>

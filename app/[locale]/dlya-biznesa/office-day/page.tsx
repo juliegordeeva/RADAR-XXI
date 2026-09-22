@@ -44,7 +44,7 @@ export default async function OfficeDayPage({
     <>
       <Section className="md:pt-20">
         <p className="text-[15px] text-text-muted mb-4">Office Day</p>
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
           {loc(officeDay.title, locale)}
         </h1>
         <p className="mt-6 max-w-[65ch] font-medium">{loc(officeDay.subtitle, locale)}</p>
@@ -72,7 +72,7 @@ export default async function OfficeDayPage({
           {officeDay.teamItems.map((item) => (
             <span
               key={item.ru}
-              className="inline-flex items-center rounded-full border border-border bg-surface px-4 py-2 text-[15px]"
+              className="inline-flex max-w-full items-center rounded-full border border-border bg-surface px-4 py-2 text-[15px] whitespace-normal leading-snug"
             >
               {loc(item, locale)}
             </span>

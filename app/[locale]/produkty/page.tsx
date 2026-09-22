@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Catalog } from "@/components/sections/Catalog";
 import { Section } from "@/components/ui/Section";
-import { products } from "@/content/products";
+import { catalogProducts } from "@/content/products";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -40,7 +40,7 @@ export default async function ProductsPage({
       <p className="text-text-muted mb-6 max-w-[65ch]">{dict.productsPage.intro}</p>
       <Suspense>
         <Catalog
-          products={products}
+          products={catalogProducts}
           locale={locale}
           dict={dict}
           title={dict.catalog.title}

@@ -9,6 +9,7 @@ import { experienceUrl, familyHikes } from "@/content/b2b";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
+import { isPlaceholderLoc } from "@/lib/placeholder";
 import { pageMetadata } from "@/lib/metadata";
 
 export const dynamic = "force-static";
@@ -48,11 +49,12 @@ export default async function FamilyHikesPage({
   return (
     <>
       <Section className="md:pt-20">
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
           {loc(familyHikes.title, locale)}
         </h1>
         <p className="mt-6 max-w-[65ch] font-medium">{loc(familyHikes.subtitle, locale)}</p>
         <p className="mt-4 max-w-[65ch] text-text-muted">{loc(familyHikes.intro, locale)}</p>
+        {!isPlaceholderLoc(familyHikes.expert) && (
         <Card className="mt-8 max-w-3xl space-y-2">
           <h2 className="font-heading text-[20px] md:text-[24px]">
             {loc(familyHikes.expertTitle, locale)}
@@ -60,6 +62,7 @@ export default async function FamilyHikesPage({
           <p className="font-medium">{loc(familyHikes.expertName, locale)}</p>
           <p className="text-text-muted">{loc(familyHikes.expert, locale)}</p>
         </Card>
+        )}
         <div className="mt-8">
           <Button href="#zayavka">{loc(familyHikes.cta, locale)}</Button>
         </div>

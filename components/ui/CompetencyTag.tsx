@@ -23,7 +23,7 @@ export function CompetencyTag({
     <Link
       href={localePath(locale, `/produkty?competency=${item.key}`)}
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[15px] leading-none hover:border-text",
+        "inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-surface px-3 py-2 text-[15px] leading-snug whitespace-normal hover:border-text",
         className,
       )}
     >

@@ -6,8 +6,8 @@
     "productsDescription": "Parent calendar, diary, safety cards, 24-day kits, family quests and “Learning to win”.",
     "aboutTitle": "Who makes RADAR KIDS — Julia Gordeeva and Elizabeth Sarycheva",
     "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
-    "b2bTitle": "Семейные корпоративные программы — RADAR KIDS",
-    "b2bDescription": "Office Day и корпоративные семейные походы для сотрудников с детьми. Сценарий, адаптация под компанию, организация и сопровождение.",
+    "b2bTitle": "Family programmes for companies — RADAR KIDS",
+    "b2bDescription": "Office Day and corporate family hikes for employees with children. Script, adaptation to the company, organisation and support.",
     "contactsTitle": "Contact — RADAR KIDS",
     "contactsDescription": "Message us on Telegram or call in Russia and Europe. You can also request a kit.",
     "privacyTitle": "Privacy policy — RADAR KIDS",
@@ -15,12 +15,12 @@
     "approachTitle": "Universal competencies in children: what they are — RADAR KIDS",
     "approachDescription": "Universal competencies: think, work with others, manage yourself. Why this is the family’s job, and how it is trained at home.",
     "productTitleSuffix": "— RADAR KIDS",
-    "officeTitle": "Детский день в офисе под ключ — RADAR KIDS Office Day",
-    "officeDescription": "Офисный квест, деловая игра и знакомство детей сотрудников с работой родителей. Программа адаптируется под бизнес и пространство компании.",
-    "hikesTitle": "Корпоративные семейные походы — RADAR KIDS",
-    "hikesDescription": "Организованные походы для сотрудников с детьми: маршрут, семейные задания, сопровождение и программа под состав корпоративной группы.",
-    "diaryTitle": "Ежедневник «Три роли / одна жизнь» — RADAR KIDS",
-    "diaryDescription": "Корпоративный подарок: дневник баланса работы и семьи. Первый тираж только под заказ компании."
+    "officeTitle": "A children’s office day, turnkey — RADAR KIDS Office Day",
+    "officeDescription": "An office quest, a business game, and employees’ children getting to know their parents’ work. The programme is adapted to the company’s business and space.",
+    "hikesTitle": "Corporate family hikes — RADAR KIDS",
+    "hikesDescription": "Organised hikes for employees with children: a route, family tasks, support, and a programme for the corporate group.",
+    "diaryTitle": "Diary “Three roles / one life” — RADAR KIDS",
+    "diaryDescription": "A corporate gift: a work-and-family balance diary. The first print run is made only to a company order."
   },
   "nav": {
     "home": "Home",
@@ -34,11 +34,15 @@
     "closeMenu": "Close menu"
   },
   "hero": {
-    "eyebrow": "Home kits that are easy to do together. For the joy of it, not as a duty. For children aged 4 to 16 and their parents.",
     "title": "Kids grow up. How do you help them think critically, work things out with others, and find their way in real situations on their own?",
-    "subtitle": "Cards, quests and family games. About 15 minutes a day. You follow a script — nothing to invent.",
+    "paragraphs": [
+      "Talks with your child, important skills for life, running family and school projects: for children aged 4 to 16 and their parents.",
+      "From 15 minutes a day — at home, on a trip, outdoors, with friends.",
+      "Cards, quests and family games.",
+      "A ready script: you do not need to invent anything."
+    ],
     "cta": "Choose a product by the child’s age",
-    "leadLink": "Or download a trial kit: an advent card, a self-organisation keyring card for ages 10–12, and one day of the parents’ calendar."
+    "leadLink": "Or download a trial kit: an advent card, a self-organisation keyring card, and one day of the parents’ calendar."
   },
   "pain": {
     "title": "Sound familiar?",
@@ -91,7 +95,8 @@
     "buyPdf": "Buy PDF and print it",
     "buyBot": "Buy the chatbot subscription",
     "buyPrint": "Pre-order the print version",
-    "downloadSample": "Download a sample page"
+    "downloadSample": "Download a sample page",
+    "payHint": "There is no payment on the site. After the request we will write how to get the file."
   },
   "sample": {
     "title": "What the trial kit looks like",
@@ -191,7 +196,7 @@
     "submitPrint": "Pre-order print",
     "submitSample": "Send me a sample page",
     "sending": "Sending…",
-    "leadSuccess": "Заявка ушла. Мы ответим в ближайшие дни в Telegram.",
+    "leadSuccess": "The request has been sent. We will reply in Telegram in the next few days.",
     "required": "Please fill this in.",
     "invalidContact": "Use a phone number or email address.",
     "invalidEmail": "Use an email address.",
@@ -235,7 +240,7 @@
     "experts": "Other experts in the team run Office Day and family hikes — more in"
   },
   "b2bPage": {
-    "formTitle": "Запросить программу"
+    "formTitle": "Request a programme"
   },
   "contactsPage": {
     "title": "Contact",
@@ -245,7 +250,7 @@
   "privacyPage": {
     "title": "Privacy policy",
     "updated": "Updated 2 September 2026.",
-    "legalTodo": "Реквизиты юридического лица пока не опубликованы. Заявки принимают основательницы проекта.",
+    "legalTodo": "Legal entity details are not published yet. Requests are handled by the founders.",
     "sections": [
       {
         "title": "Who processes the data",
@@ -253,11 +258,11 @@
       },
       {
         "title": "What we collect",
-        "text": "В заявке на набор: имя, телефон или почта, возраст ребёнка, выбранный набор. В заявке на образец: контакты. В корпоративной заявке: имя, компания и должность, телефон или почта, город, дата и ориентиры по составу группы. Имена детей и медицинские данные на первой форме не собираем."
+        "text": "On a kit request: name, phone or email, the child’s age, the chosen kit. On a sample request: contact details. On a company request: name, company and role, phone or email, city, date and a rough group size. We do not collect children’s names or medical data on the first form."
       },
       {
         "title": "Why",
-        "text": "Чтобы ответить на заявку и уточнить формат. Рассылку «каждый день» без отдельного согласия не ведём."
+        "text": "To reply to the request and confirm the format. We do not send a daily newsletter without separate consent."
       },
       {
         "title": "How we store it",
@@ -278,23 +283,23 @@
     "brand": "RADAR KIDS"
   },
   "b2bForm": {
-    "name": "Имя",
-    "companyRole": "Компания и должность",
-    "contact": "Телефон или email",
-    "city": "Город",
-    "cityRegion": "Город или регион",
-    "date": "Предполагаемая дата",
-    "childrenCount": "Ориентировочное количество детей",
-    "familiesCount": "Количество семей",
-    "ages": "Возрастные группы детей",
-    "comment": "Комментарий",
-    "submitOffice": "Запросить программу Office Day",
-    "submitHikes": "Запросить формат семейного похода",
-    "submitGeneral": "Запросить программу",
-    "success": "Заявка ушла. Мы ответим в ближайшие дни в Telegram и уточним формат.",
-    "error": "Не отправилось.",
-    "consent": "Соглашаюсь на обработку персональных данных.",
-    "consentLink": "Политика",
-    "submitDiary": "Запросить корпоративный тираж"
+    "name": "Name",
+    "companyRole": "Company and role",
+    "contact": "Phone or email",
+    "city": "City",
+    "cityRegion": "City or region",
+    "date": "Likely date",
+    "childrenCount": "Approximate number of children",
+    "familiesCount": "Number of families",
+    "ages": "Children’s age groups",
+    "comment": "Comment",
+    "submitOffice": "Request the Office Day programme",
+    "submitHikes": "Request a family hike format",
+    "submitGeneral": "Request a programme",
+    "success": "The request has been sent. We will reply in Telegram in the next few days and confirm the format.",
+    "error": "It did not send.",
+    "consent": "I agree to the processing of personal data.",
+    "consentLink": "Privacy policy",
+    "submitDiary": "Request a corporate print run"
   }
 }
