@@ -48,3 +48,37 @@ export const sampleAdvent = {
   } satisfies Localized,
   image: "/images/lead-advent-den-1.webp",
 };
+
+export const sampleBrelok = {
+  title: {
+    ru: "Брелок самоорганизации, 10–12 лет",
+    en: "Self-organisation keyring, ages 10–12",
+  } satisfies Localized,
+  line: {
+    ru: "14 карточек на кольце. Ребёнок сам проверяет школу и кружки — вы не стоите над душой.",
+    en: "14 cards on a ring. The child checks school and clubs — you do not stand over them.",
+  } satisfies Localized,
+  note: {
+    ru: "Текст отдельных карточек 10–12 лет ещё готовим. В пробном PDF пришлём карточку, когда файл будет готов.",
+    en: "The 10–12 card texts are still being prepared. We will send a card in the trial PDF when the file is ready.",
+  } satisfies Localized,
+};
+
+export const sampleCalendar = {
+  day: {
+    ru: "День 4. Дыхательная пауза перед реакцией",
+    en: "Day 4. A pause before you react",
+  } satisfies Localized,
+  thought: {
+    ru: "Мысль: между тревогой и реакцией можно вставить паузу.",
+    en: "Thought: you can put a pause between worry and the reaction.",
+  } satisfies Localized,
+  action: {
+    ru: "Действие: в одной ситуации сегодня сначала сделайте три медленных вдоха и выдоха, и только потом говорите.",
+    en: "Action: in one moment today, take three slow breaths before you speak.",
+  } satisfies Localized,
+  question: {
+    ru: "Вопрос: что изменилось, когда вы вставили паузу?",
+    en: "Question: what changed when you added the pause?",
+  } satisfies Localized,
+};

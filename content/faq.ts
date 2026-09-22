@@ -12,8 +12,8 @@ export const faqItems: FaqItem[] = [
       en: "How is this different from the usual kids’ courses?",
     },
     answer: {
-      ru: "Нет лекций и нет «правильного ответа от педагога». Есть короткий сценарий на день: вы делаете вместе 10–20 минут. Родитель не учит ребёнка с нуля — идёт по готовому листу.",
-      en: "No lectures and no “right answer from the teacher”. A short daily script: you do it together for 10–20 minutes. The parent is not inventing a lesson from scratch.",
+      ru: "Это не лекции и здесь нет «правильного ответа от педагога». Есть короткий сценарий или задание на день: вы делаете вместе с ребёнком 10–20 минут. Родитель не учит ребёнка с нуля — он идёт по готовому простому сценарию, доступному в домашних условиях.",
+      en: "These are not lectures, and there is no “right answer from the teacher”. There is a short daily script or task: you do it together with the child for 10–20 minutes. The parent is not inventing a lesson from scratch — they follow a simple ready script that works at home.",
     },
   },
   {
@@ -22,8 +22,8 @@ export const faqItems: FaqItem[] = [
       en: "What are universal competencies, in plain words?",
     },
     answer: {
-      ru: "Универсальные компетенции — думать, договариваться с другими и управлять собой. Плюс грамотность: информация и базовые знания о безопасности. Самостоятельность не отдельный пункт: она появляется, когда работают остальные.",
-      en: "Universal competencies: think, work with others, manage yourself. Plus literacy — information and basic safety. Independence is not a separate item: it appears when the others work together.",
+      ru: "Универсальные компетенции — это способность думать критически, договариваться с другими в различных ситуациях и управлять собой и своими эмоциями и реакциями. А также грамотность: информация и базовые знания о безопасности. Когда все эти компетенции работают, появляется самостоятельность — как результат, а не отдельный навык.",
+      en: "Universal competencies are the ability to think critically, work things out with others in different situations, and manage yourself, your emotions and your reactions. Plus literacy: information and basic safety knowledge. When these work together, independence appears — as a result, not as a separate item.",
     },
   },
   {
@@ -42,8 +42,8 @@ export const faqItems: FaqItem[] = [
       en: "Is it print or PDF?",
     },
     answer: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Формат и способ получения конкретного набора уточняются при заказе.",
+      ru: "Мы разрабатываем оба формата. Сейчас можно скачать PDF или получать задания в чат-боте. Печатный формат делаем по предзаказу на данный момент.",
+      en: "We are developing both formats. Right now you can download a PDF or get the tasks in a chatbot. Print is made to pre-order for now.",
     },
   },
   {
@@ -52,8 +52,8 @@ export const faqItems: FaqItem[] = [
       en: "We have a 5-year-old and a 9-year-old. Will it work?",
     },
     answer: {
-      ru: "Да, берите разные наборы: адвент 4–6 и минипроекты 7–9, или карточки безопасности плюс квест. Вместе их смешивать не нужно — у каждого свой маршрут.",
-      en: "Yes. Take different kits: the 4–6 advent and the 7–9 mini-projects, or safety cards plus a quest. Do not mix them into one session. Each child has a path.",
+      ru: "Да, вы можете выбрать разные наборы: адвент 4–6 и минипроекты 7–9, или карточки безопасности и квест. Вместе их смешивать не нужно — у каждого будет свой маршрут и задания.",
+      en: "Yes. You can pick different kits: the 4–6 advent and the 7–9 mini-projects, or safety cards and a quest. Do not mix them into one session — each child will have their own path and tasks.",
     },
   },
   {
@@ -62,8 +62,8 @@ export const faqItems: FaqItem[] = [
       en: "How fast does it arrive, and do you ship abroad?",
     },
     answer: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе. Позвонить можно и в Россию, и в Европу — удобно созвониться по часовому поясу.",
-      en: "Формат и способ получения конкретного набора уточняются при заказе. Позвонить можно и в Россию, и в Европу — удобно созвониться по часовому поясу.",
+      ru: "PDF и ссылку на чат-бот вы получаете на почту сразу после оплаты. Доставка возможна по Европе в течение 5–7 дней.",
+      en: "You get the PDF and the chatbot link by email right after payment. Delivery in Europe takes 5–7 days.",
     },
   },
   {
@@ -72,28 +72,28 @@ export const faqItems: FaqItem[] = [
       en: "Does the parent need to prepare?",
     },
     answer: {
-      ru: "Нет. Открываете карточку или лист и читаете вслух. Если задание просит карандаш или предметы из дома — это то, что уже лежит в ящике, не закупки и не принтер с ночи.",
-      en: "No. Open the card or sheet and read it aloud. If a task needs a pencil or something from home, it is whatever is already in a drawer — not a midnight print run.",
+      ru: "Нет. Открываете карточку или лист календаря и читаете вслух. Если для задания нужен карандаш или предметы из дома — это то, что уже есть у вас дома. Дополнительно ничего покупать не нужно.",
+      en: "No. Open the card or calendar sheet and read it aloud. If a task needs a pencil or something from home, it is whatever you already have. You do not need to buy anything extra.",
     },
   },
   {
     question: {
-      ru: "Это для тревожных родителей или для детей?",
-      en: "Is this for anxious parents or for children?",
+      ru: "Ваши продукты для родителей или для детей?",
+      en: "Are your products for parents or for children?",
     },
     answer: {
-      ru: "Календарь «Счастливое родительство» на 33 дня — для родителя. Карточки, адвент, наборы и квесты — для совместной работы с ребёнком. «Учимся побеждать» — для подростков вместе с родителями.",
-      en: "Календарь «Счастливое родительство» на 33 дня — для родителя. Карточки, адвент, наборы и квесты — для совместной работы с ребёнком. «Учимся побеждать» — для подростков вместе с родителями.",
+      ru: "Календарь «32 дня родительства в радость» и ежедневник «Три роли / одна жизнь» — для родителей. Карточки, адвенты, наборы и квесты — для совместной работы с ребёнком. Курс и профориентация — для подростков вместе с родителями.",
+      en: "The “32 days of parenting with joy” calendar and the “Three roles / one life” diary are for parents. Cards, advents, kits and quests are for working with the child. The course and career guidance are for teenagers together with parents.",
     },
   },
   {
     question: {
-      ru: "Можно попробовать до покупки?",
-      en: "Can we try before we buy?",
+      ru: "Можно ли посмотреть продукты до покупки?",
+      en: "Can we look at the products before we buy?",
     },
     answer: {
-      ru: "Да. На главной лежат образцы: карточка «Потерялся в магазине» и день 1 адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
-      en: "Да. На главной лежат образцы: карточка «Потерялся в магазине» и день 1 адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
+      ru: "Да. Вы можете оставить свою почту — мы пришлём бесплатный набор в формате PDF: карточка адвента, карточка брелка самоорганизации для 10–12 лет и один день календаря для родителей.",
+      en: "Yes. Leave your email and we will send a free PDF kit: an advent card, a self-organisation keyring card for ages 10–12, and one day of the parents’ calendar.",
     },
   },
 ];

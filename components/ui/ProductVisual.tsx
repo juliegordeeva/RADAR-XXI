@@ -6,6 +6,7 @@ const tones: Record<ProductKind, string> = {
   cards: "from-[#f3e4d6] to-[#e8c9b4]",
   advent: "from-[#e4eee6] to-[#c9ddd2]",
   kit: "from-[#e6ecf3] to-[#c9d6e6]",
+  diary: "from-[#f4eee3] to-[#e4d4c0]",
   quest: "from-[#ece6f3] to-[#d4cbe4]",
   course: "from-[#e8ece8] to-[#c5d4ce]",
 };

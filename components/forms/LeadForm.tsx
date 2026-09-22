@@ -7,9 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { leadSchema, type LeadInput } from "@/lib/schemas";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
+import type { PurchaseFormat } from "@/content/types";
 import { localePath } from "@/lib/locale-path";
 import { sendLeadFromBrowser } from "@/lib/submit-form";
 import { collectTracking } from "@/lib/utm";
+import { purchaseSubmitLabel } from "@/lib/purchase";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -18,6 +20,7 @@ type FormValues = {
   name: string;
   contact: string;
   product?: string;
+  format?: string;
   childAge?: string;
   consent: boolean;
   website?: string;
@@ -27,11 +30,13 @@ export function LeadForm({
   locale,
   dict,
   product,
+  format,
   compact = false,
 }: {
   locale: Locale;
   dict: Dictionary;
   product?: string;
+  format?: PurchaseFormat;
   compact?: boolean;
 }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -42,6 +47,7 @@ export function LeadForm({
       name: "",
       contact: "",
       product: product ?? "",
+      format: format ?? "",
       childAge: "",
       consent: false,
       website: "",
@@ -61,6 +67,7 @@ export function LeadForm({
         name: values.name,
         contact: values.contact,
         product: values.product,
+        format: values.format,
         childAge: values.childAge,
         consent: true,
         website: values.website ?? "",
@@ -69,6 +76,7 @@ export function LeadForm({
         name: payload.name,
         contact: payload.contact,
         product: payload.product,
+        format: payload.format,
         childAge: payload.childAge,
         tracking: collectTracking(product ? `produkty/${product}` : "lead"),
       });
@@ -108,6 +116,7 @@ export function LeadForm({
         ) : (
           <Input label={dict.forms.product} {...form.register("product")} />
         )}
+        <input type="hidden" {...form.register("format")} />
       </div>
       <div className="hidden" aria-hidden="true">
         <label>
@@ -131,7 +140,7 @@ export function LeadForm({
         error={form.formState.errors.consent ? dict.forms.required : undefined}
       />
       <Button type="submit" disabled={!consent || status === "loading"}>
-        {status === "loading" ? dict.forms.sending : dict.forms.submitLead}
+        {status === "loading" ? dict.forms.sending : purchaseSubmitLabel(format, dict)}
       </Button>
       {status === "error" && (
         <p className="text-[15px] text-accent" role="alert">

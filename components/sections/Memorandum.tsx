@@ -13,7 +13,7 @@ export function Memorandum({
 }) {
   return (
     <Section deep className="md:py-24">
-      <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8 max-w-[20ch]">
+      <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8 max-w-[28ch]">
         {dict.memo.title}
       </h2>
       <div className="max-w-[62ch] space-y-5 text-[18px] md:text-[20px] leading-[1.7]">

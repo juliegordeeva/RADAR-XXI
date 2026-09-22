@@ -2,10 +2,9 @@ import type { Product } from "@/content/types";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
-import { localePath } from "@/lib/locale-path";
 import { Badge } from "@/components/ui/Badge";
 import { CompetencyTag } from "@/components/ui/CompetencyTag";
-import { Button } from "@/components/ui/Button";
+import { PurchaseButtons } from "@/components/sections/PurchaseButtons";
 import { Card } from "@/components/ui/Card";
 import { ProductPhoto, hasProductPhoto } from "@/components/ui/ProductPhoto";
 
@@ -56,11 +55,7 @@ export function ProductCard({
       </ul>
       <p className="text-[15px] text-text-muted mt-auto">{loc(product.format, locale)}</p>
       <p className="font-medium">{priceLabel}</p>
-      {!comingSoon && (
-        <Button href={localePath(locale, `/produkty/${product.slug}`)}>
-          {loc(product.ctaLabel, locale)}
-        </Button>
-      )}
+      <PurchaseButtons product={product} locale={locale} dict={dict} />
     </Card>
   );
 }

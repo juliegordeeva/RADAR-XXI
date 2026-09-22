@@ -3,7 +3,7 @@
     "homeTitle": "Home kits for kids 4–16 — RADAR KIDS",
     "homeDescription": "Cards, calendars and family quests. 10–20 minutes a day, with a ready script for parent and child.",
     "productsTitle": "Kits by age — RADAR KIDS",
-    "productsDescription": "Календарь для родителей, карточки безопасности, 24 дня компетенций, наборы на 14 дней, семейные квесты и «Учимся побеждать».",
+    "productsDescription": "Parent calendar, diary, safety cards, 24-day kits, family quests and “Learning to win”.",
     "aboutTitle": "Who makes RADAR KIDS — Julia Gordeeva and Elizabeth Sarycheva",
     "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
     "b2bTitle": "Семейные корпоративные программы — RADAR KIDS",
@@ -19,7 +19,7 @@
     "officeDescription": "Офисный квест, деловая игра и знакомство детей сотрудников с работой родителей. Программа адаптируется под бизнес и пространство компании.",
     "hikesTitle": "Корпоративные семейные походы — RADAR KIDS",
     "hikesDescription": "Организованные походы для сотрудников с детьми: маршрут, семейные задания, сопровождение и программа под состав корпоративной группы.",
-    "diaryTitle": "Ежедневник «Две роли / одна жизнь» — RADAR KIDS",
+    "diaryTitle": "Ежедневник «Три роли / одна жизнь» — RADAR KIDS",
     "diaryDescription": "Корпоративный подарок: дневник баланса работы и семьи. Первый тираж только под заказ компании."
   },
   "nav": {
@@ -28,27 +28,29 @@
     "about": "About",
     "approach": "Our approach",
     "contacts": "Contact",
-    "b2b": "Для компаний",
+    "b2b": "For companies",
     "privacy": "Privacy policy",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
   "hero": {
-    "eyebrow": "Home kits for parents and children · ages 4–16",
-    "title": "Kids grow up. Help them think, speak up, and stay safe.",
+    "eyebrow": "Home kits that are easy to do together. For the joy of it, not as a duty. For children aged 4 to 16 and their parents.",
+    "title": "Kids grow up. How do you help them think critically, work things out with others, and find their way in real situations on their own?",
     "subtitle": "Cards, quests and family games. About 15 minutes a day. You follow a script — nothing to invent.",
-    "cta": "Choose by age",
-    "leadLink": "Или запросить образец: карточка безопасности и один день адвента."
+    "cta": "Choose a product by the child’s age",
+    "leadLink": "Or download a trial kit: an advent card, a self-organisation keyring card for ages 10–12, and one day of the parents’ calendar."
   },
   "pain": {
     "title": "Sound familiar?",
     "items": [
       "Your child waits for you to say what to do",
-      "You are not sure they would cope if they got lost or a stranger approached",
       "Too many clubs, almost no time together",
-      "You worry more than you want to, and you compare yourself with other parents"
+      "You are not sure they would cope if they got lost or a stranger approached",
+      "You worry more than you want to, and you compare yourself with other parents",
+      "Your child sometimes finds it hard to talk with other children",
+      "Your child always follows other people’s opinions"
     ],
-    "footer": "These are skills. They are trained in short daily actions, not lectures."
+    "footer": "All of this can be changed. Not with lectures, but with short actions every day."
   },
   "what": {
     "title": "Games that teach children to think and cope",
@@ -69,33 +71,37 @@
     "note": "We are parents. We made this for our own children first."
   },
   "how": {
-    "title": "Three steps",
+    "title": "Three steps that help grow universal competencies",
     "steps": [
-      "Pick a kit by age, or by the competency you want to train",
-      "Spend 10–20 minutes a day with the script",
-      "After two to four weeks, notice what changed"
+      "You pick a kit by the child’s age or by the competency you want to develop",
+      "You work with the child for 10–20 minutes a day using a ready script",
+      "You notice what changed after 2–4 weeks"
     ]
   },
   "catalog": {
     "title": "Choose a kit",
     "all": "All",
-    "byAge": "По возрасту. Календари для взрослых — фильтр «Родителям».",
+    "byAge": "By age. Calendars for adults — the “For parents” filter.",
     "byAbility": "By competency",
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
     "priceAsk": "Ask for the price",
     "priceFrom": "from {price} ₽",
-    "comingSoon": "Скоро"
+    "comingSoon": "Coming soon",
+    "buyPdf": "Buy PDF and print it",
+    "buyBot": "Buy the chatbot subscription",
+    "buyPrint": "Pre-order the print version",
+    "downloadSample": "Download a sample page"
   },
   "sample": {
-    "title": "What one day looks like",
-    "cardLabel": "Safety card",
-    "cardFace": "Front",
-    "cardBack": "Back, for the parent",
-    "adventLabel": "Advent day 1, ages 4–6",
+    "title": "What the trial kit looks like",
+    "adventLabel": "Advent card, ages 4–6",
+    "brelokLabel": "Self-organisation keyring card, ages 10–12",
+    "calendarLabel": "One day of the parents’ calendar",
     "stepsTitle": "Four steps on the back",
-    "cardAlt": "Sample safety card: lost in a shop",
-    "adventAlt": "Sample advent day 1: detail hunt, ages 4–6"
+    "adventAlt": "Sample advent day 1: detail hunt, ages 4–6",
+    "brelokAlt": "Self-organisation keyring, ages 10–12: 14 cards on a ring",
+    "calendarAlt": "Sample day from the parents’ calendar"
   },
   "reviews": {
     "title": "What parents say"
@@ -108,11 +114,11 @@
     "title": "Who makes this"
   },
   "lead": {
-    "title": "Запросить образец",
-    "text": "На этой странице уже есть образцы: карточка безопасности и один день адвента. Чтобы получить материалы в работу, оставьте заявку — мы ответим и уточним формат.",
+    "title": "Try it for free",
+    "text": "An advent card, a self-organisation keyring card for ages 10–12, and one day of the parents’ calendar. Leave your email and we will send the PDF.",
     "email": "Email",
-    "submit": "Запросить образец",
-    "success": "Заявка ушла. Мы ответим в ближайшие дни в Telegram и уточним, как передать образец.",
+    "submit": "Request a sample",
+    "success": "The request was sent. We will reply on Telegram in the next few days and confirm how to send the sample.",
     "successCatalog": "See the kits",
     "error": "It did not send.",
     "consent": "I agree to the processing of my personal data.",
@@ -122,36 +128,36 @@
     "title": "Questions"
   },
   "memo": {
-    "title": "Universal competencies",
+    "title": "Why develop universal competencies?",
     "paragraphs": [
-      "Grades will not tell you if they can cope when lost. If they can agree without shouting. If they can stop when they are angry.",
-      "School teaches subjects. Thinking in a new situation, agreeing, holding yourself — it does not. When you are not there, that is what remains.",
-      "Not lectures. Fifteen minutes at home: choose, get it wrong, agree, finish."
+      "Grades will not tell you if the child will cope if they get lost. If they can agree without shouting in a conflict. If they can stop when they are angry and understand why it happens.",
+      "School teaches subjects. Thinking in a new situation, working things out, holding yourself — it does not. When you are not there, only their competencies remain.",
+      "Universal competencies can be developed. Not with lectures, but with short 15-minute practice at home: choose, get it wrong, agree, finish."
     ],
-    "more": "Read our approach →"
+    "more": "Read more about our approach →"
   },
   "abilities": {
     "title": "What universal competencies are made of",
     "subtitle": "Eight plain phrases. Every kit is built around them.",
     "literacyLead": "And literacy — without it the rest does not work.",
-    "literacy": "Find information, check it, tell truth from fiction. And know what to do if they get lost: safety, health, money.",
+    "literacy": "Universal literacy helps find information, judge it, tell fact from opinion — including on the internet. Subject literacy gives the child basic knowledge about safety, health and money. Example: check whether a chat message is true, or know what to do if they get lost.",
     "ninth": "Independence is not a ninth item on the list. It appears when the others work together.",
     "ninthNote": "A child decides for themselves when they think, take others into account, and manage themselves — at the same time."
   },
   "approach": {
     "title": "Our approach",
     "cta": "Choose a kit",
-    "changedTitle": "What changed",
-    "changed": "Routine work is shrinking. Work that needs non-routine decisions and hard communication is growing. The main difficulty is uncertainty: you cannot learn everything in advance. You will have to solve unfamiliar problems and learn again.",
+    "changedTitle": "The world today",
+    "changed": "With artificial intelligence and the automation of many processes, the share of routine work is falling worldwide. Work that needs non-standard solutions, critical thinking, the art of communication and emotional intelligence is becoming central — and it needs universal competencies. The main difficulty of today’s world is uncertainty about what will be asked of our children tomorrow. So it is impossible to learn everything in advance: they will constantly have to solve unfamiliar tasks and learn again.",
     "threeTitle": "What universal competencies are",
     "thinkingTitle": "Think",
-    "thinking": "Understand a task, see cause and effect, offer more than one solution when there is no single right answer. Everyday example: why you do not get in a lift with a stranger, but you can with a neighbour.",
-    "othersTitle": "Work with others",
-    "others": "Cooperate, state your view, take the other person’s into account, settle a conflict. Example: how to share one toy without tears.",
-    "selfTitle": "Manage yourself",
-    "self": "Notice an emotion, not act on autopilot, plan a step and finish it. Example: not throwing the exercise book when it will not work.",
+    "thinking": "Analyse a situation or a task, see cause and effect, offer more than one solution when there is no single right answer. Everyday example: why you do not get in a lift with a stranger, but you can with a neighbour.",
+    "othersTitle": "Work things out with others",
+    "others": "In a world where almost everything happens online, one of the key competencies is being able to communicate. Cooperate, state your view calmly, take the other person’s view into account, settle conflicts so both sides gain. Example: how to share one toy without tears.",
+    "selfTitle": "Manage yourself and your state",
+    "self": "Understand yourself and your emotions, notice them, not act on autopilot, plan and finish even when motivation and energy have dropped. Example: not throwing the exercise book at a neighbour when something will not work.",
     "literacyTitle": "And literacy",
-    "literacy": "Instrumental: find information, judge it, tell fact from opinion — including digital. Subject: basic safety, health, money. Example: check whether a chat message is true, and know what to do if you get lost.",
+    "literacy": "Universal literacy helps find information, judge it, tell fact from opinion — including on the internet. Subject literacy gives the child basic knowledge about safety, health and money. Example: check whether a chat message is true, or know what to do if they get lost.",
     "familyTitle": "Why this is the family’s job",
     "family": "School teaches subjects. Thinking in a new situation, agreeing, and holding yourself — it does not teach that on purpose. That stays with the family. Not because school is bad. School has a different job.",
     "practiceTitle": "How it is trained",
@@ -164,11 +170,12 @@
   },
   "footer": {
     "tagline": "Kits for parent and child. Ages 4–16.",
+    "taglineB2b": "Family programmes for employees and their children.",
     "phoneRu": "Russia",
     "phoneEu": "Europe",
     "telegram": "Telegram",
     "language": "Language",
-    "radarGroup": "Проект группы RADAR, основанной Юлией Гордеевой. [TODO: добавить ли ссылки на bureau.radarexec.ru / experience.radarexec.ru / gordeeva.radarexec.ru — решение с собрания]"
+    "radarGroup": "A project of the RADAR group, founded by Julia Gordeeva."
   },
   "cta": {
     "telegram": "Message on Telegram"
@@ -179,6 +186,10 @@
     "childAge": "Child’s age",
     "product": "Kit",
     "submitLead": "Send request",
+    "submitPdf": "Order the PDF",
+    "submitBot": "Request the chatbot subscription",
+    "submitPrint": "Pre-order print",
+    "submitSample": "Send me a sample page",
     "sending": "Sending…",
     "leadSuccess": "Заявка ушла. Мы ответим в ближайшие дни в Telegram.",
     "required": "Please fill this in.",
@@ -195,6 +206,12 @@
     "price": "Price and format",
     "related": "Similar kits",
     "request": "Request this kit",
+    "requestPdf": "Request the PDF",
+    "requestBot": "Request the chatbot subscription",
+    "requestPrint": "Pre-order the print version",
+    "requestSample": "Request a sample page",
+    "payNote": "There is no payment on the site yet. After the request we will write how to pay and receive the file.",
+    "sampleNote": "There is no file on the site yet. After the request we will email a sample page.",
     "abilities": "Which competencies it trains",
     "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
     "safetySteps": [
@@ -209,10 +226,13 @@
     "intro": "Start with age or competency. Then pick a format: cards, calendar, quest or course."
   },
   "aboutPage": {
-    "title": "Who makes this",
-    "intro": "RADAR KIDS is made by Julia Gordeeva and Elizabeth Sarycheva. Family kits for home: a short script for each day, not a weekly club and not a lecture course.",
-    "body": "Julia Gordeeva has worked in business education for over 15 years: MBA programmes, work with leaders, Russian and English. In parallel she built short activities for her own family — how to talk, how to decide, what to do if you get lost. Together with Elizabeth Sarycheva that became the cards, calendars and quests you can now use as they are.",
-    "experts": "Отдельные эксперты ведут Office Day и семейные походы — подробнее в разделе"
+    "title": "Who makes RADAR KIDS",
+    "intro": [
+      "We, Julia Gordeeva and Elizabeth Sarycheva, first made these activities for our own families, then decided to turn them into learning kits.",
+      "We approached it as professionals: our developers and partners include methodologists, practising and clinical psychologists, teachers, project leaders, internationally certified coaches, and a candidate of pedagogical sciences.",
+      "We built a practice system that helps a child grow more confident, able to communicate, and motivated. Along the way the child learns to think critically and find their way in different life situations and a fast-changing world."
+    ],
+    "experts": "Other experts in the team run Office Day and family hikes — more in"
   },
   "b2bPage": {
     "formTitle": "Запросить программу"

@@ -19,8 +19,10 @@ import { getDictionary } from "@/lib/dictionary";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
-import { sampleAdvent, sampleSafety } from "@/content/samples";
+import { sampleAdvent, sampleBrelok, sampleCalendar } from "@/content/samples";
 import { ProductPhoto } from "@/components/ui/ProductPhoto";
+import { ProductVisual } from "@/components/ui/ProductVisual";
+import { loc } from "@/lib/age";
 
 export const dynamic = "force-static";
 
@@ -57,7 +59,7 @@ export default async function HomePage({
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-[15px] text-text-muted mb-4">{dict.hero.eyebrow}</p>
-            <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[18ch]">
+            <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[22ch]">
               {dict.hero.title}
             </h1>
             <p className="mt-6 max-w-[65ch] text-text-muted">{dict.hero.subtitle}</p>
@@ -70,18 +72,20 @@ export default async function HomePage({
               </a>
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 items-start">
-            <ProductPhoto
-              src={sampleSafety.image}
-              alt={dict.sample.cardAlt}
-              priority
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-start">
             <ProductPhoto
               src={sampleAdvent.image}
               alt={dict.sample.adventAlt}
-              className="mt-8"
               priority
             />
+            <ProductVisual
+              kind="cards"
+              title={loc(sampleBrelok.title, locale)}
+            />
+            <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px]">
+              <p className="font-medium">{loc(sampleCalendar.day, locale)}</p>
+              <p className="text-text-muted">{loc(sampleCalendar.thought, locale)}</p>
+            </div>
           </div>
         </div>
       </Section>
@@ -179,9 +183,16 @@ export default async function HomePage({
               {dict.lead.title}
             </h2>
             <p className="max-w-[65ch] text-text-muted mb-6">{dict.lead.text}</p>
-            <div className="grid grid-cols-2 gap-3">
-              <ProductPhoto src={sampleSafety.image} alt={dict.sample.cardAlt} />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <ProductPhoto src={sampleAdvent.image} alt={dict.sample.adventAlt} />
+              <ProductVisual
+                kind="cards"
+                title={loc(sampleBrelok.title, locale)}
+              />
+              <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px]">
+                <p className="font-medium">{loc(sampleCalendar.day, locale)}</p>
+                <p className="text-text-muted">{loc(sampleCalendar.thought, locale)}</p>
+              </div>
             </div>
           </div>
           <Card>

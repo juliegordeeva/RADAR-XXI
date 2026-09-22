@@ -55,6 +55,7 @@ export async function sendLeadFromBrowser(fields: {
   name: string;
   contact: string;
   product?: string;
+  format?: string;
   childAge?: string;
   tracking: TrackingFields;
 }) {
@@ -65,6 +66,7 @@ export async function sendLeadFromBrowser(fields: {
         Имя: fields.name,
         Контакт: fields.contact,
         Набор: fields.product,
+        Формат: fields.format,
         "Возраст ребёнка": fields.childAge,
       },
       fields.tracking,

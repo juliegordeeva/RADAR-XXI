@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/i18n";
 
 export type Localized = Record<Locale, string>;
 
-export type AgeGroup = "4-6" | "7-10" | "11-12" | "12-16" | "parents";
+export type AgeGroup = "4-6" | "7-9" | "10-12" | "13-16" | "parents";
 
 export type ProductKind =
   | "calendar"
@@ -11,7 +11,10 @@ export type ProductKind =
   | "advent"
   | "kit"
   | "quest"
-  | "course";
+  | "course"
+  | "diary";
+
+export type PurchaseFormat = "pdf" | "bot" | "print" | "sample";
 
 export type Product = {
   slug: string;
@@ -35,6 +38,7 @@ export type Product = {
   sampleBody: Localized;
   comingSoon?: boolean;
   inMainCatalog?: boolean;
+  purchaseFormats?: PurchaseFormat[];
   author?: Localized;
   related: string[];
 };

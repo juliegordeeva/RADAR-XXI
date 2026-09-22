@@ -4,10 +4,21 @@ import { team } from "@/content/team";
 import { loc } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
 
-export function TeamGrid({ locale }: { locale: Locale }) {
+export function TeamGrid({
+  locale,
+  variant = "home",
+}: {
+  locale: Locale;
+  variant?: "home" | "about";
+}) {
   return (
     <div className="grid gap-10 md:grid-cols-2">
-      {team.map((member) => (
+      {team.map((member) => {
+        const role =
+          variant === "about" && member.aboutRole ? member.aboutRole : member.role;
+        const bio =
+          variant === "about" && member.aboutBio ? member.aboutBio : member.bio;
+        return (
         <article key={member.id} className="grid gap-5 sm:grid-cols-[200px_1fr] sm:items-start">
           {member.photo ? (
             <div className="relative aspect-[3/4] overflow-hidden rounded-[16px] border border-border bg-bg-alt">
@@ -28,14 +39,15 @@ export function TeamGrid({ locale }: { locale: Locale }) {
             <h3 className="font-heading text-[20px] md:text-[24px]">
               {loc(member.name, locale)}
             </h3>
-            <p className="text-text-muted mt-1">{loc(member.role, locale)}</p>
+            <p className="text-text-muted mt-1">{loc(role, locale)}</p>
             {member.tagline && (
               <p className="mt-2 text-[15px]">{loc(member.tagline, locale)}</p>
             )}
-            <p className="mt-4 max-w-[65ch]">{loc(member.bio, locale)}</p>
+            <p className="mt-4 max-w-[65ch]">{loc(bio, locale)}</p>
           </div>
         </article>
-      ))}
+        );
+      })}
     </div>
   );
 }

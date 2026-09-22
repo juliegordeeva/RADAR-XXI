@@ -4,33 +4,58 @@ function ru(text: string): Localized {
   return { ru: text, en: text };
 }
 
-const brelokAgeLabel: Record<Exclude<AgeGroup, "parents">, string> = {
-  "4-6": "4–6 лет",
-  "7-10": "7–10 лет",
-  "11-12": "11–12 лет",
-  "12-16": "12–16 лет",
+function locPair(ruText: string, en: string): Localized {
+  return { ru: ruText, en };
+}
+
+const brelokAgeLabel: Record<Exclude<AgeGroup, "parents">, Localized> = {
+  "4-6": locPair("4–6 лет", "ages 4–6"),
+  "7-9": locPair("7–9 лет", "ages 7–9"),
+  "10-12": locPair("10–12 лет", "ages 10–12"),
+  "13-16": locPair("13–16 лет", "ages 13–16"),
 };
 
 function brelokSamoorganizacii(
   age: Exclude<AgeGroup, "parents">,
-  tagline: string,
+  tagline: Localized,
 ): Product {
   const years = brelokAgeLabel[age];
   return {
     slug: `brelok-samoorganizacii-${age}`,
     kind: "cards",
-    title: ru(`Брелок самоорганизации — 14 карточек на кольце, ${years}`),
-    tagline: ru(tagline),
-    audience: ru(`Семьи с детьми ${years}.`),
-    result: ru("Ребёнок проверяет себя по карточкам, без напоминаний взрослого."),
+    title: {
+      ru: `Брелок самоорганизации — 14 карточек на кольце, ${years.ru}`,
+      en: `Self-organisation keyring — 14 cards on a ring, ${years.en}`,
+    },
+    tagline,
+    audience: {
+      ru: `Семьи с детьми ${years.ru}.`,
+      en: `Families with children ${years.en}.`,
+    },
+    result: {
+      ru: "Ребёнок проверяет себя по карточкам, без напоминаний взрослого.",
+      en: "The child checks themselves against the cards, without adult reminders.",
+    },
     bullets: [
-      ru("14 карточек на кольце-карабине — носит с собой"),
-      ru("Сам себя проверяет, вы не бегаете следом"),
+      {
+        ru: "14 карточек на кольце-карабине — носит с собой",
+        en: "14 cards on a carabiner ring — they carry it with them",
+      },
+      {
+        ru: "Сам себя проверяет, вы не бегаете следом",
+        en: "They check themselves. You do not run after them",
+      },
     ],
-    format: ru("14 карточек на кольце."),
+    format: {
+      ru: "14 карточек на кольце.",
+      en: "14 cards on a ring.",
+    },
     ageGroups: [age],
     competencies: ["organization"],
-    ctaLabel: ru("Скоро"),
+    ctaLabel: {
+      ru: "Скоро",
+      en: "Coming soon",
+    },
     price: null,
     image: "",
     featured: false,
@@ -40,94 +65,196 @@ function brelokSamoorganizacii(
     delivery: ru("[TODO: цена и формат]"),
     sampleTitle: ru("[TODO: пример карточки]"),
     sampleBody: ru("[TODO: пример карточки]"),
-    related: age === "11-12" ? ["nabor-14-samoorg"] : [],
+    related: age === "10-12" ? ["kvest-organizuem-sobytie"] : [],
   };
 }
 
 export const products: Product[] = [
   {
-    slug: "kalendar-33-den",
+    slug: "kalendar-32-dnya",
     kind: "calendar",
     title: {
-      ru: "Календарь «Счастливое родительство», 33 дня",
-      en: "Календарь «Счастливое родительство», 33 дня",
+      ru: "Отрывной календарь «32 дня родительства в радость»",
+      en: "Tear-off calendar “32 days of parenting with joy”",
     },
     tagline: {
-      ru: "Одна мысль, одно действие, один вопрос — 33 дня.",
-      en: "Одна мысль, одно действие, один вопрос — 33 дня.",
+      ru: "Одна мысль, одно действие, один вопрос — 32 дня.",
+      en: "One thought, one action, one question — 32 days.",
     },
     audience: {
-      ru: "Родители, которые слишком много тревожатся. Возраст ребёнка не важен.",
-      en: "Родители, которые слишком много тревожатся. Возраст ребёнка не важен.",
+      ru: "Родители. Возраст ребёнка не важен.",
+      en: "Parents. The child’s age does not matter.",
     },
     result: {
-      ru: "Меньше стресса и больше удовольствия от общения с ребёнком.",
-      en: "Меньше стресса и больше удовольствия от общения с ребёнком.",
+      ru: "Сначала отмечаем точку старта. В конце смотрим на результат и динамику.",
+      en: "You mark a starting point first. At the end you look at what changed.",
     },
     bullets: [
       {
-        ru: "Один лист в день: мысль, действие, вопрос",
-        en: "Один лист в день: мысль, действие, вопрос",
+        ru: "Дни 1–10: внимание и спокойствие",
+        en: "Days 1–10: attention and calm",
       },
       {
-        ru: "Для родителя: спокойствие, отказ от сравнений, радость общения",
-        en: "Для родителя: спокойствие, отказ от сравнений, радость общения",
+        ru: "Дни 11–21: отказ от сравнений и FOMO",
+        en: "Days 11–21: fewer comparisons and less FOMO",
       },
       {
-        ru: "Короткая практика, чтобы календарь не стал ещё одним долгом",
-        en: "Короткая практика, чтобы календарь не стал ещё одним долгом",
+        ru: "Дни 22–32: радость общения с ребёнком и новые привычки",
+        en: "Days 22–32: ease with the child and new habits",
       },
     ],
     format: {
-      ru: "[TODO: цена и формат — печать/PDF, уточняется на собрании]",
-      en: "[TODO: цена и формат — печать/PDF, уточняется на собрании]",
+      ru: "32 дня по 5–10 минут. PDF, чат-бот или печать по предзаписи.",
+      en: "32 days, 5–10 minutes each. PDF, chatbot, or print by pre-order.",
     },
     ageGroups: ["parents"],
     competencies: ["emotions", "organization"],
     ctaLabel: {
-      ru: "Получить календарь на 33 дня",
-      en: "Получить календарь на 33 дня",
+      ru: "Купить PDF и распечатать",
+      en: "Buy PDF and print it",
     },
-    price: null,
+    purchaseFormats: ["pdf", "bot", "print"],
+    price: 800,
     image: "/images/kalendar-21.svg",
     featured: true,
     composition: [
       {
-        ru: "33 листа: мысль, действие, вопрос для самонаблюдения",
-        en: "33 листа: мысль, действие, вопрос для самонаблюдения",
+        ru: "32 листа: мысль, действие, вопрос",
+        en: "32 sheets: a thought, an action, a question",
       },
       {
-        ru: "Короткая инструкция, как пользоваться без давления на себя",
-        en: "Короткая инструкция, как пользоваться без давления на себя",
+        ru: "Дни 1–10: внимание и спокойствие",
+        en: "Days 1–10: attention and calm",
+      },
+      {
+        ru: "Дни 11–21: отказ от сравнений и FOMO",
+        en: "Days 11–21: fewer comparisons and less FOMO",
+      },
+      {
+        ru: "Дни 22–32: радость общения с ребёнком и новые привычки",
+        en: "Days 22–32: ease with the child and new habits",
+      },
+      {
+        ru: "Точка старта в начале и взгляд на динамику в конце",
+        en: "A starting point at the beginning and a look at change at the end",
       },
     ],
     howTo: [
       {
         ru: "Повесьте или положите календарь там, где его видно утром",
-        en: "Повесьте или положите календарь там, где его видно утром",
+        en: "Hang or place the calendar where you see it in the morning",
       },
       {
         ru: "Один лист в день. Сначала мысль, потом действие",
-        en: "Один лист в день. Сначала мысль, потом действие",
+        en: "One sheet a day. Thought first, then the action",
       },
       {
         ru: "Вечером ответьте на вопрос. Можно в заметках телефона",
-        en: "Вечером ответьте на вопрос. Можно в заметках телефона",
+        en: "In the evening, answer the question. Phone notes are enough",
       },
     ],
     delivery: {
-      ru: "[TODO: цена и формат — печать/PDF, уточняется на собрании]",
-      en: "[TODO: цена и формат — печать/PDF, уточняется на собрании]",
+      ru: "Цифровые форматы — от 800 ₽. Печатная версия А5 — 1200 ₽ плюс пересылка, по предзаписи.",
+      en: "Digital formats — from 800 ₽. A5 print — 1,200 ₽ plus shipping, by pre-order.",
     },
     sampleTitle: {
       ru: "День 4. Дыхательная пауза перед реакцией",
-      en: "День 4. Дыхательная пауза перед реакцией",
+      en: "Day 4. A pause before you react",
     },
     sampleBody: {
       ru: "Мысль: между тревогой и реакцией можно вставить паузу. Действие: в одной ситуации сегодня сначала сделайте три медленных вдоха и выдоха, и только потом говорите. Вопрос: что изменилось, когда вы вставили паузу?",
-      en: "Мысль: между тревогой и реакцией можно вставить паузу. Действие: в одной ситуации сегодня сначала сделайте три медленных вдоха и выдоха, и только потом говорите. Вопрос: что изменилось, когда вы вставили паузу?",
+      en: "Thought: you can put a pause between worry and the reaction. Action: in one moment today, take three slow breaths before you speak. Question: what changed when you added the pause?",
     },
-    related: ["kartochki-bezopasnosti", "kurs-podrostki"],
+    related: ["ezhednevnik-tri-roli", "kartochki-bezopasnosti"],
+  },
+  {
+    slug: "ezhednevnik-tri-roli",
+    kind: "diary",
+    title: {
+      ru: "Ежедневник «Три роли / одна жизнь»",
+      en: "Diary “Three roles / one life”",
+    },
+    tagline: {
+      ru: "Практическое руководство и дневник баланса для тех, кто управляет проектами, собой и семейным очагом.",
+      en: "A practical guide and balance diary for people who run projects, themselves, and a household.",
+    },
+    audience: {
+      ru: "Родители, которые ведут работу, семью и своё состояние в одном дне.",
+      en: "Parents who hold work, family and their own state in one day.",
+    },
+    result: {
+      ru: "Один разворот — один день в балансе.",
+      en: "One spread — one day in balance.",
+    },
+    bullets: [
+      {
+        ru: "Один разворот = один день в балансе",
+        en: "One spread = one day in balance",
+      },
+      {
+        ru: "Еженедельный обзор в конце недели",
+        en: "A weekly review at the end of the week",
+      },
+      {
+        ru: "Карта намерений в начале каждого месяца",
+        en: "An intentions map at the start of each month",
+      },
+    ],
+    format: {
+      ru: "PDF, чат-бот или печать по предзаписи. Можно запросить пример страницы.",
+      en: "PDF, chatbot, or print by pre-order. You can request a sample page.",
+    },
+    ageGroups: ["parents"],
+    competencies: ["emotions", "organization"],
+    ctaLabel: {
+      ru: "Скачать пример страницы",
+      en: "Download a sample page",
+    },
+    purchaseFormats: ["sample", "pdf", "bot", "print"],
+    price: null,
+    image: "",
+    featured: true,
+    composition: [
+      {
+        ru: "Разворот на день: работа, семья и своё состояние",
+        en: "A daily spread: work, family and your own state",
+      },
+      {
+        ru: "Еженедельный обзор",
+        en: "A weekly review",
+      },
+      {
+        ru: "Карта намерений на месяц",
+        en: "A monthly intentions map",
+      },
+    ],
+    howTo: [
+      {
+        ru: "Один разворот — один день",
+        en: "One spread — one day",
+      },
+      {
+        ru: "В конце недели сделайте обзор",
+        en: "At the end of the week, do the review",
+      },
+      {
+        ru: "В начале месяца отметьте карту намерений",
+        en: "At the start of the month, mark the intentions map",
+      },
+    ],
+    delivery: {
+      ru: "[TODO: цена и формат ежедневника для родителей]",
+      en: "[TODO: price and format for the parent diary]",
+    },
+    sampleTitle: {
+      ru: "Один разворот — один день",
+      en: "One spread — one day",
+    },
+    sampleBody: {
+      ru: "Один разворот на день. В конце недели — обзор. В начале месяца — карта намерений, а не список долгов.",
+      en: "One spread a day. At the end of the week — a review. At the start of the month — an intentions map, not a debt list.",
+    },
+    related: ["kalendar-32-dnya"],
   },
   {
     slug: "kartochki-bezopasnosti",
@@ -163,15 +290,16 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "45 карточек. Печать или PDF.",
-      en: "45 cards. Print or PDF.",
+      ru: "45 карточек. PDF, чат-бот или печать по предзаписи.",
+      en: "45 cards. PDF, chatbot, or print by pre-order.",
     },
-    ageGroups: ["4-6", "7-10"],
+    ageGroups: ["4-6", "7-9"],
     competencies: ["safety", "emotions", "critical", "communication"],
     ctaLabel: {
-      ru: "Получить карточки безопасности",
-      en: "Get the safety cards",
+      ru: "Купить PDF и распечатать",
+      en: "Buy PDF and print it",
     },
+    purchaseFormats: ["pdf", "bot", "print"],
     price: null,
     image: "/images/lead-kartochka-bezopasnosti.webp",
     featured: true,
@@ -204,8 +332,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "PDF и чат-бот — после заявки. Печатный формат делаем по предзаказу.",
+      en: "PDF and chatbot — after a request. Print is made to pre-order.",
     },
     sampleTitle: {
       ru: "Карточка «Потерялся в магазине»",
@@ -342,7 +470,7 @@ export const products: Product[] = [
       ru: "24 дня по 10–20 минут. Карточки или PDF.",
       en: "24 days, 10–20 minutes. Cards or PDF.",
     },
-    ageGroups: ["7-10"],
+    ageGroups: ["7-9"],
     competencies: ["problems", "organization", "cooperation"],
     ctaLabel: {
       ru: "Получить адвент 7–9 лет",
@@ -430,7 +558,7 @@ export const products: Product[] = [
       ru: "14 дней по 15 минут. Карточки.",
       en: "14 days, 15 minutes. Cards.",
     },
-    ageGroups: ["7-10"],
+    ageGroups: ["7-9"],
     competencies: ["communication", "empathy", "cooperation"],
     ctaLabel: {
       ru: "Получить набор «14 дней общения»",
@@ -481,110 +609,22 @@ export const products: Product[] = [
     },
     related: ["advent-7-9", "kvest-missiya-v-magazine"],
   },
-  {
-    slug: "nabor-14-samoorg",
-    kind: "kit",
-    title: {
-      ru: "14 дней самоорганизации, 10–12 лет",
-      en: "14 days of getting organised, ages 10–12",
-    },
-    tagline: {
-      ru: "Недельный план: учёба, своё время и что делать, если не успеваем.",
-      en: "A weekly plan: school, free time, and what to do if you run out of time.",
-    },
-    audience: {
-      ru: "Семьи с детьми 10–12 лет, где вечно «потом» и срыв дедлайна.",
-      en: "Families with children aged 10–12 who live on “later” and missed deadlines.",
-    },
-    result: {
-      ru: "Ребёнок пробует расставить приоритеты и поправить план, а не бросать его после первого сбоя.",
-      en: "The child tries to rank tasks and fix a plan, instead of dropping it after the first slip.",
-    },
-    bullets: [
-      {
-        ru: "План на неделю: учёба и свободное время на одном листе",
-        en: "A week on one sheet: school and free time",
-      },
-      {
-        ru: "Разговор «не успел — что делаем» без нотации",
-        en: "A talk about “we ran out of time — what now”, without a lecture",
-      },
-      {
-        ru: "15 минут в день, 14 дней, один маршрут",
-        en: "15 minutes a day, 14 days, one path",
-      },
-    ],
-    format: {
-      ru: "14 дней по 15 минут. Карточки и лист плана.",
-      en: "14 days, 15 minutes. Cards and a plan sheet.",
-    },
-    ageGroups: ["11-12"],
-    competencies: ["organization", "emotions", "problems"],
-    ctaLabel: {
-      ru: "Получить набор «14 дней плана»",
-      en: "Get the 14-day planning kit",
-    },
-    price: null,
-    image: "/images/sample-14-samoorg.webp",
-    featured: false,
-    composition: [
-      {
-        ru: "14 дней: от списка дел на полдня до недельного плана",
-        en: "14 days: from a half-day list to a week plan",
-      },
-      {
-        ru: "Лист «что хотел / что сделал» и место поправить план",
-        en: "A “wanted / did” sheet and space to change the plan",
-      },
-      {
-        ru: "Памятка родителю: не забирать планирование на себя",
-        en: "A parent note: do not take the planning over",
-      },
-    ],
-    howTo: [
-      {
-        ru: "В первый день составьте вместе лист на неделю — коротко",
-        en: "On day 1, make a short week list together",
-      },
-      {
-        ru: "Каждый день 15 минут: что сегодня, что сдвинуть, что отпустить",
-        en: "15 minutes a day: what is today, what to move, what to drop",
-      },
-      {
-        ru: "Если сорвалось — правите план, а не объявляете провал",
-        en: "If it slips, change the plan. Do not call it a failure",
-      },
-    ],
-    delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
-    },
-    sampleTitle: {
-      ru: "День 9. План на неделю",
-      en: "Day 9. The week plan",
-    },
-    sampleBody: {
-      ru: "На листе две колонки: учёба и своё время. Ребёнок ставит три дела на неделю и одно, которое можно сдвинуть, если не успеет. Вы не добавляете свои «ещё вот это».",
-      en: "Two columns: school and free time. The child puts three tasks on the week and one that can move if time runs out. You do not add “and this as well”.",
-    },
-    related: ["kvest-organizuem-sobytie", "kurs-podrostki"],
-  },
-  brelokSamoorganizacii(
-    "4-6",
-    "Сам собирает рюкзак в садик, а вы не бегаете следом?",
-  ),
-  brelokSamoorganizacii(
-    "7-10",
-    "Сам собирает портфель, а вы не бегаете следом?",
-  ),
-  brelokSamoorganizacii(
-    "11-12",
-    "Сам проверяет школу и кружки, а вы не стоите над душой?",
-  ),
-  brelokSamoorganizacii(
-    "12-16",
-    "Свой список с собой — без напоминаний взрослого.",
-  ),
+  brelokSamoorganizacii("4-6", {
+    ru: "Сам собирает рюкзак в садик, а вы не бегаете следом?",
+    en: "Packs the kindergarten bag — you do not run after them?",
+  }),
+  brelokSamoorganizacii("7-9", {
+    ru: "Сам собирает портфель, а вы не бегаете следом?",
+    en: "Packs the schoolbag — you do not run after them?",
+  }),
+  brelokSamoorganizacii("10-12", {
+    ru: "Сам проверяет школу и кружки, а вы не стоите над душой?",
+    en: "Checks school and clubs — you do not stand over them?",
+  }),
+  brelokSamoorganizacii("13-16", {
+    ru: "Свой список с собой — без напоминаний взрослого.",
+    en: "Their own list on a ring — no adult reminders.",
+  }),
   {
     slug: "kvest-igrushechnyy-gorod",
     kind: "quest",
@@ -710,7 +750,7 @@ export const products: Product[] = [
       ru: "60–90 минут. Печатный набор или PDF.",
       en: "60–90 minutes. Print set or PDF.",
     },
-    ageGroups: ["7-10"],
+    ageGroups: ["7-9"],
     competencies: ["problems", "organization", "information"],
     ctaLabel: {
       ru: "Получить квест «Миссия в магазине»",
@@ -798,7 +838,7 @@ export const products: Product[] = [
       ru: "60–90 минут на план плюс само событие. Печать или PDF.",
       en: "60–90 minutes to plan, plus the event itself. Print or PDF.",
     },
-    ageGroups: ["11-12"],
+    ageGroups: ["10-12"],
     competencies: ["organization", "cooperation", "problems"],
     ctaLabel: {
       ru: "Получить квест «Семейное событие»",
@@ -847,22 +887,22 @@ export const products: Product[] = [
       ru: "Ребёнок выбирает: настолки дома в пятницу. На листе — кто зовёт, какие две игры, что готовит взрослый. Если друг не может прийти, событие не отменяется: играют своими.",
       en: "The child picks: board games at home on Friday. On the sheet: who invites, which two games, what the adult prepares. If a friend cannot come, the evening still happens with the household.",
     },
-    related: ["nabor-14-samoorg", "kurs-podrostki"],
+    related: ["9-voprosov-svoego-dela", "kurs-podrostki"],
   },
   {
     slug: "kurs-podrostki",
     kind: "course",
     title: {
       ru: "Управление проектами — «Учимся побеждать»",
-      en: "Управление проектами — «Учимся побеждать»",
+      en: "Project management — “Learning to win”",
     },
     tagline: {
-      ru: "Автор — Мария Громова. Практика доводить дело, а не лекции «кем быть».",
-      en: "Автор — Мария Громова. Практика доводить дело, а не лекции «кем быть».",
+      ru: "Практика доводить дело, а не лекции «кем быть».",
+      en: "Practice finishing things, not lectures on “what to be”.",
     },
     audience: {
-      ru: "Подростки 12–16 лет и родители, которым нужен разговор без лекций «кем быть».",
-      en: "Teens aged 12–16 and parents who need a talk without a lecture on “what to be”.",
+      ru: "Подростки 13–16 лет и родители, которым нужен разговор без лекций «кем быть».",
+      en: "Teens aged 13–16 and parents who need a talk without a lecture on “what to be”.",
     },
     result: {
       ru: "Подросток лучше формулирует, как думает, как договаривается и какие задачи ему подходят — не список профессий с картинками.",
@@ -870,27 +910,27 @@ export const products: Product[] = [
     },
     bullets: [
       {
-        ru: "Курс 12–14 лет: мышление, самоорганизация, умение договариваться",
-        en: "Course for 12–14: thinking, organising yourself, talking things through",
+        ru: "Курс 13–16 лет: мышление, самоорганизация, умение договариваться",
+        en: "Course for ages 13–16: thinking, organising yourself, talking things through",
       },
       {
         ru: "Не лекции: задания, разборы и живые разговоры",
         en: "Not lectures: tasks, reviews and real conversations",
       },
       {
-        ru: "Профориентация 12–16: семейная сессия, сильные стороны и типы задач",
-        en: "Career session 12–16: family meeting, strengths and types of work",
+        ru: "Профориентация 13–16: семейная сессия, сильные стороны и типы задач",
+        en: "Career session ages 13–16: family meeting, strengths and types of work",
       },
     ],
     format: {
       ru: "Курс 6–8 недель. Сессия онлайн или очно.",
       en: "Course: 6–8 weeks. Session: online or in person.",
     },
-    ageGroups: ["12-16"],
+    ageGroups: ["13-16"],
     competencies: ["critical", "organization", "communication"],
     ctaLabel: {
       ru: "Записаться на «Учимся побеждать»",
-      en: "Записаться на «Учимся побеждать»",
+      en: "Sign up for “Learning to win”",
     },
     author: {
       ru: "Мария Громова",
@@ -939,81 +979,122 @@ export const products: Product[] = [
       ru: "Сначала подросток говорит, какие задачи ему интересны и где он выдыхается. Затем родители — что видят они, без спора «ты должен». Вместе собираем типы среды, в которых ему будет проще, и один следующий шаг на месяц.",
       en: "The teen speaks first: which tasks they like, where they run out of steam. Then the parents — what they see, without “you should”. Together you name the settings that fit, and one next step for the month.",
     },
-    related: ["kvest-organizuem-sobytie", "kalendar-33-den"],
+    related: ["kvest-organizuem-sobytie", "kalendar-32-dnya"],
   },
   {
-    slug: "biznes-model-ostervalder",
+    slug: "9-voprosov-svoego-dela",
     kind: "kit",
-    title: {
-      ru: "Разбор бизнес-модели по Остервальдеру в семейных и школьных проектах",
-      en: "Разбор бизнес-модели по Остервальдеру в семейных и школьных проектах",
-    },
-    tagline: {
-      ru: "[TODO: не назначен]",
-      en: "[TODO: не назначен]",
-    },
-    audience: {
-      ru: "Семьи с детьми 11–12 лет, у которых есть школьный или семейный проект — ярмарка, кружок, своё дело.",
-      en: "Семьи с детьми 11–12 лет, у которых есть школьный или семейный проект — ярмарка, кружок, своё дело.",
-    },
-    result: {
-      ru: "Ребёнок видит проект как целое: кто делает, для кого, на что уходят силы и деньги.",
-      en: "Ребёнок видит проект как целое: кто делает, для кого, на что уходят силы и деньги.",
-    },
+    title: locPair(
+      "«9 вопросов для своего дела», 10–12 лет",
+      "“9 questions for your own project”, ages 10–12",
+    ),
+    tagline: locPair(
+      "Один настоящий проект — девять коротких вопросов своими словами.",
+      "One real project — nine short questions in the child’s own words.",
+    ),
+    audience: locPair(
+      "Семьи с детьми 10–12 лет, у которых есть школьная ярмарка, сбор денег классу или другое своё дело.",
+      "Families with children aged 10–12 who have a school fair, a class fundraiser, or another real project.",
+    ),
+    result: locPair(
+      "Ребёнок разбирает свой проект простыми вопросами, а не «компанию из учебника».",
+      "The child unpacks their own project in plain questions, not a textbook “company”.",
+    ),
     bullets: [
-      {
-        ru: "Разбор на семейном или школьном проекте, не на абстрактной «компании»",
-        en: "Разбор на семейном или школьном проекте, не на абстрактной «компании»",
-      },
-      {
-        ru: "Автор: [TODO: не назначен]",
-        en: "Автор: [TODO: не назначен]",
-      },
-      {
-        ru: "Пока готовим программу — без цены и без записи",
-        en: "Пока готовим программу — без цены и без записи",
-      },
+      locPair(
+        "9 вопросов на языке ребёнка — про один проект",
+        "Nine questions in the child’s language — about one project",
+      ),
+      locPair(
+        "Ярмарка в школе, сбор денег классу, своё дело",
+        "A school fair, a class fundraiser, their own project",
+      ),
+      locPair(
+        "Без взрослых терминов на карточке",
+        "No adult jargon on the card",
+      ),
     ],
-    format: {
-      ru: "[TODO: формат и объём]",
-      en: "[TODO: формат и объём]",
-    },
-    ageGroups: ["11-12"],
+    format: locPair("9 вопросов про один проект.", "Nine questions about one project."),
+    ageGroups: ["10-12"],
     competencies: ["critical", "organization", "creative"],
-    ctaLabel: {
-      ru: "Скоро",
-      en: "Скоро",
-    },
+    ctaLabel: locPair(
+      "Получить «9 вопросов для своего дела»",
+      "Get “9 questions for your own project”",
+    ),
     price: null,
-    image: "/images/kurs.svg",
+    image: "",
     featured: false,
-    comingSoon: true,
-    inMainCatalog: false,
     composition: [
-      {
-        ru: "[TODO: состав набора]",
-        en: "[TODO: состав набора]",
-      },
+      locPair("Девять вопросов про один ваш проект", "Nine questions about one real project"),
+      locPair(
+        "Формулировки простые, без взрослых терминов",
+        "Plain wording, no adult terms",
+      ),
+      ru("[TODO: вставить 9 вопросов из черновика команды]"),
     ],
     howTo: [
-      {
-        ru: "[TODO: как пользоваться]",
-        en: "[TODO: как пользоваться]",
-      },
+      locPair(
+        "Выберите один настоящий проект, не учебный кейс",
+        "Pick one real project, not a textbook case",
+      ),
+      locPair(
+        "Ребёнок отвечает своими словами, вы не переводите на взрослый язык",
+        "The child answers in their own words. You do not translate into adult language",
+      ),
+      locPair(
+        "Если ответа нет — вопрос оставляете и возвращаетесь после ярмарки или сбора",
+        "If there is no answer yet, leave the question and come back after the fair or the collection",
+      ),
     ],
-    delivery: {
-      ru: "[TODO: цена и формат]",
-      en: "[TODO: цена и формат]",
-    },
-    sampleTitle: {
-      ru: "[TODO: пример задания]",
-      en: "[TODO: пример задания]",
-    },
-    sampleBody: {
-      ru: "[TODO: пример задания]",
-      en: "[TODO: пример задания]",
-    },
-    related: ["nabor-14-samoorg", "kvest-organizuem-sobytie"],
+    delivery: ru("[TODO: цена и формат]"),
+    sampleTitle: locPair("Школьная ярмарка", "The school fair"),
+    sampleBody: locPair(
+      "Берёте один проект: печенье на ярмарку или сбор денег классу. Ребёнок отвечает, для кого это, кто помогает и на что уйдут силы. Вы не добавляете термины из учебника.",
+      "Take one project: biscuits for the fair, or a class fundraiser. The child says who it is for, who helps, and where the effort goes. You do not add textbook terms.",
+    ),
+    related: ["kvest-organizuem-sobytie"],
+  },
+  {
+    slug: "kanva-ostervaldera",
+    kind: "course",
+    title: locPair("Канва Остервальдера", "The Osterwalder canvas"),
+    tagline: locPair(
+      "Полноценный разбор бизнес-модели проекта.",
+      "A full business-model review of a project.",
+    ),
+    audience: locPair(
+      "Подростки 13–16 лет, у которых есть свой проект — школьный, семейный или своё дело.",
+      "Teens aged 13–16 who have a school, family or own project.",
+    ),
+    result: locPair(
+      "Подросток разбирает проект как бизнес-модель: кто клиент, что делаем, на что уходят силы и деньги.",
+      "The teen reads the project as a business model: who it is for, what you do, where effort and money go.",
+    ),
+    bullets: [
+      locPair(
+        "Разбор бизнес-модели проекта, не курс про общение и договорённости",
+        "A business-model review, not a course on talking things through",
+      ),
+      locPair(
+        "Пока готовим программу — без цены и без записи",
+        "The programme is still in preparation — no price and no booking yet",
+      ),
+    ],
+    format: locPair("Программа готовится.", "The programme is still in preparation."),
+    ageGroups: ["13-16"],
+    competencies: ["critical", "organization", "creative"],
+    ctaLabel: locPair("Скоро", "Coming soon"),
+    author: ru("[TODO: не назначен]"),
+    price: null,
+    image: "",
+    featured: false,
+    comingSoon: true,
+    composition: [ru("[TODO: состав]")],
+    howTo: [ru("[TODO: как пользоваться]")],
+    delivery: ru("[TODO: цена и формат]"),
+    sampleTitle: ru("[TODO: пример задания]"),
+    sampleBody: ru("[TODO: пример задания]"),
+    related: ["kurs-podrostki"],
   },
 ];
 

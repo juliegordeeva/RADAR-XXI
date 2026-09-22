@@ -49,19 +49,35 @@ export default async function OfficeDayPage({
         </h1>
         <p className="mt-6 max-w-[65ch] font-medium">{loc(officeDay.subtitle, locale)}</p>
         <p className="mt-4 max-w-[65ch] text-text-muted">{loc(officeDay.intro, locale)}</p>
-        <p className="mt-4 max-w-[65ch] text-[15px] text-text-muted">
-          {loc(officeDay.priceNote, locale)}
-        </p>
+        <ul className="mt-6 space-y-3 max-w-[65ch]">
+          {officeDay.priceItems.map((item) => (
+            <li
+              key={item.ru}
+              className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-deep"
+            >
+              {loc(item, locale)}
+            </li>
+          ))}
+        </ul>
         <div className="mt-8">
           <Button href="#zayavka">{loc(officeDay.cta, locale)}</Button>
         </div>
       </Section>
 
       <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">
+        <h2 className="font-heading text-[28px] md:text-[40px] mb-6">
           {loc(officeDay.expertTitle, locale)}
         </h2>
-        <p className="max-w-[65ch]">{loc(officeDay.expert, locale)}</p>
+        <div className="flex flex-wrap gap-2 max-w-3xl">
+          {officeDay.teamItems.map((item) => (
+            <span
+              key={item.ru}
+              className="inline-flex items-center rounded-full border border-border bg-surface px-4 py-2 text-[15px]"
+            >
+              {loc(item, locale)}
+            </span>
+          ))}
+        </div>
       </Section>
 
       <Section>

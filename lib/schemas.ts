@@ -14,6 +14,7 @@ export const leadSchema = z.object({
   name: z.string().trim().min(2).max(80),
   contact: contactField,
   product: z.string().trim().max(80).optional(),
+  format: z.string().trim().max(40).optional(),
   childAge: z.string().trim().max(20).optional(),
   consent: z.boolean().refine((value) => value === true),
   website: z.string().optional(),

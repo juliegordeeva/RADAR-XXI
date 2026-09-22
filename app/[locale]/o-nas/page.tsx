@@ -40,9 +40,13 @@ export default async function AboutPage({
       <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[16ch]">
         {dict.aboutPage.title}
       </h1>
-      <p className="mt-6 max-w-[65ch]">{dict.aboutPage.intro}</p>
+      <div className="mt-6 max-w-[65ch] space-y-4">
+        {dict.aboutPage.intro.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
       <div className="mt-12">
-        <TeamGrid locale={locale} />
+        <TeamGrid locale={locale} variant="about" />
       </div>
       <p className="mt-8 max-w-[65ch] text-text-muted">
         {dict.aboutPage.experts}{" "}

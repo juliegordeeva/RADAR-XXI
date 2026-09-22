@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProduct, getRelated, products } from "@/content/products";
@@ -13,9 +14,7 @@ import { Section } from "@/components/ui/Section";
 import { ProductVisual } from "@/components/ui/ProductVisual";
 import { ProductPhoto, hasProductPhoto } from "@/components/ui/ProductPhoto";
 import { ProductCard } from "@/components/sections/ProductCard";
-import { LeadForm } from "@/components/forms/LeadForm";
-import { TelegramCta } from "@/components/ui/TelegramCta";
-import { StickyCta } from "@/components/forms/StickyCta";
+import { ProductRequest } from "@/components/forms/ProductRequest";
 import { ProductJsonLd } from "@/components/seo/JsonLd";
 import { sampleSafety } from "@/content/samples";
 
@@ -79,7 +78,7 @@ export default async function ProductPage({
             <CompetencyTag key={key} competencyKey={key} locale={locale} />
           ))}
         </div>
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[18ch]">
+        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-[22ch]">
           {loc(product.title, locale)}
         </h1>
         <p className="mt-5 max-w-[65ch] text-text-muted">{loc(product.tagline, locale)}</p>
@@ -182,15 +181,9 @@ export default async function ProductPage({
         <p className="mt-3 max-w-[65ch] text-text-muted">{loc(product.delivery, locale)}</p>
         <p className="mt-3 text-[15px] text-text-muted">{loc(product.format, locale)}</p>
         {!comingSoon && (
-        <div id="zayavka" className="mt-10 max-w-xl space-y-6">
-          <h3 className="font-heading text-[20px] md:text-[24px]">
-            {dict.productPage.request}
-          </h3>
-          <StickyCta>
-            <TelegramCta dict={dict} className="w-full" />
-          </StickyCta>
-          <LeadForm locale={locale} dict={dict} product={product.slug} compact />
-        </div>
+          <Suspense>
+            <ProductRequest product={product} locale={locale} dict={dict} />
+          </Suspense>
         )}
       </Section>
 

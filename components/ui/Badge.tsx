@@ -1,6 +1,8 @@
+import Link from "next/link";
 import type { AgeGroup } from "@/content/types";
 import { ageBadgeClass, ageLabels } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
+import { localePath } from "@/lib/locale-path";
 import { cn } from "@/lib/cn";
 
 export function Badge({
@@ -13,14 +15,15 @@ export function Badge({
   className?: string;
 }) {
   return (
-    <span
+    <Link
+      href={localePath(locale, `/produkty?age=${age}`)}
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-[15px] font-medium leading-none",
+        "inline-flex items-center rounded-full px-3 py-1 text-[15px] font-medium leading-none hover:opacity-90",
         ageBadgeClass[age],
         className,
       )}
     >
       {ageLabels[age][locale]}
-    </span>
+    </Link>
   );
 }

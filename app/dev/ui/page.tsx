@@ -22,7 +22,7 @@ const colors = [
   ["literacy", "#7A5C9E"],
 ] as const;
 
-const ages: AgeGroup[] = ["4-6", "7-10", "11-12", "12-16", "parents"];
+const ages: AgeGroup[] = ["4-6", "7-9", "10-12", "13-16", "parents"];
 
 export default function UiKitPage() {
   return (
