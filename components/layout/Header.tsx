@@ -16,7 +16,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/95 backdrop-blur-sm overflow-x-clip">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-[1200px] min-w-0 w-full items-center justify-between gap-4 px-5 md:px-10 h-[72px]">
         <Link
           href={localePath(locale, "/")}
