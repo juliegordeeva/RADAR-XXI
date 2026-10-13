@@ -1,0 +1,18 @@
+:root {
+  --radar-paper: #FFF5E3;
+  --radar-navy: #102E4A;
+  --radar-teal: #078E9E;
+  --radar-teal-ink: #067887;
+  --radar-green: #3E964A;
+  --radar-yellow: #F9B817;
+  --radar-coral: #F05227;
+  --radar-purple: #804C91;
+  --radar-mint: #70BCA4;
+  --radar-olive: #67784E;
+  --radar-mist: #E8F2EE;
+  --radar-rose: #FBE6DE;
+  --radar-sky: #E6F0F2;
+  --radar-white: #FFFFFF;
+  --radar-heading: "Rubik", sans-serif;
+  --radar-body: "Noto Sans", sans-serif;
+}

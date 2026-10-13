@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { ProductHeading } from "@/components/ui/ProductHeading";
+import { EditorialHero } from "@/components/sections/EditorialHero";
+import { StorySection } from "@/components/sections/StorySection";
 import { Section } from "@/components/ui/Section";
 import { BusinessForm } from "@/components/forms/BusinessForm";
 import { diary } from "@/content/b2b";
@@ -40,37 +42,53 @@ export default async function DiaryPage({
 
   return (
     <>
-      <Section className="md:pt-20">
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[18ch]">
-          {loc(diary.title, locale)}
-        </h1>
-        <p className="mt-6 max-w-[65ch] font-medium">{loc(diary.subtitle, locale)}</p>
-        <p className="mt-4 max-w-[65ch] text-text-muted">{loc(diary.intro, locale)}</p>
-        <p className="mt-4 max-w-[65ch]">{loc(diary.printNote, locale)}</p>
-        {!isPlaceholderLoc(diary.priceNote) && (
-          <p className="mt-4 max-w-[65ch] text-[15px] text-text-muted">
-            {loc(diary.priceNote, locale)}
-          </p>
-        )}
-        <div className="mt-8">
-          <Button href="#zayavka">{loc(diary.cta, locale)}</Button>
+      <EditorialHero
+        variant="business-diary"
+        eyebrow={dict.style03.businessLabel}
+        title={
+          <ProductHeading title={loc(diary.title, locale)} kind="parent" />
+        }
+        intro={loc(diary.subtitle, locale)}
+        image="illustrative-products/diary-cover"
+      >
+        <p className="illustration-caption">{dict.style03.diaryCaption}</p>
+        <div>
+          <Button href="#zayavka">{loc(diary.cta, locale)} →</Button>
         </div>
-      </Section>
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">
-          {loc(diary.expertTitle, locale)}
-        </h2>
-        <Card className="max-w-3xl">
-          <p className="max-w-[65ch]">{loc(diary.expert, locale)}</p>
-        </Card>
-      </Section>
-
+      </EditorialHero>
+      <StorySection
+        title={dict.style03.diaryExample}
+        image="illustrative-products/diary-open"
+        caption={dict.style03.diaryCaption}
+        alt
+      >
+        <p>{loc(diary.intro, locale)}</p>
+        <p>{loc(diary.printNote, locale)}</p>
+        {!isPlaceholderLoc(diary.priceNote) && (
+          <p>{loc(diary.priceNote, locale)}</p>
+        )}
+      </StorySection>
+      <StorySection
+        title={loc(diary.expertTitle, locale)}
+        image="scenes/father-work"
+        reverse
+      >
+        <p>{loc(diary.expert, locale)}</p>
+      </StorySection>
+      <StorySection
+        title={dict.style03.parentLabel}
+        image="scenes/parents-planning"
+        alt
+      >
+        <p>{loc(diary.subtitle, locale)}</p>
+        <p>{dict.redesign.getText}</p>
+      </StorySection>
       <Section id="zayavka">
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-8">
-          {loc(diary.formTitle, locale)}
-        </h2>
-        <div className="max-w-3xl">
+        <div className="editorial-split items-start">
+          <div>
+            <h2 className="section-heading">{loc(diary.formTitle, locale)}</h2>
+            <p>{dict.redesign.preparedNote}</p>
+          </div>
           <BusinessForm locale={locale} dict={dict} variant="diary" />
         </div>
       </Section>

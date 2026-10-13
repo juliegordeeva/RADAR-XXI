@@ -33,19 +33,37 @@ export default async function PrivacyPage({
   const dict = getDictionary(locale);
 
   return (
-    <Section className="md:pt-20">
-      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
-        {dict.privacyPage.title}
-      </h1>
-      <p className="mt-4 text-[15px] text-text-muted">{dict.privacyPage.updated}</p>
-      <p className="mt-2 text-[15px] text-text-muted">{dict.privacyPage.legalTodo}</p>
-      <div className="mt-10 space-y-8">
-        {dict.privacyPage.sections.map((section) => (
-          <div key={section.title}>
-            <h2 className="font-heading text-[24px] mb-3">{section.title}</h2>
-            <p className="max-w-[65ch] text-text-muted">{section.text}</p>
-          </div>
-        ))}
+    <Section className="editorial-hero privacy-page">
+      <p className="editorial-label">{dict.style03.privacyLabel}</p>
+      <h1 className="mb-6">{dict.privacyPage.title}</h1>
+      <p className="material-summary text-text-muted">
+        {dict.privacyPage.updated}
+      </p>
+      <p className="material-summary text-text-muted mt-2">
+        {dict.privacyPage.legalTodo}
+      </p>
+      <div className="privacy-grid mt-12">
+        <nav className="privacy-toc" aria-label={dict.style03.contents}>
+          {dict.privacyPage.sections.map((item, i) => (
+            <a key={item.title} href={`#privacy-${i + 1}`}>
+              <span className="editorial-number">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>{item.title}</span>
+            </a>
+          ))}
+        </nav>
+        <div className="privacy-copy">
+          {dict.privacyPage.sections.map((item, i) => (
+            <section key={item.title} id={`privacy-${i + 1}`}>
+              <p className="editorial-label">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </section>
+          ))}
+        </div>
       </div>
     </Section>
   );

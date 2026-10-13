@@ -18,14 +18,16 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-14 md:py-24 fade-in",
+        "py-12 md:py-16",
         id && "scroll-mt-[88px]",
         alt && "bg-bg-alt",
         deep && "bg-deep text-deep-text",
         className,
       )}
     >
-      <div className="mx-auto max-w-[1200px] min-w-0 px-5 md:px-10">{children}</div>
+      <div className="section-inner mx-auto max-w-[1200px] min-w-0 px-5 sm:px-6 md:px-8">
+        {children}
+      </div>
     </section>
   );
 }

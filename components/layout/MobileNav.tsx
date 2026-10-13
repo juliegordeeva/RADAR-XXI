@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -20,6 +20,8 @@ export function MobileNav({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -27,7 +29,26 @@ export function MobileNav({
 
   useEffect(() => {
     if (!open) return;
+    const panel = panelRef.current;
+    const trigger = triggerRef.current;
+    panel?.querySelector<HTMLButtonElement>("button")?.focus();
     const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Tab" && panel) {
+        const elements = Array.from(
+          panel.querySelectorAll<HTMLElement>(
+            "a[href], button:not([disabled])",
+          ),
+        );
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
       if (event.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKey);
@@ -36,6 +57,7 @@ export function MobileNav({
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = previous;
+      trigger?.focus();
     };
   }, [open]);
 
@@ -43,8 +65,9 @@ export function MobileNav({
     { href: "/", label: dict.nav.home },
     { href: "/produkty", label: dict.nav.products },
     { href: "/podhod", label: dict.nav.approach },
-    { href: "/dlya-biznesa", label: dict.nav.b2b },
+    { href: "/produkty?age=parents", label: dict.redesign.parentLink },
     { href: "/o-nas", label: dict.nav.about },
+    { href: "/dlya-biznesa", label: dict.nav.b2b },
     { href: "/kontakty", label: dict.nav.contacts },
   ];
 
@@ -54,11 +77,12 @@ export function MobileNav({
       onClick={() => setOpen(false)}
     >
       <div
+        ref={panelRef}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="absolute right-0 top-0 h-full w-[min(100%,360px)] bg-bg p-5 shadow-[0_1px_3px_rgba(31,36,33,0.06)]"
+        className="absolute right-0 top-0 h-full w-[min(100%,360px)] bg-bg p-5 overflow-y-auto"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-8">
@@ -88,6 +112,9 @@ export function MobileNav({
         </nav>
         <div className="mt-8">
           <TelegramCta dict={dict} />
+          <p className="material-summary text-text-muted mt-3">
+            {dict.redesign.telegramNote}
+          </p>
         </div>
         <div className="mt-8">
           <LanguageSwitcher locale={locale} label={dict.footer.language} />
@@ -97,10 +124,11 @@ export function MobileNav({
   ) : null;
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         className="inline-flex size-12 items-center justify-center rounded-[12px] text-text"
+        ref={triggerRef}
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen(true)}

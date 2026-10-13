@@ -43,3 +43,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local media originals retained after repository cleanup
+/.local-assets-cleanup/
+/design/materials/calendar-32-days-source.pdf
+/RADAR_KIDS_Style_03_Package.zip
+/RADAR_KIDS_Style_03_Assets.zip

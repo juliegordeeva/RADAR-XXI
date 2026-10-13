@@ -2,27 +2,22 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SideNav } from "@/components/layout/SideNav";
+import { BrandArt } from "@/components/ui/BrandArt";
+import { StorySection } from "@/components/sections/StorySection";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { Catalog } from "@/components/sections/Catalog";
-import { SampleDay } from "@/components/sections/SampleDay";
-import { Memorandum } from "@/components/sections/Memorandum";
-import { Reviews } from "@/components/sections/Reviews";
+import { SafetySample } from "@/components/sections/SafetySample";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { TeamGrid } from "@/components/sections/TeamGrid";
-import { SubscribeForm } from "@/components/forms/SubscribeForm";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { catalogProducts } from "@/content/products";
 import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
-import { isLocale, type Locale } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
-import { sampleAdvent, sampleBrelok, sampleCalendar } from "@/content/samples";
-import { ProductPhoto } from "@/components/ui/ProductPhoto";
-import { ProductVisual } from "@/components/ui/ProductVisual";
-import { loc } from "@/lib/age";
 
 export const dynamic = "force-static";
 
@@ -42,6 +37,19 @@ export async function generateMetadata({
   });
 }
 
+// Временная витрина для первого просмотра. Полный ассортимент остаётся в каталоге.
+const homeSlugs = [
+  "kartochki-bezopasnosti",
+  "advent-4-6",
+  "advent-7-9",
+  "kvest-igrushechnyy-gorod",
+  "kvest-missiya-v-magazine",
+  "kvest-organizuem-sobytie",
+];
+const homeProducts = homeSlugs.flatMap((slug) =>
+  catalogProducts.filter((product) => product.slug === slug),
+);
+
 export default async function HomePage({
   params,
 }: {
@@ -49,176 +57,139 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const dict = getDictionary(locale as Locale);
-
+  const dict = getDictionary(locale);
+  const t = dict.redesign;
+  const v = dict.style03;
+  const ages = ["4-6", "7-9", "10-12", "13-16"];
   return (
     <>
       <OrganizationJsonLd locale={locale} />
       <FaqJsonLd locale={locale} />
-      <Section className="md:pt-28">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="min-w-0">
-            <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[22ch]">
-              {dict.hero.title}
-            </h1>
-            <div className="mt-6 max-w-[65ch] space-y-4 text-text-muted">
-              {dict.hero.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="mt-8">
-              <Button href="#catalog">{dict.hero.cta}</Button>
-            </div>
-            <p className="mt-4 text-[15px] text-text-muted max-w-[65ch]">
-              <a href="#lead" className="underline underline-offset-2">
-                {dict.hero.leadLink}
-              </a>
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 items-start min-w-0">
-            <figure className="min-w-0">
-              <ProductPhoto
-                src={sampleAdvent.image}
-                alt={dict.sample.adventAlt}
-                priority
-              />
-              <figcaption className="mt-2 text-[15px] text-text-muted">
-                {loc(sampleAdvent.day, locale)}. {loc(sampleAdvent.title, locale)}
-              </figcaption>
-            </figure>
-            <ProductVisual
-              kind="cards"
-              title={loc(sampleBrelok.title, locale)}
-            />
-            <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px] min-w-0">
-              <p className="font-medium">{loc(sampleCalendar.day, locale)}</p>
-              <p className="text-text-muted">{loc(sampleCalendar.thought, locale)}</p>
+      <Section className="editorial-hero home-cover">
+        <SideNav locale={locale} dict={dict} embedded />
+        <div className="editorial-hero-grid">
+          <div className="editorial-hero-copy">
+            <p className="editorial-label">{v.homeLabel}</p>
+            <h1>{t.heroTitle}</h1>
+            <p className="editorial-intro">{t.heroText}</p>
+            <p className="mt-4 material-summary">{t.eyebrow}</p>
+            <div className="mt-6">
+              <Button href="#ages">{t.heroAction} →</Button>
             </div>
           </div>
+          <BrandArt
+            name="mascots/radarik-wave"
+            priority
+            className="editorial-hero-art"
+          />
         </div>
+        <BrandArt name="scenes/family-walk" className="home-cover-family" />
       </Section>
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8">
-          {dict.pain.title}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {dict.pain.items.map((item) => (
-            <Card key={item}>
-              <p>{item}</p>
-            </Card>
-          ))}
-        </div>
-        <p className="mt-8 max-w-[65ch]">{dict.pain.footer}</p>
-      </Section>
-
-      <Memorandum locale={locale} dict={dict} />
-
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8 max-w-full md:max-w-[18ch]">
-          {dict.what.title}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {dict.what.cards.map((card) => (
-            <Card key={card.title} className="space-y-3">
-              <h3 className="font-heading text-[20px] md:text-[24px]">{card.title}</h3>
-              <p className="text-text-muted">{card.text}</p>
-            </Card>
-          ))}
-        </div>
-        <p className="mt-8 text-text-muted">{dict.what.note}</p>
-      </Section>
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8">
-          {dict.how.title}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {dict.how.steps.map((step, index) => (
-            <Card key={step} className="space-y-3">
-              <p className="font-heading text-[40px] text-deep leading-none">{index + 1}</p>
-              <p>{step}</p>
-            </Card>
+      <Section id="ages" alt>
+        <p className="editorial-label">{v.ageLabel}</p>
+        <h2 className="section-heading">{t.catalogTitle}</h2>
+        <div className="age-paths mt-10">
+          {ages.map((age, i) => (
+            <Link
+              key={age}
+              href={localePath(locale, `/?age=${age}#catalog`)}
+              className="age-path"
+            >
+              <span className="editorial-number">0{i + 1}</span>
+              <h3>{age.replace("-", "–")}</h3>
+              <p className="material-summary mt-2">{v.ageNames[i]}</p>
+              <BrandArt name={`age/age-${age}`} />
+            </Link>
           ))}
         </div>
       </Section>
-
+      <Section className="home-materials">
+        <p className="editorial-label">{v.materialsLabel}</p>
+        <div className="home-materials-grid">
+          <article className="editorial-feature home-safety-feature">
+            <h2 className="section-heading">
+              {locale === "ru" ? "Карточки безопасности" : "Safety cards"}
+            </h2>
+            <p>{t.safetyDescription}</p>
+            <BrandArt name="scenes/store-help" alt={v.safetyScene} />
+            <Button
+              href={localePath(locale, "/produkty/kartochki-bezopasnosti")}
+            >
+              {t.viewSafety} →
+            </Button>
+          </article>
+          <article className="editorial-feature home-family-feature">
+            <h2 className="section-heading">{v.familyTitle}</h2>
+            <p>{v.familyText}</p>
+            <BrandArt name="scenes/family-table" />
+            <Button href={localePath(locale, "/produkty")}>
+              {v.familyAction} →
+            </Button>
+          </article>
+        </div>
+      </Section>
       <Section id="catalog" alt>
-        <Suspense>
+        <Suspense fallback={<h2>{t.catalogTitle}</h2>}>
           <Catalog
-            products={catalogProducts}
+            products={homeProducts}
             locale={locale}
             dict={dict}
-            title={dict.catalog.title}
+            title={t.catalogTitle}
+            compact
           />
         </Suspense>
       </Section>
-
-      <Section>
-        <SampleDay locale={locale} dict={dict} />
+      <Section id="sample" className="bg-sky">
+        <p className="eyebrow mb-3">{t.sampleEyebrow}</p>
+        <h2 className="section-heading">{t.sampleTitle}</h2>
+        <p className="mb-8 max-w-[65ch] text-text-muted">{t.sampleIntro}</p>
+        <SafetySample locale={locale} dict={dict} />
       </Section>
-
-      <Reviews locale={locale} dict={dict} />
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-6 max-w-full md:max-w-[20ch]">
-          {dict.why.title}
-        </h2>
-        <p className="max-w-[65ch]">{dict.why.text}</p>
-      </Section>
-
       <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8">
-          {dict.team.title}
-        </h2>
+        <h2 className="section-heading">{t.howTitle}</h2>
+        <ol className="steps-list mt-8">
+          {t.howSteps.map((step) => (
+            <li key={step}>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+      <StorySection
+        title={t.approachTitle}
+        eyebrow={v.approachLabel}
+        image="scenes/child-builds"
+        imageAlt={t.heroAlt}
+        alt
+      >
+        <p>{t.approachText}</p>
+        <Link href={localePath(locale, "/podhod")} className="text-link">
+          {t.approachLink} →
+        </Link>
+      </StorySection>
+      <Section>
+        <h2 className="section-heading mb-8">{t.teamTitle}</h2>
         <TeamGrid locale={locale} />
-        <p className="mt-8 max-w-[65ch] text-text-muted">
-          {dict.aboutPage.experts}{" "}
-          <Link
-            href={localePath(locale, "/dlya-biznesa")}
-            className="underline underline-offset-2"
-          >
-            {dict.nav.b2b}
-          </Link>
-          .
-        </p>
+        <Link href={localePath(locale, "/o-nas")} className="text-link mt-6">
+          {t.teamLink} →
+        </Link>
       </Section>
-
-      <Section id="lead" alt>
-        <div className="grid gap-8 md:grid-cols-2 md:items-start">
-          <div>
-            <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
-              {dict.lead.title}
-            </h2>
-            <p className="max-w-[65ch] text-text-muted mb-6">{dict.lead.text}</p>
-            <div className="grid grid-cols-1 gap-3 min-w-0">
-              <figure className="min-w-0">
-                <ProductPhoto src={sampleAdvent.image} alt={dict.sample.adventAlt} />
-                <figcaption className="mt-2 text-[15px] text-text-muted">
-                  {loc(sampleAdvent.day, locale)}. {loc(sampleAdvent.title, locale)}
-                </figcaption>
-              </figure>
-              <ProductVisual
-                kind="cards"
-                title={loc(sampleBrelok.title, locale)}
-              />
-              <div className="rounded-[16px] border border-border bg-bg-alt p-4 space-y-2 text-[15px]">
-                <p className="font-medium">{loc(sampleCalendar.day, locale)}</p>
-                <p className="text-text-muted">{loc(sampleCalendar.thought, locale)}</p>
-              </div>
-            </div>
+      <Section className="bg-surface">
+        <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+          <h2 className="section-heading">{t.faqTitle}</h2>
+          <div className="faq-list">
+            <FaqAccordion items={faqItems} locale={locale} />
           </div>
-          <Card>
-            <SubscribeForm locale={locale} dict={dict} />
-          </Card>
         </div>
       </Section>
-
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-8">
-          {dict.faq.title}
-        </h2>
-        <FaqAccordion items={faqItems} locale={locale} />
+      <Section id="lead">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="section-heading mb-3">{t.finishTitle}</h2>
+            <p className="max-w-[55ch] text-text-muted">{t.finishText}</p>
+          </div>
+          <Button href="#sample">{t.finishAction}</Button>
+        </div>
       </Section>
     </>
   );

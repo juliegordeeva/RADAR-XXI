@@ -1,9 +1,4 @@
-import { site } from "@/lib/site";
 import type { TrackingFields } from "@/lib/utm";
-
-function mailLink(subject: string, body: string) {
-  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 function formatBody(fields: Record<string, string | undefined>) {
   return Object.entries(fields)
@@ -16,23 +11,9 @@ export async function sendFormFromBrowser(
   subject: string,
   fields: Record<string, string | undefined>,
 ) {
-  const body = formatBody(fields);
-
-  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(body);
-    } catch {
-      // Буфер недоступен — заявка всё равно уйдёт через почту или Telegram.
-    }
-  }
-
-  if (site.email) {
-    window.location.href = mailLink(subject, body);
-    return;
-  }
-
-  const telegramUrl = new URL(site.telegram);
-  window.open(telegramUrl.toString(), "_blank", "noopener,noreferrer");
+  // Статический сайт готовит текст; отправку выполняет пользователь в чате.
+  void subject;
+  return formatBody(fields);
 }
 
 export function withTracking(
@@ -59,7 +40,7 @@ export async function sendLeadFromBrowser(fields: {
   childAge?: string;
   tracking: TrackingFields;
 }) {
-  await sendFormFromBrowser(
+  return sendFormFromBrowser(
     "Заявка RADAR KIDS",
     withTracking(
       {
@@ -78,7 +59,7 @@ export async function sendSubscribeFromBrowser(
   email: string,
   tracking: TrackingFields,
 ) {
-  await sendFormFromBrowser(
+  return sendFormFromBrowser(
     "Запрос образца RADAR KIDS",
     withTracking({ Почта: email }, tracking),
   );
