@@ -4,17 +4,15 @@ import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/locale-path";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { SideNav } from "@/components/layout/SideNav";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <>
       <SideNav locale={locale} dict={dict} />
       <header className="mobile-header">
-        <Link
-          href={localePath(locale, "/")}
-          className="font-heading font-bold text-[22px]"
-        >
-          {dict.common.brand}
+        <Link href={localePath(locale, "/")} className="mobile-wordmark">
+          <BrandLogo />
         </Link>
         <MobileNav locale={locale} dict={dict} />
       </header>

@@ -10,6 +10,7 @@ import { assetPath } from "@/lib/asset";
 import { localePath } from "@/lib/locale-path";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionary";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 type SideNavProps = { locale: Locale; dict: Dictionary; embedded?: boolean };
 
@@ -54,13 +55,8 @@ function Navigation({ locale, dict, embedded = false }: SideNavProps) {
     <aside
       className={`side-nav ${embedded ? "home-side-nav" : "global-side-nav"}`}
     >
-      <Link
-        href={localePath(locale, "/")}
-        className="side-wordmark"
-        aria-label={dict.common.brand}
-      >
-        <span>RADAR</span>
-        <span>KIDS</span>
+      <Link href={localePath(locale, "/")} className="side-wordmark">
+        <BrandLogo />
       </Link>
       <nav aria-label={dict.nav.openMenu}>
         {links.map((item, i) => (
