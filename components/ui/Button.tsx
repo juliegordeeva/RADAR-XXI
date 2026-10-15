@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 const variants = {
   primary:
-    "bg-accent text-bg hover:bg-accent-hover border-transparent w-full md:w-auto",
+    "bg-accent text-white hover:bg-accent-hover border-transparent w-full md:w-auto",
   secondary:
     "bg-transparent text-text border-text hover:bg-text hover:text-bg w-full md:w-auto",
 };
@@ -27,7 +27,7 @@ type ButtonAsLink = Base & {
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { children, className, variant = "primary" } = props;
   const classes = cn(
-    "inline-flex items-center justify-center min-h-[54px] h-auto py-3 px-5 md:px-9 rounded-[12px] text-[17px] font-medium border text-center whitespace-normal leading-snug transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none max-w-full",
+    "inline-flex items-center justify-center min-h-[48px] h-auto py-3 px-5 md:px-9 rounded-full text-[16px] font-bold border text-center whitespace-normal leading-snug transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none max-w-full",
     variants[variant],
     className,
   );
@@ -54,7 +54,16 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     );
   }
 
-  const { type = "button", ...rest } = props as ButtonAsButton;
+  const {
+    type = "button",
+    children: _children,
+    className: _className,
+    variant: _variant,
+    ...rest
+  } = props as ButtonAsButton;
+  void _children;
+  void _className;
+  void _variant;
   return (
     <button type={type} className={classes} {...rest}>
       {children}

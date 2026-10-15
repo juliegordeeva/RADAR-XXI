@@ -21,7 +21,9 @@ export function CompetenciesBlock({
       <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4 max-w-full md:max-w-[18ch]">
         {dict.abilities.title}
       </h2>
-      <p className="max-w-[65ch] text-text-muted mb-10">{dict.abilities.subtitle}</p>
+      <p className="max-w-[65ch] text-text-muted mb-10">
+        {dict.abilities.subtitle}
+      </p>
       <div className="space-y-12">
         {competencyGroupOrder.map((group) => (
           <div key={group}>
@@ -43,7 +45,10 @@ export function CompetenciesBlock({
         ))}
       </div>
       <p className="mt-10 max-w-[65ch] flex gap-3 items-start">
-        <BookOpen className="size-6 shrink-0 text-comp-literacy mt-1" strokeWidth={1.75} />
+        <BookOpen
+          className="size-6 shrink-0 text-comp-literacy mt-1"
+          strokeWidth={1.75}
+        />
         <span>
           <strong>{dict.abilities.literacyLead}</strong>{" "}
           {dict.abilities.literacy}

@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [master, redesign/brandbook-v2]
   workflow_dispatch:
 
 permissions:
@@ -33,9 +33,10 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          GITHUB_PAGES: "true"
-          NEXT_PUBLIC_BASE_PATH: /RADAR-XXI
-          NEXT_PUBLIC_SITE_URL: https://juliegordeeva.github.io/RADAR-XXI
+          # Свой домен в корне; префикс /RADAR-XXI ломает стили и ссылки.
+          GITHUB_PAGES: "false"
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://kids.radarexec.ru
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

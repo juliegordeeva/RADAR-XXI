@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
-import { Card } from "@/components/ui/Card";
+import { EditorialHero } from "@/components/sections/EditorialHero";
+import { BrandArt } from "@/components/ui/BrandArt";
+import Link from "next/link";
+import { localePath } from "@/lib/locale-path";
 import { TelegramCta } from "@/components/ui/TelegramCta";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { getDictionary } from "@/lib/dictionary";
@@ -37,44 +40,79 @@ export default async function ContactsPage({
   const dict = getDictionary(locale);
 
   return (
-    <Section className="md:pt-20">
-      <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1]">
-        {dict.contactsPage.title}
-      </h1>
-      <p className="mt-6 max-w-[65ch]">{dict.contactsPage.intro}</p>
-      <div className="mt-6">
-        <TelegramCta dict={dict} />
-      </div>
-      <div className="mt-10 grid gap-8 lg:grid-cols-2">
-        <div className="space-y-3">
-          <p>
-            {dict.footer.phoneRu}:{" "}
-            <a className="underline underline-offset-2" href={`tel:${site.phones.ru.replace(/\s/g, "")}`}>
-              {site.phones.ru}
-            </a>
-          </p>
-          <p>
-            {dict.footer.phoneEu}:{" "}
-            <a className="underline underline-offset-2" href={`tel:${site.phones.eu.replace(/\s/g, "")}`}>
-              {site.phones.eu}
-            </a>
-          </p>
-          <p>
-            <a
-              className="underline underline-offset-2"
-              href={site.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.footer.telegram}
-            </a>
+    <>
+      <EditorialHero
+        variant="contacts"
+        eyebrow={dict.style03.homeLabel}
+        title={dict.style03.contactsTitle}
+        intro={dict.style03.contactsIntro}
+        image="mascots/radarik-notebook"
+      >
+        <div>
+          <TelegramCta dict={dict} />
+          <p className="material-summary text-text-muted mt-4">
+            {dict.redesign.telegramNote}
           </p>
         </div>
-        <Card>
-          <h2 className="font-heading text-[24px] mb-5">{dict.contactsPage.formTitle}</h2>
+      </EditorialHero>
+      <Section className="pt-0">
+        <div className="editorial-split border-t border-teal pt-8">
+          {["ru", "eu"].map((region) => (
+            <div key={region}>
+              <p className="editorial-label">
+                {region === "ru" ? dict.footer.phoneRu : dict.footer.phoneEu}
+              </p>
+              <a
+                href={`tel:${site.phones[region as "ru" | "eu"].replace(/\s/g, "")}`}
+                className="contact-phone"
+              >
+                {site.phones[region as "ru" | "eu"]}
+              </a>
+            </div>
+          ))}
+        </div>
+      </Section>
+      <Section alt>
+        <h2 className="section-heading">{dict.style03.directions}</h2>
+        <div className="editorial-three">
+          {[
+            {
+              image: "age/age-4-6",
+              title: dict.nav.products,
+              path: "/produkty",
+            },
+            {
+              image: "scenes/parents-planning",
+              title: dict.style03.parentLabel,
+              path: "/produkty?age=parents",
+            },
+            {
+              image: "scenes/office-day",
+              title: dict.nav.b2b,
+              path: "/dlya-biznesa",
+            },
+          ].map((item) => (
+            <article key={item.path}>
+              <BrandArt name={item.image} />
+              <Link href={localePath(locale, item.path)} className="text-link">
+                {item.title} →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </Section>
+      <Section>
+        <div className="editorial-split items-start">
+          <div>
+            <h2 className="section-heading">{dict.contactsPage.formTitle}</h2>
+            <p>{dict.contactsPage.intro}</p>
+            <p className="material-summary mt-4">
+              {dict.redesign.preparedNote}
+            </p>
+          </div>
           <LeadForm locale={locale} dict={dict} compact />
-        </Card>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { getDictionary } from "@/lib/dictionary";
 import { faqItems } from "@/content/faq";
 import { getSiteUrl, site } from "@/lib/site";
 import { products } from "@/content/products";
@@ -75,7 +76,10 @@ export function ProductJsonLd({
     "@context": "https://schema.org",
     "@type": "Product",
     name: loc(product.title, locale),
-    description: loc(product.tagline, locale),
+    description:
+      product.slug === "kartochki-bezopasnosti"
+        ? getDictionary(locale).redesign.safetyDescription
+        : loc(product.tagline, locale),
     url: `${getSiteUrl()}${localePath(locale, `/produkty/${product.slug}`)}`,
     brand: { "@type": "Brand", name: "RADAR KIDS" },
   };

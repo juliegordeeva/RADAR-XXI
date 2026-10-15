@@ -2,7 +2,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { CompetenciesBlock } from "@/components/sections/CompetenciesBlock";
+import { EditorialHero } from "@/components/sections/EditorialHero";
+import { BrandArt } from "@/components/ui/BrandArt";
+import { StorySection } from "@/components/sections/StorySection";
+import { competencies } from "@/content/competencies";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import { products } from "@/content/products";
 import { competencyByKey } from "@/content/competencies";
@@ -44,93 +47,122 @@ export default async function ApproachPage({
     { title: a.othersTitle, text: a.others },
     { title: a.selfTitle, text: a.self },
   ];
-  const rest = [
-    { title: a.literacyTitle, text: a.literacy },
-    { title: a.familyTitle, text: a.family },
-    { title: a.practiceTitle, text: a.practice },
-  ];
 
   return (
     <>
       <ArticleJsonLd locale={locale} />
-      <Section className="md:pt-20">
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[16ch]">
-          {a.title}
-        </h1>
-        <div className="mt-12 max-w-[65ch] space-y-12">
-          <div>
-            <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
-              {a.changedTitle}
-            </h2>
-            <p>{a.changed}</p>
-          </div>
-          <div>
-            <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-6">
-              {a.threeTitle}
-            </h2>
-            <div className="space-y-8">
-              {three.map((block) => (
-                <div key={block.title}>
-                  <h3 className="font-heading text-[20px] md:text-[24px] mb-3">
-                    {block.title}
-                  </h3>
-                  <p>{block.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="mt-16">
-          <CompetenciesBlock locale={locale} dict={dict} />
-        </div>
-        <div className="mt-16 max-w-[65ch] space-y-12">
-          {rest.map((block) => (
-            <div key={block.title}>
-              <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
-                {block.title}
-              </h2>
+      <EditorialHero
+        variant="approach"
+        eyebrow={dict.style03.approachLabel}
+        title={dict.redesign.approachTitle}
+        intro={dict.redesign.approachText}
+        image="scenes/child-builds"
+        imageAlt={dict.redesign.heroAlt}
+      />
+      <Section alt>
+        <p className="editorial-label">{dict.redesign.howTitle}</p>
+        <h2 className="section-heading">{a.threeTitle}</h2>
+        <div className="editorial-three mt-8">
+          {three.map((block, i) => (
+            <article key={block.title}>
+              <span className="editorial-number">0{i + 1}</span>
+              <h3 className="mb-4">{block.title}</h3>
               <p>{block.text}</p>
-            </div>
+              <BrandArt
+                name={
+                  ["scenes/child-builds", "scenes/family-table", "age/age-7-9"][
+                    i
+                  ]
+                }
+              />
+            </article>
           ))}
-          <div>
-            <h2 className="font-heading text-[28px] md:text-[40px] leading-tight mb-4">
-              {a.kitsTitle}
-            </h2>
-            <p className="mb-8">{a.kits}</p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-[15px] text-left border-collapse">
-                <thead>
-                  <tr>
-                    <th className="pb-3 pr-4 font-medium">{a.tableProduct}</th>
-                    <th className="pb-3 pr-4 font-medium">{a.tableAbilities}</th>
-                    <th className="pb-3 font-medium">{a.tableAge}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products
-                    .filter((product) => product.inMainCatalog !== false)
-                    .map((product) => (
-                    <tr key={product.slug} className="border-t border-border align-top">
-                      <td className="py-3 pr-4">{loc(product.title, locale)}</td>
-                      <td className="py-3 pr-4">
-                        {product.competencies
-                          .map((key) => loc(competencyByKey[key].title, locale))
-                          .join(", ")}
-                      </td>
-                      <td className="py-3">
-                        {product.ageGroups
-                          .map((group) => loc(ageLabels[group], locale))
-                          .join(", ")}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
-        <div className="mt-14">
-          <Button href={localePath(locale, "/produkty")}>{a.cta}</Button>
+      </Section>
+      <Section>
+        <p className="editorial-label">{a.changedTitle}</p>
+        <h2 className="section-heading">{dict.abilities.title}</h2>
+        <p className="max-w-[65ch] mb-8">{a.changed}</p>
+        <div className="editorial-competencies">
+          {competencies
+            .filter((item) => item.group !== "literacy")
+            .map((item, i) => (
+              <article key={item.key}>
+                <span className="editorial-number">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3>{loc(item.title, locale)}</h3>
+                <p>{loc(item.forParent, locale)}</p>
+                <p className="material-summary text-text-muted mt-3">
+                  {loc(item.signOfProgress, locale)}
+                </p>
+              </article>
+            ))}
+        </div>
+        <div className="mt-8 max-w-[65ch]">
+          <h3 className="mb-4">{a.literacyTitle}</h3>
+          <p>{a.literacy}</p>
+        </div>
+        <p className="mt-8 max-w-[65ch] font-bold">{dict.abilities.ninth}</p>
+        <p className="mt-3 max-w-[65ch]">{dict.abilities.ninthNote}</p>
+      </Section>
+      <StorySection
+        title={a.selfTitle}
+        eyebrow={dict.style03.parentLabel}
+        image="scenes/father-work"
+        alt
+        reverse
+      >
+        <p>{a.self}</p>
+        <Button href={localePath(locale, "/produkty?age=parents")}>
+          {dict.style03.chooseParents} →
+        </Button>
+      </StorySection>
+      <StorySection title={a.familyTitle} image="scenes/family-table">
+        <p>{a.family}</p>
+        <h3>{a.practiceTitle}</h3>
+        <p>{a.practice}</p>
+      </StorySection>
+      <Section>
+        <h2 className="section-heading">{a.kitsTitle}</h2>
+        <p className="max-w-[65ch] mb-8">{a.kits}</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-[15px] text-left border-collapse">
+            <thead>
+              <tr>
+                <th className="p-3">{a.tableProduct}</th>
+                <th className="p-3">{a.tableAbilities}</th>
+                <th className="p-3">{a.tableAge}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products
+                .filter((item) => item.inMainCatalog !== false)
+                .map((product) => (
+                  <tr
+                    key={product.slug}
+                    className="border-t border-border align-top"
+                  >
+                    <td className="p-3">{loc(product.title, locale)}</td>
+                    <td className="p-3">
+                      {product.competencies
+                        .map((key) => loc(competencyByKey[key].title, locale))
+                        .join(", ")}
+                    </td>
+                    <td className="p-3">
+                      {product.slug === "kartochki-bezopasnosti"
+                        ? dict.redesign.safetyAge
+                        : product.ageGroups
+                            .map((age) => loc(ageLabels[age], locale))
+                            .join(", ")}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-8">
+          <Button href={localePath(locale, "/produkty")}>{a.cta} →</Button>
         </div>
       </Section>
     </>
