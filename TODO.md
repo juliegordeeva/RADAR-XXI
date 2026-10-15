@@ -1,7 +1,7 @@
 # TODO — 22 сентября 2026
 
-Живой сайт: https://juliegordeeva.github.io/RADAR-XXI/ru/  
-Коммит `fbca960`. Первый экран обновлён. Черновики `[TODO:]` с публичных страниц сняты.
+Живой сайт: https://kids.radarexec.ru/ru/  
+(старый адрес `juliegordeeva.github.io/RADAR-XXI` GitHub перенаправляет на этот домен.)
 
 ## Ждёт данные заказчика
 
@@ -26,14 +26,10 @@
 - Кнопки «Купить PDF / бот / печать» ведут на заявку. Оплаты на сайте нет; об этом написано на карточке и в FAQ. Не называть «Купить» оплату, пока её нет.
 - Брелок и канва Остервальдера в каталоге как «Скоро», страниц продукта нет.
 
-## Переезд на свой домен
+## Свой домен kids.radarexec.ru
 
-В запросе было `kids.radrexec.ru`. У группы уже `bureau.radarexec.ru` и `gordeeva.radarexec.ru`. Сначала подтвердить хост: скорее `kids.radarexec.ru`.
+DNS и HTTPS на GitHub Pages уже есть. Сборка без `basePath /RADAR-XXI`.
 
-1. DNS + HTTPS.
-2. Выключить `GITHUB_PAGES` и `basePath /RADAR-XXI`.
-3. `NEXT_PUBLIC_SITE_URL`, `metadataBase`, sitemap, robots.
-4. Редирект `juliegordeeva.github.io/RADAR-XXI` на новый адрес.
-5. Почта на этом домене.
-6. Юрлицо в политике.
-7. Не выводить «Купить» как магазин, пока нет оплаты.
+- Почта на этом домене (`site.email` пустой).
+- Юрлицо в политике.
+- Не выводить «Купить» как магазин, пока нет оплаты.
