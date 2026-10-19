@@ -23,9 +23,12 @@ export function LanguageSwitcher({
           key={item}
           href={`/${item}${rest === "/" ? "" : rest}`}
           hrefLang={item}
+          aria-current={item === locale ? "page" : undefined}
           className={cn(
-            "px-2 py-1 rounded-[8px] uppercase tracking-wide min-h-8 inline-flex items-center",
-            item === locale ? "text-text font-medium" : "text-text-muted hover:text-text",
+            "px-2 py-1 rounded-[8px] uppercase tracking-wide min-h-12 inline-flex items-center",
+            item === locale
+              ? "text-text font-bold"
+              : "text-text-muted hover:text-text",
           )}
         >
           {item}

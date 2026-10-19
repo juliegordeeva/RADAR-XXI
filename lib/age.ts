@@ -1,13 +1,7 @@
 import type { AgeGroup, Localized } from "@/content/types";
 import type { Locale } from "@/lib/i18n";
 
-export const ageOrder: AgeGroup[] = [
-  "4-6",
-  "7-9",
-  "10-12",
-  "13-16",
-  "parents",
-];
+export const ageOrder: AgeGroup[] = ["4-6", "7-9", "10-12", "13-16", "parents"];
 
 export const ageLabels: Record<AgeGroup, Localized> = {
   "4-6": { ru: "4–6 лет", en: "ages 4–6" },
@@ -27,10 +21,10 @@ export const ageFilterLabels: Record<AgeGroup, Localized> = {
 
 export const ageBadgeClass: Record<AgeGroup, string> = {
   "4-6": "bg-age-4-6 text-text",
-  "7-9": "bg-age-7-9 text-white",
-  "10-12": "bg-age-10-12 text-white",
-  "13-16": "bg-age-13-16 text-white",
-  parents: "bg-age-parents text-bg",
+  "7-9": "bg-age-7-9 text-text",
+  "10-12": "bg-age-10-12 text-text",
+  "13-16": "bg-age-13-16 text-text",
+  parents: "bg-age-parents text-text",
 };
 
 export function formatAgeGroups(groups: AgeGroup[], locale: Locale) {

@@ -1,5 +1,6 @@
 "use client";
 
+import { PreparedRequest } from "@/components/forms/PreparedRequest";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -34,14 +35,19 @@ export function BusinessForm({
   dict: Dictionary;
   variant: BusinessFormVariant;
 }) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle",
-  );
+  const [prepared, setPrepared] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const schema = useMemo(() => {
     if (variant === "office") {
       return businessFormSchema.superRefine((data, ctx) => {
         if (!data.childrenCount?.trim()) {
-          ctx.addIssue({ code: "custom", path: ["childrenCount"], message: "required" });
+          ctx.addIssue({
+            code: "custom",
+            path: ["childrenCount"],
+            message: "required",
+          });
         }
         if (!data.ages?.trim()) {
           ctx.addIssue({ code: "custom", path: ["ages"], message: "required" });
@@ -51,7 +57,11 @@ export function BusinessForm({
     if (variant === "hikes") {
       return businessFormSchema.superRefine((data, ctx) => {
         if (!data.familiesCount?.trim()) {
-          ctx.addIssue({ code: "custom", path: ["familiesCount"], message: "required" });
+          ctx.addIssue({
+            code: "custom",
+            path: ["familiesCount"],
+            message: "required",
+          });
         }
         if (!data.ages?.trim()) {
           ctx.addIssue({ code: "custom", path: ["ages"], message: "required" });
@@ -98,7 +108,7 @@ export function BusinessForm({
     setStatus("loading");
     try {
       const tracking = collectTracking(`dlya-biznesa/${variant}`);
-      await sendFormFromBrowser(
+      const body = await sendFormFromBrowser(
         `Заявка RADAR KIDS: ${values.product}`,
         withTracking(
           {
@@ -116,31 +126,20 @@ export function BusinessForm({
           tracking,
         ),
       );
+      setPrepared(body);
       setStatus("success");
-      form.reset({
-        ...values,
-        name: "",
-        companyRole: "",
-        contact: "",
-        city: "",
-        date: "",
-        childrenCount: "",
-        familiesCount: "",
-        ages: "",
-        comment: "",
-        consent: false,
-        website: "",
-      });
     } catch {
       setStatus("error");
     }
   }
 
-  if (status === "success") {
+  if (status === "success" && prepared) {
     return (
-      <p className="text-[17px] md:text-[18px]" role="status">
-        {labels.success}
-      </p>
+      <PreparedRequest
+        body={prepared}
+        dict={dict}
+        onEdit={() => setStatus("idle")}
+      />
     );
   }
 
@@ -219,7 +218,11 @@ export function BusinessForm({
       <div className="hidden" aria-hidden="true">
         <label>
           {dict.forms.honeypot}
-          <input tabIndex={-1} autoComplete="off" {...form.register("website")} />
+          <input
+            tabIndex={-1}
+            autoComplete="off"
+            {...form.register("website")}
+          />
         </label>
       </div>
       <Checkbox

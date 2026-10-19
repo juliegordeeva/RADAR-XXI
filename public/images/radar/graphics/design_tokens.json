@@ -1,0 +1,38 @@
+{
+  "version": "2.0",
+  "colors": {
+    "paper": "#FFF5E3",
+    "navy": "#102E4A",
+    "teal": "#078E9E",
+    "teal_ink": "#067887",
+    "green": "#3E964A",
+    "yellow": "#F9B817",
+    "coral": "#F05227",
+    "purple": "#804C91",
+    "mint": "#70BCA4",
+    "olive": "#67784E",
+    "mist": "#E8F2EE",
+    "rose": "#FBE6DE",
+    "sky": "#E6F0F2",
+    "white": "#FFFFFF"
+  },
+  "fonts": {
+    "heading": "Rubik Bold",
+    "body": "Noto Sans Regular",
+    "emphasis": "Noto Sans Bold"
+  },
+  "spacing": [
+    4,
+    8,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "radii": {
+    "button": 12,
+    "card": 24,
+    "label": "pill"
+  }
+}

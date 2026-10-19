@@ -1,5 +1,6 @@
 "use client";
 
+import { PreparedRequest } from "@/components/forms/PreparedRequest";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -39,7 +40,10 @@ export function LeadForm({
   format?: PurchaseFormat;
   compact?: boolean;
 }) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [prepared, setPrepared] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const schema = useMemo(() => leadSchema, []);
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -72,7 +76,7 @@ export function LeadForm({
         consent: true,
         website: values.website ?? "",
       };
-      await sendLeadFromBrowser({
+      const body = await sendLeadFromBrowser({
         name: payload.name,
         contact: payload.contact,
         product: payload.product,
@@ -80,24 +84,34 @@ export function LeadForm({
         childAge: payload.childAge,
         tracking: collectTracking(product ? `produkty/${product}` : "lead"),
       });
+      setPrepared(body);
       setStatus("success");
-      form.reset({ ...values, name: "", contact: "", childAge: "", consent: false });
     } catch {
       setStatus("error");
     }
   }
 
-  if (status === "success") {
+  if (status === "success" && prepared) {
     return (
-      <p className="text-[17px] md:text-[18px]" role="status">
-        {dict.forms.leadSuccess}
-      </p>
+      <PreparedRequest
+        body={prepared}
+        dict={dict}
+        onEdit={() => setStatus("idle")}
+      />
     );
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
-      <div className={compact ? "flex flex-col gap-5" : "grid gap-5 md:grid-cols-2"}>
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="flex flex-col gap-5"
+      noValidate
+    >
+      <div
+        className={
+          compact ? "flex flex-col gap-5" : "grid gap-5 md:grid-cols-2"
+        }
+      >
         <Input
           label={dict.forms.name}
           {...form.register("name")}
@@ -107,7 +121,9 @@ export function LeadForm({
           label={dict.forms.contact}
           {...form.register("contact")}
           error={
-            form.formState.errors.contact ? dict.forms.invalidContact : undefined
+            form.formState.errors.contact
+              ? dict.forms.invalidContact
+              : undefined
           }
         />
         <Input label={dict.forms.childAge} {...form.register("childAge")} />
@@ -121,7 +137,11 @@ export function LeadForm({
       <div className="hidden" aria-hidden="true">
         <label>
           {dict.forms.honeypot}
-          <input tabIndex={-1} autoComplete="off" {...form.register("website")} />
+          <input
+            tabIndex={-1}
+            autoComplete="off"
+            {...form.register("website")}
+          />
         </label>
       </div>
       <Checkbox
@@ -140,7 +160,9 @@ export function LeadForm({
         error={form.formState.errors.consent ? dict.forms.required : undefined}
       />
       <Button type="submit" disabled={!consent || status === "loading"}>
-        {status === "loading" ? dict.forms.sending : purchaseSubmitLabel(format, dict)}
+        {status === "loading"
+          ? dict.forms.sending
+          : purchaseSubmitLabel(format, dict)}
       </Button>
       {status === "error" && (
         <p className="text-[15px] text-accent" role="alert">

@@ -1,26 +1,36 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getProduct, getRelated, products, forCatalog } from "@/content/products";
+import Link from "next/link";
+import {
+  getProduct,
+  getRelated,
+  products,
+  forCatalog,
+} from "@/content/products";
+import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale, locales } from "@/lib/i18n";
 import { loc } from "@/lib/age";
 import { pageMetadata } from "@/lib/metadata";
+import { localePath } from "@/lib/locale-path";
+import { site } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
 import { CompetencyTag } from "@/components/ui/CompetencyTag";
-import { CompetencyCard } from "@/components/ui/CompetencyCard";
 import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { ProductVisual } from "@/components/ui/ProductVisual";
-import { ProductPhoto, hasProductPhoto } from "@/components/ui/ProductPhoto";
+import { ProductHeading } from "@/components/ui/ProductHeading";
+import { BrandArt } from "@/components/ui/BrandArt";
+import { CalendarPreview } from "@/components/ui/CalendarPreview";
+import { EditorialHero } from "@/components/sections/EditorialHero";
+import { StorySection } from "@/components/sections/StorySection";
 import { ProductCard } from "@/components/sections/ProductCard";
-import { ProductRequest } from "@/components/forms/ProductRequest";
+import { SafetySample } from "@/components/sections/SafetySample";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ProductJsonLd } from "@/components/seo/JsonLd";
-import { sampleSafety } from "@/content/samples";
 import { visibleItems, visibleText } from "@/lib/placeholder";
 
 export const dynamic = "force-static";
-
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     products
@@ -28,7 +38,6 @@ export function generateStaticParams() {
       .map((product) => ({ locale, slug: product.slug })),
   );
 }
-
 export async function generateMetadata({
   params,
 }: {
@@ -37,16 +46,18 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
   const product = getProduct(slug);
-  const dict = getDictionary(locale);
   if (!product || product.comingSoon) return {};
+  const dict = getDictionary(locale);
   return pageMetadata({
     locale,
     path: `/produkty/${slug}`,
     title: `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
-    description: loc(product.tagline, locale),
+    description:
+      slug === "kartochki-bezopasnosti"
+        ? dict.redesign.safetyDescription
+        : loc(product.tagline, locale),
   });
 }
-
 export default async function ProductPage({
   params,
 }: {
@@ -57,159 +68,254 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product || product.comingSoon) notFound();
   const dict = getDictionary(locale);
+  const t = dict.redesign;
+  const v = dict.style03;
+  const safety = slug === "kartochki-bezopasnosti";
+  const calendar = slug === "kalendar-32-dnya";
+  const diary = slug === "ezhednevnik-tri-roli";
   const related = getRelated(product)
     .filter((item) => item.inMainCatalog !== false && !item.comingSoon)
+    .slice(0, 3)
     .map(forCatalog);
-  const comingSoon = Boolean(product.comingSoon);
-  const priceLabel = comingSoon
-    ? dict.catalog.comingSoon
-    : product.price === null
-      ? dict.catalog.priceAsk
-      : dict.catalog.priceFrom.replace("{price}", String(product.price));
-  const author = visibleText(product.author, locale);
   const composition = visibleItems(product.composition);
   const howTo = visibleItems(product.howTo);
-  const delivery = visibleText(product.delivery, locale);
+  const author = visibleText(product.author, locale);
   const sampleTitle = visibleText(product.sampleTitle, locale);
   const sampleBody = visibleText(product.sampleBody, locale);
-
+  const price =
+    product.price === null
+      ? dict.catalog.priceAsk
+      : dict.catalog.priceFrom.replace("{price}", String(product.price));
+  const action = safety ? t.priceAction : t.productAction;
+  const image = safety
+    ? "scenes/store-help"
+    : calendar
+      ? "scenes/parent-reflection"
+      : diary
+        ? "scenes/parents-planning"
+        : product.ageGroups.includes("13-16")
+          ? "age/age-13-16"
+          : product.ageGroups.includes("10-12")
+            ? "age/age-10-12"
+            : "scenes/family-table";
   return (
     <>
-      <ProductJsonLd locale={locale} slug={product.slug} />
-      <Section className="md:pt-20">
-        <div className="flex flex-wrap gap-2 mb-5">
-          {product.ageGroups.map((age) => (
-            <Badge key={age} age={age} locale={locale} />
-          ))}
+      <ProductJsonLd locale={locale} slug={slug} />
+      <EditorialHero
+        variant={
+          safety ? "safety" : calendar ? "calendar" : diary ? "diary" : "scene"
+        }
+        artwork={
+          diary ? (
+            <figure className="hero-product">
+              <BrandArt name="illustrative-products/diary-open" />
+              <figcaption className="illustration-caption">
+                {v.diaryCaption}
+              </figcaption>
+            </figure>
+          ) : undefined
+        }
+        eyebrow={calendar || diary ? v.parentLabel : v.materialsLabel}
+        title={
+          safety || calendar || diary ? (
+            <ProductHeading
+              title={loc(product.title, locale)}
+              kind={safety ? "safety" : "parent"}
+            />
+          ) : (
+            loc(product.title, locale)
+          )
+        }
+        intro={safety ? t.safetyDescription : loc(product.tagline, locale)}
+        image={image}
+        imageAlt={safety ? v.safetyScene : v.illustrationAlt}
+      >
+        <div className="flex flex-wrap gap-2">
+          {safety ? (
+            <span className="rounded-full bg-yellow px-4 py-2 material-summary font-bold">
+              {t.safetyAge}
+            </span>
+          ) : (
+            product.ageGroups.map((age) => (
+              <Badge key={age} age={age} locale={locale} />
+            ))
+          )}
+        </div>
+        {author && <p className="material-summary mt-4">{author}</p>}
+        <div>
+          <Button href={calendar ? "#sample" : site.telegram}>
+            {calendar ? v.calendarExample : action} →
+          </Button>
+          {!calendar && (
+            <p className="material-summary text-text-muted mt-3">
+              {t.telegramNote}
+            </p>
+          )}
+        </div>
+        <Link href={localePath(locale, "/produkty")} className="text-link mt-3">
+          ← {t.breadcrumb}
+        </Link>
+      </EditorialHero>
+      {safety ? (
+        <Section id="sample" alt>
+          <div className="editorial-split items-start">
+            <div>
+              <p className="editorial-label">{t.sampleEyebrow}</p>
+              <h2 className="section-heading">{t.sampleTitle}</h2>
+              <p className="mb-6">{t.sampleIntro}</p>
+              <p className="material-summary">{v.samplePending}</p>
+            </div>
+            <div>
+              <span className="editorial-number">45</span>
+              <h3>{t.safetyFormat}</h3>
+              <p className="material-summary mt-3">{t.factsNote}</p>
+            </div>
+          </div>
+          <div className="mt-10">
+            <SafetySample locale={locale} dict={dict} />
+          </div>
+        </Section>
+      ) : calendar ? (
+        <Section id="sample" alt>
+          <div className="editorial-split">
+            <figure>
+              <CalendarPreview alt={v.calendarCaption} />
+              <figcaption className="illustration-caption">
+                {v.calendarCaption}
+              </figcaption>
+            </figure>
+            <div>
+              <p className="editorial-label">{v.parentLabel}</p>
+              <h2 className="section-heading">{v.calendarExample}</h2>
+              <p>{loc(product.tagline, locale)}</p>
+              <p className="mt-5">{loc(product.audience, locale)}</p>
+            </div>
+          </div>
+          <div className="calendar-previews mt-12">
+            {(["day-01", "day-02", "day-09"] as const).map((page, i) => (
+              <figure key={page}>
+                <CalendarPreview
+                  page={page}
+                  alt={`${v.calendarCaption} ${[1, 2, 9][i]}`}
+                  zoom
+                />
+                <figcaption>
+                  {locale === "ru" ? "День" : "Day"} {[1, 2, 9][i]} ·{" "}
+                  {v.calendarCaption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </Section>
+      ) : diary ? (
+        <StorySection
+          title={v.diaryExample}
+          image="illustrative-products/diary-open"
+          caption={v.diaryCaption}
+          alt
+        >
+          <p>{loc(product.tagline, locale)}</p>
+          <p>{v.diaryCaption}</p>
+          <Button href={site.telegram}>{t.sampleAction}</Button>
+          <p className="material-summary">{t.telegramNote}</p>
+        </StorySection>
+      ) : (
+        (sampleTitle || sampleBody) && (
+          <Section alt>
+            <div className="editorial-split">
+              <div>
+                <h2 className="section-heading">{dict.productPage.sample}</h2>
+                {sampleTitle && <h3 className="mb-5">{sampleTitle}</h3>}
+                {sampleBody && <p>{sampleBody}</p>}
+              </div>
+              <BrandArt name={image} />
+            </div>
+          </Section>
+        )
+      )}
+      <Section>
+        <div className="editorial-split items-start">
+          <div>
+            <p className="editorial-label">{t.audience}</p>
+            <p>{loc(product.audience, locale)}</p>
+            <p className="mt-5 material-summary text-text-muted">
+              {safety ? t.safetyFormat : loc(product.format, locale)}
+            </p>
+          </div>
+          {composition.length > 0 && (
+            <div>
+              <h2 className="section-heading">{t.inside}</h2>
+              <ul className="space-y-5">
+                {composition.map((item) => (
+                  <li key={item.ru} className="border-t border-teal pt-4">
+                    {loc(item, locale)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </Section>
+      {howTo.length > 0 && (
+        <Section alt>
+          <h2 className="section-heading">{t.use}</h2>
+          <ol className="steps-list">
+            {howTo.map((step) => (
+              <li key={step.ru}>
+                <p>{loc(step, locale)}</p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      )}
+      <StorySection
+        title={safety ? t.discuss : dict.productPage.result}
+        image={calendar || diary ? "scenes/father-work" : "scenes/family-table"}
+        reverse
+      >
+        <p>{safety ? t.safetyDiscuss : loc(product.result, locale)}</p>
+        <div className="flex flex-wrap gap-2">
           {product.competencies.map((key) => (
             <CompetencyTag key={key} competencyKey={key} locale={locale} />
           ))}
         </div>
-        <h1 className="font-heading text-[34px] leading-[1.15] md:text-[56px] md:leading-[1.1] max-w-full md:max-w-[22ch]">
-          {loc(product.title, locale)}
-        </h1>
-        <p className="mt-5 max-w-[65ch] text-text-muted">{loc(product.tagline, locale)}</p>
-        {author && <p className="mt-3 max-w-[65ch]">{author}</p>}
-        <div className="mt-10 max-w-md">
-          {hasProductPhoto(product.image) ? (
-            <ProductPhoto src={product.image} alt={loc(product.title, locale)} />
-          ) : (
-            <ProductVisual
-              kind={product.kind}
-              title={loc(product.title, locale)}
-            />
-          )}
-        </div>
-      </Section>
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-6">
-          {dict.productPage.abilities}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {product.competencies.map((key) => (
-            <CompetencyCard
-              key={key}
-              competencyKey={key}
-              locale={locale}
-              linked={false}
-            />
-          ))}
-        </div>
-        {product.kind === "cards" && (
-          <p className="mt-8 max-w-[65ch]">{dict.productPage.safetyFrame}</p>
-        )}
-      </Section>
-
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.audience}</h2>
-        <p className="max-w-[65ch]">{loc(product.audience, locale)}</p>
-      </Section>
-
-      {composition.length > 0 && (
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-6">{dict.productPage.inside}</h2>
-        <ul className="space-y-3 max-w-[65ch]">
-          {composition.map((item) => (
-            <li key={item.ru} className="pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-deep">
-              {loc(item, locale)}
-            </li>
-          ))}
-        </ul>
-      </Section>
-      )}
-
-      {howTo.length > 0 && (
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-6">{dict.productPage.how}</h2>
-        <div className="grid gap-4 min-w-0 md:grid-cols-3">
-          {howTo.map((step, index) => (
-            <Card key={step.ru} className="space-y-3 min-w-0">
-              <p className="font-heading text-[40px] text-deep leading-none">{index + 1}</p>
-              <p>{loc(step, locale)}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-      )}
-
-      {(sampleTitle || sampleBody) && (
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.sample}</h2>
-        <Card className="max-w-3xl space-y-3">
-          {sampleTitle && (
-            <h3 className="font-heading text-[20px] md:text-[24px]">
-              {sampleTitle}
-            </h3>
-          )}
-          {sampleBody && <p className="max-w-[65ch]">{sampleBody}</p>}
-        </Card>
-        {product.kind === "cards" && (
-          <div className="mt-8">
-            <p className="font-medium mb-4">{dict.sample.stepsTitle}</p>
-            <ol className="grid gap-3 md:grid-cols-4">
-              {dict.productPage.safetySteps.map((step, index) => (
-                <li key={step} className="rounded-[16px] border border-border bg-surface p-5">
-                  <p className="font-heading text-[24px] text-deep">{index + 1}</p>
-                  <p className="mt-2">{step}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-5 max-w-[65ch] text-text-muted">
-              «{loc(sampleSafety.phrase, locale)}»
-            </p>
+      </StorySection>
+      <Section id="zayavka" alt>
+        <div className="editorial-split items-start">
+          <div>
+            <p className="editorial-label">{v.formatLabel}</p>
+            <h2 className="section-heading">{t.get}</h2>
+            <p>{t.getText}</p>
           </div>
-        )}
+          <Card className="space-y-5">
+            <h3>{price}</h3>
+            <p className="material-summary text-text-muted">{t.formatNote}</p>
+            <Button href={site.telegram}>{action} →</Button>
+            <p className="material-summary text-text-muted">{t.telegramNote}</p>
+          </Card>
+        </div>
       </Section>
+      {safety && (
+        <Section>
+          <div className="editorial-split items-start">
+            <h2 className="section-heading">{t.productFaq}</h2>
+            <div className="faq-list">
+              <FaqAccordion items={faqItems} locale={locale} />
+            </div>
+          </div>
+        </Section>
       )}
-
-      <Section alt>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.result}</h2>
-        <p className="max-w-[65ch]">{loc(product.result, locale)}</p>
-      </Section>
-
-      <Section>
-        <h2 className="font-heading text-[28px] md:text-[40px] mb-4">{dict.productPage.price}</h2>
-        <p className="font-medium">{priceLabel}</p>
-        {delivery && (
-          <p className="mt-3 max-w-[65ch] text-text-muted">{delivery}</p>
-        )}
-        <p className="mt-3 text-[15px] text-text-muted">{loc(product.format, locale)}</p>
-        {!comingSoon && (
-          <Suspense>
-            <ProductRequest product={forCatalog(product)} locale={locale} dict={dict} />
-          </Suspense>
-        )}
-      </Section>
-
       {related.length > 0 && (
         <Section alt>
-          <h2 className="font-heading text-[28px] md:text-[40px] mb-8">
-            {dict.productPage.related}
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <h2 className="section-heading">{t.related}</h2>
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {related.map((item) => (
-              <ProductCard key={item.slug} product={item} locale={locale} dict={dict} />
+              <ProductCard
+                key={item.slug}
+                product={item}
+                locale={locale}
+                dict={dict}
+              />
             ))}
           </div>
         </Section>

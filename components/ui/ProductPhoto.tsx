@@ -13,15 +13,20 @@ export function ProductPhoto({
   priority?: boolean;
   className?: string;
 }) {
+  const width = src.includes("/sample-") ? 900 : 1024;
+  const height = src.includes("/sample-") ? 1200 : 1536;
   return (
     <Image
       src={assetPath(src)}
       alt={alt}
-      width={1024}
-      height={1536}
+      width={width}
+      height={height}
       priority={priority}
       sizes="(max-width: 768px) 100vw, 480px"
-      className={cn("w-full h-auto rounded-[16px] border border-border bg-bg-alt", className)}
+      className={cn(
+        "w-full h-auto rounded-[16px] border border-border bg-bg-alt",
+        className,
+      )}
     />
   );
 }
