@@ -77,10 +77,22 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         </div>
         <div className="flex flex-col gap-3 text-[15px]">
           <Link
+            href={localePath(locale, "/universitet")}
+            className="hover:underline underline-offset-2"
+          >
+            {dict.nav.university}
+          </Link>
+          <Link
             href={localePath(locale, "/produkty")}
             className="hover:underline underline-offset-2"
           >
             {dict.nav.products}
+          </Link>
+          <Link
+            href={localePath(locale, "/produkty?age=parents")}
+            className="hover:underline underline-offset-2"
+          >
+            {dict.redesign.parentLink}
           </Link>
           <Link
             href={localePath(locale, "/o-nas")}

@@ -52,7 +52,7 @@ function brelokSamoorganizacii(
       en: "14 cards on a ring.",
     },
     ageGroups: [age],
-    competencies: ["organization"],
+    skills: ["focus", "start", "plan"],
     ctaLabel: {
       ru: "Скоро",
       en: "Coming soon",
@@ -109,7 +109,7 @@ export const products: Product[] = [
       en: "32 days, 5–10 minutes each. PDF, chatbot, or print by pre-order.",
     },
     ageGroups: ["parents"],
-    competencies: ["emotions", "organization"],
+    skills: [],
     ctaLabel: {
       ru: "Купить PDF и распечатать",
       en: "Buy PDF and print it",
@@ -206,7 +206,7 @@ export const products: Product[] = [
       en: "PDF, chatbot, or print by pre-order. You can request a sample page.",
     },
     ageGroups: ["parents"],
-    competencies: ["emotions", "organization"],
+    skills: [],
     ctaLabel: {
       ru: "Скачать пример страницы",
       en: "Download a sample page",
@@ -295,7 +295,8 @@ export const products: Product[] = [
       en: "45 cards. PDF, chatbot, or print by pre-order.",
     },
     ageGroups: ["4-6", "7-9"],
-    competencies: ["safety", "emotions", "critical", "communication"],
+    skills: ["empathy", "teamwork"],
+    foundation: ["safety"],
     ctaLabel: {
       ru: "Купить PDF и распечатать",
       en: "Buy PDF and print it",
@@ -384,7 +385,7 @@ export const products: Product[] = [
       en: "24 days, 10–15 minutes. Cards or PDF.",
     },
     ageGroups: ["4-6"],
-    competencies: ["creative", "problems", "critical"],
+    skills: ["ideas", "reason", "info"],
     ctaLabel: {
       ru: "Получить адвент 4–6 лет",
       en: "Get the 4–6 advent",
@@ -472,7 +473,7 @@ export const products: Product[] = [
       en: "24 days, 10–20 minutes. Cards or PDF.",
     },
     ageGroups: ["7-9"],
-    competencies: ["problems", "organization", "cooperation"],
+    skills: ["reason", "plan", "teamwork"],
     ctaLabel: {
       ru: "Получить адвент 7–9 лет",
       en: "Get the 7–9 advent",
@@ -560,7 +561,7 @@ export const products: Product[] = [
       en: "14 days, 15 minutes. Cards.",
     },
     ageGroups: ["7-9"],
-    competencies: ["communication", "empathy", "cooperation"],
+    skills: ["empathy", "teamwork"],
     ctaLabel: {
       ru: "Получить набор «14 дней общения»",
       en: "Get the 14-day talking kit",
@@ -664,7 +665,7 @@ export const products: Product[] = [
       en: "45–60 minutes. Print stations or PDF.",
     },
     ageGroups: ["4-6"],
-    competencies: ["empathy", "communication", "problems"],
+    skills: ["empathy", "teamwork", "reason"],
     ctaLabel: {
       ru: "Получить квест «Игрушечный город»",
       en: "Get the toy-town quest",
@@ -752,7 +753,8 @@ export const products: Product[] = [
       en: "60–90 minutes. Print set or PDF.",
     },
     ageGroups: ["7-9"],
-    competencies: ["problems", "organization", "information"],
+    skills: ["info", "focus", "plan"],
+    foundation: ["literacy"],
     ctaLabel: {
       ru: "Получить квест «Миссия в магазине»",
       en: "Get the shop-mission quest",
@@ -840,7 +842,7 @@ export const products: Product[] = [
       en: "60–90 minutes to plan, plus the event itself. Print or PDF.",
     },
     ageGroups: ["10-12"],
-    competencies: ["organization", "cooperation", "problems"],
+    skills: ["plan", "teamwork", "lead"],
     ctaLabel: {
       ru: "Получить квест «Семейное событие»",
       en: "Get the family-event quest",
@@ -928,7 +930,7 @@ export const products: Product[] = [
       en: "Course: 6–8 weeks. Session: online or in person.",
     },
     ageGroups: ["13-16"],
-    competencies: ["critical", "organization", "communication"],
+    skills: ["plan", "resilience", "lead", "focus"],
     ctaLabel: {
       ru: "Записаться на «Учимся побеждать»",
       en: "Sign up for “Learning to win”",
@@ -984,6 +986,7 @@ export const products: Product[] = [
   },
   {
     slug: "9-voprosov-svoego-dela",
+    developmentStatus: "draft",
     kind: "kit",
     title: locPair(
       "«9 вопросов для своего дела», 10–12 лет",
@@ -1015,9 +1018,12 @@ export const products: Product[] = [
         "No adult jargon on the card",
       ),
     ],
-    format: locPair("9 вопросов про один проект.", "Nine questions about one project."),
+    format: locPair(
+      "9 вопросов про один проект.",
+      "Nine questions about one project.",
+    ),
     ageGroups: ["10-12"],
-    competencies: ["critical", "organization", "creative"],
+    skills: ["reason", "ideas", "start", "plan"],
     ctaLabel: locPair(
       "Получить «9 вопросов для своего дела»",
       "Get “9 questions for your own project”",
@@ -1026,7 +1032,10 @@ export const products: Product[] = [
     image: "",
     featured: false,
     composition: [
-      locPair("Девять вопросов про один ваш проект", "Nine questions about one real project"),
+      locPair(
+        "Девять вопросов про один ваш проект",
+        "Nine questions about one real project",
+      ),
       locPair(
         "Формулировки простые, без взрослых терминов",
         "Plain wording, no adult terms",
@@ -1081,9 +1090,12 @@ export const products: Product[] = [
         "The programme is still in preparation — no price and no booking yet",
       ),
     ],
-    format: locPair("Программа готовится.", "The programme is still in preparation."),
+    format: locPair(
+      "Программа готовится.",
+      "The programme is still in preparation.",
+    ),
     ageGroups: ["13-16"],
-    competencies: ["critical", "organization", "creative"],
+    skills: ["info", "reason", "ideas", "empathy"],
     ctaLabel: locPair("Скоро", "Coming soon"),
     author: ru("[TODO: не назначен]"),
     price: null,

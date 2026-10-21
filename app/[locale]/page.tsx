@@ -65,34 +65,60 @@ export default async function HomePage({
     <>
       <OrganizationJsonLd locale={locale} />
       <FaqJsonLd locale={locale} />
-      <Section className="editorial-hero home-cover">
+      <Section className="editorial-hero home-cover home-university">
         <SideNav locale={locale} dict={dict} embedded />
         <div className="editorial-hero-grid">
-          <div className="editorial-hero-copy">
+          <div className="editorial-hero-copy home-welcome-heading">
             <p className="editorial-label">{v.homeLabel}</p>
-            <h1>{t.heroTitle}</h1>
-            <p className="editorial-intro">{t.heroText}</p>
-            <p className="mt-4 material-summary">{t.eyebrow}</p>
-            <div className="mt-6">
-              <Button href="#ages">{t.heroAction} →</Button>
+            <h1>{dict.hero.title}</h1>
+            <p className="home-welcome-lead">{dict.hero.paragraphs[0]}</p>
+          </div>
+          <div className="home-welcome-body">
+            <div className="home-university-intro">
+              {dict.hero.paragraphs.slice(1).map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+            <div className="home-welcome-action">
+              <Button href={localePath(locale, "/universitet")}>
+                {dict.hero.cta} →
+              </Button>
             </div>
           </div>
-          <BrandArt
-            name="mascots/radarik-wave"
-            priority
-            className="editorial-hero-art"
-          />
+          <div className="home-welcome-art">
+            <span className="home-welcome-orbit" aria-hidden="true" />
+            <BrandArt
+              name="mascots/radarik-wave"
+              alt={dict.hero.mascotAlt}
+              priority
+              className="home-welcome-mascot"
+            />
+            <BrandArt
+              name="scenes/family-walk"
+              alt={dict.hero.familyAlt}
+              priority
+              className="home-welcome-family"
+            />
+          </div>
         </div>
-        <BrandArt name="scenes/family-walk" className="home-cover-family" />
+      </Section>
+      <Section className="university-pain">
+        <h2 className="section-heading">{dict.pain.title}</h2>
+        <ul className="pain-list">
+          {dict.pain.items.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+        <p className="mt-6">{dict.pain.footer}</p>
       </Section>
       <Section id="ages" alt>
         <p className="editorial-label">{v.ageLabel}</p>
-        <h2 className="section-heading">{t.catalogTitle}</h2>
+        <h2 className="section-heading">{dict.hero.cta}</h2>
         <div className="age-paths mt-10">
           {ages.map((age, i) => (
             <Link
               key={age}
-              href={localePath(locale, `/?age=${age}#catalog`)}
+              href={localePath(locale, `/universitet?age=${age}#stazhirovki`)}
               className="age-path"
             >
               <span className="editorial-number">0{i + 1}</span>
@@ -105,6 +131,15 @@ export default async function HomePage({
       </Section>
       <Section className="home-materials">
         <p className="editorial-label">{v.materialsLabel}</p>
+        <h2 className="section-heading">{dict.what.title}</h2>
+        <div className="home-product-types">
+          {dict.what.cards.map((card) => (
+            <article key={card.title}>
+              <h3>{card.title}</h3>
+              <p className="mt-3">{card.text}</p>
+            </article>
+          ))}
+        </div>
         <div className="home-materials-grid">
           <article className="editorial-feature home-safety-feature">
             <h2 className="section-heading">
@@ -146,25 +181,33 @@ export default async function HomePage({
         <SafetySample locale={locale} dict={dict} />
       </Section>
       <Section>
-        <h2 className="section-heading">{t.howTitle}</h2>
-        <ol className="steps-list mt-8">
-          {t.howSteps.map((step) => (
+        <h2 className="section-heading">{dict.how.title}</h2>
+        <ol className="steps-list journey-steps mt-8">
+          {dict.how.steps.map((step) => (
             <li key={step}>
               <p>{step}</p>
             </li>
           ))}
         </ol>
+        <Link
+          href={localePath(locale, "/universitet")}
+          className="text-link mt-6"
+        >
+          {dict.journey.enter} →
+        </Link>
       </Section>
       <StorySection
-        title={t.approachTitle}
+        title={dict.memo.title}
         eyebrow={v.approachLabel}
         image="scenes/child-builds"
         imageAlt={t.heroAlt}
         alt
       >
-        <p>{t.approachText}</p>
+        {dict.memo.paragraphs.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
         <Link href={localePath(locale, "/podhod")} className="text-link">
-          {t.approachLink} →
+          {dict.memo.more}
         </Link>
       </StorySection>
       <Section>

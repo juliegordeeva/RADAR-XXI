@@ -1,9 +1,9 @@
 {
   "meta": {
-    "homeTitle": "RADAR KIDS — learning to act in everyday life",
-    "homeDescription": "Cards, quests and family activities that help children notice, think, work things out with others and try things for themselves.",
-    "productsTitle": "Kits by age — RADAR KIDS",
-    "productsDescription": "Parent calendar, diary, safety cards, 24-day kits, family quests and “Learning to win”.",
+    "homeTitle": "RADAR KIDS — a corporate university for children and kits for home",
+    "homeDescription": "Internships for children aged 4–16 and their parents. Short tasks at home for 14–21 days, online meetings with a facilitator and a Skills Radar at the end.",
+    "productsTitle": "Materials for children aged 4–16 — RADAR KIDS",
+    "productsDescription": "Safety cards, advents, quests and kits to practise children’s skills. Choose by age and universal competency.",
     "aboutTitle": "Who makes RADAR KIDS — Julia Gordeeva and Elizabeth Sarycheva",
     "aboutDescription": "Family kits for short daily practice at home. A project by Julia Gordeeva and Elizabeth Sarycheva.",
     "b2bTitle": "Family programmes for companies — RADAR KIDS",
@@ -12,15 +12,19 @@
     "contactsDescription": "Message us on Telegram or call in Russia and Europe. You can also request a kit.",
     "privacyTitle": "Privacy policy — RADAR KIDS",
     "privacyDescription": "How we use the name, phone and email you send through the forms.",
-    "approachTitle": "Universal competencies in children: what they are — RADAR KIDS",
-    "approachDescription": "Universal competencies: think, work with others, manage yourself. Why this is the family’s job, and how it is trained at home.",
+    "approachTitle": "Four universal competencies and 12 skills for children — RADAR KIDS",
+    "approachDescription": "After the internship, you receive a Skills Radar. It is a snapshot, not a test or diagnosis: what your child does alone and where your help is still needed. We compare your child with themselves three months later, never with other children.",
     "productTitleSuffix": "— RADAR KIDS",
     "officeTitle": "A children’s office day, turnkey — RADAR KIDS Office Day",
     "officeDescription": "An office quest, a business game, and employees’ children getting to know their parents’ work. The programme is adapted to the company’s business and space.",
     "hikesTitle": "Corporate family hikes — RADAR KIDS",
     "hikesDescription": "Organised hikes for employees with children: a route, family tasks, support, and a programme for the corporate group.",
     "diaryTitle": "Diary “Three roles / one life” — RADAR KIDS",
-    "diaryDescription": "A corporate gift: a work-and-family balance diary. The first print run is made only to a company order."
+    "diaryDescription": "A corporate gift: a work-and-family balance diary. The first print run is made only to a company order.",
+    "universityTitle": "Corporate university for children aged 4–16 — RADAR KIDS",
+    "universityDescription": "Planned internships for children and parents: 14–21 days of tasks at home, online meetings and a radar of 12 skills. Practise next with cards, advents and 14-day kits.",
+    "parentMaterialsTitle": "Materials for parents — RADAR KIDS",
+    "parentMaterialsDescription": "A calendar of short practices and the “Three roles / one life” diary: notice how you feel and balance everyday responsibilities."
   },
   "nav": {
     "home": "Home",
@@ -31,22 +35,26 @@
     "b2b": "For companies",
     "privacy": "Privacy policy",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "university": "Corporate university"
   },
   "hero": {
-    "title": "Kids grow up. How do you help them think critically, work things out with others, and find their way in real situations on their own?",
+    "title": "Your child can practise the skills used to assess leaders at work — starting today",
     "paragraphs": [
-      "Talks with your child, important skills for life, running family and school projects: for children aged 4 to 16 and their parents.",
-      "From 15 minutes a day — at home, on a trip, outdoors, with friends.",
-      "Cards, quests and family games.",
-      "A ready script: you do not need to invent anything."
+      "RADAR KIDS is a corporate university for children aged 4–16 and their parents.",
+      "A 14–21 day internship: short tasks together at home and online meetings with a facilitator.",
+      "At the end, a Skills Radar shows what your child already does and what to practise next.",
+      "Then use cards, advents and 14-day kits to work on one skill."
     ],
-    "cta": "Choose a product by the child’s age",
-    "leadLink": "Or download a trial kit: an advent card, a self-organisation keyring card, and one day of the parents’ calendar."
+    "cta": "Choose an internship for your child’s age",
+    "leadLink": "Or download a trial kit: an advent card, a self-organisation keyring card, and one day of the parents’ calendar.",
+    "mascotAlt": "Radarik welcomes the family.",
+    "familyAlt": "Parents and two children walk together with Radarik."
   },
   "pain": {
     "title": "Sound familiar?",
     "items": [
+      "You are assessed on competencies at work, but how do they grow in your child?",
       "Your child waits for you to say what to do",
       "Too many clubs, almost no time together",
       "You are not sure they would cope if they got lost or a stranger approached",
@@ -57,35 +65,40 @@
     "footer": "All of this can be changed. Not with lectures, but with short actions every day."
   },
   "what": {
-    "title": "Games that teach children to think and cope",
+    "title": "Kits for home: practise after an internship or start on your own",
     "cards": [
       {
         "title": "Cards",
         "text": "A situation on the front, four steps on the back. Repeat until it sticks."
       },
       {
-        "title": "Calendars",
-        "text": "One sheet a day: a thought, an action, a question. Five to fifteen minutes. No prep."
+        "title": "Advents",
+        "text": "A story and short tasks for each day."
       },
       {
         "title": "Quests",
         "text": "A story for an evening or a long trip. The child chooses and sees what follows."
+      },
+      {
+        "title": "14-day kits",
+        "text": "One skill over two weeks, without jumping between topics."
       }
     ],
     "note": "We are parents. We made this for our own children first."
   },
   "how": {
-    "title": "Three steps that help grow universal competencies",
+    "title": "How learning works at the RADAR KIDS corporate university",
     "steps": [
-      "You pick a kit by the child’s age or by the competency you want to develop",
-      "You work with the child for 10–20 minutes a day using a ready script",
-      "You notice what changed after 2–4 weeks"
+      "Your child takes a 14–21 day internship with tasks you do together",
+      "You receive a Skills Radar and a discussion with a methodologist",
+      "Practise one skill using cards, an advent or a 14-day kit",
+      "After three months, repeat the radar to see what has changed"
     ]
   },
   "catalog": {
     "title": "Choose a kit",
     "all": "All",
-    "byAge": "By age. Calendars for adults — the “For parents” filter.",
+    "byAge": "By your child’s age",
     "byAbility": "By competency",
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
@@ -96,7 +109,16 @@
     "buyBot": "Buy the chatbot subscription",
     "buyPrint": "Pre-order the print version",
     "downloadSample": "Download a sample page",
-    "payHint": "There is no payment on the site. After the request we will write how to get the file."
+    "payHint": "There is no payment on the site. After the request we will write how to get the file.",
+    "universityLink": "Not sure where to start? An internship at the corporate university helps you choose the first skill to practise →",
+    "childrenLabel": "For children aged 4–16",
+    "childrenLink": "Materials for children",
+    "parentsTitle": "Materials for parents",
+    "parentsIntro": "A calendar of short practices and a diary for adults: notice how you feel and find a balance between work, family and personal time.",
+    "parentsHint": "These materials are for you. There is no need to choose your child’s age: the calendar and diary focus on an adult’s wellbeing and everyday tasks.",
+    "parentProductsTitle": "Calendar and diary for parents",
+    "childrenHeroAlt": "A boy reads a book beside a girl drawing: activities for children.",
+    "parentsHeroAlt": "Parents discuss plans and fill in a diary, with Radarik peeking over a chair."
   },
   "sample": {
     "title": "What the trial kit looks like",
@@ -133,20 +155,20 @@
     "title": "Questions"
   },
   "memo": {
-    "title": "Why develop universal competencies?",
+    "title": "Why practise universal competencies in childhood",
     "paragraphs": [
-      "Grades will not tell you if the child will cope if they get lost. If they can agree without shouting in a conflict. If they can stop when they are angry and understand why it happens.",
-      "School teaches subjects. Thinking in a new situation, working things out, holding yourself — it does not. When you are not there, only their competencies remain.",
-      "Universal competencies can be developed. Not with lectures, but with short 15-minute practice at home: choose, get it wrong, agree, finish."
+      "Grades cannot tell you whether a child will work out what to do if they get lost, reach an agreement without shouting, or pause when angry and finish a task.",
+      "At work, adults are assessed in four areas: how they think, handle change, work with people and pursue a result. Children have the same four universal competencies — still growing.",
+      "We have broken them into 12 everyday skills: check a story, find another option, agree on weekend plans or try again after a setback. Each can be practised with short tasks of 10–20 minutes."
     ],
-    "more": "Read more about our approach →"
+    "more": "How the 12 skills work →"
   },
   "abilities": {
-    "title": "What universal competencies are made of",
-    "subtitle": "Eight plain phrases. Every kit is built around them.",
+    "title": "Four universal competencies and 12 skills",
+    "subtitle": "Each competency brings together three skills you can see in daily life.",
     "literacyLead": "And literacy — without it the rest does not work.",
     "literacy": "Universal literacy helps find information, judge it, tell fact from opinion — including on the internet. Subject literacy gives the child basic knowledge about safety, health and money. Example: check whether a chat message is true, or know what to do if they get lost.",
-    "ninth": "Independence is not a ninth item on the list. It appears when the others work together.",
+    "ninth": "Independence is not a separate item on the list. It grows when the other skills work together.",
     "ninthNote": "A child decides for themselves when they think, take others into account, and manage themselves — at the same time."
   },
   "approach": {
@@ -171,10 +193,13 @@
     "kits": "Each line covers its own competencies. You see that in the tags and the filter. A 24-day advent moves through several competencies. A 14-day kit stays on one, without jumping topics.",
     "tableProduct": "Kit",
     "tableAbilities": "Competencies",
-    "tableAge": "Age"
+    "tableAge": "Age",
+    "heroIntro": "Check a story, think of another option, make an agreement, try again after a setback. These everyday actions build universal competencies.",
+    "heroAlt": "Radarik gestures towards the radar, with a magnifying glass, light bulb, speech bubbles and a finish flag nearby.",
+    "progressAlt": "A girl tries building her tower again, with her mother nearby and Radarik encouraging her next attempt."
   },
   "footer": {
-    "tagline": "Cards, quests and family activities that help children notice, think, work things out with others and try things for themselves.",
+    "tagline": "A corporate university for children aged 4–16 and their parents. Internships, a Skills Radar and kits for home.",
     "taglineB2b": "Family programmes for employees and their children.",
     "phoneRu": "Russia",
     "phoneEu": "Europe",
@@ -219,12 +244,9 @@
     "sampleNote": "Open the chat and send your message yourself. The website does not send requests.",
     "abilities": "Which competencies it trains",
     "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
-    "safetySteps": [
-      "Notice",
-      "Stop",
-      "Pick a safe adult",
-      "Call for help"
-    ]
+    "safetySteps": ["Notice", "Stop", "Pick a safe adult", "Call for help"],
+    "skillsTitle": "Skills this product helps practise",
+    "universityLink": "Not sure this is what you need? Start with an internship — the Skills Radar will help →"
   },
   "productsPage": {
     "title": "Kits",
@@ -407,11 +429,11 @@
     "homeLabel": "Everyday skills for real life",
     "ageLabel": "Ages",
     "materialsLabel": "Our materials",
-    "familyTitle": "Family activities",
-    "familyText": "Cards, quests and activities for conversation and trying things together.",
-    "familyAction": "Choose family activities",
-    "catalogTitle": "Materials for your family",
-    "catalogIntro": "Cards, calendars, diaries and activities for children and parents.",
+    "familyTitle": "Activities for children",
+    "familyText": "Cards and quests where children try things, discuss options and make decisions alongside an adult.",
+    "familyAction": "Choose children’s activities",
+    "catalogTitle": "Materials for children",
+    "catalogIntro": "Cards, advents, quests and kits to practise your child’s skills. Choose an age from 4 to 16 and the competency you want to work on.",
     "teamTitle": "The people behind RADAR KIDS",
     "b2bTitle": "Family programmes for companies",
     "contactsTitle": "Let’s talk",
@@ -439,5 +461,200 @@
     "formatLabel": "Price and formats",
     "illustrationAlt": "A RADAR KIDS story illustration",
     "teamLabel": "Our team"
+  },
+  "journey": {
+    "navTitle": "Corporate university",
+    "enter": "Join the corporate university",
+    "sampleRadar": "Example Skills Radar. Illustrative data.",
+    "radarTitle": "Skills Radar",
+    "legendTitle": "12 skills — 4 universal competencies",
+    "skillLevel": "level",
+    "progressLabel": "A sign of progress",
+    "competencyLabel": "Competency",
+    "foundationLabel": "Foundation",
+    "parentBadge": "For the parent",
+    "skillsTitle": "Skills this product helps practise",
+    "productStart": "Not sure this is what you need? Start with an internship — the Skills Radar will help →",
+    "catalogStart": "Not sure where to start? An internship at the corporate university helps you choose the first skill to practise →",
+    "sectorFilter": "By competency",
+    "all": "All",
+    "childrenSkills": "Skills",
+    "adultColumn": "What adults call it",
+    "childColumn": "Your child’s competency",
+    "age": "Age",
+    "draft": "Programme in preparation",
+    "askQuestion": "Start with a sample task",
+    "ladderTitle": "Skill → competency → potential",
+    "ladder": "A skill is something you can see in an ordinary day: checking a story, agreeing on weekend plans or returning to a task after a setback. Skills form universal competencies. At work, adults are assessed on these same competencies as part of leadership potential. The earlier a child practises them, the more natural they become.",
+    "foundationTitle": "The foundation: literacy and safety",
+    "foundationText": "These are not measured in the radar: they make the other skills possible. Safety cards are one place to start.",
+    "safetyLink": "Go to safety cards →",
+    "practiceExtra": "That is why the university uses practical tasks rather than lectures: your child does the work, with you nearby.",
+    "progressTitle": "How we see progress",
+    "progress": "After the internship, you receive a Skills Radar. It is a snapshot, not a test or diagnosis: what your child does alone and where your help is still needed. We compare your child with themselves three months later, never with other children.",
+    "levels": [
+      {
+        "title": "Trying it",
+        "text": "Does it after an adult shows the way and guides them."
+      },
+      {
+        "title": "With support",
+        "text": "Does it themselves, with reminders."
+      },
+      {
+        "title": "Doing it myself",
+        "text": "Manages without help, as appropriate for their age."
+      },
+      {
+        "title": "Doing it and helping others",
+        "text": "Uses the skill in new situations and helps others learn."
+      }
+    ],
+    "corporateLink": "After the event: an internship at the corporate university →"
+  },
+  "university": {
+    "title": "RADAR KIDS corporate university",
+    "intro": "Internships for children aged 4–16 and their parents. Short tasks at home for 14–21 days, online meetings with a facilitator and a Skills Radar at the end.",
+    "choose": "Choose an internship",
+    "eventNote": "Been to Office Day or a company family event? Include your company code in the request.",
+    "whyTitle": "Why this feels familiar",
+    "whyText": "Adults are assessed in these same areas at work. Here, children practise them while they are developing.",
+    "internshipsTitle": "Internships",
+    "introGroup": "Introductory internships",
+    "profileGroup": "Focused internships — after the first radar",
+    "projectGroup": "Project internship — ages 10–16",
+    "days": "days",
+    "childDoes": "What your child does",
+    "final": "Final project",
+    "waitlist": "Waiting list open",
+    "priceUnknown": "Price provided in reply to your request",
+    "joinWaitlist": "Join the waiting list: {age}",
+    "book": "Apply for an internship: {age}",
+    "soon": "Coming soon",
+    "planTitle": "How an internship works",
+    "plannedLabel": "Planned format",
+    "plan": [
+      "Five tasks a week, 10–20 minutes each, at home. You follow a ready-to-use outline with your child.",
+      "Each task has a “What to notice” tip for you. A way to record short parent observations is still being developed; these will form the radar.",
+      "An online group meeting with a facilitator once a week.",
+      "At the end of the week, children reflect on what worked and what felt hard.",
+      "The programme ends with a project shown to the family or group."
+    ],
+    "exampleTitle": "Example: “Department intern”, ages 7–9, 21 days",
+    "week": "Week",
+    "tasks": "Example tasks",
+    "weeks": [
+      {
+        "focus": "Thinking",
+        "tasks": "Shop detective: find three prices for one item and explain the difference · Pack your bag against a timer · “What happens if…?”"
+      },
+      {
+        "focus": "Creating and working with people",
+        "tasks": "Ten uses for a box · A game whose rules change every three minutes · Interview a parent: “What does your customer want?” · A family meeting about weekend plans"
+      },
+      {
+        "focus": "Following through",
+        "tasks": "A mini-project: a goal and three-step plan → start without reminders → tackle an obstacle → show the result"
+      }
+    ],
+    "reportTitle": "What we plan to include in the report",
+    "report": [
+      "A radar of 12 skills",
+      "Two or three strengths, with examples from tasks",
+      "One or two skills to practise next",
+      "What adults call these competencies",
+      "A three-month plan and a date to repeat the radar",
+      "A 30-minute online discussion with a methodologist"
+    ],
+    "childRadar": "Children receive “My Radar”: their own version with strengths and a next level, without scores.",
+    "privacy": "This is not a test or psychological diagnosis. Only your family and the methodologist see the results.",
+    "boostTitle": "Next: practise one skill",
+    "boostIntro": "After the radar, we suggest one focus for three months and no more than three products. Here is what fits each competency.",
+    "boostEmpty": "We are preparing a kit for this skill and age. Mention your interest in the request and we will let you know.",
+    "boostInterest": "Include this interest in the request →",
+    "boostSelection": "Selection: {age} · {sector}",
+    "companyLine": "An internship can be a gift for employees after Office Day or a family event. The company sees the total number taking part, never children’s results.",
+    "companyLink": "Discuss internships for employees →",
+    "faqTitle": "Internship questions",
+    "formTitle": "Internship waiting list",
+    "formIntro": "Choose a programme and prepare your request. Then copy the text and send it yourself in Telegram.",
+    "paymentNote": "There is no payment on this site. Once the start date, price and participation are agreed, the team will send a payment link.",
+    "form": {
+      "name": "Parent’s name",
+      "contact": "Phone or Telegram",
+      "contactHint": "For example, +44 7700 900123 or @username",
+      "age": "Child’s age",
+      "program": "Internship",
+      "source": "How did you hear about us?",
+      "company": "Company code",
+      "sector": "Which competency would you like to practise?",
+      "unknown": "Not sure yet",
+      "choose": "Choose an option",
+      "prepare": "Prepare a waiting-list request",
+      "subject": "Application to the RADAR KIDS corporate university",
+      "invalid": "Please check the highlighted fields.",
+      "consent": "I consent to the processing of personal data",
+      "policy": "Data processing policy",
+      "sources": {
+        "office-day": "Office Day",
+        "sport-day": "Company family sports day",
+        "hike": "Company family hike",
+        "fair": "Fair or competition",
+        "cards": "RADAR KIDS cards",
+        "referral": "Recommendation",
+        "product": "RADAR KIDS product page",
+        "other": "Other"
+      },
+      "subjectLabel": "Subject",
+      "invalidContact": "Enter a phone number or Telegram username, such as @username.",
+      "preparing": "Preparing your message…",
+      "prepareError": "We could not prepare the message. Please try again."
+    },
+    "faq": [
+      {
+        "question": "Is this a test for my child?",
+        "answer": "No. The radar is a snapshot of what your child does independently. We compare them only with themselves three months later, never with other children."
+      },
+      {
+        "question": "How much time does it take each day?",
+        "answer": "We plan 10–20 minutes and one online meeting a week. The exact rhythm will be confirmed before the pilot."
+      },
+      {
+        "question": "Does a parent have to take part?",
+        "answer": "Yes. Tasks are for a child and adult together, and your observations form the radar."
+      },
+      {
+        "question": "What if we miss a few days?",
+        "answer": "There will be time to catch up. The team will decide the minimum number of tasks for a radar after the pilot and share the conditions before launch."
+      },
+      {
+        "question": "Who sees the results?",
+        "answer": "Only your family and the methodologist. Employers do not receive children’s results."
+      },
+      {
+        "question": "How is this different from a club?",
+        "answer": "A club usually meets once a week without you. An internship is short, everyday practice together, with a clear outcome at the end."
+      },
+      {
+        "question": "Can we buy cards without an internship?",
+        "answer": "Yes. The internship helps you choose the first skill to practise and avoid buying more than you need."
+      }
+    ],
+    "heroAlt": "A girl presents the family project while her brother finishes a bridge model. Their parents discuss the work, and a small Radarik peeks over the books.",
+    "formatLabel": "Introductory internship format",
+    "format": [
+      {
+        "title": "14–21 days",
+        "text": "of short practice"
+      },
+      {
+        "title": "Home + online",
+        "text": "with a parent"
+      },
+      {
+        "title": "Skills radar",
+        "text": "and your next step"
+      }
+    ]
   }
 }

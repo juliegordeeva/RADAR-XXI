@@ -6,16 +6,19 @@ import { localePath } from "@/lib/locale-path";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { SkillTag } from "@/components/ui/SkillTag";
 import { ProductArtwork } from "@/components/ui/ProductArtwork";
 
 export function ProductCard({
   product,
   locale,
   dict,
+  compact = false,
 }: {
   product: Product;
   locale: Locale;
   dict: Dictionary;
+  compact?: boolean;
 }) {
   const t = dict.redesign;
   const safety = product.slug === "kartochki-bezopasnosti";
@@ -32,13 +35,18 @@ export function ProductCard({
             : product.kind === "diary"
               ? t.viewDiary
               : t.viewProduct;
-  const price = product.comingSoon
+  const unavailable =
+    product.comingSoon || product.developmentStatus === "draft";
+  const price = unavailable
     ? dict.catalog.comingSoon
     : product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
   return (
-    <Card as="article" className="product-card flex flex-col gap-4 p-5 md:p-6">
+    <Card
+      as="article"
+      className={`product-card flex flex-col gap-4 p-5 md:p-6 ${compact ? "compact-product-card" : ""}`}
+    >
       <div className="product-thumb">
         <ProductArtwork product={product} dict={dict} />
       </div>
@@ -52,7 +60,7 @@ export function ProductCard({
             <Badge key={age} age={age} locale={locale} />
           ))
         )}
-        {product.comingSoon && (
+        {unavailable && (
           <span className="rounded-full bg-sky px-3 py-2 material-summary">
             {dict.catalog.comingSoon}
           </span>
@@ -62,12 +70,21 @@ export function ProductCard({
       <p className="text-text-muted text-[16px] leading-6">
         {safety ? t.safetyDescription : loc(product.tagline, locale)}
       </p>
+      <div className="flex flex-wrap gap-2">
+        {product.ageGroups.includes("parents") ? (
+          <span>{dict.journey.parentBadge}</span>
+        ) : (
+          product.skills
+            .slice(0, 3)
+            .map((key) => <SkillTag key={key} skillKey={key} locale={locale} />)
+        )}
+      </div>
       <div className="mt-auto pt-2 space-y-3">
         <p className="material-summary text-text-muted">
           {safety ? t.safetyFormat : loc(product.format, locale)}
         </p>
         <p className="font-bold text-[16px]">{price}</p>
-        {!product.comingSoon && (
+        {!unavailable && (
           <Button
             href={localePath(locale, `/produkty/${product.slug}`)}
             className="w-full md:w-full px-3"

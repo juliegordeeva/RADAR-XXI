@@ -5,7 +5,7 @@ import { sampleAdvent, sampleBrelok, sampleCalendar } from "@/content/samples";
 import { Card } from "@/components/ui/Card";
 import { ProductPhoto } from "@/components/ui/ProductPhoto";
 import { ProductVisual } from "@/components/ui/ProductVisual";
-import { CompetencyTag } from "@/components/ui/CompetencyTag";
+import { SkillTag } from "@/components/ui/SkillTag";
 
 export function SampleDay({
   locale,
@@ -33,8 +33,8 @@ export function SampleDay({
             {loc(sampleAdvent.time, locale)}
           </p>
           <div className="flex flex-wrap gap-2">
-            {(["creative", "problems", "critical"] as const).map((key) => (
-              <CompetencyTag key={key} competencyKey={key} locale={locale} />
+            {(["ideas", "reason", "info"] as const).map((key) => (
+              <SkillTag key={key} skillKey={key} locale={locale} />
             ))}
           </div>
         </Card>
@@ -48,7 +48,7 @@ export function SampleDay({
             {loc(sampleBrelok.note, locale)}
           </p>
           <div className="flex flex-wrap gap-2">
-            <CompetencyTag competencyKey="organization" locale={locale} />
+            <SkillTag skillKey="plan" locale={locale} />
           </div>
         </Card>
         <Card className="space-y-5">
@@ -59,11 +59,7 @@ export function SampleDay({
           <p>{loc(sampleCalendar.thought, locale)}</p>
           <p>{loc(sampleCalendar.action, locale)}</p>
           <p>{loc(sampleCalendar.question, locale)}</p>
-          <div className="flex flex-wrap gap-2">
-            {(["emotions", "organization"] as const).map((key) => (
-              <CompetencyTag key={key} competencyKey={key} locale={locale} />
-            ))}
-          </div>
+          <p>{dict.journey.parentBadge}</p>
         </Card>
       </div>
     </div>
