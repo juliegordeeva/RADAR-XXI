@@ -1,14 +1,23 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { EditorialHero } from "@/components/sections/EditorialHero";
+import { Button } from "@/components/ui/Button";
+import { SkillRadar } from "@/components/ui/SkillRadar";
 import { BrandArt } from "@/components/ui/BrandArt";
-import { StorySection } from "@/components/sections/StorySection";
-import { competencies } from "@/content/competencies";
+import { CompetencyLadder } from "@/components/sections/CompetencyLadder";
+import { CompetenciesBlock } from "@/components/sections/CompetenciesBlock";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import { products } from "@/content/products";
-import { competencyByKey } from "@/content/competencies";
+import {
+  foundations,
+  skillByKey,
+  sectorByKey,
+  productSectors,
+  demoRadar,
+  sectors,
+  sectorColor,
+} from "@/content/competencies";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -16,7 +25,6 @@ import { localePath } from "@/lib/locale-path";
 import { ageLabels, loc } from "@/lib/age";
 
 export const dynamic = "force-static";
-
 export async function generateMetadata({
   params,
 }: {
@@ -24,15 +32,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const dict = getDictionary(locale);
+  const d = getDictionary(locale);
   return pageMetadata({
     locale,
     path: "/podhod",
-    title: dict.meta.approachTitle,
-    description: dict.meta.approachDescription,
+    title: d.meta.approachTitle,
+    description: d.meta.approachDescription,
   });
 }
-
 export default async function ApproachPage({
   params,
 }: {
@@ -42,127 +49,185 @@ export default async function ApproachPage({
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const a = dict.approach;
-  const three = [
-    { title: a.thinkingTitle, text: a.thinking },
-    { title: a.othersTitle, text: a.others },
-    { title: a.selfTitle, text: a.self },
-  ];
-
+  const j = dict.journey;
   return (
     <>
       <ArticleJsonLd locale={locale} />
-      <EditorialHero
-        variant="approach"
-        eyebrow={dict.style03.approachLabel}
-        title={dict.redesign.approachTitle}
-        intro={dict.redesign.approachText}
-        image="scenes/child-builds"
-        imageAlt={dict.redesign.heroAlt}
-      />
+      <Section className="approach-intro approach-skills-hero">
+        <div className="approach-skills-grid">
+          <div className="approach-skills-copy">
+            <p className="editorial-label">{a.title}</p>
+            <h1>{dict.abilities.title}</h1>
+            <p className="editorial-intro">{dict.abilities.subtitle}</p>
+            <p className="mt-5 max-w-[50ch] approach-skill-examples">
+              {a.heroIntro}
+            </p>
+            <ul className="approach-sector-key" aria-label={j.competencyLabel}>
+              {sectors.map((sector, i) => (
+                <li key={sector.key}>
+                  <Link href={`#sector-${sector.key}`}>
+                    <span style={{ color: sectorColor[sector.key] }}>
+                      0{i + 1}
+                    </span>
+                    {loc(sector.title, locale)}
+                    <span aria-hidden="true">↗</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="approach-hero-visual">
+            <SkillRadar
+              values={demoRadar}
+              locale={locale}
+              size={440}
+              showLegend={false}
+            />
+            <BrandArt
+              name="mascots/radarik-skills"
+              alt={a.heroAlt}
+              priority
+              className="approach-hero-guide"
+            />
+          </div>
+        </div>
+      </Section>
+      <Section className="approach-context">
+        <h2 className="section-heading">{a.changedTitle}</h2>
+        <p className="editorial-intro">{a.changed}</p>
+      </Section>
       <Section alt>
-        <p className="editorial-label">{dict.redesign.howTitle}</p>
-        <h2 className="section-heading">{a.threeTitle}</h2>
-        <div className="editorial-three mt-8">
-          {three.map((block, i) => (
-            <article key={block.title}>
-              <span className="editorial-number">0{i + 1}</span>
-              <h3 className="mb-4">{block.title}</h3>
-              <p>{block.text}</p>
-              <BrandArt
-                name={
-                  ["scenes/child-builds", "scenes/family-table", "age/age-7-9"][
-                    i
-                  ]
-                }
-              />
+        <h2 className="section-heading">{j.ladderTitle}</h2>
+        <p className="max-w-[70ch] mb-8">{j.ladder}</p>
+        <CompetencyLadder locale={locale} dict={dict} />
+      </Section>
+      <Section>
+        <CompetenciesBlock locale={locale} dict={dict} />
+      </Section>
+      <Section alt>
+        <h2 className="section-heading">{j.foundationTitle}</h2>
+        <p className="max-w-[70ch]">{a.literacy}</p>
+        <div className="foundation-grid mt-8">
+          {Object.values(foundations).map((item) => (
+            <article key={item.title.en}>
+              <h3>{loc(item.title, locale)}</h3>
+              <p className="mt-4">{loc(item.forParent, locale)}</p>
+              <p className="mt-4">
+                <strong>{j.progressLabel}: </strong>
+                {loc(item.signOfProgress, locale)}
+              </p>
             </article>
           ))}
         </div>
+        <p className="mt-8 max-w-[70ch]">{j.foundationText}</p>
+        <Link
+          href={localePath(locale, "/produkty/kartochki-bezopasnosti")}
+          className="text-link mt-5"
+        >
+          {j.safetyLink}
+        </Link>
       </Section>
       <Section>
-        <p className="editorial-label">{a.changedTitle}</p>
-        <h2 className="section-heading">{dict.abilities.title}</h2>
-        <p className="max-w-[65ch] mb-8">{a.changed}</p>
-        <div className="editorial-competencies">
-          {competencies
-            .filter((item) => item.group !== "literacy")
-            .map((item, i) => (
-              <article key={item.key}>
-                <span className="editorial-number">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3>{loc(item.title, locale)}</h3>
-                <p>{loc(item.forParent, locale)}</p>
-                <p className="material-summary text-text-muted mt-3">
-                  {loc(item.signOfProgress, locale)}
-                </p>
-              </article>
-            ))}
+        <div className="editorial-split items-start">
+          <div>
+            <h2 className="section-heading">{a.familyTitle}</h2>
+            <p>{a.family}</p>
+          </div>
+          <div>
+            <h2 className="section-heading">{a.practiceTitle}</h2>
+            <p>{a.practice}</p>
+            <p className="mt-5">{j.practiceExtra}</p>
+          </div>
         </div>
-        <div className="mt-8 max-w-[65ch]">
-          <h3 className="mb-4">{a.literacyTitle}</h3>
-          <p>{a.literacy}</p>
-        </div>
-        <p className="mt-8 max-w-[65ch] font-bold">{dict.abilities.ninth}</p>
-        <p className="mt-3 max-w-[65ch]">{dict.abilities.ninthNote}</p>
       </Section>
-      <StorySection
-        title={a.selfTitle}
-        eyebrow={dict.style03.parentLabel}
-        image="scenes/father-work"
-        alt
-        reverse
-      >
-        <p>{a.self}</p>
-        <Button href={localePath(locale, "/produkty?age=parents")}>
-          {dict.style03.chooseParents} →
-        </Button>
-      </StorySection>
-      <StorySection title={a.familyTitle} image="scenes/family-table">
-        <p>{a.family}</p>
-        <h3>{a.practiceTitle}</h3>
-        <p>{a.practice}</p>
-      </StorySection>
+      <Section alt>
+        <h2 className="section-heading">{j.progressTitle}</h2>
+        <div className="university-radar-grid">
+          <div>
+            <p>{j.progress}</p>
+            <ol className="radar-levels mt-8">
+              {j.levels.map((item, i) => (
+                <li key={item.title}>
+                  <span aria-hidden="true">{i + 1}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <BrandArt
+            name="scenes/child-builds"
+            alt={a.progressAlt}
+            className="approach-progress-art"
+          />
+        </div>
+      </Section>
       <Section>
         <h2 className="section-heading">{a.kitsTitle}</h2>
         <p className="max-w-[65ch] mb-8">{a.kits}</p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-[15px] text-left border-collapse">
-            <thead>
-              <tr>
-                <th className="p-3">{a.tableProduct}</th>
-                <th className="p-3">{a.tableAbilities}</th>
-                <th className="p-3">{a.tableAge}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products
-                .filter((item) => item.inMainCatalog !== false)
-                .map((product) => (
-                  <tr
-                    key={product.slug}
-                    className="border-t border-border align-top"
-                  >
-                    <td className="p-3">{loc(product.title, locale)}</td>
-                    <td className="p-3">
-                      {product.competencies
-                        .map((key) => loc(competencyByKey[key].title, locale))
-                        .join(", ")}
-                    </td>
-                    <td className="p-3">
-                      {product.slug === "kartochki-bezopasnosti"
-                        ? dict.redesign.safetyAge
-                        : product.ageGroups
-                            .map((age) => loc(ageLabels[age], locale))
-                            .join(", ")}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
+        <div className="kits-table" role="table" aria-label={a.kitsTitle}>
+          <div className="kits-row kits-head" role="row">
+            {[
+              a.tableProduct,
+              j.childrenSkills,
+              j.competencyLabel,
+              a.tableAge,
+            ].map((label) => (
+              <div key={label} role="columnheader">
+                {label}
+              </div>
+            ))}
+          </div>
+          {products
+            .filter((item) => item.inMainCatalog !== false)
+            .map((product) => (
+              <div className="kits-row" role="row" key={product.slug}>
+                <div role="cell">
+                  {!product.comingSoon ? (
+                    <Link
+                      className="text-link"
+                      href={localePath(locale, `/produkty/${product.slug}`)}
+                    >
+                      {loc(product.title, locale)}
+                    </Link>
+                  ) : (
+                    <span>
+                      {loc(product.title, locale)} · {dict.university.soon}
+                    </span>
+                  )}
+                </div>
+                <div role="cell">
+                  {product.ageGroups.includes("parents")
+                    ? j.parentBadge
+                    : product.skills
+                        .map(
+                          (key) =>
+                            `${skillByKey[key].code} ${loc(skillByKey[key].title, locale)}`,
+                        )
+                        .join(" · ")}
+                  {product.foundation?.map((key) => (
+                    <p key={key} className="mt-3">
+                      {j.foundationLabel}: {loc(foundations[key].title, locale)}
+                    </p>
+                  ))}
+                </div>
+                <div role="cell">
+                  {productSectors(product)
+                    .map((key) => loc(sectorByKey[key].title, locale))
+                    .join(" · ") || j.parentBadge}
+                </div>
+                <div role="cell">
+                  {product.ageGroups
+                    .map((age) => loc(ageLabels[age], locale))
+                    .join(" · ")}
+                </div>
+              </div>
+            ))}
         </div>
-        <div className="mt-8">
-          <Button href={localePath(locale, "/produkty")}>{a.cta} →</Button>
+        <div className="mt-10">
+          <Button href={localePath(locale, "/universitet")}>{j.enter} →</Button>
         </div>
       </Section>
     </>

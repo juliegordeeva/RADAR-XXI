@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/dictionary";
-import { faqItems } from "@/content/faq";
+import { faqItems, type FaqItem } from "@/content/faq";
 import { getSiteUrl, site } from "@/lib/site";
 import { products } from "@/content/products";
 import { loc } from "@/lib/age";
@@ -23,11 +23,17 @@ export function OrganizationJsonLd({ locale }: { locale: Locale }) {
   );
 }
 
-export function FaqJsonLd({ locale }: { locale: Locale }) {
+export function FaqJsonLd({
+  locale,
+  items = faqItems,
+}: {
+  locale: Locale;
+  items?: FaqItem[];
+}) {
   const data = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: loc(item.question, locale),
       acceptedAnswer: {

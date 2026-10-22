@@ -1,4 +1,4 @@
-import type { CompetencyKey } from "@/content/competencies";
+import type { SkillKey, FoundationKey } from "@/content/competencies";
 import type { Locale } from "@/lib/i18n";
 
 export type Localized = Record<Locale, string>;
@@ -6,13 +6,7 @@ export type Localized = Record<Locale, string>;
 export type AgeGroup = "4-6" | "7-9" | "10-12" | "13-16" | "parents";
 
 export type ProductKind =
-  | "calendar"
-  | "cards"
-  | "advent"
-  | "kit"
-  | "quest"
-  | "course"
-  | "diary";
+  "calendar" | "cards" | "advent" | "kit" | "quest" | "course" | "diary";
 
 export type PurchaseFormat = "pdf" | "bot" | "print" | "sample";
 
@@ -26,7 +20,9 @@ export type Product = {
   bullets: Localized[];
   format: Localized;
   ageGroups: AgeGroup[];
-  competencies: CompetencyKey[];
+  skills: SkillKey[];
+  foundation?: FoundationKey[];
+  developmentStatus?: "draft";
   ctaLabel: Localized;
   price: number | null;
   image: string;

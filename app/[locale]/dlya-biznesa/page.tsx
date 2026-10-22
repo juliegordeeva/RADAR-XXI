@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
@@ -111,6 +112,14 @@ export default async function BusinessPage({
             RADAR Experience ↗
           </a>
         </p>
+      </Section>
+      <Section>
+        <Link
+          className="text-link"
+          href={localePath(locale, "/universitet?from=office-day")}
+        >
+          {dict.journey.corporateLink}
+        </Link>
       </Section>
       <Section id="zayavka" alt>
         <div className="editorial-split items-start">

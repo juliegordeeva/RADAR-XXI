@@ -308,6 +308,30 @@
       "webp_bytes": 1038512,
       "illustrative_only": false,
       "source_png": ".local-assets-cleanup/public/images/radar/decor/foliage-strip.png"
+    },
+    {
+      "name": "mascots/radarik-skills.png",
+      "title": "Радарик и четыре компетенции",
+      "type": "mascot",
+      "png": null,
+      "webp": "/images/radar/mascots/radarik-skills.webp",
+      "width": 1086,
+      "height": 1448,
+      "webp_bytes": 199290,
+      "illustrative_only": false,
+      "generation_note": "image_gen, 2026-10-21. Prompt and references: docs/redesign/GENERATED_UNIVERSITY_ART.md"
+    },
+    {
+      "name": "scenes/university-workshop.png",
+      "title": "Проектная мастерская университета",
+      "type": "scene",
+      "png": null,
+      "webp": "/images/radar/scenes/university-workshop.webp",
+      "width": 1536,
+      "height": 1024,
+      "webp_bytes": 350596,
+      "illustrative_only": true,
+      "generation_note": "image_gen, 2026-10-21. Prompt and references: docs/redesign/GENERATED_UNIVERSITY_ART.md"
     }
   ],
   "real_previews": [

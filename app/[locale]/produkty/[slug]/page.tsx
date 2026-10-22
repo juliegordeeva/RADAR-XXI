@@ -15,7 +15,8 @@ import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
 import { site } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
-import { CompetencyTag } from "@/components/ui/CompetencyTag";
+import { SkillTag } from "@/components/ui/SkillTag";
+import { skillByKey, sectorByKey, foundations } from "@/content/competencies";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -74,7 +75,13 @@ export default async function ProductPage({
   const calendar = slug === "kalendar-32-dnya";
   const diary = slug === "ezhednevnik-tri-roli";
   const related = getRelated(product)
-    .filter((item) => item.inMainCatalog !== false && !item.comingSoon)
+    .filter(
+      (item) =>
+        item.inMainCatalog !== false &&
+        !item.comingSoon &&
+        item.ageGroups.includes("parents") ===
+          product.ageGroups.includes("parents"),
+    )
     .slice(0, 3)
     .map(forCatalog);
   const composition = visibleItems(product.composition);
@@ -86,7 +93,19 @@ export default async function ProductPage({
     product.price === null
       ? dict.catalog.priceAsk
       : dict.catalog.priceFrom.replace("{price}", String(product.price));
-  const action = safety ? t.priceAction : t.productAction;
+  const action =
+    product.developmentStatus === "draft"
+      ? dict.journey.enter
+      : safety
+        ? t.priceAction
+        : t.productAction;
+  const childAge = product.ageGroups.find((age) => age !== "parents");
+  const universityHref = localePath(
+    locale,
+    `/universitet?from=product${childAge ? `&program=intro-${childAge}` : ""}`,
+  );
+  const productTarget =
+    product.developmentStatus === "draft" ? universityHref : site.telegram;
   const image = safety
     ? "scenes/store-help"
     : calendar
@@ -143,19 +162,67 @@ export default async function ProductPage({
         </div>
         {author && <p className="material-summary mt-4">{author}</p>}
         <div>
-          <Button href={calendar ? "#sample" : site.telegram}>
+          <Button href={calendar ? "#sample" : productTarget}>
             {calendar ? v.calendarExample : action} →
           </Button>
-          {!calendar && (
+          {!calendar && product.developmentStatus !== "draft" && (
             <p className="material-summary text-text-muted mt-3">
               {t.telegramNote}
             </p>
           )}
         </div>
-        <Link href={localePath(locale, "/produkty")} className="text-link mt-3">
-          ← {t.breadcrumb}
+        <Link
+          href={localePath(
+            locale,
+            product.ageGroups.includes("parents")
+              ? "/produkty?age=parents"
+              : "/produkty",
+          )}
+          className="text-link mt-3"
+        >
+          ←{" "}
+          {product.ageGroups.includes("parents")
+            ? dict.redesign.parentLink
+            : t.breadcrumb}
         </Link>
       </EditorialHero>
+      <Section className="product-skills" alt>
+        {calendar || diary ? (
+          <p className="font-bold">{dict.journey.parentBadge}</p>
+        ) : (
+          <>
+            <h2 className="section-heading">{dict.journey.skillsTitle}</h2>
+            <div className="skills-grid">
+              {product.skills.map((key) => {
+                const skill = skillByKey[key];
+                return (
+                  <article className="skill-card" key={key}>
+                    <p className="editorial-number">{skill.code}</p>
+                    <h3>{loc(skill.title, locale)}</h3>
+                    <p className="mt-4">{loc(skill.forParent, locale)}</p>
+                    <p className="mt-4 font-bold">
+                      {dict.journey.competencyLabel}:{" "}
+                      {loc(sectorByKey[skill.sector].title, locale)}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+            {product.foundation?.map((key) => (
+              <p className="mt-5" key={key}>
+                {dict.journey.foundationLabel}:{" "}
+                {loc(foundations[key].title, locale)}
+              </p>
+            ))}
+          </>
+        )}
+        {product.developmentStatus === "draft" && (
+          <p className="mt-6 font-bold">{dict.journey.draft}</p>
+        )}
+        <Link href={universityHref} className="text-link mt-8">
+          {dict.productPage.universityLink}
+        </Link>
+      </Section>
       {safety ? (
         <Section id="sample" alt>
           <div className="editorial-split items-start">
@@ -275,8 +342,8 @@ export default async function ProductPage({
       >
         <p>{safety ? t.safetyDiscuss : loc(product.result, locale)}</p>
         <div className="flex flex-wrap gap-2">
-          {product.competencies.map((key) => (
-            <CompetencyTag key={key} competencyKey={key} locale={locale} />
+          {product.skills.map((key) => (
+            <SkillTag key={key} skillKey={key} locale={locale} />
           ))}
         </div>
       </StorySection>
@@ -290,8 +357,12 @@ export default async function ProductPage({
           <Card className="space-y-5">
             <h3>{price}</h3>
             <p className="material-summary text-text-muted">{t.formatNote}</p>
-            <Button href={site.telegram}>{action} →</Button>
-            <p className="material-summary text-text-muted">{t.telegramNote}</p>
+            <Button href={productTarget}>{action} →</Button>
+            <p className="material-summary text-text-muted">
+              {product.developmentStatus === "draft"
+                ? dict.journey.draft
+                : t.telegramNote}
+            </p>
           </Card>
         </div>
       </Section>

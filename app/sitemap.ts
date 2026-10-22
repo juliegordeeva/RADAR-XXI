@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     "",
     "/produkty",
+    "/universitet",
     "/podhod",
     "/o-nas",
     "/dlya-biznesa",
@@ -19,7 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kontakty",
     "/politika",
     ...products
-      .filter((product) => product.inMainCatalog !== false && !product.comingSoon)
+      .filter(
+        (product) => product.inMainCatalog !== false && !product.comingSoon,
+      )
       .map((product) => `/produkty/${product.slug}`),
   ];
 

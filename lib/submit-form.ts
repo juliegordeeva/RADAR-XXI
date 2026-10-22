@@ -29,6 +29,8 @@ export function withTracking(
     utm_campaign: tracking.utm_campaign,
     utm_content: tracking.utm_content,
     utm_term: tracking.utm_term,
+    from: tracking.from,
+    company: tracking.company,
   };
 }
 
