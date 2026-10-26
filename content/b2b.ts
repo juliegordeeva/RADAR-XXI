@@ -156,18 +156,33 @@ export const officeDay = {
     ),
   ],
   formTitle: locPair("Запросить программу Office Day", "Request the Office Day programme"),
-  expertTitle: locPair("Над этой программой работает команда", "The team on this programme"),
-  teamItems: [
-    locPair("кандидат педагогических наук", "candidate of pedagogical sciences"),
-    locPair("методист корпоративных систем обучения", "methodologist of corporate learning systems"),
-    locPair("КМС", "Candidate Master of Sport"),
-    locPair("преподаватель физической культуры", "physical education teacher"),
-    locPair("организационный психолог", "organisational psychologist"),
-    locPair(
-      "сертифицированный коуч корпоративных команд",
-      "certified coach of corporate teams",
-    ),
-  ],
+  team: {
+    ru: {
+      title: "Корпоративная команда",
+      caption: "Руководство проектов «Офисные приключения»",
+      intro: "Программу разрабатывает команда с 20-летним опытом в международном бизнес-образовании и корпоративном обучении.",
+      qualifications: [
+        "Кандидат педагогических наук.",
+        "Методист корпоративных систем обучения.",
+        "КМС.",
+        "Организационный психолог.",
+        "Сертифицированный коуч корпоративных команд.",
+      ],
+    },
+    en: {
+      title: "The team on this programme",
+      caption: null,
+      intro: null,
+      qualifications: [
+        "candidate of pedagogical sciences",
+        "methodologist of corporate learning systems",
+        "Candidate Master of Sport",
+        "physical education teacher",
+        "organisational psychologist",
+        "certified coach of corporate teams",
+      ],
+    },
+  },
   priceItems: [
     locPair(
       "Базовый формат (25 детей — интерактивная экскурсия по офису, обед, бизнес-игра/викторина, спортивные старты) — 300 000 ₽",

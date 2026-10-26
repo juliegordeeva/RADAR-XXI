@@ -6,6 +6,10 @@ export const site = {
   },
   email: null as string | null,
   telegram: "https://t.me/m/HORDWsDDY2Rk",
+  socials: {
+    threads: "https://www.threads.com/@radarikids?igshid=NTc4MTIwNjQ2YQ==",
+    telegram: "https://t.me/+EMsMQNOGOz8yMzA0",
+  },
 } as const;
 
 export function getSiteUrl() {

@@ -267,7 +267,10 @@
   "contactsPage": {
     "title": "Contact",
     "intro": "Message us on Telegram — that is the fastest way. You can also call or use the form below.",
-    "formTitle": "Request a kit or ask a question"
+    "formTitle": "Request a kit or ask a question",
+    "socialsTitle": "Find the project on social media",
+    "telegramCommunity": "Telegram — request to join",
+    "telegramJoinNote": "Joining the Telegram community requires approval of your request."
   },
   "privacyPage": {
     "title": "Privacy policy",

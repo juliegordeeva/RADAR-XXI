@@ -66,14 +66,14 @@ export const internships: Internship[] = [
       en: "Department intern",
     },
     ageGroups: ["7-9"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "5 квестов по 15 минут в неделю + онлайн-встреча 45–60 минут",
       en: "Five 15-minute quests a week + a 45–60 minute online meeting",
     },
     childDoes: [
       {
-        ru: "Выполняет «поручения отделов», как на Office Day",
+        ru: "Выполняет поручения отделов",
         en: "Takes on department tasks, as at Office Day",
       },
       {
@@ -81,7 +81,7 @@ export const internships: Internship[] = [
         en: "Checks prices and facts",
       },
       {
-        ru: "Капитанит семейной командой",
+        ru: "Руководит семейной командой",
         en: "Captains a family team",
       },
     ],
@@ -102,7 +102,7 @@ export const internships: Internship[] = [
       en: "Junior project manager",
     },
     ageGroups: ["10-12"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "5 проектных заданий по 20 минут в неделю + онлайн-встреча 60 минут",
       en: "Five 20-minute project tasks a week + a 60-minute online meeting",
@@ -138,14 +138,14 @@ export const internships: Internship[] = [
       en: "Project lead",
     },
     ageGroups: ["13-16"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "Недельные спринты, задания по 20–30 минут + встреча с экспертом",
       en: "Weekly sprints, tasks of 20–30 minutes + a meeting with an expert",
     },
     childDoes: [
       {
-        ru: "Ведёт план и вехи",
+        ru: "Ведёт план и отмечает контрольные точки",
         en: "Tracks a plan and milestones",
       },
       {
@@ -174,7 +174,7 @@ export const internships: Internship[] = [
       en: "Thinking",
     },
     ageGroups: ["4-6", "7-9", "10-12", "13-16"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "",
       en: "",
@@ -197,7 +197,7 @@ export const internships: Internship[] = [
       en: "Creating and adapting",
     },
     ageGroups: ["4-6", "7-9", "10-12", "13-16"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "",
       en: "",
@@ -220,7 +220,7 @@ export const internships: Internship[] = [
       en: "Working with people",
     },
     ageGroups: ["4-6", "7-9", "10-12", "13-16"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "",
       en: "",
@@ -243,7 +243,7 @@ export const internships: Internship[] = [
       en: "Following through",
     },
     ageGroups: ["4-6", "7-9", "10-12", "13-16"],
-    days: 21,
+    days: 14,
     rhythm: {
       ru: "",
       en: "",
@@ -266,10 +266,7 @@ export const internships: Internship[] = [
       en: "Project internship",
     },
     ageGroups: ["10-12", "13-16"],
-    days: {
-      min: 28,
-      max: 42,
-    },
+    days: 14,
     rhythm: {
       ru: "",
       en: "",

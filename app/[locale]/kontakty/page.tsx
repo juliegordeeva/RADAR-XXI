@@ -71,6 +71,36 @@ export default async function ContactsPage({
             </div>
           ))}
         </div>
+        {locale === "ru" && (
+          <div className="mt-10 border-t border-teal pt-8">
+            <h2 className="section-heading">{dict.contactsPage.socialsTitle}</h2>
+            <ul className="flex flex-wrap gap-x-8 gap-y-4">
+              <li>
+                <a
+                  href={site.socials.threads}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                >
+                  Threads
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.socials.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                >
+                  {dict.contactsPage.telegramCommunity}
+                </a>
+              </li>
+            </ul>
+            <p className="material-summary mt-4">
+              {dict.contactsPage.telegramJoinNote}
+            </p>
+          </div>
+        )}
       </Section>
       <Section alt>
         <h2 className="section-heading">{dict.style03.directions}</h2>
