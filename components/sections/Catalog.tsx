@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { localePath } from "@/lib/locale-path";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { AgeGroup, Product } from "@/content/types";
 import { ageFilterLabels, ageOrder } from "@/lib/age";
@@ -27,6 +27,12 @@ function isAgeGroup(value: string | null): value is AgeGroup {
   return Boolean(value && ageOrder.includes(value as AgeGroup));
 }
 
+function CatalogQuery({ onChange }: { onChange: (query: string) => void }) {
+  const query = useSearchParams().toString();
+  useEffect(() => onChange(query), [query, onChange]);
+  return null;
+}
+
 export function Catalog({
   products,
   locale,
@@ -42,15 +48,19 @@ export function Catalog({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const params = useSearchParams();
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
-  // При статическом экспорте первый клиентский список должен совпасть с HTML.
-  const ageParam = hydrated ? params.get("age") : null;
+  // Только чтение параметров ждёт браузера: каталог и единственный H1 остаются в HTML.
+  const [query, setQuery] = useState("");
+  const params = useMemo(() => new URLSearchParams(query), [query]);
+  const queryReader = (
+    <Suspense fallback={null}>
+      <CatalogQuery onChange={setQuery} />
+    </Suspense>
+  );
+  const ageParam = params.get("age");
   const age = isAgeGroup(ageParam) ? ageParam : null;
   const parentView = !compact && age === "parents";
   const childAge = age && age !== "parents" ? age : null;
-  const sectorParam = hydrated ? params.get("sector") : null;
+  const sectorParam = params.get("sector");
   const sector = !parentView && isSectorKey(sectorParam) ? sectorParam : null;
   useEffect(() => {
     if (compact) return;
@@ -250,9 +260,16 @@ export function Catalog({
       )}
     </div>
   );
-  if (compact) return content;
+  if (compact)
+    return (
+      <>
+        {queryReader}
+        {content}
+      </>
+    );
   return (
     <>
+      {queryReader}
       <CatalogHero locale={locale} dict={dict} parentView={parentView} />
       <Section
         id="catalog-materials"

@@ -14,6 +14,7 @@ export type Product = {
   slug: string;
   kind: ProductKind;
   title: Localized;
+  seo?: Partial<Record<Locale, { title: string; description: string }>>;
   tagline: Localized;
   audience: Localized;
   result: Localized;

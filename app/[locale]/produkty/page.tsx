@@ -1,8 +1,6 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Catalog } from "@/components/sections/Catalog";
-import { CatalogHero } from "@/components/sections/CatalogHero";
 import { catalogProducts } from "@/content/products";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
@@ -36,13 +34,11 @@ export default async function ProductsPage({
   const dict = getDictionary(locale);
 
   return (
-    <Suspense fallback={<CatalogHero locale={locale} dict={dict} />}>
-      <Catalog
-        products={catalogProducts}
-        locale={locale}
-        dict={dict}
-        title={dict.catalog.title}
-      />
-    </Suspense>
+    <Catalog
+      products={catalogProducts}
+      locale={locale}
+      dict={dict}
+      title={dict.catalog.title}
+    />
   );
 }

@@ -1,3 +1,6 @@
+import type { Locale } from "@/lib/i18n";
+import { localePath } from "@/lib/locale-path";
+
 export const site = {
   name: "RADAR KIDS",
   phones: {
@@ -13,8 +16,11 @@ export const site = {
 } as const;
 
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kids.radarexec.ru").replace(
     /\/$/,
     "",
   );
+}
+export function pageUrl(locale: Locale, path: string) {
+  return `${getSiteUrl()}${localePath(locale, path).replace(/\/$/, "")}/`;
 }

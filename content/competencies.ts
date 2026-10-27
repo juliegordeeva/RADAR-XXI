@@ -232,8 +232,8 @@ export const skills: Skill[] = [
       en: "Finds another way when plans or rules change.",
     },
     signOfProgress: {
-      ru: "План сорвался — он говорит «ладно, тогда так», а не плачет и не уходит.",
-      en: "Says “OK, then let’s try this” when a plan falls through.",
+      ru: "План сорвался — после паузы пробует другой вариант.",
+      en: "When a plan falls through, pauses and tries another option.",
     },
     icon: "Shuffle",
   },
@@ -268,8 +268,8 @@ export const skills: Skill[] = [
       en: "Explains their view, listens, keeps agreements and shares the work.",
     },
     signOfProgress: {
-      ru: "Предлагает «давай так» вместо крика или избегания.",
-      en: "Offers “Let’s do it this way” instead of shouting or walking away.",
+      ru: "Предлагает вариант, который можно обсудить.",
+      en: "Suggests an option that can be discussed.",
     },
     icon: "MessageCircle",
   },

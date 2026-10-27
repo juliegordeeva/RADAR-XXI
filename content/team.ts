@@ -38,7 +38,7 @@ export const team: TeamMember[] = [
     role: { ru: "Со-основательница", en: "Co-founder" },
     bio: {
       ru: "Магистр управления организацией во Франции. Образование в области экономики и управления в России. 10 лет в международном консалтинге, в том числе по темам лидерской устойчивости, управления энергией и стресс-менеджмента для крупной международной авиастроительной компании. Мама двух мальчиков, которые говорят на четырёх языках.",
-      en: "Master’s in organisational management in France, background in tourism management. Ten years in international consulting, including leadership resilience and balance. Mother of two boys.",
+      en: "Master’s in organisational management in France. Education in economics and management in Russia. 10 years in international consulting, including leadership resilience, energy management and stress management for a major international aircraft manufacturer. Mother of two boys who speak four languages.",
     },
     photo: "/images/elizaveta-sarycheva.webp",
     photoAlt: {

@@ -49,14 +49,17 @@ export async function generateMetadata({
   const product = getProduct(slug);
   if (!product || product.comingSoon) return {};
   const dict = getDictionary(locale);
+  const seo = product.seo?.[locale];
   return pageMetadata({
     locale,
     path: `/produkty/${slug}`,
-    title: `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
+    title:
+      seo?.title ?? `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
     description:
-      slug === "kartochki-bezopasnosti"
+      seo?.description ??
+      (slug === "kartochki-bezopasnosti"
         ? dict.redesign.safetyDescription
-        : loc(product.tagline, locale),
+        : loc(product.tagline, locale)),
   });
 }
 export default async function ProductPage({
@@ -263,7 +266,7 @@ export default async function ProductPage({
               <figure key={page}>
                 <CalendarPreview
                   page={page}
-                  alt={`${v.calendarCaption} ${[1, 2, 9][i]}`}
+                  alt={`${v.calendarCaption}. ${locale === "ru" ? "День" : "Day"} ${[1, 2, 9][i]}`}
                   zoom
                 />
                 <figcaption>
@@ -336,7 +339,15 @@ export default async function ProductPage({
         </Section>
       )}
       <StorySection
-        title={safety ? t.discuss : dict.productPage.result}
+        title={
+          safety
+            ? t.discuss
+            : calendar
+              ? dict.productPage.calendarResult
+              : diary
+                ? dict.productPage.diaryResult
+                : dict.productPage.result
+        }
         image={calendar || diary ? "scenes/father-work" : "scenes/family-table"}
         reverse
       >

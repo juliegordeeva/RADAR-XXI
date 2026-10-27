@@ -46,22 +46,22 @@ export const b2bHub = {
 export const officeDay = {
   title: locPair("Офисные приключения", "Office adventures"),
   subtitle: locPair(
-    "Детский день в офисе, адаптированный под бизнес, ценности и пространство компании.",
-    "A children’s day in the office, adapted to the company’s business, values and space.",
+    "День детей сотрудников в офисе: квест, деловая игра и знакомство с работой родителей. Программу разрабатываем под вашу компанию.",
+    "A day for employees’ children in the office: a quest, a business game and a look at their parents’ work. The programme is developed for your company.",
   ),
   intro: locPair(
-    "Для ребёнка работа родителей часто остаётся абстрактным местом, которое каждый день забирает маму или папу. Office Day превращает офис в понятное и дружелюбное пространство. Дети видят, где работают родители, знакомятся со спецификой компании и через игру понимают, какой вклад делает их семья.",
-    "For a child, the parents’ work is often an abstract place that takes mum or dad away every day. Office Day turns the office into a place they can understand. Children see where their parents work, get to know the company, and through play they see what their family contributes.",
+    "На Office Day дети знакомятся с офисом, работой родителей и задачами компании через квест и деловую игру. Приоритет проведения — Москва и ЦФО. Возможность мероприятия в другом городе обсудим отдельно.",
+    "At Office Day, children explore the office, their parents’ work and the company’s activities through a quest and a business game. Events are primarily held in Moscow and the Central Federal District. Other cities are considered on request.",
   ),
   cta: locPair("Запросить программу Office Day", "Request the Office Day programme"),
   ctaHint: locPair(
-    "Расскажите о компании, городе, предполагаемой дате и возрасте детей. Мы предложим структуру программы и список данных для расчёта.",
-    "Tell us about the company, the city, the likely date and the children’s ages. We will propose a programme structure and the data we need for a quote.",
+    "Расскажите о компании, городе, дате, количестве и возрасте детей. Команда уточнит задачу и подготовит предложение по программе и стоимости.",
+    "Tell us about the company, city, date, and the number and ages of the children. The team will clarify your needs and prepare a programme proposal and quote.",
   ),
   taskTitle: locPair("Задача программы", "What the programme is for"),
   task: locPair(
-    "Познакомить детей сотрудников с работой компании в доступной игровой форме, укрепить связь семьи с корпоративной жизнью и создать содержательный семейный формат для сотрудников. Программа поддерживает внутренние коммуникации и HR-бренд.",
-    "To introduce employees’ children to the company’s work in a form they can play, to strengthen the family’s link with company life, and to give employees a family format with substance. The programme supports internal communications and the employer brand.",
+    "Дети знакомятся с местом работы родителей. Через задания и игру узнают, чем занимается компания и какой вклад в её работу вносит мама или папа.",
+    "Children get to know their parents’ workplace. Through tasks and play, they explore what the company does and how their mum or dad contributes.",
   ),
   dayTitle: locPair("Как проходит день", "How the day runs"),
   steps: [
@@ -143,13 +143,13 @@ export const officeDay = {
   ],
   valueTitle: locPair("Для компании", "For the company"),
   valueItems: [
-    locPair("содержательное семейное событие", "a family event with substance"),
+    locPair("Семейное событие для сотрудников и их детей.", "A family event for employees and their children."),
     locPair(
       "знакомство детей с профессиями и бизнесом родителей",
       "children meeting their parents’ jobs and business",
     ),
-    locPair("материал для внутренних коммуникаций", "material for internal communications"),
-    locPair("поддержка HR-бренда", "support for the employer brand"),
+    locPair("По согласованию готовим материалы для внутренних коммуникаций.", "By agreement, we prepare materials for internal communications."),
+    locPair("Содержание программы связываем с бизнесом и ценностями компании.", "Programme content is connected with the company’s business and values."),
     locPair(
       "единый подрядчик для сценария и организации",
       "one contractor for the script and the organisation",
@@ -206,7 +206,7 @@ export const familyHikes = {
     "Organised trips for employees with children, where the family walks the route and does the tasks together.",
   ),
   intro: locPair(
-    "Программа объединяет доступный маршрут, семейные и командные задания, сопровождение и общий финал. Сложность, продолжительность и сценарий подбираются после знакомства с составом группы и требованиями компании.",
+    "В программу входят доступный маршрут, семейные и командные задания, сопровождение и общий финал. Сложность, продолжительность и сценарий подбираем с учётом состава группы и требований компании.",
     "The programme combines an accessible route, family and team tasks, support and a shared finale. Difficulty, length and script are chosen after we know the group and the company’s requirements.",
   ),
   needTitle: locPair("Что нужно, чтобы подобрать формат", "What we need to choose a format"),
@@ -240,8 +240,8 @@ export const diary = {
     "Diary “Three roles / one life” — a corporate gift",
   ),
   subtitle: locPair(
-    "Практическое руководство и дневник баланса для тех, кто управляет проектами, бизнесом и семейным теплом.",
-    "A practical guide and a balance diary for people who run projects, a business and family life.",
+    "Практическое руководство и дневник для тех, кто совмещает работу, семейные дела и собственные планы.",
+    "A practical guide and diary for people combining work, family responsibilities and their own plans.",
   ),
   intro: locPair(
     "Три автора — три роли: Юлия Гордеева (бизнес-планирование), Елизавета Сарычева (устойчивость и самочувствие), Мария Громова (управление проектами для детей). 365 дней, разворот на день: рабочий штаб слева, домашний круг справа.",

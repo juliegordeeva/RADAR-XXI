@@ -1,12 +1,11 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/content/products";
 import { locales } from "@/lib/i18n";
-import { getSiteUrl } from "@/lib/site";
+import { pageUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = getSiteUrl();
   const pages = [
     "",
     "/produkty",
@@ -28,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return locales.flatMap((locale) =>
     pages.map((path) => ({
-      url: `${siteUrl}/${locale}${path}`,
+      url: pageUrl(locale, path || "/"),
       changeFrequency: "weekly" as const,
       priority: path === "" ? 1 : 0.7,
     })),

@@ -73,22 +73,28 @@ function brelokSamoorganizacii(
 export const products: Product[] = [
   {
     slug: "kalendar-32-dnya",
+    seo: {
+      ru: {
+        title: "Календарь для родителей «32 дня родительства в радость» — RADAR KIDS",
+        description: "32 дня с мыслью, действием и вопросом для родителя. Самоподдержка и общение с ребёнком. Посмотрите примеры страниц календаря RADAR KIDS.",
+      },
+    },
     kind: "calendar",
     title: {
       ru: "Отрывной календарь «32 дня родительства в радость»",
       en: "Tear-off calendar “32 days of parenting with joy”",
     },
     tagline: {
-      ru: "Одна мысль, одно действие, один вопрос — 32 дня.",
-      en: "One thought, one action, one question — 32 days.",
+      ru: "Одна мысль, одно действие и один вопрос на каждый из 32 дней. Календарь для родителей о самоподдержке и общении с ребёнком.",
+      en: "One thought, one action and one question for each of 32 days. A calendar for parents about supporting themselves and communicating with their child.",
     },
     audience: {
-      ru: "Родители. Возраст ребёнка не важен.",
-      en: "Parents. The child’s age does not matter.",
+      ru: "Родителям, которые хотят замечать своё состояние, поддерживать себя и находить время для общения с ребёнком. Материал адресован взрослому.",
+      en: "For parents who want to notice how they feel, support themselves and find time to talk with their child. The material is for adults.",
     },
     result: {
-      ru: "Сначала отмечаем точку старта. В конце смотрим на результат и динамику.",
-      en: "You mark a starting point first. At the end you look at what changed.",
+      ru: "Какие ситуации вызывают напряжение, что помогает поддержать себя и какие способы общения хочется сохранить. В конце можно вернуться к первоначальным ответам и сравнить собственные наблюдения.",
+      en: "Reflect on which situations cause tension, what helps you support yourself and which ways of communicating you want to keep. At the end, you can return to your first answers and compare your own observations.",
     },
     bullets: [
       {
@@ -146,8 +152,8 @@ export const products: Product[] = [
         en: "Hang or place the calendar where you see it in the morning",
       },
       {
-        ru: "Один лист в день. Сначала мысль, потом действие",
-        en: "One sheet a day. Thought first, then the action",
+        ru: "Откройте задание дня. Прочитайте мысль, попробуйте действие и ответьте на вопрос в тетради или заметках телефона.",
+        en: "Open the day’s task. Read the thought, try the action and answer the question in a notebook or phone notes.",
       },
       {
         ru: "Вечером ответьте на вопрос. Можно в заметках телефона",
@@ -170,27 +176,33 @@ export const products: Product[] = [
   },
   {
     slug: "ezhednevnik-tri-roli",
+    seo: {
+      ru: {
+        title: "Ежедневник для родителей «Три роли / одна жизнь» — RADAR KIDS",
+        description: "Работа, семья и собственные планы в ежедневнике «Три роли / одна жизнь». Познакомьтесь с содержанием и уточните доступность у команды RADAR KIDS.",
+      },
+    },
     kind: "diary",
     title: {
       ru: "Ежедневник «Три роли / одна жизнь»",
       en: "Diary “Three roles / one life”",
     },
     tagline: {
-      ru: "Практическое руководство и дневник баланса для тех, кто управляет проектами, собой и семейным очагом.",
-      en: "A practical guide and balance diary for people who run projects, themselves, and a household.",
+      ru: "Практическое руководство и дневник для тех, кто совмещает работу, семейные дела и собственные планы.",
+      en: "A practical guide and diary for people combining work, family responsibilities and their own plans.",
     },
     audience: {
       ru: "Родители, которые ведут работу, семью и своё состояние в одном дне.",
       en: "Parents who hold work, family and their own state in one day.",
     },
     result: {
-      ru: "Один разворот — один день в балансе.",
-      en: "One spread — one day in balance.",
+      ru: "Рабочие задачи, семейные договорённости и собственные планы можно записывать в одном месте и возвращаться к ним при обзоре дня.",
+      en: "Keep work tasks, family agreements and your own plans in one place and return to them when reviewing the day.",
     },
     bullets: [
       {
-        ru: "Один разворот = один день в балансе",
-        en: "One spread = one day in balance",
+        ru: "Один разворот на день: работа, семья и собственные планы",
+        en: "One daily spread: work, family and your own plans",
       },
       {
         ru: "Еженедельный обзор в конце недели",
@@ -259,22 +271,28 @@ export const products: Product[] = [
   },
   {
     slug: "kartochki-bezopasnosti",
+    seo: {
+      ru: {
+        title: "Карточки безопасности для детей 4–6 лет — RADAR KIDS",
+        description: "Карточки безопасности для совместных занятий с детьми 4–6 лет. Ситуации для обсуждения, подсказки взрослому и примеры из набора RADAR KIDS.",
+      },
+    },
     kind: "cards",
     title: {
       ru: "Карточки безопасности «Что делать, если…»",
       en: "Safety cards: “What to do if…”",
     },
     tagline: {
-      ru: "45 ситуаций. Без запугивания, до автоматизма.",
-      en: "45 situations. No scare stories. Until it is automatic.",
+      ru: "Карточки для обсуждения повседневных ситуаций с ребёнком 4–6 лет. Рассмотрите ситуацию, поговорите о возможных действиях и разыграйте её вместе.",
+      en: "Cards for discussing everyday situations with a child aged 4–6. Look at a situation, discuss possible actions and act it out together.",
     },
     audience: {
-      ru: "Родители детей 4–8 лет.",
-      en: "Parents of children aged 4–8.",
+      ru: "Родители детей 4–6 лет. Карточки рассчитаны на совместное обсуждение со взрослым.",
+      en: "Parents of children aged 4–6. The cards are intended for discussion with an adult.",
     },
     result: {
-      ru: "Ребёнок сам объясняет правило, а не кивает и забывает.",
-      en: "The child can explain the rule, not just nod and forget.",
+      ru: "Ребёнок обсуждает возможные действия в ситуации и пробует обратиться за помощью вместе со взрослым.",
+      en: "The child discusses possible actions in a situation and practises asking for help with an adult.",
     },
     bullets: [
       {
@@ -282,19 +300,19 @@ export const products: Product[] = [
         en: "5 blocks: people, places, home, emergencies, boundaries",
       },
       {
-        ru: "На обороте: четыре шага, фраза вслух, мини-игра на 2 минуты",
-        en: "On the back: four steps, a phrase to say aloud, a 2-minute game",
+        ru: "На обороте — объяснение взрослому и вопросы для обсуждения",
+        en: "On the back: an explanation for the adult and questions to discuss",
       },
       {
-        ru: "Повторяем как алфавит, без страшных историй",
-        en: "Repeat like the alphabet. No horror stories",
+        ru: "Обсуждаем и пробуем действие вместе, без страшных историй",
+        en: "Discuss and try the action together, without scare stories",
       },
     ],
     format: {
-      ru: "45 карточек. PDF, чат-бот или печать по предзаписи.",
-      en: "45 cards. PDF, chatbot, or print by pre-order.",
+      ru: "45 двусторонних карточек. PDF, чат-бот или печать по предзаписи.",
+      en: "45 double-sided cards. PDF, chatbot, or print by pre-order.",
     },
-    ageGroups: ["4-6", "7-9"],
+    ageGroups: ["4-6"],
     skills: ["empathy", "teamwork"],
     foundation: ["safety"],
     ctaLabel: {
@@ -311,26 +329,26 @@ export const products: Product[] = [
         en: "45 cards, 5 blocks of 9: People, Places, Home, Emergencies, Boundaries",
       },
       {
-        ru: "Лицевая сторона — ситуация, которую ребёнок узнаёт",
-        en: "Front: a situation the child recognises",
+        ru: "На лицевой стороне — ситуация и короткая подсказка ребёнку.",
+        en: "On the front: a situation and a short prompt for the child.",
       },
       {
-        ru: "Оборот — шаги Заметь → Остановись → Выбери безопасного взрослого → Зови на помощь, фраза для заучивания, мини-игра",
-        en: "Back: Notice → Stop → Pick a safe adult → Call for help, a phrase to learn, a mini-game",
+        ru: "На обороте — объяснение взрослому и вопросы для обсуждения.",
+        en: "On the back: an explanation for the adult and questions to discuss.",
       },
     ],
     howTo: [
       {
-        ru: "Вытащите одну карточку. Сначала картинка и фраза",
-        en: "Draw one card. Start with the picture and the phrase",
+        ru: "Выберите одну карточку. Обсудите ситуацию с ребёнком и попробуйте предложенное действие вместе.",
+        en: "Choose one card. Discuss the situation with your child and try the suggested action together.",
       },
       {
-        ru: "Пройдите четыре шага вслух. Затем мини-игру на две минуты",
-        en: "Say the four steps aloud. Then play the two-minute game",
+        ru: "Прочитайте пояснение взрослому и вопросы на обороте.",
+        en: "Read the explanation for the adult and the questions on the back.",
       },
       {
-        ru: "Повторяйте знакомые карточки, пока ребёнок не сможет объяснить правило сам",
-        en: "Repeat known cards until the child can explain the rule",
+        ru: "Возвращайтесь к знакомым карточкам и обсуждайте, как ребёнок понимает ситуацию.",
+        en: "Return to familiar cards and discuss how your child understands the situation.",
       },
     ],
     delivery: {
@@ -349,6 +367,12 @@ export const products: Product[] = [
   },
   {
     slug: "advent-4-6",
+    seo: {
+      ru: {
+        title: "Адвент с заданиями для детей 4–6 лет — RADAR KIDS",
+        description: "«24 дня решений и креативности» для детей 4–6 лет: истории с выбором, рисунки и продолжение сюжета. Познакомьтесь с содержанием семейного адвента.",
+      },
+    },
     kind: "advent",
     title: {
       ru: "24 дня решений и креативности, 4–6 лет",
@@ -363,8 +387,8 @@ export const products: Product[] = [
       en: "Families with children aged 4–6 who need a simple choice, not a lecture.",
     },
     result: {
-      ru: "Ребёнок привыкает видеть два варианта, выбирать и объяснять «почему так» своими словами.",
-      en: "The child gets used to seeing two options, picking one, and saying why.",
+      ru: "Рассматривает варианты, выбирает и придумывает продолжение истории.",
+      en: "Looks at options, makes a choice and invents what happens next in the story.",
     },
     bullets: [
       {
@@ -437,6 +461,12 @@ export const products: Product[] = [
   },
   {
     slug: "advent-7-9",
+    seo: {
+      ru: {
+        title: "Семейный адвент для детей 7–9 лет — RADAR KIDS",
+        description: "«24 семейных минипроекта» для детей 7–9 лет: придумать, спланировать, выполнить и обсудить общее дело. Содержание семейного адвента RADAR KIDS.",
+      },
+    },
     kind: "advent",
     title: {
       ru: "24 семейных минипроекта, 7–9 лет",
@@ -451,8 +481,8 @@ export const products: Product[] = [
       en: "Families with children aged 7–9 who want a project with a start and an end, not a one-off craft.",
     },
     result: {
-      ru: "Ребёнок видит, что большое дело складывается из шагов, и сам отмечает, что уже сделано.",
-      en: "The child sees that a bigger job is made of steps, and ticks off what is done.",
+      ru: "Вместе со взрослым намечает шаги семейного проекта и обсуждает выполненное.",
+      en: "Plans the steps of a family project with an adult and discusses what they have done.",
     },
     bullets: [
       {
@@ -525,6 +555,12 @@ export const products: Product[] = [
   },
   {
     slug: "nabor-14-obshchenie",
+    seo: {
+      ru: {
+        title: "Задания на общение для детей 7–9 лет — RADAR KIDS",
+        description: "«14 дней общения» для детей 7–9 лет: совместные задания, чтобы пробовать просить о помощи, слушать и договариваться. Содержание и пример задания.",
+      },
+    },
     kind: "kit",
     title: {
       ru: "14 дней общения, 7–9 лет",
@@ -539,8 +575,8 @@ export const products: Product[] = [
       en: "Families with children aged 7–9 whose talks slide into “because I said so”.",
     },
     result: {
-      ru: "Ребёнок тренирует, как попросить, как сказать «нет» и как повторить чужую мысль своими словами.",
-      en: "The child practises asking, saying no, and repeating someone else’s point in their own words.",
+      ru: "Пробует попросить о помощи, сказать «нет», выслушать другого и пересказать его мысль.",
+      en: "Practises asking for help, saying no, listening to another person and retelling their idea.",
     },
     bullets: [
       {
@@ -629,6 +665,12 @@ export const products: Product[] = [
   }),
   {
     slug: "kvest-igrushechnyy-gorod",
+    seo: {
+      ru: {
+        title: "Домашний квест для детей 4–6 лет «Игрушечный город» — RADAR KIDS",
+        description: "Квест «Спасаем игрушечный город» для детей 4–6 лет: выбрать, как помочь героям, и обсудить их чувства. Познакомьтесь с сюжетом и примером задания.",
+      },
+    },
     kind: "quest",
     title: {
       ru: "Квест «Спасаем игрушечный город», 4–6 лет",
@@ -643,8 +685,8 @@ export const products: Product[] = [
       en: "Families with children aged 4–6. Half an hour to an hour on the rug, not a marathon.",
     },
     result: {
-      ru: "Ребёнок выбирает из двух-трёх способов помочь и вслух говорит, что чувствует герой.",
-      en: "The child picks one of two or three ways to help, and says how the character feels.",
+      ru: "Замечает чувства героев, выбирает способ помочь и обсуждает последствия выбора.",
+      en: "Notices the characters’ feelings, chooses a way to help and discusses what follows from the choice.",
     },
     bullets: [
       {
@@ -717,6 +759,12 @@ export const products: Product[] = [
   },
   {
     slug: "kvest-missiya-v-magazine",
+    seo: {
+      ru: {
+        title: "Квест для детей 7–9 лет «Миссия в магазине» — RADAR KIDS",
+        description: "«Секретная миссия в магазине» для детей 7–9 лет: семейный квест о покупках, выборе и ограничениях. Познакомьтесь с сюжетом и примером задания.",
+      },
+    },
     kind: "quest",
     title: {
       ru: "Квест «Секретная миссия в магазине», 7–9 лет",
@@ -731,8 +779,8 @@ export const products: Product[] = [
       en: "Families with children aged 7–9. At home with a kitchen “shop”, or on a short real shop run.",
     },
     result: {
-      ru: "Ребёнок видит, что на всё не хватает, и выбирает, от чего отказаться.",
-      en: "The child sees that you cannot have everything, and chooses what to drop.",
+      ru: "Сравнивает варианты покупок, учитывает ограничения и объясняет решение.",
+      en: "Compares shopping options, considers the limits and explains the choice.",
     },
     bullets: [
       {
@@ -806,6 +854,12 @@ export const products: Product[] = [
   },
   {
     slug: "kvest-organizuem-sobytie",
+    seo: {
+      ru: {
+        title: "Квест-проект для детей 10–12 лет «Организуем событие» — RADAR KIDS",
+        description: "Квест «Организуем событие» для детей 10–12 лет: выбрать семейное событие, составить план и распределить задачи. Содержание и пример проекта.",
+      },
+    },
     kind: "quest",
     title: {
       ru: "Квест «Организуем событие», 10–12 лет",
@@ -820,8 +874,8 @@ export const products: Product[] = [
       en: "Families with children aged 10–12. A weekend when you can finish something for guests, or at least for the household.",
     },
     result: {
-      ru: "Ребёнок проводит маленький проект до конца и видит, что сдвинуть, если время кончилось.",
-      en: "The child runs a small project to the end and sees what to move if time runs out.",
+      ru: "Выбирает событие, составляет план и распределяет задачи вместе со взрослым.",
+      en: "Chooses an event, makes a plan and shares out tasks with an adult.",
     },
     bullets: [
       {
@@ -894,6 +948,12 @@ export const products: Product[] = [
   },
   {
     slug: "kurs-podrostki",
+    seo: {
+      ru: {
+        title: "Управление проектами для подростков — RADAR KIDS",
+        description: "«Учимся побеждать»: проектные задания для подростков и обсуждение целей, планов и ролей. Познакомьтесь с форматом программы RADAR KIDS.",
+      },
+    },
     kind: "course",
     title: {
       ru: "Управление проектами — «Учимся побеждать»",
@@ -908,8 +968,8 @@ export const products: Product[] = [
       en: "Teens aged 13–16 and parents who need a talk without a lecture on “what to be”.",
     },
     result: {
-      ru: "Подросток лучше формулирует, как думает, как договаривается и какие задачи ему подходят — не список профессий с картинками.",
-      en: "The teen can say how they think, how they negotiate, and what kind of work fits — not a poster of job titles.",
+      ru: "Обсуждает проектные задачи, план и роли.",
+      en: "Discusses project tasks, a plan and roles.",
     },
     bullets: [
       {
@@ -921,8 +981,8 @@ export const products: Product[] = [
         en: "Not lectures: tasks, reviews and real conversations",
       },
       {
-        ru: "Профориентация 13–16: семейная сессия, сильные стороны и типы задач",
-        en: "Career session ages 13–16: family meeting, strengths and types of work",
+        ru: "Семейная сессия 13–16: обсуждение сильных сторон и типов задач",
+        en: "Family session ages 13–16: discussing strengths and types of tasks",
       },
     ],
     format: {
@@ -986,6 +1046,12 @@ export const products: Product[] = [
   },
   {
     slug: "9-voprosov-svoego-dela",
+    seo: {
+      ru: {
+        title: "«9 вопросов для своего дела», 10–12 лет — RADAR KIDS",
+        description: "Девять вопросов об одном собственном проекте ребёнка 10–12 лет: для кого он, кто поможет и что потребуется. Познакомьтесь с содержанием материала.",
+      },
+    },
     developmentStatus: "draft",
     kind: "kit",
     title: locPair(
@@ -1000,10 +1066,10 @@ export const products: Product[] = [
       "Семьи с детьми 10–12 лет, у которых есть школьная ярмарка, сбор денег классу или другое своё дело.",
       "Families with children aged 10–12 who have a school fair, a class fundraiser, or another real project.",
     ),
-    result: locPair(
-      "Ребёнок разбирает свой проект простыми вопросами, а не «компанию из учебника».",
-      "The child unpacks their own project in plain questions, not a textbook “company”.",
-    ),
+    result: {
+      ru: "Обсуждает замысел проекта, задачи и то, что ещё нужно выяснить.",
+      en: "Discusses a project idea, its tasks and what they still need to find out.",
+    },
     bullets: [
       locPair(
         "9 вопросов на языке ребёнка — про один проект",
