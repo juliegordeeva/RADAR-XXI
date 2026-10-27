@@ -123,7 +123,8 @@ export function InternshipCatalog({
                         {loc(item.finalProject, locale)}
                       </p>
                     )}
-                    <ul className="space-y-2">
+                    {!item.available && (
+                      <ul className="space-y-2">
                       {item.sectors.map((key) => (
                         <li key={key} className="flex items-center gap-2">
                           <span
@@ -133,7 +134,8 @@ export function InternshipCatalog({
                           {loc(sectorByKey[key].title, locale)}
                         </li>
                       ))}
-                    </ul>
+                      </ul>
+                    )}
                     {item.available ? (
                       <>
                         <p className="font-bold">

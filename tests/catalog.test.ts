@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { catalogProducts } from "@/content/products";
+import { catalogProducts, products } from "@/content/products";
 import { filterCatalogProducts } from "@/lib/catalog-filter";
 import { productSectors } from "@/content/competencies";
 
@@ -42,4 +42,17 @@ test("age and competency filters still combine within children's materials", () 
     ),
   );
   assert.ok(result.every((product) => !product.ageGroups.includes("parents")));
+});
+
+test("only the calendar can be obtained now; waitlisted materials expose no sale price or purchase format", () => {
+  const available = products.filter((product) => product.availability === "available");
+  assert.equal(available.length, 1);
+  assert.equal(available[0].slug, "kalendar-32-dnya");
+  assert.equal(available[0].price, 800);
+  assert.deepEqual(available[0].purchaseFormats, ["pdf"]);
+  for (const product of products.filter((item) => item.availability === "waitlist")) {
+    assert.equal(product.price, null);
+    assert.equal(product.purchaseFormats?.length ?? 0, 0);
+  }
+  assert.deepEqual(products.find((p) => p.slug === "kartochki-bezopasnosti")!.ageGroups, ["4-6"]);
 });

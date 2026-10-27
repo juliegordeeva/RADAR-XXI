@@ -8,10 +8,11 @@ export type AgeGroup = "4-6" | "7-9" | "10-12" | "13-16" | "parents";
 export type ProductKind =
   "calendar" | "cards" | "advent" | "kit" | "quest" | "course" | "diary";
 
-export type PurchaseFormat = "pdf" | "bot" | "print" | "sample";
+export type PurchaseFormat = "pdf" | "bot" | "print" | "sample" | "waitlist";
 
 export type Product = {
   slug: string;
+  availability: "available" | "waitlist";
   kind: ProductKind;
   title: Localized;
   seo?: Partial<Record<Locale, { title: string; description: string }>>;

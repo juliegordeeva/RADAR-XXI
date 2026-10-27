@@ -5,7 +5,7 @@ import {
   productSectors,
   type SectorKey,
 } from "@/content/competencies";
-import { childAges, type ChildAge } from "@/content/internships";
+import { childAges, pilotInternship, type ChildAge } from "@/content/internships";
 import type { Product } from "@/content/types";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionary";
@@ -39,9 +39,9 @@ export function BoosterPicker({
     .slice(0, 3);
   function interest() {
     const next = new URLSearchParams(params.toString());
-    next.set("age", age);
+    next.set("age", pilotInternship.ageGroups[0]);
     next.set("sector", sector);
-    next.set("program", `intro-${age}`);
+    next.set("program", pilotInternship.slug);
     router.replace(`${path}?${next}#zayavka`, { scroll: false });
     document
       .getElementById("zayavka")

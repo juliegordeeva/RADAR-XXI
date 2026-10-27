@@ -32,8 +32,8 @@ export const internships: Internship[] = [
     ageGroups: ["4-6"],
     days: 14,
     rhythm: {
-      ru: "5 игр по 10 минут в неделю + онлайн-встреча 30 минут",
-      en: "Five 10-minute games a week + a 30-minute online meeting",
+      ru: "Концепция: 5 игр по 10 минут в неделю",
+      en: "Concept: five 10-minute games a week",
     },
     childDoes: [
       {
@@ -56,38 +56,25 @@ export const internships: Internship[] = [
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
     price: null,
-    available: true,
+    available: false,
   },
   {
     slug: "intro-7-9",
     type: "intro",
     title: {
-      ru: "Стажёр отдела",
-      en: "Department intern",
+      ru: "Спокойствие в новом",
+      en: "Staying calm with change",
     },
     ageGroups: ["7-9"],
     days: 14,
     rhythm: {
-      ru: "5 квестов по 15 минут в неделю + онлайн-встреча 45–60 минут",
-      en: "Five 15-minute quests a week + a 45–60 minute online meeting",
+      ru: "Задания дома на 14 дней",
+      en: "Tasks at home for 14 days",
     },
-    childDoes: [
-      {
-        ru: "Выполняет поручения отделов",
-        en: "Takes on department tasks, as at Office Day",
-      },
-      {
-        ru: "Проверяет цены и факты",
-        en: "Checks prices and facts",
-      },
-      {
-        ru: "Руководит семейной командой",
-        en: "Captains a family team",
-      },
-    ],
+    childDoes: [],
     finalProject: {
-      ru: "Мини-бизнес на один день: школьная ярмарка или услуга для соседей",
-      en: "A one-day mini-business: a school fair or a service for neighbours",
+      ru: "«Радар навыков» в конце",
+      en: "A Skills Radar at the end",
     },
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
@@ -104,8 +91,8 @@ export const internships: Internship[] = [
     ageGroups: ["10-12"],
     days: 14,
     rhythm: {
-      ru: "5 проектных заданий по 20 минут в неделю + онлайн-встреча 60 минут",
-      en: "Five 20-minute project tasks a week + a 60-minute online meeting",
+      ru: "Концепция: 5 проектных заданий по 20 минут в неделю",
+      en: "Concept: five 20-minute project tasks a week",
     },
     childDoes: [
       {
@@ -128,7 +115,7 @@ export const internships: Internship[] = [
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
     price: null,
-    available: true,
+    available: false,
   },
   {
     slug: "intro-13-16",
@@ -140,8 +127,8 @@ export const internships: Internship[] = [
     ageGroups: ["13-16"],
     days: 14,
     rhythm: {
-      ru: "Недельные спринты, задания по 20–30 минут + встреча с экспертом",
-      en: "Weekly sprints, tasks of 20–30 minutes + a meeting with an expert",
+      ru: "Концепция: недельные спринты, задания по 20–30 минут",
+      en: "Concept: weekly sprints with tasks of 20–30 minutes",
     },
     childDoes: [
       {
@@ -164,7 +151,7 @@ export const internships: Internship[] = [
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
     price: null,
-    available: true,
+    available: false,
   },
   {
     slug: "profile-think",
@@ -273,8 +260,8 @@ export const internships: Internship[] = [
     },
     childDoes: [],
     finalProject: {
-      ru: "Защита проекта, сертификат, полный повторный радар",
-      en: "Project presentation, certificate and a full repeat radar",
+      ru: "Презентация проекта",
+      en: "Project presentation",
     },
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
@@ -285,6 +272,11 @@ export const internships: Internship[] = [
 export const availableInternships = internships.filter(
   (item) => item.available,
 );
+export const pilotInternship = availableInternships[0];
+export const enrollmentAges = childAges.filter((age) =>
+  availableInternships.some((program) => program.ageGroups.includes(age)),
+);
+export const pilotPath = "/universitet?program=intro-7-9&age=7-9#zayavka";
 export function findInternship(value: string | null) {
   return availableInternships.find((item) => item.slug === value);
 }

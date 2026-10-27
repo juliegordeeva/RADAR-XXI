@@ -76,7 +76,7 @@ export default async function UniversityPage({
               ))}
             </ul>
             <div className="mt-6">
-              <Button href="#stazhirovki">{t.choose} →</Button>
+              <Button href="#zayavka">{t.choose} →</Button>
             </div>
             <Suspense fallback={null}>
               <UniversityArrival text={t.eventNote} />

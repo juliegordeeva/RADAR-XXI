@@ -13,17 +13,17 @@ export const b2bHub = {
     "Family programmes for companies, where children and parents take part together",
   ),
   subtitle: locPair(
-    "Создаём детские дни в офисе и семейные походы для сотрудников. Берём на себя сценарий, адаптацию под компанию, организацию и сопровождение.",
-    "We run children’s office days and family hikes for employees. We take the script, the adaptation to the company, the organisation and the support.",
+    "Создаём программы для сотрудников и их детей. На Office Day дети знакомятся с работой родителей через квест и деловую игру; содержание адаптируем под компанию и площадку.",
+    "We create programmes that bring employees and their children together. Office Day introduces children to their parents’ workplace through a quest and a business game, adapted to the company and its setting.",
   ),
   cta: locPair("Запросить программу", "Request a programme"),
-  ctaOffice: locPair("Посмотреть Office Day", "See Office Day"),
+  ctaOffice: locPair("Запросить программу и расчёт", "Request an Office Day proposal"),
   officeTitle: locPair("Office Day Офисные приключения", "Office Day: office adventures"),
   officeText: locPair(
     "Дети сотрудников знакомятся с офисом, профессиями и работой родителей через квест, деловую игру и задания, адаптированные под бизнес компании.",
     "Employees’ children get to know the office, the jobs and their parents’ work through a quest, a business game and tasks adapted to the company’s business.",
   ),
-  officeCta: locPair("Обсудить детский день в офисе", "Talk about a children’s day in the office"),
+  officeCta: locPair("Запросить программу и расчёт", "Request an Office Day proposal"),
   hikesTitle: locPair("Корпоративные семейные походы", "Corporate family hikes"),
   hikesText: locPair(
     "Организованный выезд для сотрудников с детьми: доступный маршрут, семейные задания, сопровождение и общий опыт, в котором родители и дети действуют вместе.",
@@ -32,10 +32,10 @@ export const b2bHub = {
   hikesCta: locPair("Запросить формат похода", "Request a hike format"),
   diaryTitle: locPair("Ежедневник «Три роли / одна жизнь»", "Diary “Three roles / one life”"),
   diaryText: locPair(
-    "Корпоративный подарок: дневник баланса для тех, кто ведёт проекты, бизнес и семейную жизнь. Первый тираж — только под заказ компании.",
-    "A corporate gift: a balance diary for people who run projects, a business and family life. The first print run is made only to a company order.",
+    "Концепция корпоративного подарка: дневник для рабочих задач, семейных дел и собственных планов. Материал в листе ожидания.",
+    "A corporate gift concept: a diary for work tasks, family responsibilities and personal plans. The material is on the waiting list.",
   ),
-  diaryCta: locPair("Запросить корпоративный тираж", "Request a corporate print run"),
+  diaryCta: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
   boundary: locPair(
     "RADAR KIDS проводит семейные маршруты для сотрудников вместе с детьми. RADAR Experience работает со взрослыми корпоративными командами и экстремальными активностями.",
     "RADAR KIDS runs family routes for employees together with children. RADAR Experience works with adult corporate teams and extreme activities.",
@@ -44,24 +44,24 @@ export const b2bHub = {
 };
 
 export const officeDay = {
-  title: locPair("Офисные приключения", "Office adventures"),
+  title: locPair("Офисные приключения", "Office Day"),
   subtitle: locPair(
     "День детей сотрудников в офисе: квест, деловая игра и знакомство с работой родителей. Программу разрабатываем под вашу компанию.",
-    "A day for employees’ children in the office: a quest, a business game and a look at their parents’ work. The programme is developed for your company.",
+    "A day at the office for employees’ children: a workplace quest, a business game and a chance to discover what their parents do. We adapt the programme to your company, venue and participants.",
   ),
   intro: locPair(
-    "На Office Day дети знакомятся с офисом, работой родителей и задачами компании через квест и деловую игру. Приоритет проведения — Москва и ЦФО. Возможность мероприятия в другом городе обсудим отдельно.",
-    "At Office Day, children explore the office, their parents’ work and the company’s activities through a quest and a business game. Events are primarily held in Moscow and the Central Federal District. Other cities are considered on request.",
+    "На Office Day дети знакомятся с офисом, работой родителей и задачами компании через квест и деловую игру. Москва и ЦФО. Другие города — по отдельному запросу.",
+    "Children explore their parents’ workplace through a quest and a business game adapted to the company, venue and participants.",
   ),
-  cta: locPair("Запросить программу Office Day", "Request the Office Day programme"),
+  cta: locPair("Запросить программу и расчёт", "Request a programme and quote"),
   ctaHint: locPair(
     "Расскажите о компании, городе, дате, количестве и возрасте детей. Команда уточнит задачу и подготовит предложение по программе и стоимости.",
-    "Tell us about the company, city, date, and the number and ages of the children. The team will clarify your needs and prepare a programme proposal and quote.",
+    "Tell us about your company, location, preferred date, number of children and age groups. We will discuss the brief and prepare a proposal.",
   ),
   taskTitle: locPair("Задача программы", "What the programme is for"),
   task: locPair(
     "Дети знакомятся с местом работы родителей. Через задания и игру узнают, чем занимается компания и какой вклад в её работу вносит мама или папа.",
-    "Children get to know their parents’ workplace. Through tasks and play, they explore what the company does and how their mum or dad contributes.",
+    "A family-focused event that helps children explore their parents’ workplace and gives employees a shared experience with their families.",
   ),
   dayTitle: locPair("Как проходит день", "How the day runs"),
   steps: [
@@ -149,13 +149,13 @@ export const officeDay = {
       "children meeting their parents’ jobs and business",
     ),
     locPair("По согласованию готовим материалы для внутренних коммуникаций.", "By agreement, we prepare materials for internal communications."),
-    locPair("Содержание программы связываем с бизнесом и ценностями компании.", "Programme content is connected with the company’s business and values."),
+    locPair("Содержание программы связываем с бизнесом и ценностями компании.", "For companies exploring the social side of ESG, Office Day offers a family-focused programme centred on employees and their children."),
     locPair(
       "единый подрядчик для сценария и организации",
       "one contractor for the script and the organisation",
     ),
   ],
-  formTitle: locPair("Запросить программу Office Day", "Request the Office Day programme"),
+  formTitle: locPair("Запросить программу и расчёт", "Request a programme and quote"),
   team: {
     ru: {
       title: "Корпоративная команда",
@@ -172,7 +172,7 @@ export const officeDay = {
     en: {
       title: "The team on this programme",
       caption: null,
-      intro: null,
+      intro: "The programme is developed by a team with experience in corporate education, programme design and group facilitation.",
       qualifications: [
         "candidate of pedagogical sciences",
         "methodologist of corporate learning systems",
@@ -183,20 +183,19 @@ export const officeDay = {
       ],
     },
   },
-  priceItems: [
-    locPair(
-      "Базовый формат (25 детей — интерактивная экскурсия по офису, обед, бизнес-игра/викторина, спортивные старты) — 300 000 ₽",
-      "Basic format (25 children — an interactive office tour, lunch, a business game or quiz, sports starts) — 300,000 ₽",
-    ),
-    locPair(
-      "Расширенный формат (день + спортивные старты + семейные старты вечером) — 500 000 ₽",
-      "Extended format (the day + sports starts + family starts in the evening) — 500,000 ₽",
-    ),
-    locPair(
-      "Медиапакет — дополнительная опция к любому формату, +500 000 ₽",
-      "Media pack — an extra option on any format, +500,000 ₽",
-    ),
-  ],
+  priceItems: {
+    ru: [
+      "От 15 000 ₽ за ребёнка. Точный расчёт — после брифа.",
+      "Варианты активности: интерактивная экскурсия по офису, деловая игра или викторина, спортивные и семейные старты. Состав согласуем по брифу.",
+      "Фото и видео — опция по отдельному согласованию.",
+    ],
+    en: [
+      "Russia: Moscow and Russia’s Central Federal District; other cities by arrangement. From RUB 15,000 per child, with the final quote provided after a brief.",
+      "For the UAE, programme delivery, pricing and terms are discussed individually after a brief.",
+      "Activity options include an interactive office tour, a business game or quiz, and sports and family activities. The programme is agreed after a brief.",
+      "Photo and video coverage is an option by separate agreement.",
+    ],
+  },
 };
 
 export const familyHikes = {
@@ -248,21 +247,21 @@ export const diary = {
     "Three authors — three roles: Julia Gordeeva (business planning), Elizabeth Sarycheva (resilience and well-being), Maria Gromova (project work for children). 365 days, one spread a day: the work desk on the left, the home circle on the right.",
   ),
   printNote: locPair(
-    "Первый тираж выпускается только под корпоративный заказ. Печать и дистрибуция в розницу пока не организованы.",
-    "The first print run is made only to a corporate order. Retail print and distribution are not set up yet.",
+    "Материал в листе ожидания. Концепцию первого корпоративного выпуска обсуждаем с компаниями; приём заказов и оплата пока не открыты.",
+    "The material is on the waiting list. We can discuss the concept of a first corporate edition; orders and payment are not open yet.",
   ),
   priceNote: locPair(
     "[TODO: цена и минимальный тираж]",
     "[TODO: price and minimum print run]",
   ),
-  cta: locPair("Запросить корпоративный тираж", "Request a corporate print run"),
-  formTitle: locPair("Запросить корпоративный тираж", "Request a corporate print run"),
+  cta: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
+  formTitle: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
   expertTitle: locPair(
     "Автор блока управления проектами для детей",
     "Author of the children’s project block",
   ),
   expert: locPair(
-    "Мария Громова. Эксперт управления проектами для детей. 20 лет в госсекторе и консалтинге, 14 лет на руководящих постах в федеральном министерстве. Автор методики «Учимся побеждать» и блока управления проектами в ежедневнике.",
-    "Maria Gromova. Expert in project work for children. 20 years in the public sector and consulting, 14 years in senior roles in a federal ministry. Author of the “Learning to win” method and of the project block in the diary.",
+    "Мария Громова. Эксперт управления проектами для детей. 20 лет в госсекторе и консалтинге, 14 лет на руководящих постах в федеральном министерстве. Автор «Учимся побеждать» и блока управления проектами в ежедневнике.",
+    "Maria Gromova. Expert in project work for children. 20 years in the public sector and consulting, 14 years in senior roles in a federal ministry. Author of “Learning to win” and of the project block in the diary.",
   ),
 };

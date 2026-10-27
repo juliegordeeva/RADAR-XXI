@@ -142,9 +142,9 @@ export default async function OfficeDayPage({
       <Section>
         <p className="editorial-label">{dict.style03.formatLabel}</p>
         <ul className="space-y-5 max-w-[70ch]">
-          {officeDay.priceItems.map((item) => (
-            <li key={item.ru} className="border-t border-teal pt-4">
-              {loc(item, locale)}
+          {officeDay.priceItems[locale].map((item) => (
+            <li key={item} className="border-t border-teal pt-4">
+              {item}
             </li>
           ))}
         </ul>

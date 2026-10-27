@@ -13,6 +13,7 @@ import {
   availableInternships,
   internships,
   childAges,
+  findInternship,
 } from "@/content/internships";
 import { readUniversityQuery } from "@/lib/university-query";
 import { universitySchema } from "@/lib/schemas";
@@ -49,9 +50,11 @@ test("product mappings keep foundation separate and give parent products no chil
 });
 
 test("unready internships cannot be selected and no launch dates or prices are invented", () => {
-  assert.equal(availableInternships.length, 4);
-  for (const age of childAges)
-    assert.ok(availableInternships.some((p) => p.ageGroups.includes(age)));
+  assert.equal(availableInternships.length, 1);
+  assert.equal(availableInternships[0].slug, "intro-7-9");
+  assert.deepEqual(availableInternships[0].ageGroups, ["7-9"]);
+  for (const age of childAges.filter((value) => value !== "7-9"))
+    assert.equal(findInternship(`intro-${age}`), undefined);
   for (const p of internships) {
     assert.equal(p.startDate, null);
     assert.equal(p.price, null);
@@ -96,8 +99,8 @@ test("unknown or unready query values are ignored, including inherited object na
         }),
       ),
       {
-        program: "",
-        age: "",
+        program: "intro-7-9",
+        age: "7-9",
         source: "",
         company: "",
         sector: "",
@@ -115,6 +118,11 @@ test("unknown or unready query values are ignored, including inherited object na
     ).company.length,
     80,
   );
+  for (const age of ["4-6", "10-12", "13-16"]) {
+    const legacy = readUniversityQuery(new URLSearchParams(`program=intro-${age}&age=${age}`));
+    assert.equal(legacy.program, "intro-7-9");
+    assert.equal(legacy.age, "7-9");
+  }
 });
 
 const request = {
@@ -138,6 +146,9 @@ test("request validation accepts phone or Telegram and blocks incoherent or unco
     { consent: false },
     { age: "4-6" },
     { program: "project-10-16" },
+    { program: "intro-4-6", age: "4-6" },
+    { program: "intro-10-12", age: "10-12" },
+    { program: "intro-13-16", age: "13-16" },
     { website: "spam" },
     { contact: "?" },
     { contact: "-------" },

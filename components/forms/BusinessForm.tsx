@@ -30,10 +30,12 @@ export function BusinessForm({
   locale,
   dict,
   variant,
+  productName,
 }: {
   locale: Locale;
   dict: Dictionary;
   variant: BusinessFormVariant;
+  productName?: string;
 }) {
   const [prepared, setPrepared] = useState("");
   const [status, setStatus] = useState<
@@ -112,16 +114,17 @@ export function BusinessForm({
         `Заявка RADAR KIDS: ${values.product}`,
         withTracking(
           {
-            Имя: values.name,
-            "Компания и должность": values.companyRole,
-            Контакт: values.contact,
-            Город: values.city,
-            Дата: values.date,
-            "Количество детей": values.childrenCount,
-            "Количество семей": values.familiesCount,
-            "Возраст детей": values.ages,
-            Комментарий: values.comment,
-            Продукт: values.product,
+            [labels.name]: values.name,
+            [labels.companyRole]: values.companyRole,
+            [labels.contact]: values.contact,
+            [labels.city]: values.city,
+            [labels.date]: values.date,
+            [labels.childrenCount]: values.childrenCount,
+            [labels.familiesCount]: values.familiesCount,
+            [labels.ages]: values.ages,
+            [labels.comment]: values.comment,
+            [dict.forms.product]: productName ?? values.product,
+            [locale === "ru" ? "Статус" : "Status"]: variant === "diary" ? dict.catalog.waitlist : undefined,
           },
           tracking,
         ),

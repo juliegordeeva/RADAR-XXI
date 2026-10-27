@@ -4,7 +4,7 @@ import { sampleSafety } from "@/content/samples";
 import { loc } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionary";
-import { site } from "@/lib/site";
+import { localePath } from "@/lib/locale-path";
 
 export function SafetySample({
   locale,
@@ -46,7 +46,7 @@ export function SafetySample({
         </div>
       </div>
       <div className="mt-8 max-w-xl">
-        <Button href={site.telegram}>{t.sampleAction}</Button>
+        <Button href={localePath(locale, "/produkty/kartochki-bezopasnosti#zayavka")}>{t.sampleAction}</Button>
         <p className="material-summary text-text-muted mt-3">
           {t.telegramNote}
         </p>

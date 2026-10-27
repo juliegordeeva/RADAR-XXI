@@ -12,6 +12,9 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
   const isB2b = pathname.includes("/dlya-biznesa");
+  const corporateEnglish = locale === "en" && [
+    "/en/dlya-biznesa", "/en/dlya-biznesa/office-day", "/en/o-nas", "/en/kontakty",
+  ].some((path) => pathname.replace(/\/$/, "").endsWith(path));
 
   return (
     <footer className="border-t border-border bg-bg">
@@ -55,7 +58,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             </a>
           </p>
           <p className="mt-4 max-w-[65ch] text-[15px] text-text-muted">
-            {dict.footer.radarGroup}{" "}
+            {corporateEnglish ? dict.footer.corporateGroup : dict.footer.radarGroup}{" "}
             <a
               href="https://bureau.radarexec.ru"
               target="_blank"
@@ -71,7 +74,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               rel="noopener noreferrer"
               className="underline-offset-2 hover:underline"
             >
-              gordeeva.radarexec.ru
+              {corporateEnglish ? dict.footer.founderProfile : "gordeeva.radarexec.ru"}
             </a>
           </p>
         </div>

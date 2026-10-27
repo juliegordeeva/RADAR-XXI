@@ -13,6 +13,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { TeamGrid } from "@/components/sections/TeamGrid";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { catalogProducts } from "@/content/products";
+import { pilotPath } from "@/content/internships";
 import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
@@ -80,7 +81,7 @@ export default async function HomePage({
               ))}
             </div>
             <div className="home-welcome-action">
-              <Button href={localePath(locale, "/universitet")}>
+              <Button href={localePath(locale, pilotPath)}>
                 {dict.hero.cta} →
               </Button>
             </div>
@@ -113,20 +114,27 @@ export default async function HomePage({
       </Section>
       <Section id="ages" alt>
         <p className="editorial-label">{v.ageLabel}</p>
-        <h2 className="section-heading">{dict.hero.cta}</h2>
+        <h2 className="section-heading">{dict.university.internshipsTitle}</h2>
         <div className="age-paths mt-10">
-          {ages.map((age, i) => (
-            <Link
-              key={age}
-              href={localePath(locale, `/universitet?age=${age}#stazhirovki`)}
-              className="age-path"
-            >
-              <span className="editorial-number">0{i + 1}</span>
-              <h3>{age.replace("-", "–")}</h3>
-              <p className="material-summary mt-2">{v.ageNames[i]}</p>
-              <BrandArt name={`age/age-${age}`} />
-            </Link>
-          ))}
+          {ages.map((age, i) => {
+            const content = (
+              <>
+                <span className="editorial-number">0{i + 1}</span>
+                <h3>{age.replace("-", "–")}</h3>
+                <p className="material-summary mt-2">
+                  {age === "7-9" ? dict.university.pilotLabel : dict.university.soon}
+                </p>
+                <BrandArt name={`age/age-${age}`} />
+              </>
+            );
+            return age === "7-9" ? (
+              <Link key={age} href={localePath(locale, pilotPath)} className="age-path">
+                {content}
+              </Link>
+            ) : (
+              <article key={age} className="age-path">{content}</article>
+            );
+          })}
         </div>
       </Section>
       <Section className="home-materials">
@@ -145,7 +153,7 @@ export default async function HomePage({
             <h2 className="section-heading">
               {locale === "ru" ? "Карточки безопасности" : "Safety cards"}
             </h2>
-            <p>{t.safetyDescription}</p>
+            <p>{t.safetyDescription} {dict.catalog.waitlist}.</p>
             <BrandArt name="scenes/store-help" alt={v.safetyScene} />
             <Button
               href={localePath(locale, "/produkty/kartochki-bezopasnosti")}

@@ -67,7 +67,7 @@ export default async function AboutPage({
                   src={assetPath(
                     `/images/radar/team/${member.photo?.split("/").pop()}`,
                   )}
-                  alt={loc(member.photoAlt, locale)}
+                  alt={loc(locale === "en" ? member.aboutRole || member.role : member.photoAlt, locale)}
                   width={member.id === "julia" ? 900 : 500}
                   height={member.id === "julia" ? 1200 : 500}
                   sizes="(max-width:767px) 100vw, 500px"
@@ -77,7 +77,7 @@ export default async function AboutPage({
                 <p className="editorial-label">
                   {loc(member.aboutRole || member.role, locale)}
                 </p>
-                <h2 className="section-heading">{loc(member.name, locale)}</h2>
+                <h2 className="section-heading">{loc(locale === "en" ? member.aboutRole || member.role : member.name, locale)}</h2>
                 <p className="max-w-[55ch]">
                   {loc(member.aboutBio || member.bio, locale)}
                 </p>

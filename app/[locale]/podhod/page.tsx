@@ -190,11 +190,11 @@ export default async function ApproachPage({
                       className="text-link"
                       href={localePath(locale, `/produkty/${product.slug}`)}
                     >
-                      {loc(product.title, locale)}
+                      {loc(product.title, locale)}{product.availability === "waitlist" ? ` · ${dict.catalog.waitlist}` : ""}
                     </Link>
                   ) : (
                     <span>
-                      {loc(product.title, locale)} · {dict.university.soon}
+                      {loc(product.title, locale)} · {dict.catalog.waitlist}
                     </span>
                   )}
                 </div>

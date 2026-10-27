@@ -35,13 +35,8 @@ export function ProductCard({
             : product.kind === "diary"
               ? t.viewDiary
               : t.viewProduct;
-  const unavailable =
-    product.comingSoon || product.developmentStatus === "draft";
-  const price = unavailable
-    ? dict.catalog.comingSoon
-    : product.price === null
-      ? dict.catalog.priceAsk
-      : dict.catalog.priceFrom.replace("{price}", String(product.price));
+  const waiting = product.availability === "waitlist";
+  const price = waiting ? t.formatNote : dict.catalog.calendarPrice;
   return (
     <Card
       as="article"
@@ -60,9 +55,9 @@ export function ProductCard({
             <Badge key={age} age={age} locale={locale} />
           ))
         )}
-        {unavailable && (
+        {waiting && (
           <span className="rounded-full bg-sky px-3 py-2 material-summary">
-            {dict.catalog.comingSoon}
+            {dict.catalog.waitlist}
           </span>
         )}
       </div>
@@ -84,12 +79,12 @@ export function ProductCard({
           {safety ? t.safetyFormat : loc(product.format, locale)}
         </p>
         <p className="font-bold text-[16px]">{price}</p>
-        {!unavailable && (
+        {!product.comingSoon && (
           <Button
-            href={localePath(locale, `/produkty/${product.slug}`)}
+            href={localePath(locale, `/produkty/${product.slug}${waiting ? "#zayavka" : ""}`)}
             className="w-full md:w-full px-3"
           >
-            {action}
+            {waiting ? dict.catalog.joinWaitlist : action}
           </Button>
         )}
       </div>

@@ -12,7 +12,8 @@ import {
 } from "@/lib/schemas";
 import {
   availableInternships,
-  childAges,
+  enrollmentAges,
+  pilotInternship,
   corporateSources,
   referralSources,
 } from "@/content/internships";
@@ -47,8 +48,8 @@ export function UniversityForm({
     defaultValues: {
       name: "",
       contact: "",
-      age: "",
-      program: "",
+      age: pilotInternship.ageGroups[0],
+      program: pilotInternship.slug,
       source: "",
       company: "",
       sector: "",
@@ -173,7 +174,7 @@ export function UniversityForm({
             })}
           >
             <option value="">{t.choose}</option>
-            {childAges.map((value) => (
+            {enrollmentAges.map((value) => (
               <option key={value} value={value}>
                 {loc(ageLabels[value], locale)}
               </option>

@@ -87,6 +87,14 @@ export function ProductJsonLd({
         : loc(product.tagline, locale),
     url: pageUrl(locale, `/produkty/${product.slug}`),
     brand: { "@type": "Brand", name: "RADAR KIDS" },
+    additionalProperty: product.availability === "available"
+      ? [
+          { "@type": "PropertyValue", name: locale === "ru" ? "Формат" : "Format", value: "PDF" },
+          { "@type": "PropertyValue", name: locale === "ru" ? "Цена" : "Price", value: product.price, unitText: "RUB" },
+        ]
+      : [
+          { "@type": "PropertyValue", name: locale === "ru" ? "Статус" : "Status", value: getDictionary(locale).catalog.waitlist },
+        ],
   };
   return (
     <script
