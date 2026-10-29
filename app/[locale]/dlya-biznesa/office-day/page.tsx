@@ -38,6 +38,7 @@ export default async function OfficeDayPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
+  const programTeam = officeDay.team[locale];
 
   return (
     <>
@@ -91,10 +92,14 @@ export default async function OfficeDayPage({
         reverse
       >
         <p>{loc(officeDay.adapt, locale)}</p>
-        <h3>{loc(officeDay.expertTitle, locale)}</h3>
+        <h3>{programTeam.title}</h3>
+        {programTeam.caption && (
+          <p className="font-bold">{programTeam.caption}</p>
+        )}
+        {programTeam.intro && <p>{programTeam.intro}</p>}
         <ul className="space-y-2">
-          {officeDay.teamItems.map((item) => (
-            <li key={item.ru}>{loc(item, locale)}</li>
+          {programTeam.qualifications.map((item) => (
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </StorySection>
@@ -137,9 +142,9 @@ export default async function OfficeDayPage({
       <Section>
         <p className="editorial-label">{dict.style03.formatLabel}</p>
         <ul className="space-y-5 max-w-[70ch]">
-          {officeDay.priceItems.map((item) => (
-            <li key={item.ru} className="border-t border-teal pt-4">
-              {loc(item, locale)}
+          {officeDay.priceItems[locale].map((item) => (
+            <li key={item} className="border-t border-teal pt-4">
+              {item}
             </li>
           ))}
         </ul>

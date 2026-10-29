@@ -1,3 +1,6 @@
+import type { Locale } from "@/lib/i18n";
+import { localePath } from "@/lib/locale-path";
+
 export const site = {
   name: "RADAR KIDS",
   phones: {
@@ -6,11 +9,18 @@ export const site = {
   },
   email: null as string | null,
   telegram: "https://t.me/m/HORDWsDDY2Rk",
+  socials: {
+    threads: "https://www.threads.com/@radarikids?igshid=NTc4MTIwNjQ2YQ==",
+    telegram: "https://t.me/+EMsMQNOGOz8yMzA0",
+  },
 } as const;
 
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kids.radarexec.ru").replace(
     /\/$/,
     "",
   );
+}
+export function pageUrl(locale: Locale, path: string) {
+  return `${getSiteUrl()}${localePath(locale, path).replace(/\/$/, "")}/`;
 }

@@ -20,10 +20,7 @@ export function ParentMaterials({
     <div className="parent-catalog">
       {items.map((product) => {
         const calendar = product.slug === "kalendar-32-dnya";
-        const price =
-          product.price === null
-            ? dict.catalog.priceAsk
-            : dict.catalog.priceFrom.replace("{price}", String(product.price));
+        const price = calendar ? dict.catalog.calendarPrice : dict.catalog.waitlist;
         return (
           <article key={product.slug} className="editorial-split">
             <div>
@@ -31,10 +28,10 @@ export function ParentMaterials({
               <h3 className="section-heading">{loc(product.title, locale)}</h3>
               <p className="mb-4">{loc(product.tagline, locale)}</p>
               <p className="font-bold text-[16px] mb-6">{price}</p>
-              <Button href={localePath(locale, `/produkty/${product.slug}`)}>
+              <Button href={localePath(locale, `/produkty/${product.slug}${calendar ? "" : "#zayavka"}`)}>
                 {calendar
                   ? dict.redesign.viewCalendar
-                  : dict.redesign.viewDiary}{" "}
+                  : dict.catalog.joinWaitlist}{" "}
                 →
               </Button>
             </div>

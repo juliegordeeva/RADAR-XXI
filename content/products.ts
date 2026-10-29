@@ -23,6 +23,7 @@ function brelokSamoorganizacii(
   const years = brelokAgeLabel[age];
   return {
     slug: `brelok-samoorganizacii-${age}`,
+    availability: "waitlist",
     kind: "cards",
     title: {
       ru: `Брелок самоорганизации — 14 карточек на кольце, ${years.ru}`,
@@ -52,10 +53,10 @@ function brelokSamoorganizacii(
       en: "14 cards on a ring.",
     },
     ageGroups: [age],
-    competencies: ["organization"],
+    skills: ["focus", "start", "plan"],
     ctaLabel: {
-      ru: "Скоро",
-      en: "Coming soon",
+      ru: "По заявке",
+      en: "By enquiry",
     },
     price: null,
     image: "",
@@ -73,22 +74,29 @@ function brelokSamoorganizacii(
 export const products: Product[] = [
   {
     slug: "kalendar-32-dnya",
+    availability: "available",
+    seo: {
+      ru: {
+        title: "Календарь для родителей 32 дня родительства в радость — RADAR KIDS",
+        description: "32 дня родительства в радость: PDF-календарь для родителей за 800 ₽. Каждый день — мысль, действие и вопрос о самоподдержке и общении с ребёнком.",
+      },
+    },
     kind: "calendar",
     title: {
-      ru: "Отрывной календарь «32 дня родительства в радость»",
-      en: "Tear-off calendar “32 days of parenting with joy”",
+      ru: "PDF-календарь 32 дня родительства в радость",
+      en: "PDF calendar 32 days of parenting with joy",
     },
     tagline: {
-      ru: "Одна мысль, одно действие, один вопрос — 32 дня.",
-      en: "One thought, one action, one question — 32 days.",
+      ru: "Одна мысль, одно действие и один вопрос на каждый из 32 дней. Календарь для родителей о самоподдержке и общении с ребёнком.",
+      en: "One thought, one action and one question for each of 32 days. A calendar for parents about supporting themselves and communicating with their child.",
     },
     audience: {
-      ru: "Родители. Возраст ребёнка не важен.",
-      en: "Parents. The child’s age does not matter.",
+      ru: "Родителям, которые хотят замечать своё состояние, поддерживать себя и находить время для общения с ребёнком. Материал адресован взрослому.",
+      en: "For parents who want to notice how they feel, support themselves and find time to talk with their child. The material is for adults.",
     },
     result: {
-      ru: "Сначала отмечаем точку старта. В конце смотрим на результат и динамику.",
-      en: "You mark a starting point first. At the end you look at what changed.",
+      ru: "Какие ситуации вызывают напряжение, что помогает поддержать себя и какие способы общения хочется сохранить. В конце можно вернуться к первоначальным ответам и сравнить собственные наблюдения.",
+      en: "Reflect on which situations cause tension, what helps you support yourself and which ways of communicating you want to keep. At the end, you can return to your first answers and compare your own observations.",
     },
     bullets: [
       {
@@ -105,16 +113,16 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "32 дня по 5–10 минут. PDF, чат-бот или печать по предзаписи.",
-      en: "32 days, 5–10 minutes each. PDF, chatbot, or print by pre-order.",
+      ru: "PDF · 32 дня · 800 ₽. Печатной версии и доставки пока нет.",
+      en: "PDF · 32 days · RUB 800. No printed version or delivery at present.",
     },
     ageGroups: ["parents"],
-    competencies: ["emotions", "organization"],
+    skills: [],
     ctaLabel: {
-      ru: "Купить PDF и распечатать",
-      en: "Buy PDF and print it",
+      ru: "Уточнить получение PDF",
+      en: "Ask about obtaining the PDF",
     },
-    purchaseFormats: ["pdf", "bot", "print"],
+    purchaseFormats: ["pdf"],
     price: 800,
     image: "/images/kalendar-21.svg",
     featured: true,
@@ -142,12 +150,12 @@ export const products: Product[] = [
     ],
     howTo: [
       {
-        ru: "Повесьте или положите календарь там, где его видно утром",
-        en: "Hang or place the calendar where you see it in the morning",
+        ru: "Откройте PDF-календарь на удобном для вас устройстве",
+        en: "Open the PDF calendar on a device that suits you",
       },
       {
-        ru: "Один лист в день. Сначала мысль, потом действие",
-        en: "One sheet a day. Thought first, then the action",
+        ru: "Откройте задание дня. Прочитайте мысль, попробуйте действие и ответьте на вопрос в тетради или заметках телефона.",
+        en: "Open the day’s task. Read the thought, try the action and answer the question in a notebook or phone notes.",
       },
       {
         ru: "Вечером ответьте на вопрос. Можно в заметках телефона",
@@ -155,8 +163,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Цифровые форматы — от 800 ₽. Печатная версия А5 — 1200 ₽ плюс пересылка, по предзаписи.",
-      en: "Digital formats — from 800 ₽. A5 print — 1,200 ₽ plus shipping, by pre-order.",
+      ru: "Уточните получение PDF у команды. Оплата из-за рубежа пока недоступна; зарубежные семьи могут связаться с командой.",
+      en: "Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can contact the team.",
     },
     sampleTitle: {
       ru: "День 4. Дыхательная пауза перед реакцией",
@@ -170,27 +178,34 @@ export const products: Product[] = [
   },
   {
     slug: "ezhednevnik-tri-roli",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Ежедневник для родителей Три роли / одна жизнь — RADAR KIDS",
+        description: "Работа, семья и собственные планы в ежедневнике Три роли / одна жизнь. Уточните условия получения у команды.",
+      },
+    },
     kind: "diary",
     title: {
-      ru: "Ежедневник «Три роли / одна жизнь»",
-      en: "Diary “Three roles / one life”",
+      ru: "Ежедневник Три роли / одна жизнь",
+      en: "Diary Three roles / one life",
     },
     tagline: {
-      ru: "Практическое руководство и дневник баланса для тех, кто управляет проектами, собой и семейным очагом.",
-      en: "A practical guide and balance diary for people who run projects, themselves, and a household.",
+      ru: "Практическое руководство и дневник для тех, кто совмещает работу, семейные дела и собственные планы.",
+      en: "A practical guide and diary for people combining work, family responsibilities and their own plans.",
     },
     audience: {
       ru: "Родители, которые ведут работу, семью и своё состояние в одном дне.",
       en: "Parents who hold work, family and their own state in one day.",
     },
     result: {
-      ru: "Один разворот — один день в балансе.",
-      en: "One spread — one day in balance.",
+      ru: "Рабочие задачи, семейные договорённости и собственные планы можно записывать в одном месте и возвращаться к ним при обзоре дня.",
+      en: "Keep work tasks, family agreements and your own plans in one place and return to them when reviewing the day.",
     },
     bullets: [
       {
-        ru: "Один разворот = один день в балансе",
-        en: "One spread = one day in balance",
+        ru: "Один разворот на день: работа, семья и собственные планы",
+        en: "One daily spread: work, family and your own plans",
       },
       {
         ru: "Еженедельный обзор в конце недели",
@@ -202,16 +217,16 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "PDF, чат-бот или печать по предзаписи. Можно запросить пример страницы.",
-      en: "PDF, chatbot, or print by pre-order. You can request a sample page.",
+      ru: "Концепция ежедневника.",
+      en: "Diary concept.",
     },
     ageGroups: ["parents"],
-    competencies: ["emotions", "organization"],
+    skills: [],
     ctaLabel: {
-      ru: "Скачать пример страницы",
-      en: "Download a sample page",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
-    purchaseFormats: ["sample", "pdf", "bot", "print"],
+    purchaseFormats: [],
     price: null,
     image: "",
     featured: true,
@@ -244,8 +259,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "[TODO: цена и формат ежедневника для родителей]",
-      en: "[TODO: price and format for the parent diary]",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "Один разворот — один день",
@@ -259,22 +274,29 @@ export const products: Product[] = [
   },
   {
     slug: "kartochki-bezopasnosti",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Карточки безопасности для детей 4–6 лет — RADAR KIDS",
+        description: "Карточки безопасности для совместных занятий с детьми 4–6 лет: ситуации для обсуждения и подсказки взрослому. Оставьте заявку на материал.",
+      },
+    },
     kind: "cards",
     title: {
-      ru: "Карточки безопасности «Что делать, если…»",
-      en: "Safety cards: “What to do if…”",
+      ru: "Карточки безопасности Что делать, если…",
+      en: "Safety cards: What to do if…",
     },
     tagline: {
-      ru: "45 ситуаций. Без запугивания, до автоматизма.",
-      en: "45 situations. No scare stories. Until it is automatic.",
+      ru: "Карточки для обсуждения повседневных ситуаций с ребёнком 4–6 лет. Рассмотрите ситуацию, поговорите о возможных действиях и разыграйте её вместе.",
+      en: "Cards for discussing everyday situations with a child aged 4–6. Look at a situation, discuss possible actions and act it out together.",
     },
     audience: {
-      ru: "Родители детей 4–8 лет.",
-      en: "Parents of children aged 4–8.",
+      ru: "Родители детей 4–6 лет. Карточки рассчитаны на совместное обсуждение со взрослым.",
+      en: "Parents of children aged 4–6. The cards are intended for discussion with an adult.",
     },
     result: {
-      ru: "Ребёнок сам объясняет правило, а не кивает и забывает.",
-      en: "The child can explain the rule, not just nod and forget.",
+      ru: "Ребёнок обсуждает возможные действия в ситуации и пробует обратиться за помощью вместе со взрослым.",
+      en: "The child discusses possible actions in a situation and practises asking for help with an adult.",
     },
     bullets: [
       {
@@ -282,25 +304,26 @@ export const products: Product[] = [
         en: "5 blocks: people, places, home, emergencies, boundaries",
       },
       {
-        ru: "На обороте: четыре шага, фраза вслух, мини-игра на 2 минуты",
-        en: "On the back: four steps, a phrase to say aloud, a 2-minute game",
+        ru: "На обороте — объяснение взрослому и вопросы для обсуждения",
+        en: "On the back: an explanation for the adult and questions to discuss",
       },
       {
-        ru: "Повторяем как алфавит, без страшных историй",
-        en: "Repeat like the alphabet. No horror stories",
+        ru: "Обсуждаем и пробуем действие вместе, без страшных историй",
+        en: "Discuss and try the action together, without scare stories",
       },
     ],
     format: {
-      ru: "45 карточек. PDF, чат-бот или печать по предзаписи.",
-      en: "45 cards. PDF, chatbot, or print by pre-order.",
+      ru: "45 двусторонних карточек.",
+      en: "45 double-sided cards.",
     },
-    ageGroups: ["4-6", "7-9"],
-    competencies: ["safety", "emotions", "critical", "communication"],
+    ageGroups: ["4-6"],
+    skills: ["empathy", "teamwork"],
+    foundation: ["safety"],
     ctaLabel: {
-      ru: "Купить PDF и распечатать",
-      en: "Buy PDF and print it",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
-    purchaseFormats: ["pdf", "bot", "print"],
+    purchaseFormats: [],
     price: null,
     image: "/images/lead-kartochka-bezopasnosti.webp",
     featured: true,
@@ -310,44 +333,51 @@ export const products: Product[] = [
         en: "45 cards, 5 blocks of 9: People, Places, Home, Emergencies, Boundaries",
       },
       {
-        ru: "Лицевая сторона — ситуация, которую ребёнок узнаёт",
-        en: "Front: a situation the child recognises",
+        ru: "На лицевой стороне — ситуация и короткая подсказка ребёнку.",
+        en: "On the front: a situation and a short prompt for the child.",
       },
       {
-        ru: "Оборот — шаги Заметь → Остановись → Выбери безопасного взрослого → Зови на помощь, фраза для заучивания, мини-игра",
-        en: "Back: Notice → Stop → Pick a safe adult → Call for help, a phrase to learn, a mini-game",
+        ru: "На обороте — объяснение взрослому и вопросы для обсуждения.",
+        en: "On the back: an explanation for the adult and questions to discuss.",
       },
     ],
     howTo: [
       {
-        ru: "Вытащите одну карточку. Сначала картинка и фраза",
-        en: "Draw one card. Start with the picture and the phrase",
+        ru: "Выберите одну карточку. Обсудите ситуацию с ребёнком и попробуйте предложенное действие вместе.",
+        en: "Choose one card. Discuss the situation with your child and try the suggested action together.",
       },
       {
-        ru: "Пройдите четыре шага вслух. Затем мини-игру на две минуты",
-        en: "Say the four steps aloud. Then play the two-minute game",
+        ru: "Прочитайте пояснение взрослому и вопросы на обороте.",
+        en: "Read the explanation for the adult and the questions on the back.",
       },
       {
-        ru: "Повторяйте знакомые карточки, пока ребёнок не сможет объяснить правило сам",
-        en: "Repeat known cards until the child can explain the rule",
+        ru: "Возвращайтесь к знакомым карточкам и обсуждайте, как ребёнок понимает ситуацию.",
+        en: "Return to familiar cards and discuss how your child understands the situation.",
       },
     ],
     delivery: {
-      ru: "PDF и чат-бот — после заявки. Печатный формат делаем по предзаказу.",
-      en: "PDF and chatbot — after a request. Print is made to pre-order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
-      ru: "Карточка «Потерялся в магазине»",
-      en: "Card: “Lost in a shop”",
+      ru: "Карточка Потерялся в магазине",
+      en: "Card: Lost in a shop",
     },
     sampleBody: {
-      ru: "Лицевая: ребёнок стоит у стеллажа и не видит взрослого. Фраза для заучивания: «Стою на месте. Зову маму. Ищу человека в форме». Мини-игра: дома спрячьте игрушку и потренируйте «стою и зову», а не бег по квартире.",
-      en: "Front: a child by a shelf, no adult in sight. Phrase: “I stay where I am. I call mum. I look for someone in uniform.” Mini-game at home: hide a toy and practise “stay and call”, not running around.",
+      ru: "Лицевая: ребёнок стоит у стеллажа и не видит взрослого. Фраза для заучивания: Стою на месте. Зову маму. Ищу человека в форме. Мини-игра: дома спрячьте игрушку и потренируйте стою и зову, а не бег по квартире.",
+      en: "Front: a child by a shelf, no adult in sight. Phrase: I stay where I am. I call mum. I look for someone in uniform. Mini-game at home: hide a toy and practise stay and call, not running around.",
     },
     related: ["advent-4-6", "kvest-igrushechnyy-gorod"],
   },
   {
     slug: "advent-4-6",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Адвент с заданиями для детей 4–6 лет — RADAR KIDS",
+        description: "24 дня решений и креативности для детей 4–6 лет: истории с выбором, рисунки и продолжение сюжета. Уточните условия получения у команды.",
+      },
+    },
     kind: "advent",
     title: {
       ru: "24 дня решений и креативности, 4–6 лет",
@@ -362,8 +392,8 @@ export const products: Product[] = [
       en: "Families with children aged 4–6 who need a simple choice, not a lecture.",
     },
     result: {
-      ru: "Ребёнок привыкает видеть два варианта, выбирать и объяснять «почему так» своими словами.",
-      en: "The child gets used to seeing two options, picking one, and saying why.",
+      ru: "Рассматривает варианты, выбирает и придумывает продолжение истории.",
+      en: "Looks at options, makes a choice and invents what happens next in the story.",
     },
     bullets: [
       {
@@ -371,7 +401,7 @@ export const products: Product[] = [
         en: "Story forks: two paths, the child picks and finishes the tale",
       },
       {
-        ru: "Рисуем, достраиваем, придумываем — без «правильного ответа»",
+        ru: "Рисуем, достраиваем, придумываем — без правильного ответа",
         en: "Draw, add, invent — no single right answer",
       },
       {
@@ -380,14 +410,14 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "24 дня по 10–15 минут. Карточки или PDF.",
-      en: "24 days, 10–15 minutes. Cards or PDF.",
+      ru: "24 дня по 10–15 минут.",
+      en: "24 days, 10–15 minutes.",
     },
     ageGroups: ["4-6"],
-    competencies: ["creative", "problems", "critical"],
+    skills: ["ideas", "reason", "info"],
     ctaLabel: {
-      ru: "Получить адвент 4–6 лет",
-      en: "Get the 4–6 advent",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-advent-4-6.webp",
@@ -416,13 +446,13 @@ export const products: Product[] = [
         en: "The child picks one of two paths and draws or plays the ending",
       },
       {
-        ru: "Спросите «почему так» — и остановитесь, даже если ответ короткий",
-        en: "Ask “why that one” — then stop, even if the answer is short",
+        ru: "Спросите, почему так, и остановитесь, даже если ответ короткий",
+        en: "Ask why that one — then stop, even if the answer is short",
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "День 5. Герой выбирает",
@@ -436,6 +466,13 @@ export const products: Product[] = [
   },
   {
     slug: "advent-7-9",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Семейный адвент для детей 7–9 лет — RADAR KIDS",
+        description: "24 семейных минипроекта для детей 7–9 лет: придумать, спланировать, выполнить и обсудить общее дело. Уточните условия получения у команды.",
+      },
+    },
     kind: "advent",
     title: {
       ru: "24 семейных минипроекта, 7–9 лет",
@@ -450,12 +487,12 @@ export const products: Product[] = [
       en: "Families with children aged 7–9 who want a project with a start and an end, not a one-off craft.",
     },
     result: {
-      ru: "Ребёнок видит, что большое дело складывается из шагов, и сам отмечает, что уже сделано.",
-      en: "The child sees that a bigger job is made of steps, and ticks off what is done.",
+      ru: "Вместе со взрослым намечает шаги семейного проекта и обсуждает выполненное.",
+      en: "Plans the steps of a family project with an adult and discusses what they have done.",
     },
     bullets: [
       {
-        ru: "Серия минипроектов с общим сюжетом: выставка, газета, домашнее «научное шоу»",
+        ru: "Серия минипроектов с общим сюжетом: выставка, газета, домашнее научное шоу",
         en: "A run of mini-projects with one plot: a show, a family paper, a home science night",
       },
       {
@@ -468,14 +505,14 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "24 дня по 10–20 минут. Карточки или PDF.",
-      en: "24 days, 10–20 minutes. Cards or PDF.",
+      ru: "24 дня по 10–20 минут.",
+      en: "24 days, 10–20 minutes.",
     },
     ageGroups: ["7-9"],
-    competencies: ["problems", "organization", "cooperation"],
+    skills: ["reason", "plan", "teamwork"],
     ctaLabel: {
-      ru: "Получить адвент 7–9 лет",
-      en: "Get the 7–9 advent",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-advent-7-9.webp",
@@ -496,8 +533,8 @@ export const products: Product[] = [
     ],
     howTo: [
       {
-        ru: "Одно окно в день. Сначала «что делаем сегодня», потом дело",
-        en: "One window a day. First “what we do today”, then the work",
+        ru: "Одно окно в день. Сначала обсудите, что делаете сегодня, потом беритесь за дело",
+        en: "One window a day. First what we do today, then the work",
       },
       {
         ru: "Запишите, кто за что отвечает — даже если ролей две",
@@ -509,21 +546,28 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "День 12. Семейная выставка",
       en: "Day 12. A family show",
     },
     sampleBody: {
-      ru: "Сегодня один шаг: повесить три работы и подписать, кто автор. Ребёнок выбирает, в каком порядке висят рисунки. Завтра — пригласить домашних «на вернисаж» и один вопрос гостю.",
-      en: "One step today: hang three pieces and write who made them. The child picks the order. Tomorrow: invite the household to the “opening” and ask one guest a question.",
+      ru: "Сегодня один шаг: повесить три работы и подписать, кто автор. Ребёнок выбирает, в каком порядке висят рисунки. Завтра — пригласить домашних на вернисаж и один вопрос гостю.",
+      en: "One step today: hang three pieces and write who made them. The child picks the order. Tomorrow: invite the household to the opening and ask one guest a question.",
     },
     related: ["nabor-14-obshchenie", "advent-4-6"],
   },
   {
     slug: "nabor-14-obshchenie",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Задания на общение для детей 7–9 лет — RADAR KIDS",
+        description: "14 дней общения для детей 7–9 лет: совместные задания, чтобы пробовать просить о помощи, слушать и договариваться. Уточните условия получения у команды.",
+      },
+    },
     kind: "kit",
     title: {
       ru: "14 дней общения, 7–9 лет",
@@ -534,12 +578,12 @@ export const products: Product[] = [
       en: "Say it, hear it, agree — 15 minutes a day, one path.",
     },
     audience: {
-      ru: "Семьи с детьми 7–9 лет, где разговор быстро срывается в «потому что я так сказал».",
-      en: "Families with children aged 7–9 whose talks slide into “because I said so”.",
+      ru: "Семьи с детьми 7–9 лет, где взрослый быстро обрывает разговор, ссылаясь на своё решение.",
+      en: "Families with children aged 7–9 whose talks slide into because I said so.",
     },
     result: {
-      ru: "Ребёнок тренирует, как попросить, как сказать «нет» и как повторить чужую мысль своими словами.",
-      en: "The child practises asking, saying no, and repeating someone else’s point in their own words.",
+      ru: "Пробует попросить о помощи, сказать нет, выслушать другого и пересказать его мысль.",
+      en: "Practises asking for help, saying no, listening to another person and retelling their idea.",
     },
     bullets: [
       {
@@ -547,8 +591,8 @@ export const products: Product[] = [
         en: "Short role-plays: ask for help, make up, invite someone in",
       },
       {
-        ru: "Упражнение «скажи то же, но мягче»",
-        en: "“Say the same thing, but softer”",
+        ru: "Упражнение скажи то же, но мягче",
+        en: "Say the same thing, but softer",
       },
       {
         ru: "Один навык 14 дней подряд, без прыжков по темам",
@@ -560,17 +604,17 @@ export const products: Product[] = [
       en: "14 days, 15 minutes. Cards.",
     },
     ageGroups: ["7-9"],
-    competencies: ["communication", "empathy", "cooperation"],
+    skills: ["empathy", "teamwork"],
     ctaLabel: {
-      ru: "Получить набор «14 дней общения»",
-      en: "Get the 14-day talking kit",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-14-obshchenie.webp",
     featured: false,
     composition: [
       {
-        ru: "14 карточек: диалог, сценка или минипроект «родитель + ребёнок»",
+        ru: "14 карточек: диалог, сценка или минипроект родитель + ребёнок",
         en: "14 cards: a dialogue, a scene, or a parent-and-child mini-task",
       },
       {
@@ -597,15 +641,15 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "День 6. Скажи иначе",
       en: "Day 6. Say it another way",
     },
     sampleBody: {
-      ru: "Ребёнок просит о помощи так, как обычно: резко или тихо. Вместе находите более ясную фразу и проигрываете сценку ещё раз. Вы не оцениваете «вежливость», а проверяете: вас поняли?",
+      ru: "Ребёнок просит о помощи так, как обычно: резко или тихо. Вместе находите более ясную фразу и проигрываете сценку ещё раз. Вы не оцениваете вежливость, а проверяете: вас поняли?",
       en: "The child asks for help the usual way: sharp or too quiet. You find a clearer sentence and play the scene once more. You are not scoring politeness. You are checking: did the other person understand?",
     },
     related: ["advent-7-9", "kvest-missiya-v-magazine"],
@@ -628,9 +672,16 @@ export const products: Product[] = [
   }),
   {
     slug: "kvest-igrushechnyy-gorod",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Домашний квест для детей 4–6 лет Игрушечный город — RADAR KIDS",
+        description: "Квест Спасаем игрушечный город для детей 4–6 лет: выбрать, как помочь героям, и обсудить их чувства. Уточните условия получения у команды.",
+      },
+    },
     kind: "quest",
     title: {
-      ru: "Квест «Спасаем игрушечный город», 4–6 лет",
+      ru: "Квест Спасаем игрушечный город, 4–6 лет",
       en: "Quest: Save the toy town, ages 4–6",
     },
     tagline: {
@@ -642,8 +693,8 @@ export const products: Product[] = [
       en: "Families with children aged 4–6. Half an hour to an hour on the rug, not a marathon.",
     },
     result: {
-      ru: "Ребёнок выбирает из двух-трёх способов помочь и вслух говорит, что чувствует герой.",
-      en: "The child picks one of two or three ways to help, and says how the character feels.",
+      ru: "Замечает чувства героев, выбирает способ помочь и обсуждает последствия выбора.",
+      en: "Notices the characters’ feelings, chooses a way to help and discusses what follows from the choice.",
     },
     bullets: [
       {
@@ -651,7 +702,7 @@ export const products: Product[] = [
         en: "Simple choices: hug, mend, call for help",
       },
       {
-        ru: "Команда «я + родитель» — вы озвучиваете задачу, выбирает ребёнок",
+        ru: "Команда я + родитель — вы озвучиваете задачу, выбирает ребёнок",
         en: "A team of two: you name the task, the child chooses",
       },
       {
@@ -660,14 +711,14 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "45–60 минут. Печатные станции или PDF.",
-      en: "45–60 minutes. Print stations or PDF.",
+      ru: "45–60 минут.",
+      en: "45–60 minutes.",
     },
     ageGroups: ["4-6"],
-    competencies: ["empathy", "communication", "problems"],
+    skills: ["empathy", "teamwork", "reason"],
     ctaLabel: {
-      ru: "Получить квест «Игрушечный город»",
-      en: "Get the toy-town quest",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-kvest-gorod.webp",
@@ -682,8 +733,8 @@ export const products: Product[] = [
         en: "At each station, 2–3 ways to help",
       },
       {
-        ru: "Памятка: не подсказывать «правильную доброту»",
-        en: "A note: do not hint at the “right” kind of kindness",
+        ru: "Памятка: не подсказывать правильную доброту",
+        en: "A note: do not hint at the right kind of kindness",
       },
     ],
     howTo: [
@@ -701,8 +752,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "Станция 2. Кто грустит в городе",
@@ -716,9 +767,16 @@ export const products: Product[] = [
   },
   {
     slug: "kvest-missiya-v-magazine",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Квест для детей 7–9 лет Миссия в магазине — RADAR KIDS",
+        description: "Секретная миссия в магазине для детей 7–9 лет: семейный квест о покупках, выборе и ограничениях. Уточните условия получения у команды.",
+      },
+    },
     kind: "quest",
     title: {
-      ru: "Квест «Секретная миссия в магазине», 7–9 лет",
+      ru: "Квест Секретная миссия в магазине, 7–9 лет",
       en: "Quest: Secret shop mission, ages 7–9",
     },
     tagline: {
@@ -726,12 +784,12 @@ export const products: Product[] = [
       en: "A limited budget and a list. What matters more, what can wait.",
     },
     audience: {
-      ru: "Семьи с детьми 7–9 лет. Дома с «магазином» из кухни или в настоящем магазине на короткой закупке.",
-      en: "Families with children aged 7–9. At home with a kitchen “shop”, or on a short real shop run.",
+      ru: "Семьи с детьми 7–9 лет. Дома с магазином из кухни или в настоящем магазине на короткой закупке.",
+      en: "Families with children aged 7–9. At home with a kitchen shop, or on a short real shop run.",
     },
     result: {
-      ru: "Ребёнок видит, что на всё не хватает, и выбирает, от чего отказаться.",
-      en: "The child sees that you cannot have everything, and chooses what to drop.",
+      ru: "Сравнивает варианты покупок, учитывает ограничения и объясняет решение.",
+      en: "Compares shopping options, considers the limits and explains the choice.",
     },
     bullets: [
       {
@@ -748,14 +806,15 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "60–90 минут. Печатный набор или PDF.",
+      ru: "60–90 минут.",
       en: "60–90 minutes. Print set or PDF.",
     },
     ageGroups: ["7-9"],
-    competencies: ["problems", "organization", "information"],
+    skills: ["info", "focus", "plan"],
+    foundation: ["literacy"],
     ctaLabel: {
-      ru: "Получить квест «Миссия в магазине»",
-      en: "Get the shop-mission quest",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-kvest-magazin.webp",
@@ -789,8 +848,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "Станция 3. Что важнее",
@@ -804,9 +863,16 @@ export const products: Product[] = [
   },
   {
     slug: "kvest-organizuem-sobytie",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Квест-проект для детей 10–12 лет Организуем событие — RADAR KIDS",
+        description: "Квест Организуем событие для детей 10–12 лет: выбрать семейное событие, составить план и распределить задачи. Уточните условия получения у команды.",
+      },
+    },
     kind: "quest",
     title: {
-      ru: "Квест «Организуем событие», 10–12 лет",
+      ru: "Квест Организуем событие, 10–12 лет",
       en: "Quest: We run an event, ages 10–12",
     },
     tagline: {
@@ -818,8 +884,8 @@ export const products: Product[] = [
       en: "Families with children aged 10–12. A weekend when you can finish something for guests, or at least for the household.",
     },
     result: {
-      ru: "Ребёнок проводит маленький проект до конца и видит, что сдвинуть, если время кончилось.",
-      en: "The child runs a small project to the end and sees what to move if time runs out.",
+      ru: "Выбирает событие, составляет план и распределяет задачи вместе со взрослым.",
+      en: "Chooses an event, makes a plan and shares out tasks with an adult.",
     },
     bullets: [
       {
@@ -836,14 +902,14 @@ export const products: Product[] = [
       },
     ],
     format: {
-      ru: "60–90 минут на план плюс само событие. Печать или PDF.",
-      en: "60–90 minutes to plan, plus the event itself. Print or PDF.",
+      ru: "60–90 минут на план плюс само событие.",
+      en: "60–90 minutes to plan, plus the event itself.",
     },
     ageGroups: ["10-12"],
-    competencies: ["organization", "cooperation", "problems"],
+    skills: ["plan", "teamwork", "lead"],
     ctaLabel: {
-      ru: "Получить квест «Семейное событие»",
-      en: "Get the family-event quest",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     price: null,
     image: "/images/sample-kvest-sobytie.webp",
@@ -877,8 +943,8 @@ export const products: Product[] = [
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
       ru: "Шаг 1. Вечер настолок",
@@ -892,46 +958,53 @@ export const products: Product[] = [
   },
   {
     slug: "kurs-podrostki",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "Управление проектами для подростков — RADAR KIDS",
+        description: "Учимся побеждать: проектные задания для подростков. Материал планируется включить в программу университета RADAR KIDS.",
+      },
+    },
     kind: "course",
     title: {
-      ru: "Управление проектами — «Учимся побеждать»",
-      en: "Project management — “Learning to win”",
+      ru: "Управление проектами — Учимся побеждать",
+      en: "Project management — Learning to win",
     },
     tagline: {
-      ru: "Практика доводить дело, а не лекции «кем быть».",
-      en: "Practice finishing things, not lectures on “what to be”.",
+      ru: "Практика доводить дело, а не лекции кем быть.",
+      en: "Practice finishing things, not lectures on what to be.",
     },
     audience: {
-      ru: "Подростки 13–16 лет и родители, которым нужен разговор без лекций «кем быть».",
-      en: "Teens aged 13–16 and parents who need a talk without a lecture on “what to be”.",
+      ru: "Подростки 13–16 лет и родители, которым нужен разговор без лекций о выборе профессии.",
+      en: "Teens aged 13–16 and parents who need a talk without a lecture on what to be.",
     },
     result: {
-      ru: "Подросток лучше формулирует, как думает, как договаривается и какие задачи ему подходят — не список профессий с картинками.",
-      en: "The teen can say how they think, how they negotiate, and what kind of work fits — not a poster of job titles.",
+      ru: "Обсуждает проектные задачи, план и роли.",
+      en: "Discusses project tasks, a plan and roles.",
     },
     bullets: [
       {
-        ru: "Курс 13–16 лет: мышление, самоорганизация, умение договариваться",
-        en: "Course for ages 13–16: thinking, organising yourself, talking things through",
+        ru: "Проектные задания 13–16 лет: мышление, самоорганизация, умение договариваться",
+        en: "Project tasks for ages 13–16: thinking, organising yourself, talking things through",
       },
       {
         ru: "Не лекции: задания, разборы и живые разговоры",
         en: "Not lectures: tasks, reviews and real conversations",
       },
       {
-        ru: "Профориентация 13–16: семейная сессия, сильные стороны и типы задач",
-        en: "Career session ages 13–16: family meeting, strengths and types of work",
+        ru: "Обсуждение сильных сторон и типов задач для подростков 13–16 лет",
+        en: "Discussing strengths and types of tasks for teenagers aged 13–16",
       },
     ],
     format: {
-      ru: "Курс 6–8 недель. Сессия онлайн или очно.",
-      en: "Course: 6–8 weeks. Session: online or in person.",
+      ru: "Материал для программы университета.",
+      en: "A material for the university programme.",
     },
     ageGroups: ["13-16"],
-    competencies: ["critical", "organization", "communication"],
+    skills: ["plan", "resilience", "lead", "focus"],
     ctaLabel: {
-      ru: "Записаться на «Учимся побеждать»",
-      en: "Sign up for “Learning to win”",
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
     },
     author: {
       ru: "Мария Громова",
@@ -942,52 +1015,60 @@ export const products: Product[] = [
     featured: true,
     composition: [
       {
-        ru: "Курс: 6–8 недель, задания и разборы, без лекций",
-        en: "Course: 6–8 weeks of tasks and reviews, no lectures",
+        ru: "Задания и обсуждение проектных задач в программе университета",
+        en: "Tasks and discussion of project work within the university programme",
       },
       {
-        ru: "Семейная сессия: подросток и родители, сильные стороны, предпочитаемые роли",
-        en: "Family session: teen and parents, strengths, preferred roles",
+        ru: "Обсуждение сильных сторон и проектных ролей подростка вместе с родителями",
+        en: "Discussing a teenager’s strengths and project roles with parents",
       },
       {
-        ru: "Разговор не о «профессии мечты», а о типах задач, среды и команд",
+        ru: "Разговор не о профессии мечты, а о типах задач, среды и команд",
         en: "The talk is not about a dream job title. It is about types of tasks, settings and teams",
       },
     ],
     howTo: [
       {
-        ru: "Оставьте заявку: курс, сессия или оба формата",
-        en: "Send a request: course, session, or both",
+        ru: "Подготовьте заявку на материал Учимся побеждать",
+        en: "Prepare an enquiry about Learning to win",
       },
       {
-        ru: "Согласуем возраст, язык (русский или английский) и онлайн/очно",
-        en: "We agree age, language (Russian or English) and online or in person",
+        ru: "Самостоятельно отправьте сообщение команде в Telegram",
+        en: "Send the message to the team in Telegram yourself",
       },
       {
-        ru: "Перед сессией — короткий опросник, чтобы не начинать с нуля",
-        en: "A short questionnaire before the session, so you do not start from zero",
+        ru: "Обсудите с командой условия участия в программе университета",
+        en: "Discuss participation in the university programme with the team",
       },
     ],
     delivery: {
-      ru: "Формат и способ получения конкретного набора уточняются при заказе.",
-      en: "Format and how you receive a specific kit are confirmed when you order.",
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
     },
     sampleTitle: {
-      ru: "Как устроена сессия",
-      en: "How the session works",
+      ru: "Пример обсуждения",
+      en: "An example discussion",
     },
     sampleBody: {
-      ru: "Сначала подросток говорит, какие задачи ему интересны и где он выдыхается. Затем родители — что видят они, без спора «ты должен». Вместе собираем типы среды, в которых ему будет проще, и один следующий шаг на месяц.",
-      en: "The teen speaks first: which tasks they like, where they run out of steam. Then the parents — what they see, without “you should”. Together you name the settings that fit, and one next step for the month.",
+      ru: "Сначала подросток говорит, какие задачи ему интересны и где он выдыхается. Затем родители — что видят они, без спора о том, что подросток должен делать. Вместе собираем типы среды, в которых ему будет проще, и один следующий шаг на месяц.",
+      en: "The teen speaks first: which tasks they like, where they run out of steam. Then the parents — what they see, without you should. Together you name the settings that fit, and one next step for the month.",
     },
     related: ["kvest-organizuem-sobytie", "kalendar-32-dnya"],
   },
   {
     slug: "9-voprosov-svoego-dela",
+    availability: "waitlist",
+    seo: {
+      ru: {
+        title: "9 вопросов для своего дела, 10–12 лет — RADAR KIDS",
+        description: "Девять вопросов об одном собственном проекте ребёнка 10–12 лет: для кого он, кто поможет и что потребуется. Уточните условия получения у команды.",
+      },
+    },
+    developmentStatus: "draft",
     kind: "kit",
     title: locPair(
-      "«9 вопросов для своего дела», 10–12 лет",
-      "“9 questions for your own project”, ages 10–12",
+      "9 вопросов для своего дела, 10–12 лет",
+      "9 questions for your own project, ages 10–12",
     ),
     tagline: locPair(
       "Один настоящий проект — девять коротких вопросов своими словами.",
@@ -997,10 +1078,10 @@ export const products: Product[] = [
       "Семьи с детьми 10–12 лет, у которых есть школьная ярмарка, сбор денег классу или другое своё дело.",
       "Families with children aged 10–12 who have a school fair, a class fundraiser, or another real project.",
     ),
-    result: locPair(
-      "Ребёнок разбирает свой проект простыми вопросами, а не «компанию из учебника».",
-      "The child unpacks their own project in plain questions, not a textbook “company”.",
-    ),
+    result: {
+      ru: "Обсуждает замысел проекта, задачи и то, что ещё нужно выяснить.",
+      en: "Discusses a project idea, its tasks and what they still need to find out.",
+    },
     bullets: [
       locPair(
         "9 вопросов на языке ребёнка — про один проект",
@@ -1015,18 +1096,24 @@ export const products: Product[] = [
         "No adult jargon on the card",
       ),
     ],
-    format: locPair("9 вопросов про один проект.", "Nine questions about one project."),
-    ageGroups: ["10-12"],
-    competencies: ["critical", "organization", "creative"],
-    ctaLabel: locPair(
-      "Получить «9 вопросов для своего дела»",
-      "Get “9 questions for your own project”",
+    format: locPair(
+      "9 вопросов про один проект.",
+      "Nine questions about one project.",
     ),
+    ageGroups: ["10-12"],
+    skills: ["reason", "ideas", "start", "plan"],
+    ctaLabel: {
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
+    },
     price: null,
     image: "",
     featured: false,
     composition: [
-      locPair("Девять вопросов про один ваш проект", "Nine questions about one real project"),
+      locPair(
+        "Девять вопросов про один ваш проект",
+        "Nine questions about one real project",
+      ),
       locPair(
         "Формулировки простые, без взрослых терминов",
         "Plain wording, no adult terms",
@@ -1047,7 +1134,10 @@ export const products: Product[] = [
         "If there is no answer yet, leave the question and come back after the fair or the collection",
       ),
     ],
-    delivery: ru("[TODO: цена и формат]"),
+    delivery: {
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
+    },
     sampleTitle: locPair("Школьная ярмарка", "The school fair"),
     sampleBody: locPair(
       "Берёте один проект: печенье на ярмарку или сбор денег классу. Ребёнок отвечает, для кого это, кто помогает и на что уйдут силы. Вы не добавляете термины из учебника.",
@@ -1057,6 +1147,7 @@ export const products: Product[] = [
   },
   {
     slug: "kanva-ostervaldera",
+    availability: "waitlist",
     kind: "course",
     title: locPair("Канва Остервальдера", "The Osterwalder canvas"),
     tagline: locPair(
@@ -1077,14 +1168,20 @@ export const products: Product[] = [
         "A business-model review, not a course on talking things through",
       ),
       locPair(
-        "Пока готовим программу — без цены и без записи",
-        "The programme is still in preparation — no price and no booking yet",
+        "Условия получения по заявке",
+        "Ask the team about receiving this material",
       ),
     ],
-    format: locPair("Программа готовится.", "The programme is still in preparation."),
+    format: {
+      ru: "Оставьте заявку на материал.",
+      en: "Enquire about this material.",
+    },
     ageGroups: ["13-16"],
-    competencies: ["critical", "organization", "creative"],
-    ctaLabel: locPair("Скоро", "Coming soon"),
+    skills: ["info", "reason", "ideas", "empathy"],
+    ctaLabel: {
+      ru: "Оставить заявку",
+      en: "Send an enquiry",
+    },
     author: ru("[TODO: не назначен]"),
     price: null,
     image: "",
@@ -1092,7 +1189,10 @@ export const products: Product[] = [
     comingSoon: true,
     composition: [ru("[TODO: состав]")],
     howTo: [ru("[TODO: как пользоваться]")],
-    delivery: ru("[TODO: цена и формат]"),
+    delivery: {
+      ru: "Уточните условия получения у команды.",
+      en: "Ask the team about receiving this material.",
+    },
     sampleTitle: ru("[TODO: пример задания]"),
     sampleBody: ru("[TODO: пример задания]"),
     related: ["kurs-podrostki"],

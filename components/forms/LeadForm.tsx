@@ -31,12 +31,14 @@ export function LeadForm({
   locale,
   dict,
   product,
+  productName,
   format,
   compact = false,
 }: {
   locale: Locale;
   dict: Dictionary;
   product?: string;
+  productName?: string;
   format?: PurchaseFormat;
   compact?: boolean;
 }) {
@@ -50,7 +52,7 @@ export function LeadForm({
     defaultValues: {
       name: "",
       contact: "",
-      product: product ?? "",
+      product: productName ?? product ?? "",
       format: format ?? "",
       childAge: "",
       consent: false,
@@ -80,9 +82,16 @@ export function LeadForm({
         name: payload.name,
         contact: payload.contact,
         product: payload.product,
-        format: payload.format,
+        format: payload.format === "waitlist" ? dict.catalog.waitlist : payload.format,
         childAge: payload.childAge,
         tracking: collectTracking(product ? `produkty/${product}` : "lead"),
+        labels: {
+          name: dict.forms.name,
+          contact: dict.forms.contact,
+          product: dict.forms.product,
+          format: locale === "ru" ? "Формат" : "Format",
+          childAge: dict.forms.childAge,
+        },
       });
       setPrepared(body);
       setStatus("success");

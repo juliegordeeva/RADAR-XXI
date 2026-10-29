@@ -15,6 +15,7 @@ export function EditorialHero({
   variant?:
     | "scene"
     | "catalog"
+    | "catalog-parents"
     | "approach"
     | "team"
     | "business"

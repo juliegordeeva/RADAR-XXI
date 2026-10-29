@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/Badge";
-import { CompetencyCard } from "@/components/ui/CompetencyCard";
-import { CompetencyTag } from "@/components/ui/CompetencyTag";
+import { SkillCard } from "@/components/ui/SkillCard";
+import { SkillTag } from "@/components/ui/SkillTag";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Checkbox, Input } from "@/components/ui/Input";
@@ -79,15 +79,15 @@ export default function UiKitPage() {
               {ages.map((age) => (
                 <Badge key={age} age={age} locale="ru" />
               ))}
-              <CompetencyTag competencyKey="critical" locale="ru" />
-              <CompetencyTag competencyKey="empathy" locale="ru" />
+              <SkillTag skillKey="info" locale="ru" />
+              <SkillTag skillKey="empathy" locale="ru" />
             </div>
             <h3 className="font-heading text-[24px]">Карточка набора</h3>
             <p className="text-text-muted">
               Радиус 24 px, белая подложка, тонкая граница.
             </p>
           </Card>
-          <CompetencyCard competencyKey="creative" locale="ru" />
+          <SkillCard skillKey="ideas" locale="ru" />
           <form className="space-y-4">
             <Input label="Поле ввода" placeholder="Имя" />
             <Checkbox label="Согласие на обработку данных" />

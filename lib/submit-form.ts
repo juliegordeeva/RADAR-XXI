@@ -29,6 +29,8 @@ export function withTracking(
     utm_campaign: tracking.utm_campaign,
     utm_content: tracking.utm_content,
     utm_term: tracking.utm_term,
+    from: tracking.from,
+    company: tracking.company,
   };
 }
 
@@ -39,16 +41,20 @@ export async function sendLeadFromBrowser(fields: {
   format?: string;
   childAge?: string;
   tracking: TrackingFields;
+  labels?: { name: string; contact: string; product: string; format: string; childAge: string };
 }) {
+  const labels = fields.labels ?? {
+    name: "Имя", contact: "Контакт", product: "Набор", format: "Формат", childAge: "Возраст ребёнка",
+  };
   return sendFormFromBrowser(
     "Заявка RADAR KIDS",
     withTracking(
       {
-        Имя: fields.name,
-        Контакт: fields.contact,
-        Набор: fields.product,
-        Формат: fields.format,
-        "Возраст ребёнка": fields.childAge,
+        [labels.name]: fields.name,
+        [labels.contact]: fields.contact,
+        [labels.product]: fields.product,
+        [labels.format]: fields.format,
+        [labels.childAge]: fields.childAge,
       },
       fields.tracking,
     ),

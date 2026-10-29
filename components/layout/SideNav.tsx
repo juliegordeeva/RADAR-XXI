@@ -25,6 +25,11 @@ function Navigation({ locale, dict, embedded = false }: SideNavProps) {
   const links = [
     { href: "/", label: dict.nav.home, active: path === `/${locale}` },
     {
+      href: "/universitet",
+      label: dict.nav.university,
+      active: path.endsWith("/universitet"),
+    },
+    {
       href: "/produkty",
       label: dict.nav.products,
       active: path.includes("/produkty") && !parents,
@@ -59,14 +64,14 @@ function Navigation({ locale, dict, embedded = false }: SideNavProps) {
         <BrandLogo />
       </Link>
       <nav aria-label={dict.nav.openMenu}>
-        {links.map((item, i) => (
+        {links.map((item) => (
           <Link
             key={item.href}
             href={localePath(locale, item.href)}
             aria-current={item.active ? "page" : undefined}
             className={`side-nav-link ${item.active ? "is-active" : ""}`}
           >
-            {i === 0 ? (
+            {item.href === "/" ? (
               <>
                 <Home size={24} aria-hidden="true" />
                 <span className="sr-only">{item.label}</span>
