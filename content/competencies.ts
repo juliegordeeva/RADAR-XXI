@@ -50,8 +50,8 @@ export const sectors: Sector[] = [
       en: "Make sense of information, spot causes and effects, and stay with a task.",
     },
     adultName: {
-      ru: "«Анализ»",
-      en: "“Analysis”",
+      ru: "Анализ",
+      en: "Analysis",
     },
     adultText: {
       ru: "Скорость и глубина мышления: как человек работает с информацией и принимает решения.",
@@ -73,8 +73,8 @@ export const sectors: Sector[] = [
       en: "Try new things, find several answers and adapt when plans change.",
     },
     adultName: {
-      ru: "«Изменения»",
-      en: "“Change”",
+      ru: "Изменения",
+      en: "Change",
     },
     adultText: {
       ru: "Готовность учиться, открытость мышления, спокойствие в неопределённости.",
@@ -96,8 +96,8 @@ export const sectors: Sector[] = [
       en: "Understand others, make agreements, work as a team and take the lead.",
     },
     adultName: {
-      ru: "«Коммуникация»",
-      en: "“Communication”",
+      ru: "Коммуникация",
+      en: "Communication",
     },
     adultText: {
       ru: "Социальный интеллект и готовность руководить людьми.",
@@ -119,8 +119,8 @@ export const sectors: Sector[] = [
       en: "Start on your own, set a goal, handle feelings and keep trying.",
     },
     adultName: {
-      ru: "«Драйв»",
-      en: "“Drive”",
+      ru: "Драйв",
+      en: "Drive",
     },
     adultText: {
       ru: "Инициативность, настойчивость, умение ставить большие цели.",
@@ -142,8 +142,8 @@ export const skills: Skill[] = [
       en: "Checks facts, asks questions and does not take every story on trust.",
     },
     signOfProgress: {
-      ru: "Спрашивает «А откуда ты это знаешь?» вместо того, чтобы просто согласиться.",
-      en: "Asks “How do you know?” before agreeing.",
+      ru: "Спрашивает А откуда ты это знаешь? вместо того, чтобы просто согласиться.",
+      en: "Asks How do you know? before agreeing.",
     },
     icon: "Search",
   },
@@ -160,8 +160,8 @@ export const skills: Skill[] = [
       en: "Sees cause and effect and can give a couple of reasons for a conclusion.",
     },
     signOfProgress: {
-      ru: "Говорит «если сделать так, то будет…» до того, как сделать.",
-      en: "Says “If I do this, then…” before acting.",
+      ru: "Говорит если сделать так, то будет… до того, как сделать.",
+      en: "Says If I do this, then… before acting.",
     },
     icon: "Layers",
   },
@@ -214,8 +214,8 @@ export const skills: Skill[] = [
       en: "Comes up with several answers and chooses one.",
     },
     signOfProgress: {
-      ru: "На вопрос «а как ещё?» не замолкает, а продолжает искать варианты.",
-      en: "Keeps finding options when you ask “How else?”.",
+      ru: "На вопрос а как ещё? не замолкает, а продолжает искать варианты.",
+      en: "Keeps finding options when you ask How else?.",
     },
     icon: "Lightbulb",
   },
@@ -304,8 +304,8 @@ export const skills: Skill[] = [
       en: "Starts without reminders and suggests how to improve things.",
     },
     signOfProgress: {
-      ru: "Сам говорит: «А давай я…»",
-      en: "Says “What if I do it?”.",
+      ru: "Сам говорит: А давай я…",
+      en: "Says What if I do it?.",
     },
     icon: "Rocket",
   },

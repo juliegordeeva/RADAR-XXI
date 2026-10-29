@@ -3,6 +3,7 @@ import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
 import { SkillCard } from "@/components/ui/SkillCard";
+import { AnchoredDetails } from "@/components/ui/AnchoredDetails";
 
 export function CompetenciesBlock({
   locale,
@@ -15,19 +16,17 @@ export function CompetenciesBlock({
     <div>
       <h2 className="section-heading">{dict.abilities.title}</h2>
       <p className="mb-10 max-w-[65ch]">{dict.abilities.subtitle}</p>
-      <div className="space-y-12">
+      <div className="competency-folds">
         {sectors.map((sector) => (
-          <section
+          <AnchoredDetails
             key={sector.key}
-            className="skill-sector"
-            aria-labelledby={`sector-${sector.key}`}
+            anchor={`sector-${sector.key}`}
+            title={
+              <h3 className={sectorColorClass[sector.key]}>
+                {loc(sector.title, locale)}
+              </h3>
+            }
           >
-            <h3
-              id={`sector-${sector.key}`}
-              className={sectorColorClass[sector.key]}
-            >
-              {loc(sector.title, locale)}
-            </h3>
             <p className="my-4 max-w-[65ch]">{loc(sector.forParent, locale)}</p>
             <div className="skills-grid">
               {skills
@@ -41,7 +40,7 @@ export function CompetenciesBlock({
                   />
                 ))}
             </div>
-          </section>
+          </AnchoredDetails>
         ))}
       </div>
       <div className="mt-12 max-w-[65ch]">

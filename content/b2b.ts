@@ -30,12 +30,12 @@ export const b2bHub = {
     "An organised trip for employees with children: an accessible route, family tasks, support, and a shared experience where parents and children act together.",
   ),
   hikesCta: locPair("Запросить формат похода", "Request a hike format"),
-  diaryTitle: locPair("Ежедневник «Три роли / одна жизнь»", "Diary “Three roles / one life”"),
+  diaryTitle: locPair("Ежедневник Три роли / одна жизнь", "Diary Three roles / one life"),
   diaryText: locPair(
-    "Концепция корпоративного подарка: дневник для рабочих задач, семейных дел и собственных планов. Материал в листе ожидания.",
-    "A corporate gift concept: a diary for work tasks, family responsibilities and personal plans. The material is on the waiting list.",
+    "Концепция корпоративного подарка: дневник для рабочих задач, семейных дел и собственных планов. Оставьте заявку на материал.",
+    "A corporate gift concept: a diary for work tasks, family responsibilities and personal plans. Enquire about this material.",
   ),
-  diaryCta: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
+  diaryCta: locPair("Оставить заявку на ежедневник", "Enquire about the diary"),
   boundary: locPair(
     "RADAR KIDS проводит семейные маршруты для сотрудников вместе с детьми. RADAR Experience работает со взрослыми корпоративными командами и экстремальными активностями.",
     "RADAR KIDS runs family routes for employees together with children. RADAR Experience works with adult corporate teams and extreme activities.",
@@ -159,7 +159,7 @@ export const officeDay = {
   team: {
     ru: {
       title: "Корпоративная команда",
-      caption: "Руководство проектов «Офисные приключения»",
+      caption: "Руководство проектов Офисные приключения",
       intro: "Программу разрабатывает команда с 20-летним опытом в международном бизнес-образовании и корпоративном обучении.",
       qualifications: [
         "Кандидат педагогических наук.",
@@ -235,8 +235,8 @@ export const familyHikes = {
 
 export const diary = {
   title: locPair(
-    "Ежедневник «Три роли / одна жизнь» — корпоративный подарок",
-    "Diary “Three roles / one life” — a corporate gift",
+    "Ежедневник Три роли / одна жизнь — корпоративный подарок",
+    "Diary Three roles / one life — a corporate gift",
   ),
   subtitle: locPair(
     "Практическое руководство и дневник для тех, кто совмещает работу, семейные дела и собственные планы.",
@@ -247,21 +247,21 @@ export const diary = {
     "Three authors — three roles: Julia Gordeeva (business planning), Elizabeth Sarycheva (resilience and well-being), Maria Gromova (project work for children). 365 days, one spread a day: the work desk on the left, the home circle on the right.",
   ),
   printNote: locPair(
-    "Материал в листе ожидания. Концепцию первого корпоративного выпуска обсуждаем с компаниями; приём заказов и оплата пока не открыты.",
-    "The material is on the waiting list. We can discuss the concept of a first corporate edition; orders and payment are not open yet.",
+    "Оставьте заявку на материал. Концепцию первого корпоративного выпуска обсуждаем с компаниями; приём заказов и оплата пока не открыты.",
+    "Enquire about this material. We can discuss the concept of a first corporate edition; orders and payment are not open yet.",
   ),
   priceNote: locPair(
     "[TODO: цена и минимальный тираж]",
     "[TODO: price and minimum print run]",
   ),
-  cta: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
-  formTitle: locPair("В лист ожидания ежедневника", "Join the diary waiting list"),
+  cta: locPair("Оставить заявку на ежедневник", "Enquire about the diary"),
+  formTitle: locPair("Оставить заявку на ежедневник", "Enquire about the diary"),
   expertTitle: locPair(
     "Автор блока управления проектами для детей",
     "Author of the children’s project block",
   ),
   expert: locPair(
-    "Мария Громова. Эксперт управления проектами для детей. 20 лет в госсекторе и консалтинге, 14 лет на руководящих постах в федеральном министерстве. Автор «Учимся побеждать» и блока управления проектами в ежедневнике.",
-    "Maria Gromova. Expert in project work for children. 20 years in the public sector and consulting, 14 years in senior roles in a federal ministry. Author of “Learning to win” and of the project block in the diary.",
+    "Мария Громова. Эксперт управления проектами для детей. 20 лет в госсекторе и консалтинге, 14 лет на руководящих постах в федеральном министерстве. Автор Учимся побеждать и блока управления проектами в ежедневнике.",
+    "Maria Gromova. Expert in project work for children. 20 years in the public sector and consulting, 14 years in senior roles in a federal ministry. Author of Learning to win and of the project block in the diary.",
   ),
 };

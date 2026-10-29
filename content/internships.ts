@@ -20,7 +20,7 @@ export type Internship = {
   price: number | null;
   available: boolean;
 };
-// available означает приём интереса в лист ожидания, а не запуск программы.
+// available определяет, какие программы можно выбрать в заявке.
 export const internships: Internship[] = [
   {
     slug: "intro-4-6",
@@ -50,8 +50,8 @@ export const internships: Internship[] = [
       },
     ],
     finalProject: {
-      ru: "«Семейная ярмарка»: придумать поделку, назначить цену и «продать» близким",
-      en: "A family fair: make a craft, set a price and “sell” it to loved ones",
+      ru: "Семейная ярмарка: придумать поделку, назначить цену и продать близким",
+      en: "A family fair: make a craft, set a price and sell it to loved ones",
     },
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
@@ -73,7 +73,7 @@ export const internships: Internship[] = [
     },
     childDoes: [],
     finalProject: {
-      ru: "«Радар навыков» в конце",
+      ru: "Радар навыков в конце",
       en: "A Skills Radar at the end",
     },
     sectors: ["think", "create", "agree", "finish"],
@@ -109,8 +109,8 @@ export const internships: Internship[] = [
       },
     ],
     finalProject: {
-      ru: "Настоящий проект по «9 вопросам для своего дела» и питч на 3 минуты",
-      en: "A real project using “9 questions for your own project” and a three-minute pitch",
+      ru: "Настоящий проект по 9 вопросам для своего дела и питч на 3 минуты",
+      en: "A real project using 9 questions for your own project and a three-minute pitch",
     },
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,
@@ -145,8 +145,8 @@ export const internships: Internship[] = [
       },
     ],
     finalProject: {
-      ru: "Защита мини-проекта перед «советом директоров» — родителями и экспертом",
-      en: "Presents a mini-project to a “board”: parents and an expert",
+      ru: "Защита мини-проекта перед советом директоров — родителями и экспертом",
+      en: "Presents a mini-project to a board: parents and an expert",
     },
     sectors: ["think", "create", "agree", "finish"],
     startDate: null,

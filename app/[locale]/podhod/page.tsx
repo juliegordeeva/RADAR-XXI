@@ -99,7 +99,10 @@ export default async function ApproachPage({
       <Section alt>
         <h2 className="section-heading">{j.ladderTitle}</h2>
         <p className="max-w-[70ch] mb-8">{j.ladder}</p>
-        <CompetencyLadder locale={locale} dict={dict} />
+        <details className="content-fold">
+          <summary>{j.ladderToggle}<span className="fold-indicator" aria-hidden="true" /></summary>
+          <CompetencyLadder locale={locale} dict={dict} />
+        </details>
       </Section>
       <Section>
         <CompetenciesBlock locale={locale} dict={dict} />
@@ -167,65 +170,45 @@ export default async function ApproachPage({
       <Section>
         <h2 className="section-heading">{a.kitsTitle}</h2>
         <p className="max-w-[65ch] mb-8">{a.kits}</p>
-        <div className="kits-table" role="table" aria-label={a.kitsTitle}>
-          <div className="kits-row kits-head" role="row">
-            {[
-              a.tableProduct,
-              j.childrenSkills,
-              j.competencyLabel,
-              a.tableAge,
-            ].map((label) => (
-              <div key={label} role="columnheader">
-                {label}
-              </div>
-            ))}
-          </div>
-          {products
-            .filter((item) => item.inMainCatalog !== false)
-            .map((product) => (
-              <div className="kits-row" role="row" key={product.slug}>
-                <div role="cell">
-                  {!product.comingSoon ? (
-                    <Link
-                      className="text-link"
-                      href={localePath(locale, `/produkty/${product.slug}`)}
-                    >
-                      {loc(product.title, locale)}{product.availability === "waitlist" ? ` · ${dict.catalog.waitlist}` : ""}
-                    </Link>
-                  ) : (
-                    <span>
-                      {loc(product.title, locale)} · {dict.catalog.waitlist}
-                    </span>
-                  )}
-                </div>
-                <div role="cell">
-                  {product.ageGroups.includes("parents")
-                    ? j.parentBadge
-                    : product.skills
-                        .map(
-                          (key) =>
-                            `${skillByKey[key].code} ${loc(skillByKey[key].title, locale)}`,
-                        )
-                        .join(" · ")}
-                  {product.foundation?.map((key) => (
-                    <p key={key} className="mt-3">
-                      {j.foundationLabel}: {loc(foundations[key].title, locale)}
-                    </p>
-                  ))}
-                </div>
-                <div role="cell">
-                  {productSectors(product)
-                    .map((key) => loc(sectorByKey[key].title, locale))
-                    .join(" · ") || j.parentBadge}
-                </div>
-                <div role="cell">
-                  {product.ageGroups
-                    .map((age) => loc(ageLabels[age], locale))
-                    .join(" · ")}
-                </div>
-              </div>
-            ))}
-        </div>
+        <details className="content-fold kits-fold">
+          <summary>{a.kitsSummary}<span className="fold-indicator" aria-hidden="true" /></summary>
+          <table className="materials-table">
+            <caption className="sr-only">{a.kitsTitle}</caption>
+            <thead><tr>
+              <th scope="col">{a.tableProduct}</th>
+              <th scope="col">{j.childrenSkills}</th>
+              <th scope="col">{j.competencyLabel}</th>
+              <th scope="col">{a.tableAge}</th>
+            </tr></thead>
+            <tbody>
+              {products.filter((item) => item.inMainCatalog !== false).map((product) => (
+                <tr key={product.slug}>
+                  <th scope="row" data-label={a.tableProduct}>
+                    {!product.comingSoon ? (
+                      <Link className="text-link" href={localePath(locale, `/produkty/${product.slug}`)}>
+                        {loc(product.title, locale)}
+                      </Link>
+                    ) : loc(product.title, locale)}
+                  </th>
+                  <td data-label={j.childrenSkills}>
+                    {product.ageGroups.includes("parents") ? j.parentBadge : (
+                      <ul>{product.skills.map((key) => (
+                        <li key={key}><span className="table-skill-code">{skillByKey[key].code}</span> {loc(skillByKey[key].title, locale)}</li>
+                      ))}</ul>
+                    )}
+                    {product.foundation?.map((key) => (
+                      <p key={key} className="mt-3"><strong>{j.foundationLabel}: </strong>{loc(foundations[key].title, locale)}</p>
+                    ))}
+                  </td>
+                  <td data-label={j.competencyLabel}>
+                    {productSectors(product).map((key) => loc(sectorByKey[key].title, locale)).join(" · ") || j.parentBadge}
+                  </td>
+                  <td data-label={a.tableAge}>{product.ageGroups.map((age) => loc(ageLabels[age], locale)).join(" · ")}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
         <div className="mt-10">
           <Button href={localePath(locale, "/universitet")}>{j.enter} →</Button>
         </div>

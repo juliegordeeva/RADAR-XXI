@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "RADAR KIDS — a corporate university for children and kits for home",
-    "homeDescription": "The RADAR KIDS corporate university: the Staying calm with change pilot for ages 7–9, family materials and Office Day for companies.",
+    "homeDescription": "The RADAR KIDS corporate university: Staying calm with change for children aged 7–9, family materials and Office Day for companies.",
     "productsTitle": "Materials for children aged 4–16 — RADAR KIDS",
     "productsDescription": "Safety cards, quests and advents for children, plus a calendar and diary for parents. Explore the content, age ranges and how to receive RADAR KIDS materials.",
     "aboutTitle": "The RADAR KIDS team | Authors and expertise",
@@ -9,7 +9,7 @@
     "b2bTitle": "Family programmes for companies | RADAR KIDS",
     "b2bDescription": "Office Day and family programmes for employees and their children. Explore the RADAR KIDS approach and discuss a programme for your company.",
     "contactsTitle": "Contact RADAR KIDS | Office Day and family programmes",
-    "contactsDescription": "Contact RADAR KIDS about Office Day, corporate family programmes, family materials or the university pilot. Share your brief with the team.",
+    "contactsDescription": "Contact RADAR KIDS about Office Day, corporate family programmes, family materials or the university internship. Share your brief with the team.",
     "privacyTitle": "Privacy policy — RADAR KIDS",
     "privacyDescription": "How we use the name, phone and email you send through the forms.",
     "approachTitle": "Four universal competencies and 12 skills for children — RADAR KIDS",
@@ -19,12 +19,12 @@
     "officeDescription": "A workplace quest and business game for employees’ children, designed around your company. Discuss the programme, team and delivery options after a brief.",
     "hikesTitle": "Corporate family hikes — RADAR KIDS",
     "hikesDescription": "Organised hikes for employees with children: a route, family tasks, support, and a programme for the corporate group.",
-    "diaryTitle": "Corporate diary “Three roles / one life” — RADAR KIDS",
-    "diaryDescription": "The Three roles / one life diary as a corporate gift concept: work, family and personal plans. Join the waiting list for the material.",
-    "universityTitle": "Staying calm with change pilot, ages 7–9 — RADAR KIDS",
-    "universityDescription": "Enquiries are open for a pilot for families with children aged 7–9: 14 days of tasks at home and a Skills Radar at the end. The start date and price are shared in reply.",
+    "diaryTitle": "Corporate diary Three roles / one life — RADAR KIDS",
+    "diaryDescription": "The Three roles / one life diary as a corporate gift concept: work, family and personal plans. Send an enquiry for the material.",
+    "universityTitle": "Staying calm with change, ages 7–9 | RADAR KIDS",
+    "universityDescription": "A RADAR KIDS internship for children aged 7–9: 14 days of tasks at home and a Skills Radar at the end. Choose a programme and apply to take part.",
     "parentMaterialsTitle": "Materials for parents — RADAR KIDS",
-    "parentMaterialsDescription": "The “32 days of parenting with joy” calendar and “Three roles / one life” diary: RADAR KIDS materials for parents’ self-support and everyday planning."
+    "parentMaterialsDescription": "The 32 days of parenting with joy calendar and Three roles / one life diary: RADAR KIDS materials for parents’ self-support and everyday planning."
   },
   "nav": {
     "home": "Home",
@@ -42,26 +42,36 @@
     "title": "Your child can practise the skills used to assess leaders at work — starting today",
     "paragraphs": [
       "RADAR KIDS is a corporate university for children aged 4–16 and their parents.",
-      "We are inviting families with children aged 7–9 to the “Staying calm with change” pilot: 14 days of tasks at home and a Skills Radar at the end. We will reply to your enquiry with the start date and price.",
-      "Use the radar to discuss what your child does independently and where adult support is needed. Only the family sees the results."
+      "helps your family discuss what your child does independently and where they need support. Only your family sees the results."
     ],
-    "cta": "Join the pilot waiting list",
+    "cta": "Sign up for an internship",
     "leadLink": "Request a five-day calendar sample from the team.",
     "mascotAlt": "Radarik welcomes the family.",
-    "familyAlt": "Parents and two children walk together with Radarik."
+    "familyAlt": "Parents and two children walk together with Radarik.",
+    "radarLabel": "Skills Radar"
   },
   "pain": {
     "title": "Sound familiar?",
+    "intro": "Children use these skills in everyday family life. Sometimes they still need your help.",
     "items": [
-      "You want to understand which skills your child practises in everyday life.",
-      "Your child still needs your help to get started.",
-      "There are plenty of activities, but little time together.",
-      "You want to discuss what your child could do if they get lost or meet a stranger.",
-      "Sometimes worry and comparisons make it hard to notice what is already working for your family.",
-      "Your child sometimes finds it hard to explain an idea or reach an agreement with other children.",
-      "You want to help your child express an opinion and make choices."
+      {
+        "title": "Getting started independently",
+        "text": "Your child waits for a prompt before starting. You want to help them take the first step on their own."
+      },
+      {
+        "title": "Explaining and agreeing",
+        "text": "It can be hard to explain an idea, ask for help or reach an agreement with peers."
+      },
+      {
+        "title": "Handling an unfamiliar situation",
+        "text": "You want to discuss what to do if your child gets lost, meets a stranger or is unsure how to act."
+      },
+      {
+        "title": "Finding time together",
+        "text": "There are plenty of activities, but little time together. Worry and comparisons can make it hard to notice what your family already does well."
+      }
     ],
-    "footer": "Start with a shared task: discuss a situation, try an action and talk about what happened."
+    "footer": "Start with a shared task: discuss the situation, try an action and talk about what happened."
   },
   "what": {
     "title": "Family materials for practice at home",
@@ -87,10 +97,10 @@
   "how": {
     "title": "How learning works at the RADAR KIDS corporate university",
     "steps": [
-      "Enquire about the pilot for children aged 7–9.",
-      "Receive information about the start date and price.",
-      "Complete tasks at home with your child over 14 days.",
-      "At the end: a Skills Radar, a snapshot of your observations from the tasks."
+      "Choose an internship and send an application.",
+      "Agree participation details with the team.",
+      "Complete tasks at home with your child for 14 days.",
+      "Build a Skills Radar from your family’s observations."
     ]
   },
   "catalog": {
@@ -100,25 +110,25 @@
     "byAbility": "By competency",
     "empty": "No kit matches this yet.",
     "reset": "Clear filters",
-    "priceAsk": "Waiting list",
+    "priceAsk": "By enquiry",
     "priceFrom": "RUB {price}",
     "comingSoon": "Coming soon",
     "buyPdf": "Ask about obtaining the PDF",
-    "buyBot": "Join the waiting list",
-    "buyPrint": "Join the waiting list",
+    "buyBot": "Send an enquiry",
+    "buyPrint": "Send an enquiry",
     "downloadSample": "Request a five-day sample",
-    "payHint": "Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can join the waiting list.",
+    "payHint": "Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can contact the team.",
     "universityLink": "About the RADAR KIDS approach and internships →",
     "childrenLabel": "For children aged 4–16",
     "childrenLink": "Materials for children",
     "parentsTitle": "Materials for parents",
-    "parentsIntro": "The “32 days of parenting with joy” calendar and “Three roles / one life” diary focus on self-support, communication with your child and everyday parenting tasks.",
+    "parentsIntro": "The 32 days of parenting with joy calendar and Three roles / one life diary focus on self-support, communication with your child and everyday parenting tasks.",
     "parentsHint": "These materials are for you. There is no need to choose your child’s age: the calendar and diary focus on an adult’s wellbeing and everyday tasks.",
     "parentProductsTitle": "Calendar and diary for parents",
     "childrenHeroAlt": "A boy reads a book beside a girl drawing: activities for children.",
     "parentsHeroAlt": "Parents discuss plans and fill in a diary, with Radarik peeking over a chair.",
-    "waitlist": "Waiting list",
-    "joinWaitlist": "Join the waiting list",
+    "waitlist": "By enquiry",
+    "joinWaitlist": "Send an enquiry",
     "calendarPrice": "PDF calendar · RUB 800"
   },
   "sample": {
@@ -197,10 +207,11 @@
     "tableAge": "Age",
     "heroIntro": "Check a story, think of another option, make an agreement, try again after a setback. These everyday actions build universal competencies.",
     "heroAlt": "Radarik gestures towards the radar, with a magnifying glass, light bulb, speech bubbles and a finish flag nearby.",
-    "progressAlt": "A girl tries building her tower again, with her mother nearby and Radarik encouraging her next attempt."
+    "progressAlt": "A girl tries building her tower again, with her mother nearby and Radarik encouraging her next attempt.",
+    "kitsSummary": "Compare materials by skills and age"
   },
   "footer": {
-    "tagline": "A corporate university for children and parents. A pilot for ages 7–9, family materials and programmes for companies.",
+    "tagline": "A corporate university for children and parents. Internships, family materials and programmes for companies.",
     "taglineB2b": "Family programmes for employees and their children.",
     "phoneRu": "Russia",
     "phoneEu": "Europe",
@@ -238,15 +249,15 @@
     "result": "What the child does in the tasks",
     "price": "Price and format",
     "related": "Similar kits",
-    "request": "Material waiting list",
+    "request": "Material enquiry",
     "requestPdf": "Ask about obtaining the PDF",
-    "requestBot": "Material waiting list",
-    "requestPrint": "Material waiting list",
+    "requestBot": "Material enquiry",
+    "requestPrint": "Material enquiry",
     "requestSample": "Request a five-day sample",
     "payNote": "Open Telegram and send a message to the team.",
     "sampleNote": "Open Telegram and send a message to the team.",
     "abilities": "Which competencies it trains",
-    "safetyFrame": "“Notice” and “stop” are self-control. “Pick an adult” is telling a safe person from an unsafe one. “Call for help” is asking another person.",
+    "safetyFrame": "Notice and stop are self-control. Pick an adult is telling a safe person from an unsafe one. Call for help is asking another person.",
     "safetySteps": [
       "Notice",
       "Stop",
@@ -276,7 +287,7 @@
   },
   "contactsPage": {
     "title": "Contact",
-    "intro": "Contact the team about Office Day, family materials or the university pilot. For a corporate programme, tell us about your company and the event you have in mind. Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can join the waiting list.",
+    "intro": "Contact the team about Office Day, family materials or the university internship. For a corporate programme, tell us about your company and the event you have in mind. Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can contact the team.",
     "formTitle": "Request a kit or ask a question",
     "socialsTitle": "Find the project on social media",
     "telegramCommunity": "Telegram — request to join",
@@ -367,12 +378,12 @@
     "sampleEyebrow": "A safety card example",
     "sampleFace": "The situation",
     "sampleBack": "Instructions for the example",
-    "sampleImageAlt": "Example from the current set: “Lost in a shop”",
+    "sampleImageAlt": "Example from the current set: Lost in a shop",
     "sampleCaption": "An example from the current materials. The original instructions are retained.",
     "sampleLanguage": "The image shows the Russian version of the card.",
     "samplePhrase": "A phrase to say aloud",
     "sampleGame": "Mini-game",
-    "sampleAction": "Join the safety cards waiting list",
+    "sampleAction": "Request the safety cards",
     "telegramNote": "Open Telegram and send a message to the team.",
     "howTitle": "A ready activity to try together.",
     "howSteps": [
@@ -397,11 +408,11 @@
     "inside": "What is in the set",
     "use": "How to use it",
     "discuss": "What you discuss with your child",
-    "get": "Material waiting list",
-    "getText": "This material is on the waiting list. Prepare an enquiry with its name, then copy the message and send it to the team in Telegram.",
-    "formatNote": "The price and format will be announced at launch.",
-    "priceAction": "Join the waiting list",
-    "productAction": "Join the waiting list",
+    "get": "Material enquiry",
+    "getText": "Leave your contact details, copy the enquiry and send it to the team on Telegram.",
+    "formatNote": "Ask the team about receiving this material.",
+    "priceAction": "Send an enquiry",
+    "productAction": "Send an enquiry",
     "productFaq": "Questions about the set",
     "related": "Other materials",
     "safetyDiscuss": "Discuss the situation, possible actions and asking for help. The cards support conversation and shared practice; they do not guarantee a child’s safety or replace adult supervision.",
@@ -439,7 +450,7 @@
     "byAge": "Child’s age",
     "calendarAction": "Ask about obtaining the PDF",
     "calendarGet": "PDF calendar · RUB 800",
-    "calendarContact": "Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can join the waiting list.",
+    "calendarContact": "Contact the team about obtaining the PDF calendar. Payments from abroad are not available yet; families based abroad can contact the team.",
     "calendarFormatNote": "There is no printed version or delivery at present.",
     "calendarSampleNote": "You can request a five-day sample from the team in Telegram. You need to send the message yourself."
   },
@@ -455,7 +466,7 @@
     "teamTitle": "The RADAR KIDS team",
     "b2bTitle": "Family programmes for companies",
     "contactsTitle": "Let’s talk",
-    "contactsIntro": "Contact the team about Office Day, family materials or the university pilot. For a corporate programme, tell us about your company and the event you have in mind.",
+    "contactsIntro": "Contact the team about Office Day, family materials or the university internship. For a corporate programme, tell us about your company and the event you have in mind.",
     "calendarExample": "Explore the calendar pages",
     "calendarCaption": "Calendar page",
     "diaryExample": "A diary illustration",
@@ -500,7 +511,7 @@
     "adultColumn": "What adults call it",
     "childColumn": "Your child’s competency",
     "age": "Age",
-    "draft": "Waiting list",
+    "draft": "By enquiry",
     "askQuestion": "Start with a sample task",
     "ladderTitle": "Skill → competency → potential",
     "ladder": "A skill is a concrete action you can notice in an ordinary day: checking a story, agreeing on weekend plans or returning to a task after a setback. Skills form universal competencies. Similar competencies are considered when assessing leadership potential at work. In the tasks, children try these actions with an adult.",
@@ -528,33 +539,35 @@
         "text": "Uses the skill in new situations and helps others learn."
       }
     ],
-    "corporateLink": "After the event: an internship at the corporate university →"
+    "corporateLink": "After the event: an internship at the corporate university →",
+    "ladderToggle": "From children’s skills to adult competencies"
   },
   "university": {
     "title": "RADAR KIDS corporate university",
-    "intro": "We are inviting families with children aged 7–9 to the “Staying calm with change” pilot: 14 days of tasks at home and a Skills Radar at the end. We will reply to your enquiry with the start date and price.",
-    "choose": "Join the pilot waiting list",
+    "intro": "Staying calm with change: an internship for children aged 7–9 and their parents. Short tasks at home for 14 days, with a Skills Radar at the end.",
+    "choose": "Sign up for an internship",
     "eventNote": "Been to Office Day or a company family event? Include your company code in the request.",
     "whyTitle": "Why this feels familiar",
     "whyText": "The team’s experience in leadership development informed its approach to skills. Children are offered age-appropriate tasks with an adult taking part.",
-    "internshipsTitle": "The pilot and future programmes",
-    "introGroup": "The pilot and age-based programmes",
+    "internshipsTitle": "Choose an internship",
+    "introGroup": "Introductory internships",
     "profileGroup": "Focused internships — after the first radar",
     "projectGroup": "Project internship — ages 10–16",
     "days": "days",
     "childDoes": "What your child does",
     "final": "Final project",
-    "waitlist": "Inviting families to the pilot for ages 7–9",
-    "priceUnknown": "We will reply to your enquiry with the start date and price",
-    "joinWaitlist": "Pilot waiting list: {age}",
-    "book": "Pilot waiting list: {age}",
+    "waitlist": "Applications open",
+    "priceUnknown": "Discuss participation details with the team.",
+    "joinWaitlist": "Sign up: {age}",
+    "book": "Sign up: {age}",
     "soon": "Coming soon",
     "planTitle": "How an internship works",
-    "plannedLabel": "Planned format",
+    "plannedLabel": "From practice to skills",
     "plan": [
-      "Tasks at home for 14 days.",
-      "A Skills Radar at the end.",
-      "Additional support formats are still being confirmed. The announced pilot includes tasks at home and a radar at the end."
+      "Choose a task and discuss what needs to be done.",
+      "Your child tries it independently. Help when they need support.",
+      "Discuss what worked and what could be tried differently.",
+      "At the end of 14 days, build a Skills Radar from your observations."
     ],
     "exampleTitle": "Examples of RADAR KIDS activities",
     "week": "Stage",
@@ -562,18 +575,22 @@
     "weeks": [
       {
         "focus": "Thinking",
-        "tasks": "Shop detective: find three prices for one item and explain the difference · Pack your bag against a timer · “What happens if…?”"
+        "tasks": "Detective in a shop: find 3 prices for the same item and explain the difference. Backpack against the clock. What happens if…"
       },
       {
-        "focus": "Creating and working with people",
-        "tasks": "Ten uses for a box · A game whose rules change every three minutes · Interview a parent: “What does your customer want?” · A family meeting about weekend plans"
+        "focus": "Creating and adapting",
+        "tasks": "10 ways to use a box. A game where the rules change every 3 minutes."
       },
       {
-        "focus": "Following through",
-        "tasks": "A mini-project: a goal and three-step plan → start without reminders → tackle an obstacle → show the result"
+        "focus": "Working with people",
+        "tasks": "Interview a parent: what does your client want? A family meeting about the weekend."
+      },
+      {
+        "focus": "Finishing things",
+        "tasks": "A mini-project: a goal and a 3-step plan → start without reminders → obstacle → presentation."
       }
     ],
-    "reportTitle": "The radar at the end of the pilot",
+    "reportTitle": "What the Skills Radar shows",
     "report": [
       "The family’s observations from the tasks: what the child does independently and where support is still needed."
     ],
@@ -581,15 +598,15 @@
     "privacy": "The radar is not a test or diagnosis. It is a snapshot of what a child already does independently and what still needs an adult’s support. We compare the child only with themselves. Only the family sees the results.",
     "boostTitle": "What to practise next",
     "boostIntro": "Explore the skills addressed by the family materials.",
-    "boostEmpty": "A material for this age and focus is still in preparation. The only pilot accepting enquiries is for ages 7–9.",
-    "boostInterest": "About the pilot for ages 7–9 →",
+    "boostEmpty": "A material for this age and focus is still in preparation. You can start with the internship for ages 7–9.",
+    "boostInterest": "Internship for ages 7–9 →",
     "boostSelection": "Selection: {age} · {sector}",
-    "companyLine": "After Office Day, families can enquire about the pilot for ages 7–9. Companies and employers do not receive a child’s individual results.",
+    "companyLine": "After Office Day, families can apply for an internship for ages 7–9. Companies and employers do not receive a child’s individual results.",
     "companyLink": "Discuss Office Day for your company →",
     "faqTitle": "Internship questions",
-    "formTitle": "Pilot waiting list, ages 7–9",
-    "formIntro": "We are inviting families with children aged 7–9 to the pilot internship. Enquire to hear when it starts and what it costs. Complete the form, copy the message and send it in Telegram.",
-    "paymentNote": "We will reply to your enquiry with the start date and price. This site does not accept payment or automatically send enquiries.",
+    "formTitle": "Apply for an internship",
+    "formIntro": "Choose an internship and leave your contact details. Complete the form, copy the application and send it to the team on Telegram.",
+    "paymentNote": "Agree participation with the team. The form prepares your application; send it yourself on Telegram.",
     "form": {
       "name": "Parent’s name",
       "contact": "Phone or Telegram",
@@ -624,19 +641,19 @@
     "faq": [
       {
         "question": "Who can enquire?",
-        "answer": "We are inviting families with children aged 7–9 to the Staying calm with change pilot. Other ages are coming soon."
+        "answer": "Families with children aged 7–9 can apply for Staying calm with change. Programmes for other ages are in preparation."
       },
       {
         "question": "What is included?",
         "answer": "Tasks at home for 14 days and a Skills Radar at the end."
       },
       {
-        "question": "When does the pilot start and what does it cost?",
-        "answer": "We will reply to your enquiry with the start date and price."
+        "question": "How do we apply?",
+        "answer": "Complete the form below, copy the application and send it to the team on Telegram. Agree participation and conditions in the conversation."
       },
       {
         "question": "Will there be meetings or a review with a specialist?",
-        "answer": "These formats are not yet confirmed for the pilot. The agreed programme will be shared before it starts."
+        "answer": "The internship includes 14 days of tasks at home and a Skills Radar at the end. Facilitator sessions and an educator’s review are not included in this format."
       },
       {
         "question": "Is this a test or diagnosis?",
@@ -652,7 +669,7 @@
       }
     ],
     "heroAlt": "A girl presents the family project while her brother finishes a bridge model. Their parents discuss the work, and a small Radarik peeks over the books.",
-    "formatLabel": "Confirmed pilot format",
+    "formatLabel": "Internship format",
     "format": [
       {
         "title": "14 days",
@@ -660,13 +677,13 @@
       },
       {
         "title": "Ages 7–9",
-        "text": "Staying calm with change pilot"
+        "text": "Staying calm with change"
       },
       {
         "title": "Skills Radar",
-        "text": "at the end of the pilot"
+        "text": "at the end of the internship"
       }
     ],
-    "pilotLabel": "Pilot"
+    "pilotLabel": "Applications open"
   }
 }

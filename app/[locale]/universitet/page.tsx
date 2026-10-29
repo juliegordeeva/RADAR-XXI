@@ -95,8 +95,11 @@ export default async function UniversityPage({
       <Section alt>
         <p className="editorial-label">{j.ladderTitle}</p>
         <h2 className="section-heading">{t.whyTitle}</h2>
-        <CompetencyLadder locale={locale} dict={dict} />
-        <p className="mt-8 max-w-[65ch]">{t.whyText}</p>
+        <p className="mb-8 max-w-[65ch]">{t.whyText}</p>
+        <details className="content-fold">
+          <summary>{j.ladderToggle}<span className="fold-indicator" aria-hidden="true" /></summary>
+          <CompetencyLadder locale={locale} dict={dict} />
+        </details>
       </Section>
       <Section id="stazhirovki">
         <h2 className="section-heading">{t.internshipsTitle}</h2>
@@ -115,7 +118,8 @@ export default async function UniversityPage({
             </li>
           ))}
         </ol>
-        <h3 className="my-8">{t.exampleTitle}</h3>
+        <details className="content-fold mt-10" open>
+        <summary>{t.exampleTitle}<span className="fold-indicator" aria-hidden="true" /></summary>
         <div
           className="internship-example"
           role="table"
@@ -139,6 +143,7 @@ export default async function UniversityPage({
             </div>
           ))}
         </div>
+        </details>
       </Section>
       <Section id="radar">
         <h2 className="section-heading">{j.radarTitle}</h2>

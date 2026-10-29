@@ -1,4 +1,4 @@
-/** Keep the complete product name while separating its descriptive subtitle. */
+// Описательный префикс остаётся меньше названия и после удаления кавычек.
 export function ProductHeading({
   title,
   kind,
@@ -6,26 +6,24 @@ export function ProductHeading({
   title: string;
   kind: "safety" | "parent";
 }) {
-  const start = title.search(/[«“]/);
-  if (start < 0) return title;
+  const match = title.match(
+    /^(PDF-календарь|Ежедневник|Карточки безопасности|PDF calendar|Diary|Safety cards):?\s+(.+)$/,
+  );
+  if (!match) return title;
+  const [, prefix, name] = match;
   if (kind === "safety")
     return (
       <>
-        {title.slice(0, start).trim()}
-        <span className="hero-title-detail">{title.slice(start)}</span>
+        {prefix}
+        <span className="hero-title-detail">{name}</span>
       </>
     );
-  const end = title.search(/[»”]/);
-  if (end < start) return title;
   return (
     <>
       <span className="hero-title-detail hero-title-prefix">
-        {title.slice(0, start).trim()}
+        {prefix}
       </span>
-      {title.slice(start, end + 1)}
-      {title.slice(end + 1).trim() && (
-        <span className="hero-title-detail">{title.slice(end + 1).trim()}</span>
-      )}
+      {name}
     </>
   );
 }

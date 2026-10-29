@@ -1584,7 +1584,6 @@ a {
   font-size: 16px;
   line-height: 1.6;
 }
-.pain-list,
 .home-product-types,
 .skills-grid,
 .product-skills-grid {
@@ -1592,9 +1591,43 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
-.pain-list li {
-  border-top: 1px solid var(--color-teal);
-  padding-top: 20px;
+.family-situations {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr);
+  gap: var(--reading-gap);
+  align-items: start;
+}
+.family-situations-art {
+  width: min(100%, 320px);
+  margin-top: 28px;
+}
+.family-situations-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.family-situations-list li {
+  padding: clamp(22px, 2.5vw, 36px);
+  border-radius: 24px;
+  background: var(--color-bg-alt);
+}
+.family-situations-list li:nth-child(2) { background: var(--color-sky); }
+.family-situations-list li:nth-child(3) { background: var(--color-rose); }
+.family-situations-list li:nth-child(4) { background: color-mix(in srgb, var(--color-yellow) 18%, var(--color-bg)); }
+.family-situation-number {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--color-accent-hover);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+.family-situations-list h3 { font-size: clamp(20px, 1.7vw, 26px); line-height: 1.25; }
+.family-situations-list p { margin-top: 12px; font-size: 16px; line-height: 1.65; }
+.family-situations-next {
+  max-width: 80ch;
+  margin-top: 32px;
+  padding-left: 20px;
+  border-left: 3px solid var(--color-coral);
 }
 .home-product-types {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1693,6 +1726,71 @@ a {
   grid-template-columns: 1.2fr 1.6fr 1fr 0.65fr;
   gap: 24px;
 }
+.content-fold {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  min-width: 0;
+}
+.content-fold > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 22px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.content-fold > summary::-webkit-details-marker { display: none; }
+.content-fold > summary:hover { color: var(--color-accent-hover); }
+.content-fold[open] { padding-bottom: 24px; }
+.fold-indicator {
+  position: relative;
+  flex: 0 0 24px;
+  height: 24px;
+  color: var(--color-teal);
+}
+.fold-indicator::before,
+.fold-indicator::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 4px;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+}
+.fold-indicator::after { transform: rotate(90deg); }
+.content-fold[open] > summary .fold-indicator::after { transform: none; }
+.competency-folds { display: grid; gap: 16px; }
+.skill-sector > summary h3 { font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; }
+.materials-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.materials-table th,
+.materials-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 20px 16px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--color-border);
+}
+.materials-table th:first-child,
+.materials-table td:first-child { padding-left: 0; width: 29%; }
+.materials-table th:nth-child(2) { width: 33%; }
+.materials-table th:nth-child(3) { width: 24%; }
+.materials-table th:last-child,
+.materials-table td:last-child { padding-right: 0; width: 14%; }
+.materials-table thead { background: var(--color-bg-alt); }
+.materials-table thead th:first-child { padding-left: 16px; }
+.materials-table li + li { margin-top: 8px; }
+.table-skill-code { color: var(--color-accent-hover); font-weight: 700; }
 .internship-group + .internship-group {
   margin-top: 48px;
 }
@@ -1753,7 +1851,7 @@ a {
 }
 .university-plan {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
 }
 .university-plan p {
@@ -1812,6 +1910,10 @@ a {
   font-size: 16px;
 }
 @media (max-width: 1100px) {
+  .family-situations { grid-template-columns: minmax(0, 1fr); }
+  .family-situations-intro { position: relative; padding-right: 230px; min-height: 190px; }
+  .family-situations-art { position: absolute; right: 0; top: 0; width: 200px; margin: 0; }
+  .university-plan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .booster-grid,
   .skills-grid,
   .product-skills-grid {
@@ -1823,6 +1925,24 @@ a {
   }
 }
 @media (max-width: 767px) {
+  .family-situations-intro { padding-right: 0; min-height: 0; }
+  .family-situations-art { position: static; width: 190px; margin: 24px auto 0; }
+  .family-situations-list { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .family-situations-list li { padding: 24px; }
+  .family-situation-number { margin-bottom: 10px; }
+  .family-situations-next { font-size: 16px; }
+  .content-fold > summary { gap: 16px; font-size: 18px; }
+  .materials-table,
+  .materials-table tbody { display: block; }
+  .materials-table thead { display: none; }
+  .materials-table tr { display: grid; gap: 18px; padding-block: 24px; border-bottom: 1px solid var(--color-border); }
+  .materials-table th,
+  .materials-table td,
+  .materials-table th:first-child,
+  .materials-table td:first-child,
+  .materials-table th:last-child,
+  .materials-table td:last-child { display: block; width: auto; padding: 0; border: 0; }
+  .materials-table td::before { content: attr(data-label); display: block; margin-bottom: 6px; font-weight: 700; }
   .university-radar-grid,
   .university-request-grid,
   .skills-grid,

@@ -77,7 +77,9 @@ export default async function HomePage({
           <div className="home-welcome-body">
             <div className="home-university-intro">
               {dict.hero.paragraphs.slice(1).map((line) => (
-                <p key={line}>{line}</p>
+                <p key={line}>
+                  <strong>{dict.hero.radarLabel}</strong> {line}
+                </p>
               ))}
             </div>
             <div className="home-welcome-action">
@@ -104,13 +106,28 @@ export default async function HomePage({
         </div>
       </Section>
       <Section className="university-pain">
-        <h2 className="section-heading">{dict.pain.title}</h2>
-        <ul className="pain-list">
-          {dict.pain.items.map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
-        <p className="mt-6">{dict.pain.footer}</p>
+        <div className="family-situations">
+          <div className="family-situations-intro">
+            <h2 className="section-heading">{dict.pain.title}</h2>
+            <p className="editorial-intro">{dict.pain.intro}</p>
+            <BrandArt
+              name="scenes/child-builds"
+              className="family-situations-art"
+            />
+          </div>
+          <ul className="family-situations-list">
+            {dict.pain.items.map((item, index) => (
+              <li key={item.title}>
+                <span className="family-situation-number" aria-hidden="true">
+                  0{index + 1}
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="family-situations-next">{dict.pain.footer}</p>
       </Section>
       <Section id="ages" alt>
         <p className="editorial-label">{v.ageLabel}</p>
@@ -212,7 +229,7 @@ export default async function HomePage({
         alt
       >
         {dict.memo.paragraphs.map((line) => (
-          <p key={line}>{line}</p>
+          <p key={line}><strong>{dict.hero.radarLabel}</strong> {line}</p>
         ))}
         <Link href={localePath(locale, "/podhod")} className="text-link">
           {dict.memo.more}

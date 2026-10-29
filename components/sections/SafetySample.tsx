@@ -40,7 +40,7 @@ export function SafetySample({
           </ol>
           <div className="mt-6 rounded-[16px] bg-bg-alt p-5">
             <p className="eyebrow mb-2">{t.samplePhrase}</p>
-            <p>«{loc(sampleSafety.phrase, locale)}»</p>
+            <p className="font-semibold">{loc(sampleSafety.phrase, locale)}</p>
           </div>
           <p className="mt-6">{loc(sampleSafety.game, locale)}</p>
         </div>

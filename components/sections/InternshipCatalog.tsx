@@ -138,31 +138,28 @@ export function InternshipCatalog({
                     )}
                     {item.available ? (
                       <>
-                        <p className="font-bold">
-                          {item.startDate
-                            ? new Intl.DateTimeFormat(locale, {
-                                dateStyle: "long",
-                                timeZone: "UTC",
-                              }).format(new Date(item.startDate))
-                            : t.waitlist}
-                        </p>
-                        <p>
-                          {item.price === null
-                            ? t.priceUnknown
-                            : new Intl.NumberFormat(locale, {
-                                style: "currency",
-                                currency: "RUB",
-                                maximumFractionDigits: 0,
-                              }).format(item.price)}
-                        </p>
+                        {item.startDate && (
+                          <p className="font-bold">
+                            {new Intl.DateTimeFormat(locale, {
+                              dateStyle: "long",
+                              timeZone: "UTC",
+                            }).format(new Date(item.startDate))}
+                          </p>
+                        )}
+                        {item.price !== null && (
+                          <p>
+                            {new Intl.NumberFormat(locale, {
+                              style: "currency",
+                              currency: "RUB",
+                              maximumFractionDigits: 0,
+                            }).format(item.price)}
+                          </p>
+                        )}
                         <Button
                           className="mt-auto"
                           onClick={() => select(item.slug, item.ageGroups)}
                         >
-                          {(item.startDate ? t.book : t.joinWaitlist).replace(
-                            "{age}",
-                            ages,
-                          )}
+                          {t.book.replace("{age}", ages)}
                         </Button>
                       </>
                     ) : (
