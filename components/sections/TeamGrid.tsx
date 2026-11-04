@@ -12,7 +12,7 @@ export function TeamGrid({
   variant?: "home" | "about";
 }) {
   return (
-    <div className="grid gap-8 md:grid-cols-2">
+    <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
       {team.map((member) => {
         const role =
           variant === "about" && member.aboutRole
