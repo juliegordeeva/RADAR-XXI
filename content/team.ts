@@ -63,8 +63,8 @@ export const team: TeamMember[] = [
       en: "More than 20 years in public administration and consulting, including 14 years in senior roles at a federal ministry. Author of “Learning to win”: helps parents and teenagers turn hobbies and school tasks into strong projects and an evidence-based portfolio.",
     },
     aboutBio: {
-      ru: "Когда стало понятно, что нам хочется расти и управлять большими проектами — к нам присоединилась Мария Громова: в недавнем прошлом чиновник с 15-летним стажем, которая также как и мы — сначала придумала программу и задачи по управлению проектами для своих детей, а после успешного старта запустила проект для школьников «Учимся побеждать».",
-      en: "When it became clear we wanted to grow and run larger projects, Maria Gromova joined us: until recently a civil servant with 15 years’ experience, who, like us, first designed a project-management programme for her own children and after a successful start launched “Learning to win” for schoolchildren.",
+      ru: "Когда стало понятно, что нам хочется расти и управлять большими проектами, к нам присоединилась Мария Громова. Мария в недавнем прошлом — чиновник с 15-летним стажем. Она так же, как и мы, сначала придумала программу и задачи по управлению проектами для своих детей, а после успешного старта запустила международный проект для школьников «Учимся побеждать».",
+      en: "When it became clear we wanted to grow and run larger projects, Maria Gromova joined us. Until recently Maria was a civil servant with 15 years’ experience. Like us, she first designed a project-management programme for her own children and after a successful start launched the international project “Learning to win” for schoolchildren.",
     },
     photo: "/images/maria-gromova.webp",
     photoAlt: {
