@@ -12,7 +12,7 @@ export function TeamGrid({
   variant?: "home" | "about";
 }) {
   return (
-    <div className="grid gap-8 md:grid-cols-2">
+    <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
       {team.map((member) => {
         const role =
           variant === "about" && member.aboutRole
@@ -54,9 +54,13 @@ export function TeamGrid({
                   {loc(member.tagline, locale)}
                 </p>
               )}
-              <p className="mt-4 max-w-[65ch] text-[16px] leading-6">
-                {loc(bio, locale)}
-              </p>
+              <div className="mt-4 max-w-[65ch] space-y-3 text-[16px] leading-6">
+                {loc(bio, locale)
+                  .split("\n\n")
+                  .map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+              </div>
             </div>
           </article>
         );

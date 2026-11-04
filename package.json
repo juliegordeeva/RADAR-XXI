@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:university": "node --experimental-strip-types --import ./tests/register-alias.mjs --test tests/university.test.ts",
+    "test:catalog": "node --experimental-strip-types --import ./tests/register-alias.mjs --test tests/catalog.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

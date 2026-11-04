@@ -4,7 +4,7 @@ import { sampleSafety } from "@/content/samples";
 import { loc } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionary";
-import { site } from "@/lib/site";
+import { localePath } from "@/lib/locale-path";
 
 export function SafetySample({
   locale,
@@ -40,13 +40,13 @@ export function SafetySample({
           </ol>
           <div className="mt-6 rounded-[16px] bg-bg-alt p-5">
             <p className="eyebrow mb-2">{t.samplePhrase}</p>
-            <p>«{loc(sampleSafety.phrase, locale)}»</p>
+            <p className="font-semibold">{loc(sampleSafety.phrase, locale)}</p>
           </div>
           <p className="mt-6">{loc(sampleSafety.game, locale)}</p>
         </div>
       </div>
       <div className="mt-8 max-w-xl">
-        <Button href={site.telegram}>{t.sampleAction}</Button>
+        <Button href={localePath(locale, "/produkty/kartochki-bezopasnosti#zayavka")}>{t.sampleAction}</Button>
         <p className="material-summary text-text-muted mt-3">
           {t.telegramNote}
         </p>

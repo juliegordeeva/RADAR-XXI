@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/lib/i18n";
-import { getSiteUrl } from "@/lib/site";
-import { localePath } from "@/lib/locale-path";
+import { pageUrl } from "@/lib/site";
 
 export function pageMetadata({
   locale,
@@ -14,8 +13,7 @@ export function pageMetadata({
   title: string;
   description: string;
 }): Metadata {
-  const siteUrl = getSiteUrl();
-  const canonical = `${siteUrl}${localePath(locale, path)}`;
+  const canonical = pageUrl(locale, path);
 
   return {
     title,
@@ -23,9 +21,9 @@ export function pageMetadata({
     alternates: {
       canonical,
       languages: {
-        ru: `${siteUrl}${localePath("ru", path)}`,
-        en: `${siteUrl}${localePath("en", path)}`,
-        "x-default": `${siteUrl}${localePath("ru", path)}`,
+        ru: pageUrl("ru", path),
+        en: pageUrl("en", path),
+        "x-default": pageUrl("ru", path),
       },
     },
     openGraph: {
@@ -36,5 +34,6 @@ export function pageMetadata({
       locale: locale === "ru" ? "ru_RU" : "en_GB",
       type: "website",
     },
+    twitter: { title, description },
   };
 }

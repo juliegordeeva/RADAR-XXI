@@ -6,9 +6,9 @@ import { site } from "@/lib/site";
 export function SubscribeForm({ dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <div className="space-y-4">
-      <Button href={site.telegram}>{dict.redesign.sampleAction}</Button>
+      <Button href={site.telegram}>{dict.catalog.downloadSample}</Button>
       <p className="material-summary text-text-muted">
-        {dict.redesign.telegramNote}
+        {dict.redesign.calendarSampleNote}
       </p>
     </div>
   );

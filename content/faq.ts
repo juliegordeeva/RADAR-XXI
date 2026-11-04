@@ -8,3 +8,10 @@ export const faqItems: FaqItem[] = ru.redesign.faq.map((item, index) => ({
   question: { ru: item.question, en: en.redesign.faq[index].question },
   answer: { ru: item.answer, en: en.redesign.faq[index].answer },
 }));
+
+export const universityFaq: FaqItem[] = ru.university.faq.map(
+  (item, index) => ({
+    question: { ru: item.question, en: en.university.faq[index].question },
+    answer: { ru: item.answer, en: en.university.faq[index].answer },
+  }),
+);

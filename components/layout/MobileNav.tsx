@@ -63,9 +63,10 @@ export function MobileNav({
 
   const links = [
     { href: "/", label: dict.nav.home },
+    { href: "/universitet", label: dict.nav.university },
     { href: "/produkty", label: dict.nav.products },
-    { href: "/podhod", label: dict.nav.approach },
     { href: "/produkty?age=parents", label: dict.redesign.parentLink },
+    { href: "/podhod", label: dict.nav.approach },
     { href: "/o-nas", label: dict.nav.about },
     { href: "/dlya-biznesa", label: dict.nav.b2b },
     { href: "/kontakty", label: dict.nav.contacts },

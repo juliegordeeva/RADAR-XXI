@@ -6,6 +6,8 @@ export type TrackingFields = {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  from?: string;
+  company?: string;
 };
 
 const utmKeys = [
@@ -14,6 +16,8 @@ const utmKeys = [
   "utm_campaign",
   "utm_content",
   "utm_term",
+  "from",
+  "company",
 ] as const;
 
 export function collectTracking(source: string): TrackingFields {
@@ -27,7 +31,7 @@ export function collectTracking(source: string): TrackingFields {
   const params = new URLSearchParams(window.location.search);
   for (const key of utmKeys) {
     const value = params.get(key)?.trim();
-    if (value) result[key] = value;
+    if (value) result[key] = value.slice(0, 160);
   }
 
   return result;

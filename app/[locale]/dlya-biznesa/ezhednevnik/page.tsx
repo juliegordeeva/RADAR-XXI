@@ -89,7 +89,7 @@ export default async function DiaryPage({
             <h2 className="section-heading">{loc(diary.formTitle, locale)}</h2>
             <p>{dict.redesign.preparedNote}</p>
           </div>
-          <BusinessForm locale={locale} dict={dict} variant="diary" />
+          <BusinessForm locale={locale} dict={dict} variant="diary" productName={loc(diary.title, locale)} />
         </div>
       </Section>
     </>

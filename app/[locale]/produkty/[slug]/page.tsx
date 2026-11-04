@@ -15,7 +15,8 @@ import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
 import { site } from "@/lib/site";
 import { Badge } from "@/components/ui/Badge";
-import { CompetencyTag } from "@/components/ui/CompetencyTag";
+import { SkillTag } from "@/components/ui/SkillTag";
+import { skillByKey, sectorByKey, foundations } from "@/content/competencies";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -28,6 +29,8 @@ import { ProductCard } from "@/components/sections/ProductCard";
 import { SafetySample } from "@/components/sections/SafetySample";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ProductJsonLd } from "@/components/seo/JsonLd";
+import { ProductRequest } from "@/components/forms/ProductRequest";
+import { pilotPath } from "@/content/internships";
 import { visibleItems, visibleText } from "@/lib/placeholder";
 
 export const dynamic = "force-static";
@@ -48,14 +51,17 @@ export async function generateMetadata({
   const product = getProduct(slug);
   if (!product || product.comingSoon) return {};
   const dict = getDictionary(locale);
+  const seo = product.seo?.[locale];
   return pageMetadata({
     locale,
     path: `/produkty/${slug}`,
-    title: `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
+    title:
+      seo?.title ?? `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
     description:
-      slug === "kartochki-bezopasnosti"
-        ? dict.redesign.safetyDescription
-        : loc(product.tagline, locale),
+      seo?.description ??
+      (slug === "kalendar-32-dnya"
+        ? `${loc(product.tagline, locale)} ${loc(product.format, locale)}`
+        : `${loc(product.tagline, locale)} ${dict.catalog.waitlist}. ${dict.redesign.formatNote}`),
   });
 }
 export default async function ProductPage({
@@ -74,7 +80,13 @@ export default async function ProductPage({
   const calendar = slug === "kalendar-32-dnya";
   const diary = slug === "ezhednevnik-tri-roli";
   const related = getRelated(product)
-    .filter((item) => item.inMainCatalog !== false && !item.comingSoon)
+    .filter(
+      (item) =>
+        item.inMainCatalog !== false &&
+        !item.comingSoon &&
+        item.ageGroups.includes("parents") ===
+          product.ageGroups.includes("parents"),
+    )
     .slice(0, 3)
     .map(forCatalog);
   const composition = visibleItems(product.composition);
@@ -82,11 +94,10 @@ export default async function ProductPage({
   const author = visibleText(product.author, locale);
   const sampleTitle = visibleText(product.sampleTitle, locale);
   const sampleBody = visibleText(product.sampleBody, locale);
-  const price =
-    product.price === null
-      ? dict.catalog.priceAsk
-      : dict.catalog.priceFrom.replace("{price}", String(product.price));
-  const action = safety ? t.priceAction : t.productAction;
+  const price = calendar ? dict.catalog.calendarPrice : dict.catalog.waitlist;
+  const action = calendar ? t.calendarAction : dict.catalog.joinWaitlist;
+  const universityHref = localePath(locale, pilotPath.replace("?", "?from=product&"));
+  const productTarget = calendar ? site.telegram : "#zayavka";
   const image = safety
     ? "scenes/store-help"
     : calendar
@@ -143,19 +154,67 @@ export default async function ProductPage({
         </div>
         {author && <p className="material-summary mt-4">{author}</p>}
         <div>
-          <Button href={calendar ? "#sample" : site.telegram}>
-            {calendar ? v.calendarExample : action} →
+          <Button href={productTarget}>
+            {action} →
           </Button>
           {!calendar && (
             <p className="material-summary text-text-muted mt-3">
-              {t.telegramNote}
+              {dict.catalog.waitlist}. {t.formatNote}
             </p>
           )}
         </div>
-        <Link href={localePath(locale, "/produkty")} className="text-link mt-3">
-          ← {t.breadcrumb}
+        <Link
+          href={localePath(
+            locale,
+            product.ageGroups.includes("parents")
+              ? "/produkty?age=parents"
+              : "/produkty",
+          )}
+          className="text-link mt-3"
+        >
+          ←{" "}
+          {product.ageGroups.includes("parents")
+            ? dict.redesign.parentLink
+            : t.breadcrumb}
         </Link>
       </EditorialHero>
+      <Section className="product-skills" alt>
+        {calendar || diary ? (
+          <p className="font-bold">{dict.journey.parentBadge}</p>
+        ) : (
+          <>
+            <h2 className="section-heading">{dict.journey.skillsTitle}</h2>
+            <div className="skills-grid">
+              {product.skills.map((key) => {
+                const skill = skillByKey[key];
+                return (
+                  <article className="skill-card" key={key}>
+                    <p className="editorial-number">{skill.code}</p>
+                    <h3>{loc(skill.title, locale)}</h3>
+                    <p className="mt-4">{loc(skill.forParent, locale)}</p>
+                    <p className="mt-4 font-bold">
+                      {dict.journey.competencyLabel}:{" "}
+                      {loc(sectorByKey[skill.sector].title, locale)}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+            {product.foundation?.map((key) => (
+              <p className="mt-5" key={key}>
+                {dict.journey.foundationLabel}:{" "}
+                {loc(foundations[key].title, locale)}
+              </p>
+            ))}
+          </>
+        )}
+        {product.availability === "waitlist" && (
+            <p className="mt-6 font-bold">{dict.catalog.waitlist}</p>
+        )}
+        <Link href={universityHref} className="text-link mt-8">
+          {dict.productPage.universityLink}
+        </Link>
+      </Section>
       {safety ? (
         <Section id="sample" alt>
           <div className="editorial-split items-start">
@@ -196,7 +255,7 @@ export default async function ProductPage({
               <figure key={page}>
                 <CalendarPreview
                   page={page}
-                  alt={`${v.calendarCaption} ${[1, 2, 9][i]}`}
+                  alt={`${v.calendarCaption}. ${locale === "ru" ? "День" : "Day"} ${[1, 2, 9][i]}`}
                   zoom
                 />
                 <figcaption>
@@ -216,8 +275,8 @@ export default async function ProductPage({
         >
           <p>{loc(product.tagline, locale)}</p>
           <p>{v.diaryCaption}</p>
-          <Button href={site.telegram}>{t.sampleAction}</Button>
-          <p className="material-summary">{t.telegramNote}</p>
+          <Button href="#zayavka">{dict.catalog.joinWaitlist}</Button>
+          <p className="material-summary">{t.formatNote}</p>
         </StorySection>
       ) : (
         (sampleTitle || sampleBody) && (
@@ -269,14 +328,22 @@ export default async function ProductPage({
         </Section>
       )}
       <StorySection
-        title={safety ? t.discuss : dict.productPage.result}
+        title={
+          safety
+            ? t.discuss
+            : calendar
+              ? dict.productPage.calendarResult
+              : diary
+                ? dict.productPage.diaryResult
+                : dict.productPage.result
+        }
         image={calendar || diary ? "scenes/father-work" : "scenes/family-table"}
         reverse
       >
         <p>{safety ? t.safetyDiscuss : loc(product.result, locale)}</p>
         <div className="flex flex-wrap gap-2">
-          {product.competencies.map((key) => (
-            <CompetencyTag key={key} competencyKey={key} locale={locale} />
+          {product.skills.map((key) => (
+            <SkillTag key={key} skillKey={key} locale={locale} />
           ))}
         </div>
       </StorySection>
@@ -284,14 +351,25 @@ export default async function ProductPage({
         <div className="editorial-split items-start">
           <div>
             <p className="editorial-label">{v.formatLabel}</p>
-            <h2 className="section-heading">{t.get}</h2>
-            <p>{t.getText}</p>
+            <h2 className="section-heading">{calendar ? t.calendarGet : t.get}</h2>
+            <p>{calendar ? t.calendarContact : t.getText}</p>
           </div>
           <Card className="space-y-5">
             <h3>{price}</h3>
-            <p className="material-summary text-text-muted">{t.formatNote}</p>
-            <Button href={site.telegram}>{action} →</Button>
-            <p className="material-summary text-text-muted">{t.telegramNote}</p>
+            <p className="material-summary text-text-muted">
+              {calendar ? t.calendarFormatNote : t.formatNote}
+            </p>
+            {calendar ? (
+              <>
+                <Button href={site.telegram}>{t.calendarAction} →</Button>
+                <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="text-link">
+                  {dict.catalog.downloadSample}
+                </a>
+                <p className="material-summary text-text-muted">{t.calendarSampleNote}</p>
+              </>
+            ) : (
+              <ProductRequest product={product} locale={locale} dict={dict} />
+            )}
           </Card>
         </div>
       </Section>

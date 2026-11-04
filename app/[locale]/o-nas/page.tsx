@@ -68,8 +68,8 @@ export default async function AboutPage({
                     `/images/radar/team/${member.photo?.split("/").pop()}`,
                   )}
                   alt={loc(member.photoAlt, locale)}
-                  width={member.id === "julia" ? 900 : 500}
-                  height={member.id === "julia" ? 1200 : 500}
+                  width={900}
+                  height={1200}
                   sizes="(max-width:767px) 100vw, 500px"
                 />
               </figure>
@@ -78,9 +78,13 @@ export default async function AboutPage({
                   {loc(member.aboutRole || member.role, locale)}
                 </p>
                 <h2 className="section-heading">{loc(member.name, locale)}</h2>
-                <p className="max-w-[55ch]">
-                  {loc(member.aboutBio || member.bio, locale)}
-                </p>
+                <div className="max-w-[55ch] space-y-4">
+                  {loc(member.aboutBio || member.bio, locale)
+                    .split("\n\n")
+                    .map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                </div>
               </div>
             </article>
           ))}
