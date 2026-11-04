@@ -16,15 +16,25 @@ export const team: TeamMember[] = [
   {
     id: "julia",
     name: { ru: "Юлия Гордеева", en: "Julia Gordeeva" },
-    role: { ru: "Основатель", en: "Founder" },
-    aboutRole: { ru: "Основатель", en: "Founder" },
+    role: {
+      ru: "Основатель, директор по стратегическому планированию и развитию",
+      en: "Founder, director of strategic planning and development",
+    },
+    aboutRole: {
+      ru: "Основатель, директор по стратегическому планированию и развитию",
+      en: "Founder, director of strategic planning and development",
+    },
+    tagline: {
+      ru: "Основной фокус: бизнес-моделирование управленческих процессов, стратегическое управление и планирование человеческого капитала.",
+      en: "Focus: business modelling of management processes, strategic management and human-capital planning.",
+    },
     bio: {
-      ru: "Больше 15 лет преподаёт на программах MBA и развивает руководителей. Жила и работала в разных странах. Сначала собрала занятия для своей семьи, потом — для других родителей.",
-      en: "Has taught on MBA programmes and worked with leaders for over 15 years. Has lived and worked in several countries. First made these activities for her own family, then for other parents.",
+      ru: "Основатель группы RADAR EXEC.\n\nВсё своё образование собрала вокруг главного фокуса — как думают и договариваются взрослые руководители: лингвистика, финансы, управление, MBA, бизнес-психология и организационное консультирование, коучинг, продюсирование.\n\nС 2010 по 2022 год руководила международными корпоративными программами обучения IBS Plekhanov. До 2022-го вела мастер-классы и авторские курсы по международному лидерству и бизнес-моделированию — от Перу до Японии через Дальний Восток. С 2022 года руководит консалтинговыми и обучающими практиками для среднего и крупного бизнеса.\n\nСотрудничает с бизнес-школами МГУ, РАНХиГС, Финансового университета, УрФУ, ДВФУ, корпоративными университетами и МБМ Правительства Москвы.\n\nЗа 2025–2026 год провела лично больше 500 часов стратегических сессий с металлургами, нефтяниками, атомщиками, ИТ-руководителями, инвестиционными руководителями.",
+      en: "Founder of the RADAR EXEC group.\n\nShe built her education around one focus — how adult leaders think and work together: linguistics, finance, management, an MBA, business psychology and organisational consulting, coaching, and producing.\n\nFrom 2010 to 2022 she led international corporate training programmes at IBS Plekhanov. Until 2022 she taught masterclasses and her own courses on international leadership and business modelling — from Peru to Japan via the Far East. Since 2022 she has led consulting and training for mid-size and large business.\n\nShe works with the business schools of Lomonosov MSU, RANEPA, the Financial University, UrFU, FEFU, with corporate universities and with Moscow Government MBM.\n\nIn 2025–2026 she personally ran more than 500 hours of strategy sessions with leaders in metals, oil, nuclear energy, IT and investment.",
     },
     aboutBio: {
-      ru: "Больше 15 лет преподаёт на международных программах MBA и развивает руководителей на трёх языках — от Перу до Китая через Дальний Восток. Основатель группы RADAR. Жила и работала в разных странах. Сначала собрала занятия для своей семьи и друзей, потом решила развивать проект для других семей.",
-      en: "Has taught on international MBA programmes for over 15 years and works with leaders in three languages — from Peru to China via the Far East. Founder of the RADAR group. Has lived and worked in several countries. First made these activities for her family and friends, then decided to develop the project for other families.",
+      ru: "Больше 15 лет преподаёт на международных программах MBA и развивает руководителей на трёх языках — от Перу до Китая через Дальний Восток.\n\n20 лет назад провела первый управленческий разбор на английском языке.\n\nОснователь группы RADAR EXEC (управленческий консалтинг, продюсирование руководителей, международные коммуникации, экстремальный опыт и обучение).\n\nЖила и работала в разных странах. Сначала собрала цели и задачи для своей семьи и друзей, потом решила развивать проект универсальных компетенций для успешного будущего детей других семей.",
+      en: "For more than 15 years she has taught on international MBA programmes and worked with leaders in three languages — from Peru to China via the Far East.\n\nTwenty years ago she ran her first management debrief in English.\n\nFounder of the RADAR EXEC group (management consulting, producing leaders, international communications, extreme experience and learning).\n\nShe has lived and worked in several countries. First she set goals and tasks for her own family and friends, then decided to develop a universal-competencies project for the successful future of other families’ children.",
     },
     photo: "/images/yulia-gordeeva-founder.webp",
     photoAlt: {
