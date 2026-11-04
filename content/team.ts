@@ -26,7 +26,7 @@ export const team: TeamMember[] = [
       ru: "Больше 15 лет преподаёт на международных программах MBA и развивает руководителей на трёх языках — от Перу до Китая через Дальний Восток. Основатель группы RADAR. Жила и работала в разных странах. Сначала собрала занятия для своей семьи и друзей, потом решила развивать проект для других семей.",
       en: "Has taught on international MBA programmes for over 15 years and works with leaders in three languages — from Peru to China via the Far East. Founder of the RADAR group. Has lived and worked in several countries. First made these activities for her family and friends, then decided to develop the project for other families.",
     },
-    photo: "/images/julia-gordeeva.webp",
+    photo: "/images/yulia-gordeeva-founder.webp",
     photoAlt: {
       ru: "Юлия Гордеева",
       en: "Julia Gordeeva",
