@@ -1,3 +1,5 @@
+import { directions } from "@/content/directions";
+import { loc } from "@/lib/age";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
@@ -6,7 +8,7 @@ import { BrandArt } from "@/components/ui/BrandArt";
 import Link from "next/link";
 import { localePath } from "@/lib/locale-path";
 import { TelegramCta } from "@/components/ui/TelegramCta";
-import { LeadForm } from "@/components/forms/LeadForm";
+import { ContactPanel } from "@/components/forms/ContactPanel";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -73,7 +75,9 @@ export default async function ContactsPage({
         </div>
         {locale === "ru" && (
           <div className="mt-10 border-t border-teal pt-8">
-            <h2 className="section-heading">{dict.contactsPage.socialsTitle}</h2>
+            <h2 className="section-heading">
+              {dict.contactsPage.socialsTitle}
+            </h2>
             <ul className="flex flex-wrap gap-x-8 gap-y-4">
               <li>
                 <a
@@ -105,27 +109,19 @@ export default async function ContactsPage({
       <Section alt>
         <h2 className="section-heading">{dict.style03.directions}</h2>
         <div className="editorial-three">
-          {[
-            {
-              image: "age/age-4-6",
-              title: dict.nav.products,
-              path: "/produkty",
-            },
-            {
-              image: "scenes/parents-planning",
-              title: dict.style03.parentLabel,
-              path: "/produkty?age=parents",
-            },
-            {
-              image: "scenes/office-day",
-              title: dict.nav.b2b,
-              path: "/dlya-biznesa",
-            },
-          ].map((item) => (
+          {directions.map((item, index) => (
             <article key={item.path}>
-              <BrandArt name={item.image} />
+              <BrandArt
+                name={
+                  [
+                    "scenes/office-day",
+                    "scenes/family-table",
+                    "scenes/university-workshop",
+                  ][index]
+                }
+              />
               <Link href={localePath(locale, item.path)} className="text-link">
-                {item.title} →
+                {loc(item.title, locale)} →
               </Link>
             </article>
           ))}
@@ -140,7 +136,18 @@ export default async function ContactsPage({
               {dict.redesign.preparedNote}
             </p>
           </div>
-          <LeadForm locale={locale} dict={dict} compact />
+          <div className="space-y-8">
+            <ContactPanel
+              locale={locale}
+              kind="corporate"
+              context={dict.nav.b2b}
+            />
+            <ContactPanel
+              locale={locale}
+              kind="materials"
+              context={dict.nav.products}
+            />
+          </div>
         </div>
       </Section>
     </>

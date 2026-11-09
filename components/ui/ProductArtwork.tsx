@@ -1,3 +1,5 @@
+import type { Locale } from "@/lib/i18n";
+import { MaterialPreview } from "@/components/ui/MaterialPreview";
 import type { Product } from "@/content/types";
 import { BrandArt } from "@/components/ui/BrandArt";
 import { CalendarPreview } from "@/components/ui/CalendarPreview";
@@ -7,11 +9,34 @@ export function ProductArtwork({
   product,
   dict,
   priority = false,
+  locale = "ru",
 }: {
   product: Product;
   dict: Dictionary;
   priority?: boolean;
+  locale?: Locale;
 }) {
+  if (product.kind === "kit" && product.previews?.length)
+    return (
+      <div className="bundle-preview-stack">
+        {product.previews.map((preview) => (
+          <MaterialPreview
+            key={preview.file}
+            file={preview.file}
+            alt={preview.caption[locale]}
+            priority={priority}
+          />
+        ))}
+      </div>
+    );
+  if (product.previews?.[0])
+    return (
+      <MaterialPreview
+        file={product.previews[0].file}
+        alt={product.title[locale]}
+        priority={priority}
+      />
+    );
   if (product.slug === "kalendar-32-dnya")
     return (
       <CalendarPreview alt={dict.style03.calendarCaption} priority={priority} />

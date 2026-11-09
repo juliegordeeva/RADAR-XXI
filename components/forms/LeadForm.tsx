@@ -1,39 +1,11 @@
-"use client";
-
-import { PreparedRequest } from "@/components/forms/PreparedRequest";
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { leadSchema, type LeadInput } from "@/lib/schemas";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
 import type { PurchaseFormat } from "@/content/types";
-import { localePath } from "@/lib/locale-path";
-import { sendLeadFromBrowser } from "@/lib/submit-form";
-import { collectTracking } from "@/lib/utm";
-import { purchaseSubmitLabel } from "@/lib/purchase";
-import { site } from "@/lib/site";
-import { Button } from "@/components/ui/Button";
-import { Checkbox, Input } from "@/components/ui/Input";
-
-type FormValues = {
-  name: string;
-  contact: string;
-  product?: string;
-  format?: string;
-  childAge?: string;
-  consent: boolean;
-  website?: string;
-};
-
+import { ContactPanel } from "@/components/forms/ContactPanel";
 export function LeadForm({
   locale,
-  dict,
-  product,
   productName,
-  format,
-  compact = false,
+  product,
 }: {
   locale: Locale;
   dict: Dictionary;
@@ -42,150 +14,17 @@ export function LeadForm({
   format?: PurchaseFormat;
   compact?: boolean;
 }) {
-  const [prepared, setPrepared] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const schema = useMemo(() => leadSchema, []);
-  const form = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      name: "",
-      contact: "",
-      product: productName ?? product ?? "",
-      format: format ?? "",
-      childAge: "",
-      consent: false,
-      website: "",
-    },
-  });
-
-  const consent = form.watch("consent");
-
-  async function onSubmit(values: FormValues) {
-    if (values.website) {
-      setStatus("success");
-      return;
-    }
-    setStatus("loading");
-    try {
-      const payload: LeadInput = {
-        name: values.name,
-        contact: values.contact,
-        product: values.product,
-        format: values.format,
-        childAge: values.childAge,
-        consent: true,
-        website: values.website ?? "",
-      };
-      const body = await sendLeadFromBrowser({
-        name: payload.name,
-        contact: payload.contact,
-        product: payload.product,
-        format: payload.format === "waitlist" ? dict.catalog.waitlist : payload.format,
-        childAge: payload.childAge,
-        tracking: collectTracking(product ? `produkty/${product}` : "lead"),
-        labels: {
-          name: dict.forms.name,
-          contact: dict.forms.contact,
-          product: dict.forms.product,
-          format: locale === "ru" ? "Формат" : "Format",
-          childAge: dict.forms.childAge,
-        },
-      });
-      setPrepared(body);
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success" && prepared) {
-    return (
-      <PreparedRequest
-        body={prepared}
-        dict={dict}
-        onEdit={() => setStatus("idle")}
-      />
-    );
-  }
-
   return (
-    <form
-      onSubmit={form.handleSubmit(onSubmit)}
-      className="flex flex-col gap-5"
-      noValidate
-    >
-      <div
-        className={
-          compact ? "flex flex-col gap-5" : "grid gap-5 md:grid-cols-2"
-        }
-      >
-        <Input
-          label={dict.forms.name}
-          {...form.register("name")}
-          error={form.formState.errors.name ? dict.forms.required : undefined}
-        />
-        <Input
-          label={dict.forms.contact}
-          {...form.register("contact")}
-          error={
-            form.formState.errors.contact
-              ? dict.forms.invalidContact
-              : undefined
-          }
-        />
-        <Input label={dict.forms.childAge} {...form.register("childAge")} />
-        {product ? (
-          <input type="hidden" {...form.register("product")} />
-        ) : (
-          <Input label={dict.forms.product} {...form.register("product")} />
-        )}
-        <input type="hidden" {...form.register("format")} />
-      </div>
-      <div className="hidden" aria-hidden="true">
-        <label>
-          {dict.forms.honeypot}
-          <input
-            tabIndex={-1}
-            autoComplete="off"
-            {...form.register("website")}
-          />
-        </label>
-      </div>
-      <Checkbox
-        label={
-          <>
-            {dict.lead.consent}{" "}
-            <Link
-              href={localePath(locale, "/politika")}
-              className="underline underline-offset-2"
-            >
-              {dict.lead.consentLink}
-            </Link>
-          </>
-        }
-        {...form.register("consent")}
-        error={form.formState.errors.consent ? dict.forms.required : undefined}
-      />
-      <Button type="submit" disabled={!consent || status === "loading"}>
-        {status === "loading"
-          ? dict.forms.sending
-          : purchaseSubmitLabel(format, dict)}
-      </Button>
-      {status === "error" && (
-        <p className="text-[15px] text-accent" role="alert">
-          {dict.lead.error}{" "}
-          <a
-            href={site.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2"
-          >
-            {dict.cta.telegram}
-          </a>
-        </p>
-      )}
-    </form>
+    <ContactPanel
+      locale={locale}
+      kind="materials"
+      context={
+        productName ??
+        product ??
+        (locale === "ru"
+          ? "Материалы для семейных проектов"
+          : "Materials for family projects")
+      }
+    />
   );
 }

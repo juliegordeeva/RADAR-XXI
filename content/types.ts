@@ -6,7 +6,13 @@ export type Localized = Record<Locale, string>;
 export type AgeGroup = "4-6" | "7-9" | "10-12" | "13-16" | "parents";
 
 export type ProductKind =
-  "calendar" | "cards" | "advent" | "kit" | "quest" | "course" | "diary";
+  | "calendar"
+  | "cards"
+  | "advent"
+  | "kit"
+  | "quest"
+  | "course"
+  | "diary";
 
 export type PurchaseFormat = "pdf" | "bot" | "print" | "sample" | "waitlist";
 
@@ -29,6 +35,10 @@ export type Product = {
   price: number | null;
   image: string;
   featured: boolean;
+  primary?: boolean;
+  ageLabel?: Localized;
+  duration?: Localized;
+  previews?: { file: string; caption: Localized }[];
   composition: Localized[];
   howTo: Localized[];
   delivery: Localized;

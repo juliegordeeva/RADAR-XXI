@@ -19,6 +19,7 @@ export type Internship = {
   startDate: string | null;
   price: number | null;
   available: boolean;
+  preview?: string;
 };
 // available определяет, какие программы можно выбрать в заявке.
 export const internships: Internship[] = [
@@ -269,6 +270,18 @@ export const internships: Internship[] = [
     available: false,
   },
 ];
+// Новый макет — отдельная программа, а не изменение прежних 14 дней.
+const creating = internships.find((item) => item.slug === "profile-create")!;
+Object.assign(creating, {
+  ageGroups: ["7-9"],
+  days: 21,
+  available: false,
+  rhythm: {
+    ru: "Макет программы готовится · 15 минут, взрослый рядом",
+    en: "Programme draft in preparation · 15 minutes, with an adult",
+  },
+  preview: "internship-create-0.webp",
+});
 export const availableInternships = internships.filter(
   (item) => item.available,
 );

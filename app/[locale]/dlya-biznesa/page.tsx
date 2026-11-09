@@ -6,7 +6,7 @@ import { EditorialHero } from "@/components/sections/EditorialHero";
 import { BrandArt } from "@/components/ui/BrandArt";
 import { Section } from "@/components/ui/Section";
 import { BusinessForm } from "@/components/forms/BusinessForm";
-import { b2bHub, experienceUrl } from "@/content/b2b";
+import { b2bHub } from "@/content/b2b";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { loc } from "@/lib/age";
@@ -64,18 +64,17 @@ export default async function BusinessPage({
               image: "scenes/office-day",
             },
             {
-              title: b2bHub.hikesTitle,
-              text: b2bHub.hikesText,
-              cta: b2bHub.hikesCta,
-              path: "family-hikes",
-              image: "scenes/family-hike",
-            },
-            {
-              title: b2bHub.diaryTitle,
-              text: b2bHub.diaryText,
-              cta: b2bHub.diaryCta,
-              path: "ezhednevnik",
-              image: "illustrative-products/diary-cover",
+              title: { ru: "Спортивные приключения", en: "Sports adventures" },
+              text: {
+                ru: "Корпоративное событие для сотрудников с детьми в парках и усадьбах Москвы. Программу и организационные условия обсудим под вашу задачу.",
+                en: "A corporate event for employees and their children in Moscow’s parks and estates. Discuss the programme and arrangements for your event.",
+              },
+              cta: {
+                ru: "Выбрать спортивный формат",
+                en: "Explore sports adventures",
+              },
+              path: "sportivnye-priklyucheniya",
+              image: "scenes/family-walk",
             },
           ].map((item, i) => (
             <article
@@ -92,25 +91,26 @@ export default async function BusinessPage({
               </div>
               <figure>
                 <BrandArt name={item.image} />
-                {i === 2 && (
-                  <figcaption className="illustration-caption">
-                    {dict.style03.diaryCaption}
-                  </figcaption>
-                )}
               </figure>
             </article>
           ))}
         </div>
+        <div className="mt-10 flex flex-wrap gap-6">
+          <Link
+            className="text-link"
+            href={localePath(locale, "/dlya-biznesa/family-hikes")}
+          >
+            {locale === "ru" ? "Семейные походы" : "Family hikes"} →
+          </Link>
+          <Link
+            className="text-link"
+            href={localePath(locale, "/dlya-biznesa/ezhednevnik")}
+          >
+            {locale === "ru" ? "Корпоративный ежедневник" : "Corporate diary"} →
+          </Link>
+        </div>
         <p className="mt-10 max-w-[65ch] material-summary">
           {loc(b2bHub.boundary, locale)}{" "}
-          <a
-            href={experienceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link"
-          >
-            RADAR Experience ↗
-          </a>
         </p>
       </Section>
       <Section>

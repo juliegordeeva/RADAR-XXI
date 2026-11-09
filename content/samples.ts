@@ -19,14 +19,20 @@ export const sampleSafety = {
   } satisfies Localized,
   steps: [
     { ru: "Заметь: взрослого рядом нет", en: "Notice: no adult next to me" },
-    { ru: "Остановись: не беги искать сам", en: "Stop: do not run off to look" },
+    {
+      ru: "Остановись: не беги искать сам",
+      en: "Stop: do not run off to look",
+    },
     {
       ru: "Выбери безопасного взрослого: кассир, охрана, человек в форме",
       en: "Pick a safe adult: cashier, guard, someone in uniform",
     },
-    { ru: "Зови на помощь громко, по имени", en: "Call for help, loud, by name" },
+    {
+      ru: "Зови на помощь громко, по имени",
+      en: "Call for help, loud, by name",
+    },
   ] satisfies Localized[],
-  image: "/images/lead-kartochka-bezopasnosti.webp",
+  image: "/images/radar/existing-materials/lead-kartochka-bezopasnosti.webp",
 };
 
 export const sampleAdvent = {
@@ -46,7 +52,7 @@ export const sampleAdvent = {
     ru: "10–15 минут · вместе с родителем",
     en: "10–15 minutes · with a parent",
   } satisfies Localized,
-  image: "/images/lead-advent-den-1.webp",
+  image: "/images/radar/existing-materials/lead-advent-den-1.webp",
 };
 
 export const sampleBrelok = {

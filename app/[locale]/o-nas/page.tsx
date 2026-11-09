@@ -67,7 +67,12 @@ export default async function AboutPage({
                   src={assetPath(
                     `/images/radar/team/${member.photo?.split("/").pop()}`,
                   )}
-                  alt={loc(member.photoAlt, locale)}
+                  alt={loc(
+                    locale === "en"
+                      ? member.aboutRole || member.role
+                      : member.photoAlt,
+                    locale,
+                  )}
                   width={900}
                   height={1200}
                   sizes="(max-width:767px) 100vw, 500px"
@@ -77,9 +82,21 @@ export default async function AboutPage({
                 <p className="editorial-label">
                   {loc(member.aboutRole || member.role, locale)}
                 </p>
-                <h2 className="section-heading">{loc(member.name, locale)}</h2>
+                <h2 className="section-heading">
+                  {loc(
+                    locale === "en"
+                      ? member.aboutRole || member.role
+                      : member.name,
+                    locale,
+                  )}
+                </h2>
                 <div className="max-w-[55ch] space-y-4">
-                  {loc(member.aboutBio || member.bio, locale)
+                  {loc(
+                    locale === "en"
+                      ? member.bio
+                      : member.aboutBio || member.bio,
+                    locale,
+                  )
                     .split("\n\n")
                     .map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>

@@ -119,7 +119,9 @@ test("unknown or unready query values are ignored, including inherited object na
     80,
   );
   for (const age of ["4-6", "10-12", "13-16"]) {
-    const legacy = readUniversityQuery(new URLSearchParams(`program=intro-${age}&age=${age}`));
+    const legacy = readUniversityQuery(
+      new URLSearchParams(`program=intro-${age}&age=${age}`),
+    );
     assert.equal(legacy.program, "intro-7-9");
     assert.equal(legacy.age, "7-9");
   }
@@ -175,4 +177,13 @@ test("all new dictionary branches have corresponding Russian and English keys", 
   }
   for (const key of ["journey", "university", "hero", "memo", "how", "what"])
     assert.deepEqual(shape(en[key]), shape(ru[key]));
+});
+
+test("the 21-day draft remains separate from the 14-day introductory programme", () => {
+  const draft = internships.find((p) => p.slug === "profile-create")!;
+  assert.equal(draft.days, 21);
+  assert.deepEqual(draft.ageGroups, ["7-9"]);
+  assert.equal(draft.available, false);
+  assert.equal(findInternship(draft.slug), undefined);
+  assert.equal(internships.find((p) => p.slug === "intro-7-9")!.days, 14);
 });

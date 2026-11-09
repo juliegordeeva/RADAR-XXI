@@ -8,6 +8,7 @@ import {
   type ChildAge,
 } from "@/content/internships";
 import { sectorByKey, sectorDotClass } from "@/content/competencies";
+import { MaterialPreview } from "@/components/ui/MaterialPreview";
 import { loc, ageLabels } from "@/lib/age";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/dictionary";
@@ -100,6 +101,23 @@ export function InternshipCatalog({
                   >
                     <p className="eyebrow">{ages}</p>
                     <h4>{loc(item.title, locale)}</h4>
+                    {item.preview && (
+                      <figure>
+                        <MaterialPreview
+                          file={item.preview}
+                          alt={
+                            locale === "ru"
+                              ? "Фрагмент обложки макета Придумывать и меняться"
+                              : "Cover excerpt of the Creating and adapting draft (Russian)"
+                          }
+                        />
+                        <figcaption className="material-summary mt-3">
+                          {locale === "ru"
+                            ? "Фрагмент обложки. Программа готовится, запись не открыта."
+                            : "Cover excerpt. The programme is in preparation; enrolment is not open."}
+                        </figcaption>
+                      </figure>
+                    )}
                     <p>
                       {typeof item.days === "number"
                         ? item.days
@@ -125,15 +143,15 @@ export function InternshipCatalog({
                     )}
                     {!item.available && (
                       <ul className="space-y-2">
-                      {item.sectors.map((key) => (
-                        <li key={key} className="flex items-center gap-2">
-                          <span
-                            aria-hidden="true"
-                            className={`size-2 rounded-full shrink-0 ${sectorDotClass[key]}`}
-                          />
-                          {loc(sectorByKey[key].title, locale)}
-                        </li>
-                      ))}
+                        {item.sectors.map((key) => (
+                          <li key={key} className="flex items-center gap-2">
+                            <span
+                              aria-hidden="true"
+                              className={`size-2 rounded-full shrink-0 ${sectorDotClass[key]}`}
+                            />
+                            {loc(sectorByKey[key].title, locale)}
+                          </li>
+                        ))}
                       </ul>
                     )}
                     {item.available ? (

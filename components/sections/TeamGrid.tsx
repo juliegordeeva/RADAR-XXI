@@ -23,7 +23,7 @@ export function TeamGrid({
         return (
           <article
             key={member.id}
-            className="grid gap-5 sm:grid-cols-[160px_1fr] md:grid-cols-1 lg:grid-cols-[160px_1fr] items-start"
+            className="grid gap-5 sm:grid-cols-[160px_1fr] md:grid-cols-1 items-start"
           >
             {member.photo ? (
               <div className="relative aspect-[3/4] max-w-[200px] overflow-hidden rounded-[24px] border border-border bg-bg-alt">
@@ -49,13 +49,13 @@ export function TeamGrid({
                 {loc(member.name, locale)}
               </h3>
               <p className="text-text-muted mt-1">{loc(role, locale)}</p>
-              {member.tagline && (
+              {variant === "about" && member.tagline && (
                 <p className="mt-2 text-[15px]">
                   {loc(member.tagline, locale)}
                 </p>
               )}
               <div className="mt-4 max-w-[65ch] space-y-3 text-[16px] leading-6">
-                {loc(bio, locale)
+                {loc(variant === "home" ? (member.homeBio ?? bio) : bio, locale)
                   .split("\n\n")
                   .map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>

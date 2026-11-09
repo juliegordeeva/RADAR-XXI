@@ -1,13 +1,13 @@
 {
   "meta": {
-    "homeTitle": "RADAR KIDS — a corporate university for children and kits for home",
-    "homeDescription": "The RADAR KIDS corporate university: Staying calm with change for children aged 7–9, family materials and Office Day for companies.",
-    "productsTitle": "Materials for children aged 4–16 — RADAR KIDS",
-    "productsDescription": "Safety cards, quests and advents for children, plus a calendar and diary for parents. Explore the content, age ranges and how to receive RADAR KIDS materials.",
+    "homeTitle": "RADAR KIDS | Programmes for companies and families",
+    "homeDescription": "Office and sports adventures for employees with children, printable family advents and the RADAR KIDS corporate university.",
+    "productsTitle": "Printable advents and materials for family projects | RADAR KIDS",
+    "productsDescription": "Three 28-day advents, a set for ages 5–6 and other family materials. Choose an age range and explore actual Russian-language PDF pages.",
     "aboutTitle": "The RADAR KIDS team | Authors and expertise",
     "aboutDescription": "Meet the experience behind RADAR KIDS: corporate education, programme development and family activities. Learn about the team’s approach.",
     "b2bTitle": "Family programmes for companies | RADAR KIDS",
-    "b2bDescription": "Office Day and family programmes for employees and their children. Explore the RADAR KIDS approach and discuss a programme for your company.",
+    "b2bDescription": "Office adventures and corporate family sports days in Moscow. Programmes for employees and their children, with a quote based on your brief.",
     "contactsTitle": "Contact RADAR KIDS | Office Day and family programmes",
     "contactsDescription": "Contact RADAR KIDS about Office Day, corporate family programmes, family materials or the university internship. Share your brief with the team.",
     "privacyTitle": "Privacy policy — RADAR KIDS",
@@ -21,14 +21,14 @@
     "hikesDescription": "Organised hikes for employees with children: a route, family tasks, support, and a programme for the corporate group.",
     "diaryTitle": "Corporate diary Three roles / one life — RADAR KIDS",
     "diaryDescription": "The Three roles / one life diary as a corporate gift concept: work, family and personal plans. Send an enquiry for the material.",
-    "universityTitle": "Staying calm with change, ages 7–9 | RADAR KIDS",
-    "universityDescription": "A RADAR KIDS internship for children aged 7–9: 14 days of tasks at home and a Skills Radar at the end. Choose a programme and apply to take part.",
+    "universityTitle": "Corporate university: programmes and skills | RADAR KIDS",
+    "universityDescription": "RADAR KIDS family programmes and universal skills. Creating and adapting for ages 7–9, 21 days, is in preparation. Explore the model and example radar.",
     "parentMaterialsTitle": "Materials for parents — RADAR KIDS",
     "parentMaterialsDescription": "The 32 days of parenting with joy calendar and Three roles / one life diary: RADAR KIDS materials for parents’ self-support and everyday planning."
   },
   "nav": {
     "home": "Home",
-    "products": "Materials",
+    "products": "For family projects",
     "about": "Who we are",
     "approach": "Our approach",
     "contacts": "Contact",
@@ -39,10 +39,9 @@
     "university": "Corporate university"
   },
   "hero": {
-    "title": "Your child can practise the skills used to assess leaders at work — starting today",
+    "title": "Programmes for companies and families",
     "paragraphs": [
-      "RADAR KIDS is a corporate university for children aged 4–16 and their parents.",
-      "helps your family discuss what your child does independently and where they need support. Only your family sees the results."
+      "Events at parents’ workplaces, shared tasks at home and skills practice as a family."
     ],
     "cta": "Sign up for an internship",
     "leadLink": "Request a five-day calendar sample from the team.",
@@ -127,7 +126,7 @@
     "parentProductsTitle": "Calendar and diary for parents",
     "childrenHeroAlt": "A boy reads a book beside a girl drawing: activities for children.",
     "parentsHeroAlt": "Parents discuss plans and fill in a diary, with Radarik peeking over a chair.",
-    "waitlist": "By enquiry",
+    "waitlist": "Preparing for release",
     "joinWaitlist": "Send an enquiry",
     "calendarPrice": "PDF calendar · RUB 800"
   },
@@ -201,7 +200,7 @@
     "practiceTitle": "How it is trained",
     "practice": "In the tasks, the child tries an action themselves. The adult helps when needed and discusses what worked, what was difficult and what they could try next.",
     "kitsTitle": "How our kits are built",
-    "kits": "Each range has its own tasks and a focus on particular skills, shown by the catalogue tags and filter. A 24-day advent includes different tasks. A 14-day kit focuses on one skill.",
+    "kits": "Each material has its own format and focus. The three advents last 28 days; other materials state their own duration. Expand the comparison to choose by age and skills.",
     "tableProduct": "Kit",
     "tableAbilities": "Competencies",
     "tableAge": "Age",
@@ -211,7 +210,7 @@
     "kitsSummary": "Compare materials by skills and age"
   },
   "footer": {
-    "tagline": "A corporate university for children and parents. Internships, family materials and programmes for companies.",
+    "tagline": "Corporate programmes, family projects and the RADAR KIDS corporate university.",
     "taglineB2b": "Family programmes for employees and their children.",
     "phoneRu": "Russia",
     "phoneEu": "Europe",
@@ -295,7 +294,7 @@
   },
   "privacyPage": {
     "title": "Privacy policy",
-    "updated": "Updated 2 September 2026.",
+    "updated": "The description of the contact process was updated on 9 November 2026.",
     "legalTodo": "Legal entity details are not published yet. Requests are handled by the founders.",
     "sections": [
       {
@@ -304,7 +303,7 @@
       },
       {
         "title": "What we collect",
-        "text": "On a kit request: name, phone or email, the child’s age, the chosen kit. On a sample request: contact details. On a company request: name, company and role, phone or email, city, date and a rough group size. We do not collect children’s names or medical data on the first form."
+        "text": "The site does not request contact details through a form. Contact buttons open Telegram, where you decide what to share with the RADAR KIDS organisers. A name and one contact method are enough for an initial enquiry; children’s names and medical data are not needed."
       },
       {
         "title": "Why",
@@ -312,11 +311,11 @@
       },
       {
         "title": "How we store it",
-        "text": "Requests go to the operator’s email and, if a mail service is connected, to its servers. We keep them while we need to reply, then delete them on request."
+        "text": "The site does not email enquiries or store them in an application database. Conversations take place in Telegram after you open the service. Telegram’s data processing rules apply within that service."
       },
       {
         "title": "Your rights",
-        "text": "You can ask for a copy, a correction or deletion. Write to the contacts on this site. The consent checkbox is required: we do not send the form without it."
+        "text": "For questions about your messages or requests to correct or delete data, contact the RADAR KIDS organisers using the site’s contact details."
       }
     ]
   },
@@ -370,9 +369,9 @@
     "viewCalendar": "Calendar for parents",
     "viewCourse": "Explore the programme",
     "viewDiary": "Explore the diary",
-    "safetyAge": "Ages 4–6",
-    "safetyFormat": "45 double-sided cards · 5 thematic groups",
-    "safetyDescription": "Cards for discussing everyday situations with a child aged 4–6. Look at a situation, discuss possible actions and act it out together.",
+    "safetyAge": "Ages 3–6 · with an adult",
+    "safetyFormat": "45 double-sided cards · Russian-language PDF",
+    "safetyDescription": "45 double-sided safety cards for children aged 3–6 with an adult. Situations for discussion and shared practice.",
     "sampleTitle": "See how an activity works.",
     "sampleIntro": "Your child first looks at the situation. Then you discuss possible actions and try them together.",
     "sampleEyebrow": "A safety card example",
@@ -384,7 +383,7 @@
     "samplePhrase": "A phrase to say aloud",
     "sampleGame": "Mini-game",
     "sampleAction": "Request the safety cards",
-    "telegramNote": "Open Telegram and send a message to the team.",
+    "telegramNote": "A chat will open. Write and send your message in Telegram.",
     "howTitle": "A ready activity to try together.",
     "howSteps": [
       "Choose an activity that suits your child.",
@@ -409,7 +408,7 @@
     "use": "How to use it",
     "discuss": "What you discuss with your child",
     "get": "Material enquiry",
-    "getText": "Leave your contact details, copy the enquiry and send it to the team on Telegram.",
+    "getText": "Open the RADAR KIDS organisers’ chat and ask about this material.",
     "formatNote": "Ask the team about receiving this material.",
     "priceAction": "Send an enquiry",
     "productAction": "Send an enquiry",
@@ -418,7 +417,7 @@
     "safetyDiscuss": "Discuss the situation, possible actions and asking for help. The cards support conversation and shared practice; they do not guarantee a child’s safety or replace adult supervision.",
     "factsNote": "The quantity and age range follow the current set description.",
     "preparedTitle": "Your message is ready",
-    "preparedNote": "Complete the fields to prepare your enquiry. Then copy the message and send it to the team in Telegram.",
+    "preparedNote": "Contact the RADAR KIDS organisers on Telegram.",
     "copy": "Copy message",
     "copied": "Message copied",
     "copyError": "Clipboard unavailable. Select and copy the text manually.",
@@ -427,24 +426,20 @@
     "edit": "Return to the form",
     "faq": [
       {
-        "question": "How do I choose by age?",
-        "answer": "Start with the age filter and read who each kit is for. The safety-card edition described here is for shared activities with children aged 4–6."
+        "question": "Which direction should I choose?",
+        "answer": "For an event for employees and their children, choose For companies. For shared tasks at home, choose For family projects. The university explains our skills model and programmes."
       },
       {
-        "question": "What do I need to prepare?",
-        "answer": "Read the contents and instructions for your chosen material. Preparation depends on the activity; there is no single list for every set."
+        "question": "How do I choose an age range?",
+        "answer": "Family materials have an age filter. Each product states the age range, time and adult’s role. Discuss children’s ages with the organisers for a corporate event."
       },
       {
-        "question": "Can I use it with more than one child?",
-        "answer": "Tell the team the children’s ages and which material you are considering. Confirm usage terms and a suitable activity for that particular set."
+        "question": "Are the materials printed or digital?",
+        "answer": "Advents and the set are being prepared as printable PDFs. Page previews show the actual materials. Each offer states its release status and how to enquire."
       },
       {
-        "question": "How can I receive a material?",
-        "answer": "See the selected material’s page for details on how to receive it. For questions, contact the team on Telegram; you need to send the message yourself."
-      },
-      {
-        "question": "Where can I see an example?",
-        "answer": "There is a task example on this page. You can request a five-day calendar sample from the team in Telegram; you need to send the message yourself."
+        "question": "Do we need an internship before using the materials?",
+        "answer": "No. Family materials, corporate events and internships are separate formats. Choose according to what you need."
       }
     ],
     "byAge": "Child’s age",
@@ -461,12 +456,12 @@
     "familyTitle": "Activities for children",
     "familyText": "Cards and quests where children try things, discuss options and make decisions alongside an adult.",
     "familyAction": "Choose children’s activities",
-    "catalogTitle": "Materials for children",
-    "catalogIntro": "Cards, advents, quests and kits to practise your child’s skills. Choose an age from 4 to 16 and the competency you want to work on.",
+    "catalogTitle": "For family projects",
+    "catalogIntro": "Three 28-day advents, a set for ages 5–6 and other family materials. Choose an age range and explore actual Russian-language PDF pages.",
     "teamTitle": "The RADAR KIDS team",
     "b2bTitle": "Family programmes for companies",
     "contactsTitle": "Let’s talk",
-    "contactsIntro": "Contact the team about Office Day, family materials or the university internship. For a corporate programme, tell us about your company and the event you have in mind.",
+    "contactsIntro": "Talk to RADAR KIDS about Office Day, a corporate family sports event in Moscow, PDF materials or a university programme.",
     "calendarExample": "Explore the calendar pages",
     "calendarCaption": "Calendar page",
     "diaryExample": "A diary illustration",
@@ -494,7 +489,7 @@
   "journey": {
     "navTitle": "Corporate university",
     "enter": "Join the corporate university",
-    "sampleRadar": "Example. Illustrative data.",
+    "sampleRadar": "Example. Illustrative data",
     "radarTitle": "Skills Radar",
     "legendTitle": "12 skills — 4 universal competencies",
     "skillLevel": "level",
@@ -544,7 +539,7 @@
   },
   "university": {
     "title": "RADAR KIDS corporate university",
-    "intro": "Staying calm with change: an internship for children aged 7–9 and their parents. Short tasks at home for 14 days, with a Skills Radar at the end.",
+    "intro": "Programmes for shared practice by a child and adult. Choose by age, content and readiness; the skills model and example radar are available on this page.",
     "choose": "Sign up for an internship",
     "eventNote": "Been to Office Day or a company family event? Include your company code in the request.",
     "whyTitle": "Why this feels familiar",
@@ -567,7 +562,7 @@
       "Choose a task and discuss what needs to be done.",
       "Your child tries it independently. Help when they need support.",
       "Discuss what worked and what could be tried differently.",
-      "At the end of 14 days, build a Skills Radar from your observations."
+      "At the end of the programme, gather family observations about what the child tries independently."
     ],
     "exampleTitle": "Examples of RADAR KIDS activities",
     "week": "Stage",
@@ -604,8 +599,8 @@
     "companyLine": "After Office Day, families can apply for an internship for ages 7–9. Companies and employers do not receive a child’s individual results.",
     "companyLink": "Discuss Office Day for your company →",
     "faqTitle": "Internship questions",
-    "formTitle": "Apply for an internship",
-    "formIntro": "Choose an internship and leave your contact details. Complete the form, copy the application and send it to the team on Telegram.",
+    "formTitle": "Discuss participation",
+    "formIntro": "Contact the RADAR KIDS organisers on Telegram.",
     "paymentNote": "Agree participation with the team. The form prepares your application; send it yourself on Telegram.",
     "form": {
       "name": "Parent’s name",
@@ -615,7 +610,7 @@
       "program": "Internship",
       "source": "How did you hear about us?",
       "company": "Company code",
-      "sector": "Which competency would you like to practise?",
+      "sector": "What would you like your child to practise?",
       "unknown": "Not sure yet",
       "choose": "Choose an option",
       "prepare": "Prepare a message",
@@ -641,15 +636,15 @@
     "faq": [
       {
         "question": "Who can enquire?",
-        "answer": "Families with children aged 7–9 can apply for Staying calm with change. Programmes for other ages are in preparation."
+        "answer": "Staying calm with change is for ages 7–9 and lasts 14 days. Creating and adapting is a separate 21-day programme for ages 7–9; it is in preparation and not open for enrolment."
       },
       {
         "question": "What is included?",
         "answer": "Tasks at home for 14 days and a Skills Radar at the end."
       },
       {
-        "question": "How do we apply?",
-        "answer": "Complete the form below, copy the application and send it to the team on Telegram. Agree participation and conditions in the conversation."
+        "question": "How can we discuss participation?",
+        "answer": "Open the direct RADAR KIDS contact and tell the organisers which programme interests you. Opening the chat does not send a message automatically."
       },
       {
         "question": "Will there be meetings or a review with a specialist?",
@@ -657,7 +652,7 @@
       },
       {
         "question": "Is this a test or diagnosis?",
-        "answer": "The radar is not a test or diagnosis. It is a snapshot of what a child already does independently and what still needs an adult’s support. We compare the child only with themselves. Only the family sees the results."
+        "answer": "The radar gathers observations of what a child does independently and where adult support is needed. It is not a test or diagnosis. Compare a child only with their own earlier experience."
       },
       {
         "question": "Who sees the results?",
@@ -672,16 +667,16 @@
     "formatLabel": "Internship format",
     "format": [
       {
-        "title": "14 days",
-        "text": "tasks at home"
+        "title": "4",
+        "text": "universal competencies"
       },
       {
-        "title": "Ages 7–9",
-        "text": "Staying calm with change"
+        "title": "12",
+        "text": "skills"
       },
       {
-        "title": "Skills Radar",
-        "text": "at the end of the internship"
+        "title": "Radar",
+        "text": "family observations"
       }
     ],
     "pilotLabel": "Applications open"

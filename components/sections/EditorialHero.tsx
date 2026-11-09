@@ -4,7 +4,9 @@ import { BrandArt } from "@/components/ui/BrandArt";
 
 export function EditorialHero({
   variant = "scene",
+  className = "",
   artwork,
+  visual,
   eyebrow,
   title,
   intro,
@@ -26,7 +28,9 @@ export function EditorialHero({
     | "safety"
     | "calendar"
     | "diary";
+  className?: string;
   artwork?: ReactNode;
+  visual?: ReactNode;
   eyebrow: string;
   title: ReactNode;
   intro?: string;
@@ -35,7 +39,7 @@ export function EditorialHero({
   children?: ReactNode;
 }) {
   return (
-    <Section className={`editorial-hero hero-${variant}`}>
+    <Section className={`editorial-hero hero-${variant} ${className}`}>
       <div className="editorial-hero-grid">
         <div className="editorial-hero-copy">
           <p className="editorial-label">{eyebrow}</p>
@@ -44,12 +48,14 @@ export function EditorialHero({
           {children}
         </div>
         <div className="editorial-hero-visual">
-          <BrandArt
-            name={image}
-            alt={imageAlt}
-            priority
-            className="editorial-hero-art"
-          />
+          {visual ?? (
+            <BrandArt
+              name={image}
+              alt={imageAlt}
+              priority
+              className="editorial-hero-art"
+            />
+          )}
           {artwork}
         </div>
       </div>

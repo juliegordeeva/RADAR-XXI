@@ -13,24 +13,39 @@ export const b2bHub = {
     "Family programmes for companies, where children and parents take part together",
   ),
   subtitle: locPair(
-    "Создаём программы для сотрудников и их детей. На Office Day дети знакомятся с работой родителей через квест и деловую игру; содержание адаптируем под компанию и площадку.",
-    "We create programmes that bring employees and their children together. Office Day introduces children to their parents’ workplace through a quest and a business game, adapted to the company and its setting.",
+    "Офисные и спортивные приключения для сотрудников и их детей. Офисное событие адаптируем под компанию; семейный спортивный день обсуждаем для парков и усадеб Москвы.",
+    "Office and sports adventures for employees and their children. We adapt the workplace event to your company and discuss family sports days in Moscow’s parks and estates.",
   ),
   cta: locPair("Запросить программу", "Request a programme"),
-  ctaOffice: locPair("Запросить программу и расчёт", "Request an Office Day proposal"),
-  officeTitle: locPair("Office Day Офисные приключения", "Office Day: office adventures"),
+  ctaOffice: locPair(
+    "Запросить программу и расчёт",
+    "Request an Office Day proposal",
+  ),
+  officeTitle: locPair(
+    "Office Day Офисные приключения",
+    "Office Day: office adventures",
+  ),
   officeText: locPair(
     "Дети сотрудников знакомятся с офисом, профессиями и работой родителей через квест, деловую игру и задания, адаптированные под бизнес компании.",
     "Employees’ children get to know the office, the jobs and their parents’ work through a quest, a business game and tasks adapted to the company’s business.",
   ),
-  officeCta: locPair("Запросить программу и расчёт", "Request an Office Day proposal"),
-  hikesTitle: locPair("Корпоративные семейные походы", "Corporate family hikes"),
+  officeCta: locPair(
+    "Запросить программу и расчёт",
+    "Request an Office Day proposal",
+  ),
+  hikesTitle: locPair(
+    "Корпоративные семейные походы",
+    "Corporate family hikes",
+  ),
   hikesText: locPair(
     "Организованный выезд для сотрудников с детьми: доступный маршрут, семейные задания, сопровождение и общий опыт, в котором родители и дети действуют вместе.",
     "An organised trip for employees with children: an accessible route, family tasks, support, and a shared experience where parents and children act together.",
   ),
   hikesCta: locPair("Запросить формат похода", "Request a hike format"),
-  diaryTitle: locPair("Ежедневник Три роли / одна жизнь", "Diary Three roles / one life"),
+  diaryTitle: locPair(
+    "Ежедневник Три роли / одна жизнь",
+    "Diary Three roles / one life",
+  ),
   diaryText: locPair(
     "Концепция корпоративного подарка: дневник для рабочих задач, семейных дел и собственных планов. Оставьте заявку на материал.",
     "A corporate gift concept: a diary for work tasks, family responsibilities and personal plans. Enquire about this material.",
@@ -129,7 +144,10 @@ export const officeDay = {
   ),
   orgTitle: locPair("Организация под ключ", "Turnkey organisation"),
   orgItems: [
-    locPair("регистрация и сопровождение детей", "registration and support for the children"),
+    locPair(
+      "регистрация и сопровождение детей",
+      "registration and support for the children",
+    ),
     locPair("игровые материалы и брендирование", "play materials and branding"),
     locPair(
       "наставники для небольших групп (ориентир 6–8 детей; финальный состав групп зависит от возраста и условий площадки)",
@@ -137,30 +155,52 @@ export const officeDay = {
     ),
     locPair("контроль перемещения и доступа", "movement and access control"),
     locPair("учёт требований площадки", "the site’s requirements"),
-    locPair("питание и питьевой режим по согласованному меню", "food and drinks from an agreed menu"),
-    locPair("реквизит, канцелярия, дипломы и подарки", "props, stationery, diplomas and gifts"),
-    locPair("фото и видео как дополнительная опция", "photo and video as an extra option"),
+    locPair(
+      "питание и питьевой режим по согласованному меню",
+      "food and drinks from an agreed menu",
+    ),
+    locPair(
+      "реквизит, канцелярия, дипломы и подарки",
+      "props, stationery, diplomas and gifts",
+    ),
+    locPair(
+      "фото и видео как дополнительная опция",
+      "photo and video as an extra option",
+    ),
   ],
   valueTitle: locPair("Для компании", "For the company"),
   valueItems: [
-    locPair("Семейное событие для сотрудников и их детей.", "A family event for employees and their children."),
+    locPair(
+      "Семейное событие для сотрудников и их детей.",
+      "A family event for employees and their children.",
+    ),
     locPair(
       "знакомство детей с профессиями и бизнесом родителей",
       "children meeting their parents’ jobs and business",
     ),
-    locPair("По согласованию готовим материалы для внутренних коммуникаций.", "By agreement, we prepare materials for internal communications."),
-    locPair("Содержание программы связываем с бизнесом и ценностями компании.", "For companies exploring the social side of ESG, Office Day offers a family-focused programme centred on employees and their children."),
+    locPair(
+      "По согласованию готовим материалы для внутренних коммуникаций.",
+      "By agreement, we prepare materials for internal communications.",
+    ),
+    locPair(
+      "Содержание программы связываем с бизнесом и ценностями компании.",
+      "For companies exploring the social side of ESG, Office Day offers a family-focused programme centred on employees and their children.",
+    ),
     locPair(
       "единый подрядчик для сценария и организации",
       "one contractor for the script and the organisation",
     ),
   ],
-  formTitle: locPair("Запросить программу и расчёт", "Request a programme and quote"),
+  formTitle: locPair(
+    "Запросить программу и расчёт",
+    "Request a programme and quote",
+  ),
   team: {
     ru: {
       title: "Корпоративная команда",
       caption: "Руководство проектов Офисные приключения",
-      intro: "Программу разрабатывает команда с 20-летним опытом в международном бизнес-образовании и корпоративном обучении.",
+      intro:
+        "Программу разрабатывает команда с 20-летним опытом в международном бизнес-образовании и корпоративном обучении.",
       qualifications: [
         "Кандидат педагогических наук.",
         "Методист корпоративных систем обучения.",
@@ -172,7 +212,8 @@ export const officeDay = {
     en: {
       title: "The team on this programme",
       caption: null,
-      intro: "The programme is developed by a team with experience in corporate education, programme design and group facilitation.",
+      intro:
+        "The programme is developed by a team with experience in corporate education, programme design and group facilitation.",
       qualifications: [
         "candidate of pedagogical sciences",
         "methodologist of corporate learning systems",
@@ -208,7 +249,10 @@ export const familyHikes = {
     "В программу входят доступный маршрут, семейные и командные задания, сопровождение и общий финал. Сложность, продолжительность и сценарий подбираем с учётом состава группы и требований компании.",
     "The programme combines an accessible route, family and team tasks, support and a shared finale. Difficulty, length and script are chosen after we know the group and the company’s requirements.",
   ),
-  needTitle: locPair("Что нужно, чтобы подобрать формат", "What we need to choose a format"),
+  needTitle: locPair(
+    "Что нужно, чтобы подобрать формат",
+    "What we need to choose a format",
+  ),
   needItems: [
     locPair("город или регион", "city or region"),
     locPair("предполагаемая дата", "likely date"),
@@ -216,11 +260,23 @@ export const familyHikes = {
     locPair("возраст детей", "children’s ages"),
     locPair("желаемая продолжительность", "preferred length"),
     locPair("опыт участников", "the participants’ experience"),
-    locPair("требования компании к безопасности и питанию", "the company’s safety and food requirements"),
-    locPair("необходимость транспорта, фото и видео", "whether you need transport, photo and video"),
+    locPair(
+      "требования компании к безопасности и питанию",
+      "the company’s safety and food requirements",
+    ),
+    locPair(
+      "необходимость транспорта, фото и видео",
+      "whether you need transport, photo and video",
+    ),
   ],
-  cta: locPair("Запросить формат семейного похода", "Request a family hike format"),
-  formTitle: locPair("Запросить формат семейного похода", "Request a family hike format"),
+  cta: locPair(
+    "Запросить формат семейного похода",
+    "Request a family hike format",
+  ),
+  formTitle: locPair(
+    "Запросить формат семейного похода",
+    "Request a family hike format",
+  ),
   expertTitle: locPair("Эксперт программы", "Programme expert"),
   expertName: locPair("Дарья Володина", "Daria Volodina"),
   expert: locPair(
@@ -255,7 +311,10 @@ export const diary = {
     "[TODO: price and minimum print run]",
   ),
   cta: locPair("Оставить заявку на ежедневник", "Enquire about the diary"),
-  formTitle: locPair("Оставить заявку на ежедневник", "Enquire about the diary"),
+  formTitle: locPair(
+    "Оставить заявку на ежедневник",
+    "Enquire about the diary",
+  ),
   expertTitle: locPair(
     "Автор блока управления проектами для детей",
     "Author of the children’s project block",

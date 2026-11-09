@@ -1,3 +1,4 @@
+import { purchaseFor } from "@/content/purchases";
 import type { Product } from "@/content/types";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
@@ -35,20 +36,29 @@ export function ProductCard({
             : product.kind === "diary"
               ? t.viewDiary
               : t.viewProduct;
-  const waiting = product.availability === "waitlist";
-  const price = waiting ? t.formatNote : dict.catalog.calendarPrice;
+  const sale = purchaseFor(product);
+  const waiting = !sale.active && product.availability === "waitlist";
+  const price = sale.active
+    ? `${sale.setup!.price} ₽ · PDF`
+    : waiting
+      ? t.formatNote
+      : dict.catalog.calendarPrice;
   return (
     <Card
       as="article"
       className={`product-card flex flex-col gap-4 p-5 md:p-6 ${compact ? "compact-product-card" : ""}`}
     >
       <div className="product-thumb">
-        <ProductArtwork product={product} dict={dict} />
+        <ProductArtwork product={product} dict={dict} locale={locale} />
       </div>
       <div className="flex flex-wrap gap-2">
         {safety ? (
           <span className="rounded-full bg-yellow px-3 py-2 material-summary font-bold">
             {t.safetyAge}
+          </span>
+        ) : product.ageLabel ? (
+          <span className="rounded-full bg-sky px-3 py-2 material-summary">
+            {loc(product.ageLabel, locale)}
           </span>
         ) : (
           product.ageGroups.map((age) => (
@@ -76,15 +86,15 @@ export function ProductCard({
       </div>
       <div className="mt-auto pt-2 space-y-3">
         <p className="material-summary text-text-muted">
-          {safety ? t.safetyFormat : loc(product.format, locale)}
+          {loc(product.format, locale)}
         </p>
-        <p className="font-bold text-[16px]">{price}</p>
+        {!waiting && <p className="font-bold text-[16px]">{price}</p>}
         {!product.comingSoon && (
           <Button
-            href={localePath(locale, `/produkty/${product.slug}${waiting ? "#zayavka" : ""}`)}
+            href={localePath(locale, `/produkty/${product.slug}`)}
             className="w-full md:w-full px-3"
           >
-            {waiting ? dict.catalog.joinWaitlist : action}
+            {action}
           </Button>
         )}
       </div>

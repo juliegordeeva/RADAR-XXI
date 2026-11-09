@@ -1,9 +1,9 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Home } from "lucide-react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { assetPath } from "@/lib/asset";
@@ -16,28 +16,22 @@ type SideNavProps = { locale: Locale; dict: Dictionary; embedded?: boolean };
 
 function Navigation({ locale, dict, embedded = false }: SideNavProps) {
   const path = (usePathname() || "").replace(/\/$/, "");
-  const params = useSearchParams();
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
-  const parents =
-    (hydrated && params.get("age") === "parents") ||
-    /kalendar-32-dnya|ezhednevnik-tri-roli/.test(path);
   const links = [
     { href: "/", label: dict.nav.home, active: path === `/${locale}` },
     {
-      href: "/universitet",
-      label: dict.nav.university,
-      active: path.endsWith("/universitet"),
+      href: "/dlya-biznesa",
+      label: dict.nav.b2b,
+      active: path.includes("/dlya-biznesa"),
     },
     {
       href: "/produkty",
       label: dict.nav.products,
-      active: path.includes("/produkty") && !parents,
+      active: path.includes("/produkty"),
     },
     {
-      href: "/produkty?age=parents",
-      label: dict.redesign.parentLink,
-      active: path.includes("/produkty") && parents,
+      href: "/universitet",
+      label: dict.nav.university,
+      active: path.endsWith("/universitet"),
     },
     {
       href: "/podhod",
@@ -45,11 +39,6 @@ function Navigation({ locale, dict, embedded = false }: SideNavProps) {
       active: path.endsWith("/podhod"),
     },
     { href: "/o-nas", label: dict.nav.about, active: path.endsWith("/o-nas") },
-    {
-      href: "/dlya-biznesa",
-      label: dict.nav.b2b,
-      active: path.includes("/dlya-biznesa"),
-    },
     {
       href: "/kontakty",
       label: dict.nav.contacts,

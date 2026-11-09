@@ -49,3 +49,10 @@ next-env.d.ts
 /design/materials/calendar-32-days-source.pdf
 /RADAR_KIDS_Style_03_Package.zip
 /RADAR_KIDS_Style_03_Assets.zip
+
+# Paid source materials: only selected previews may be published
+/materials-private/
+/RADAR_KIDS_Codex/materials-private/
+
+# Local implementation brief and private source package
+/RADAR_KIDS_Codex/

@@ -7,38 +7,30 @@ import {
   products,
   forCatalog,
 } from "@/content/products";
-import { faqItems } from "@/content/faq";
+import { purchaseFor } from "@/content/purchases";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale, locales } from "@/lib/i18n";
 import { loc } from "@/lib/age";
 import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
-import { site } from "@/lib/site";
-import { Badge } from "@/components/ui/Badge";
-import { SkillTag } from "@/components/ui/SkillTag";
-import { skillByKey, sectorByKey, foundations } from "@/content/competencies";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
-import { ProductHeading } from "@/components/ui/ProductHeading";
-import { BrandArt } from "@/components/ui/BrandArt";
-import { CalendarPreview } from "@/components/ui/CalendarPreview";
-import { EditorialHero } from "@/components/sections/EditorialHero";
-import { StorySection } from "@/components/sections/StorySection";
-import { ProductCard } from "@/components/sections/ProductCard";
-import { SafetySample } from "@/components/sections/SafetySample";
-import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { ProductJsonLd } from "@/components/seo/JsonLd";
-import { ProductRequest } from "@/components/forms/ProductRequest";
-import { pilotPath } from "@/content/internships";
 import { visibleItems, visibleText } from "@/lib/placeholder";
-
+import { EditorialHero } from "@/components/sections/EditorialHero";
+import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import { MaterialPreview } from "@/components/ui/MaterialPreview";
+import { ProductArtwork } from "@/components/ui/ProductArtwork";
+import { SkillTag } from "@/components/ui/SkillTag";
+import { ProductCard } from "@/components/sections/ProductCard";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { ProductJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { ProductRequest } from "@/components/forms/ProductRequest";
+import type { FaqItem } from "@/content/faq";
 export const dynamic = "force-static";
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     products
-      .filter((product) => !product.comingSoon)
-      .map((product) => ({ locale, slug: product.slug })),
+      .filter((p) => !p.comingSoon)
+      .map((p) => ({ locale, slug: p.slug })),
   );
 }
 export async function generateMetadata({
@@ -48,20 +40,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
-  const product = getProduct(slug);
-  if (!product || product.comingSoon) return {};
-  const dict = getDictionary(locale);
-  const seo = product.seo?.[locale];
+  const p = getProduct(slug);
+  if (!p || p.comingSoon) return {};
   return pageMetadata({
     locale,
     path: `/produkty/${slug}`,
-    title:
-      seo?.title ?? `${loc(product.title, locale)} ${dict.meta.productTitleSuffix}`,
+    title: p.seo?.[locale]?.title ?? `${loc(p.title, locale)} | RADAR KIDS`,
     description:
-      seo?.description ??
-      (slug === "kalendar-32-dnya"
-        ? `${loc(product.tagline, locale)} ${loc(product.format, locale)}`
-        : `${loc(product.tagline, locale)} ${dict.catalog.waitlist}. ${dict.redesign.formatNote}`),
+      p.seo?.[locale]?.description ??
+      `${loc(p.tagline, locale)} ${loc(p.format, locale)}`,
   });
 }
 export default async function ProductPage({
@@ -71,328 +58,293 @@ export default async function ProductPage({
 }) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
-  const product = getProduct(slug);
-  if (!product || product.comingSoon) notFound();
-  const dict = getDictionary(locale);
-  const t = dict.redesign;
-  const v = dict.style03;
-  const safety = slug === "kartochki-bezopasnosti";
-  const calendar = slug === "kalendar-32-dnya";
-  const diary = slug === "ezhednevnik-tri-roli";
-  const related = getRelated(product)
+  const p = getProduct(slug);
+  if (!p || p.comingSoon) notFound();
+  const d = getDictionary(locale),
+    ru = locale === "ru",
+    calendar = slug === "kalendar-32-dnya",
+    parents = p.ageGroups.includes("parents");
+  const sale = purchaseFor(p),
+    composition = visibleItems(p.composition),
+    howTo = visibleItems(p.howTo),
+    author = visibleText(p.author, locale);
+  const related = getRelated(p)
     .filter(
-      (item) =>
-        item.inMainCatalog !== false &&
-        !item.comingSoon &&
-        item.ageGroups.includes("parents") ===
-          product.ageGroups.includes("parents"),
+      (q) =>
+        !q.comingSoon &&
+        q.slug !== slug &&
+        q.ageGroups.includes("parents") === parents,
     )
     .slice(0, 3)
     .map(forCatalog);
-  const composition = visibleItems(product.composition);
-  const howTo = visibleItems(product.howTo);
-  const author = visibleText(product.author, locale);
-  const sampleTitle = visibleText(product.sampleTitle, locale);
-  const sampleBody = visibleText(product.sampleBody, locale);
-  const price = calendar ? dict.catalog.calendarPrice : dict.catalog.waitlist;
-  const action = calendar ? t.calendarAction : dict.catalog.joinWaitlist;
-  const universityHref = localePath(locale, pilotPath.replace("?", "?from=product&"));
-  const productTarget = calendar ? site.telegram : "#zayavka";
-  const image = safety
-    ? "scenes/store-help"
-    : calendar
-      ? "scenes/parent-reflection"
-      : diary
-        ? "scenes/parents-planning"
-        : product.ageGroups.includes("13-16")
-          ? "age/age-13-16"
-          : product.ageGroups.includes("10-12")
-            ? "age/age-10-12"
-            : "scenes/family-table";
+  const faq: FaqItem[] = [
+    ...(!calendar
+      ? [
+          {
+            question: { ru: "Кому подойдёт материал?", en: "Who is it for?" },
+            answer: p.audience,
+          },
+        ]
+      : []),
+    {
+      question: {
+        ru: "Какой формат и сколько времени?",
+        en: "What format and how much time?",
+      },
+      answer: {
+        ru: `${p.format.ru}${p.duration ? `. ${p.duration.ru}` : ""}`,
+        en: `${p.format.en}${p.duration ? `. ${p.duration.en}` : ""}`,
+      },
+    },
+    {
+      question: { ru: "Как получить материал?", en: "How can I receive it?" },
+      answer: {
+        ru: sale.active
+          ? sale.setup!.receiving!.ru
+          : calendar
+            ? "Получение полного PDF уточните у организаторов RADAR KIDS в Telegram. Оплата из-за рубежа пока недоступна."
+            : "Готовим к выпуску. Задайте вопрос организаторам RADAR KIDS в Telegram.",
+        en: sale.active
+          ? sale.setup!.receiving!.en
+          : calendar
+            ? "Ask the RADAR KIDS organisers on Telegram about receiving the full PDF. Payments from abroad are not available yet."
+            : "Preparing for release. Ask the RADAR KIDS organisers on Telegram.",
+      },
+    },
+    ...(calendar
+      ? [
+          {
+            question: {
+              ru: "Можно ли получить образец?",
+              en: "Can I request a sample?",
+            },
+            answer: {
+              ru: "Образец на пять дней можно запросить в Telegram. Полный календарь не является бесплатным образцом.",
+              en: "You can request a five-day sample on Telegram. The full calendar is not a free sample.",
+            },
+          },
+        ]
+      : []),
+  ];
   return (
     <>
       <ProductJsonLd locale={locale} slug={slug} />
+      <FaqJsonLd locale={locale} items={faq} />
       <EditorialHero
-        variant={
-          safety ? "safety" : calendar ? "calendar" : diary ? "diary" : "scene"
-        }
-        artwork={
-          diary ? (
-            <figure className="hero-product">
-              <BrandArt name="illustrative-products/diary-open" />
-              <figcaption className="illustration-caption">
-                {v.diaryCaption}
-              </figcaption>
-            </figure>
+        className="product-detail-hero"
+        variant={parents ? "calendar" : "scene"}
+        eyebrow={parents ? d.style03.parentLabel : d.nav.products}
+        title={loc(p.title, locale)
+          .split(/(\d+[–-]\d+(?:\s(?:лет|years))?)/)
+          .map((part, index) =>
+            index % 2 ? (
+              <span className="whitespace-nowrap" key={index}>
+                {part}
+              </span>
+            ) : (
+              part
+            ),
+          )}
+        intro={loc(p.tagline, locale)}
+        image={parents ? "scenes/parent-reflection" : "scenes/family-table"}
+        visual={
+          p.previews?.length ? (
+            <ProductArtwork product={p} dict={d} locale={locale} priority />
           ) : undefined
         }
-        eyebrow={calendar || diary ? v.parentLabel : v.materialsLabel}
-        title={
-          safety || calendar || diary ? (
-            <ProductHeading
-              title={loc(product.title, locale)}
-              kind={safety ? "safety" : "parent"}
-            />
-          ) : (
-            loc(product.title, locale)
-          )
-        }
-        intro={safety ? t.safetyDescription : loc(product.tagline, locale)}
-        image={image}
-        imageAlt={safety ? v.safetyScene : v.illustrationAlt}
       >
-        <div className="flex flex-wrap gap-2">
-          {safety ? (
-            <span className="rounded-full bg-yellow px-4 py-2 material-summary font-bold">
-              {t.safetyAge}
-            </span>
-          ) : (
-            product.ageGroups.map((age) => (
-              <Badge key={age} age={age} locale={locale} />
-            ))
-          )}
+        <div className="product-facts">
+          <span>
+            {p.ageLabel
+              ? loc(p.ageLabel, locale)
+              : p.ageGroups
+                  .map((age) =>
+                    age === "parents"
+                      ? ru
+                        ? "Для родителей"
+                        : "For parents"
+                      : `${age.replace("-", "–")} ${ru ? "лет" : "years"}`,
+                  )
+                  .join(" · ")}
+          </span>
+          <span>{loc(p.format, locale)}</span>
+          {p.duration && <span>{loc(p.duration, locale)}</span>}
         </div>
-        {author && <p className="material-summary mt-4">{author}</p>}
-        <div>
-          <Button href={productTarget}>
-            {action} →
-          </Button>
-          {!calendar && (
-            <p className="material-summary text-text-muted mt-3">
-              {dict.catalog.waitlist}. {t.formatNote}
-            </p>
-          )}
-        </div>
+        {author && <p className="material-summary">{author}</p>}
+        {!sale.active && !calendar && (
+          <p className="product-release-status">
+            {ru ? "Готовим к выпуску" : "Preparing for release"}
+          </p>
+        )}
+        <Button href={sale.active ? sale.setup!.checkoutUrl! : "#zayavka"}>
+          {sale.active
+            ? ru
+              ? "Купить PDF"
+              : "Buy the PDF"
+            : calendar
+              ? d.redesign.calendarAction
+              : ru
+                ? "Задать вопрос"
+                : "Ask a question"}{" "}
+          →
+        </Button>
         <Link
+          className="text-link"
           href={localePath(
             locale,
-            product.ageGroups.includes("parents")
-              ? "/produkty?age=parents"
-              : "/produkty",
+            parents ? "/produkty?age=parents" : "/produkty",
           )}
-          className="text-link mt-3"
         >
-          ←{" "}
-          {product.ageGroups.includes("parents")
-            ? dict.redesign.parentLink
-            : t.breadcrumb}
+          ← {parents ? d.redesign.parentLink : d.nav.products}
         </Link>
       </EditorialHero>
-      <Section className="product-skills" alt>
-        {calendar || diary ? (
-          <p className="font-bold">{dict.journey.parentBadge}</p>
-        ) : (
-          <>
-            <h2 className="section-heading">{dict.journey.skillsTitle}</h2>
-            <div className="skills-grid">
-              {product.skills.map((key) => {
-                const skill = skillByKey[key];
-                return (
-                  <article className="skill-card" key={key}>
-                    <p className="editorial-number">{skill.code}</p>
-                    <h3>{loc(skill.title, locale)}</h3>
-                    <p className="mt-4">{loc(skill.forParent, locale)}</p>
-                    <p className="mt-4 font-bold">
-                      {dict.journey.competencyLabel}:{" "}
-                      {loc(sectorByKey[skill.sector].title, locale)}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
-            {product.foundation?.map((key) => (
-              <p className="mt-5" key={key}>
-                {dict.journey.foundationLabel}:{" "}
-                {loc(foundations[key].title, locale)}
-              </p>
-            ))}
-          </>
-        )}
-        {product.availability === "waitlist" && (
-            <p className="mt-6 font-bold">{dict.catalog.waitlist}</p>
-        )}
-        <Link href={universityHref} className="text-link mt-8">
-          {dict.productPage.universityLink}
-        </Link>
+      <Section alt>
+        <div className="editorial-split items-start">
+          <div>
+            <h2 className="section-heading">
+              {ru ? "Участие взрослого" : "The adult’s role"}
+            </h2>
+            <p>{loc(p.audience, locale)}</p>
+          </div>
+          <div>
+            <h2 className="section-heading">
+              {ru ? "Что входит" : "What is included"}
+            </h2>
+            <ul className="product-contents">
+              {composition.map((item, i) => (
+                <li key={i}>{loc(item, locale)}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </Section>
-      {safety ? (
-        <Section id="sample" alt>
-          <div className="editorial-split items-start">
-            <div>
-              <p className="editorial-label">{t.sampleEyebrow}</p>
-              <h2 className="section-heading">{t.sampleTitle}</h2>
-              <p className="mb-6">{t.sampleIntro}</p>
-              <p className="material-summary">{v.samplePending}</p>
-            </div>
-            <div>
-              <span className="editorial-number">45</span>
-              <h3>{t.safetyFormat}</h3>
-              <p className="material-summary mt-3">{t.factsNote}</p>
-            </div>
-          </div>
-          <div className="mt-10">
-            <SafetySample locale={locale} dict={dict} />
-          </div>
-        </Section>
-      ) : calendar ? (
-        <Section id="sample" alt>
-          <div className="editorial-split">
-            <figure>
-              <CalendarPreview alt={v.calendarCaption} />
-              <figcaption className="illustration-caption">
-                {v.calendarCaption}
-              </figcaption>
-            </figure>
-            <div>
-              <p className="editorial-label">{v.parentLabel}</p>
-              <h2 className="section-heading">{v.calendarExample}</h2>
-              <p>{loc(product.tagline, locale)}</p>
-              <p className="mt-5">{loc(product.audience, locale)}</p>
-            </div>
-          </div>
-          <div className="calendar-previews mt-12">
-            {(["day-01", "day-02", "day-09"] as const).map((page, i) => (
-              <figure key={page}>
-                <CalendarPreview
-                  page={page}
-                  alt={`${v.calendarCaption}. ${locale === "ru" ? "День" : "Day"} ${[1, 2, 9][i]}`}
+      {p.previews?.length && (
+        <Section id="sample">
+          <h2 className="section-heading">
+            {ru ? "Настоящие страницы материала" : "Actual material pages"}
+          </h2>
+          <p className="mb-8 max-w-[65ch]">
+            {ru
+              ? "Это фрагменты PDF. Нажмите на страницу, чтобы рассмотреть её крупнее."
+              : "These are PDF excerpts in Russian. Select a page to see it larger."}
+          </p>
+          <div className="material-preview-grid">
+            {p.previews.slice(1).map((preview) => (
+              <figure key={preview.file}>
+                <MaterialPreview
+                  file={preview.file}
+                  alt={loc(preview.caption, locale)}
                   zoom
                 />
-                <figcaption>
-                  {locale === "ru" ? "День" : "Day"} {[1, 2, 9][i]} ·{" "}
-                  {v.calendarCaption}
-                </figcaption>
+                <figcaption>{loc(preview.caption, locale)}</figcaption>
               </figure>
             ))}
           </div>
         </Section>
-      ) : diary ? (
-        <StorySection
-          title={v.diaryExample}
-          image="illustrative-products/diary-open"
-          caption={v.diaryCaption}
-          alt
-        >
-          <p>{loc(product.tagline, locale)}</p>
-          <p>{v.diaryCaption}</p>
-          <Button href="#zayavka">{dict.catalog.joinWaitlist}</Button>
-          <p className="material-summary">{t.formatNote}</p>
-        </StorySection>
-      ) : (
-        (sampleTitle || sampleBody) && (
-          <Section alt>
-            <div className="editorial-split">
-              <div>
-                <h2 className="section-heading">{dict.productPage.sample}</h2>
-                {sampleTitle && <h3 className="mb-5">{sampleTitle}</h3>}
-                {sampleBody && <p>{sampleBody}</p>}
-              </div>
-              <BrandArt name={image} />
-            </div>
-          </Section>
-        )
       )}
-      <Section>
-        <div className="editorial-split items-start">
-          <div>
-            <p className="editorial-label">{t.audience}</p>
-            <p>{loc(product.audience, locale)}</p>
-            <p className="mt-5 material-summary text-text-muted">
-              {safety ? t.safetyFormat : loc(product.format, locale)}
-            </p>
-          </div>
-          {composition.length > 0 && (
-            <div>
-              <h2 className="section-heading">{t.inside}</h2>
-              <ul className="space-y-5">
-                {composition.map((item) => (
-                  <li key={item.ru} className="border-t border-teal pt-4">
-                    {loc(item, locale)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </Section>
-      {howTo.length > 0 && (
+      {visibleText(p.sampleBody, locale) && (
         <Section alt>
-          <h2 className="section-heading">{t.use}</h2>
+          <h2 className="section-heading">
+            {visibleText(p.sampleTitle, locale) ?? d.productPage.sample}
+          </h2>
+          <p className="max-w-[75ch]">{loc(p.sampleBody, locale)}</p>
+        </Section>
+      )}
+      {howTo.length > 0 && (
+        <Section>
+          <h2 className="section-heading">
+            {ru ? "Как пользоваться" : "How to use it"}
+          </h2>
           <ol className="steps-list">
-            {howTo.map((step) => (
-              <li key={step.ru}>
-                <p>{loc(step, locale)}</p>
-              </li>
+            {howTo.map((item, i) => (
+              <li key={i}>{loc(item, locale)}</li>
             ))}
           </ol>
         </Section>
       )}
-      <StorySection
-        title={
-          safety
-            ? t.discuss
-            : calendar
-              ? dict.productPage.calendarResult
-              : diary
-                ? dict.productPage.diaryResult
-                : dict.productPage.result
-        }
-        image={calendar || diary ? "scenes/father-work" : "scenes/family-table"}
-        reverse
-      >
-        <p>{safety ? t.safetyDiscuss : loc(product.result, locale)}</p>
-        <div className="flex flex-wrap gap-2">
-          {product.skills.map((key) => (
-            <SkillTag key={key} skillKey={key} locale={locale} />
-          ))}
-        </div>
-      </StorySection>
+      {!parents && (
+        <Section alt>
+          <details className="content-fold">
+            <summary>
+              {ru
+                ? "Какие навыки затрагивают задания"
+                : "Skills addressed by the tasks"}
+              <span className="fold-indicator" aria-hidden="true" />
+            </summary>
+            <div className="flex flex-wrap gap-3">
+              {p.skills.map((key) => (
+                <SkillTag key={key} skillKey={key} locale={locale} />
+              ))}
+            </div>
+            <p className="mt-5 max-w-[65ch]">{loc(p.result, locale)}</p>
+            <Link
+              className="text-link mt-5"
+              href={localePath(locale, "/podhod")}
+            >
+              {d.nav.approach} →
+            </Link>
+          </details>
+        </Section>
+      )}
       <Section id="zayavka" alt>
         <div className="editorial-split items-start">
           <div>
-            <p className="editorial-label">{v.formatLabel}</p>
-            <h2 className="section-heading">{calendar ? t.calendarGet : t.get}</h2>
-            <p>{calendar ? t.calendarContact : t.getText}</p>
-          </div>
-          <Card className="space-y-5">
-            <h3>{price}</h3>
-            <p className="material-summary text-text-muted">
-              {calendar ? t.calendarFormatNote : t.formatNote}
-            </p>
-            {calendar ? (
-              <>
-                <Button href={site.telegram}>{t.calendarAction} →</Button>
-                <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="text-link">
-                  {dict.catalog.downloadSample}
-                </a>
-                <p className="material-summary text-text-muted">{t.calendarSampleNote}</p>
-              </>
-            ) : (
-              <ProductRequest product={product} locale={locale} dict={dict} />
+            <h2 className="section-heading">
+              {sale.active
+                ? ru
+                  ? "Получить PDF"
+                  : "Get the PDF"
+                : calendar
+                  ? ru
+                    ? "Полный календарь"
+                    : "The full calendar"
+                  : ru
+                    ? "Вопрос о материале"
+                    : "Ask about this material"}
+            </h2>
+            {calendar && !sale.active && (
+              <p className="calendar-price">
+                {sale.setup?.price ?? p.price} ₽ · PDF
+              </p>
             )}
-          </Card>
+            {!sale.active && !calendar && (
+              <p>
+                {ru
+                  ? "Готовим к выпуску. Продажа пока не открыта."
+                  : "Preparing for release. Purchasing is not open yet."}
+              </p>
+            )}
+            {sale.active && (
+              <>
+                <p>{sale.setup!.price} ₽</p>
+                <p>{loc(sale.setup!.receiving!, locale)}</p>
+                <Button href={sale.setup!.checkoutUrl!}>
+                  {ru ? "Перейти к оплате" : "Proceed to payment"}
+                </Button>
+              </>
+            )}
+          </div>
+          <ProductRequest product={p} locale={locale} dict={d} />
         </div>
       </Section>
-      {safety && (
-        <Section>
-          <div className="editorial-split items-start">
-            <h2 className="section-heading">{t.productFaq}</h2>
-            <div className="faq-list">
-              <FaqAccordion items={faqItems} locale={locale} />
-            </div>
-          </div>
-        </Section>
-      )}
+      <Section>
+        <div className="editorial-split items-start">
+          <h2 className="section-heading">
+            {ru ? "Вопросы о материале" : "Questions about this material"}
+          </h2>
+          <FaqAccordion items={faq} locale={locale} />
+        </div>
+      </Section>
       {related.length > 0 && (
         <Section alt>
-          <h2 className="section-heading">{t.related}</h2>
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <h2 className="section-heading">{d.redesign.related}</h2>
+          <div className="gateway-products">
             {related.map((item) => (
               <ProductCard
                 key={item.slug}
                 product={item}
                 locale={locale}
-                dict={dict}
+                dict={d}
               />
             ))}
           </div>

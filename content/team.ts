@@ -7,6 +7,7 @@ export type TeamMember = {
   aboutRole?: Localized;
   tagline?: Localized;
   bio: Localized;
+  homeBio?: Localized;
   aboutBio?: Localized;
   photo: string | null;
   photoAlt: Localized;
@@ -15,6 +16,10 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     id: "julia",
+    homeBio: {
+      ru: "Основатель группы RADAR EXEC. С 2010 по 2022 год руководила международными корпоративными программами обучения IBS Plekhanov.",
+      en: "Founder of the RADAR EXEC group. Led international corporate training programmes at IBS Plekhanov from 2010 to 2022.",
+    },
     name: { ru: "Юлия Гордеева", en: "Julia Gordeeva" },
     role: {
       ru: "Основатель, директор по стратегическому планированию и развитию",
@@ -36,7 +41,7 @@ export const team: TeamMember[] = [
       ru: "Больше 15 лет преподаёт на международных программах MBA и развивает руководителей на трёх языках — от Перу до Китая через Дальний Восток.\n\n20 лет назад провела первый управленческий разбор на английском языке.\n\nОснователь группы RADAR EXEC (управленческий консалтинг, продюсирование руководителей, международные коммуникации, экстремальный опыт и обучение).\n\nЖила и работала в разных странах. Сначала собрала цели и задачи для своей семьи и друзей, потом решила развивать проект универсальных компетенций для успешного будущего детей других семей.",
       en: "For more than 15 years she has taught on international MBA programmes and worked with leaders in three languages — from Peru to China via the Far East.\n\nTwenty years ago she ran her first management debrief in English.\n\nFounder of the RADAR EXEC group (management consulting, producing leaders, international communications, extreme experience and learning).\n\nShe has lived and worked in several countries. First she set goals and tasks for her own family and friends, then decided to develop a universal-competencies project for the successful future of other families’ children.",
     },
-    photo: "/images/yulia-gordeeva-founder.webp",
+    photo: "/images/radar/team/yulia-gordeeva-founder.webp",
     photoAlt: {
       ru: "Юлия Гордеева",
       en: "Julia Gordeeva",
@@ -44,6 +49,10 @@ export const team: TeamMember[] = [
   },
   {
     id: "elizabeth",
+    homeBio: {
+      ru: "Магистр управления организацией во Франции. 10 лет в международном консалтинге.",
+      en: "Master’s in organisational management in France. 10 years in international consulting.",
+    },
     name: { ru: "Елизавета Сарычева", en: "Elizabeth Sarycheva" },
     role: { ru: "Со-основатель", en: "Co-founder" },
     aboutRole: { ru: "Со-основатель", en: "Co-founder" },
@@ -51,7 +60,7 @@ export const team: TeamMember[] = [
       ru: "Магистр управления организацией во Франции. Образование в области экономики и управления в России. 10 лет в международном консалтинге, в том числе по темам лидерской устойчивости, управления энергией и стресс-менеджмента для крупной международной авиастроительной компании. Мама двух мальчиков, которые говорят на четырёх языках.",
       en: "Master’s in organisational management in France. Education in economics and management in Russia. 10 years in international consulting, including leadership resilience, energy management and stress management for a major international aircraft manufacturer. Mother of two boys who speak four languages.",
     },
-    photo: "/images/elizaveta-sarycheva.webp",
+    photo: "/images/radar/team/elizaveta-sarycheva.webp",
     photoAlt: {
       ru: "Елизавета Сарычева",
       en: "Elizabeth Sarycheva",
@@ -59,6 +68,10 @@ export const team: TeamMember[] = [
   },
   {
     id: "maria",
+    homeBio: {
+      ru: "Более 20 лет в государственном управлении и консалтинге, 14 лет — на руководящих позициях в федеральном министерстве.",
+      en: "More than 20 years in public administration and consulting, including 14 years in senior roles at a federal ministry.",
+    },
     name: { ru: "Мария Громова", en: "Maria Gromova" },
     role: {
       ru: "Управляющий партнёр, автор «Учимся побеждать»",
@@ -76,7 +89,7 @@ export const team: TeamMember[] = [
       ru: "Когда стало понятно, что нам хочется расти и управлять большими проектами, к нам присоединилась Мария Громова. Мария в недавнем прошлом — чиновник с 15-летним стажем. Она так же, как и мы, сначала придумала программу и задачи по управлению проектами для своих детей, а после успешного старта запустила международный проект для школьников «Учимся побеждать».",
       en: "When it became clear we wanted to grow and run larger projects, Maria Gromova joined us. Until recently Maria was a civil servant with 15 years’ experience. Like us, she first designed a project-management programme for her own children and after a successful start launched the international project “Learning to win” for schoolchildren.",
     },
-    photo: "/images/maria-gromova.webp",
+    photo: "/images/radar/team/maria-gromova.webp",
     photoAlt: {
       ru: "Мария Громова",
       en: "Maria Gromova",

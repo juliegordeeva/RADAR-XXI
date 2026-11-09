@@ -1,27 +1,22 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SideNav } from "@/components/layout/SideNav";
 import { BrandArt } from "@/components/ui/BrandArt";
-import { StorySection } from "@/components/sections/StorySection";
-import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { Catalog } from "@/components/sections/Catalog";
-import { SafetySample } from "@/components/sections/SafetySample";
-import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { TeamGrid } from "@/components/sections/TeamGrid";
+import { ProductCard } from "@/components/sections/ProductCard";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
-import { catalogProducts } from "@/content/products";
-import { pilotPath } from "@/content/internships";
+import { products } from "@/content/products";
+import { directions } from "@/content/directions";
 import { faqItems } from "@/content/faq";
 import { getDictionary } from "@/lib/dictionary";
 import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 import { localePath } from "@/lib/locale-path";
-
+import { loc } from "@/lib/age";
 export const dynamic = "force-static";
-
 export async function generateMetadata({
   params,
 }: {
@@ -29,28 +24,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  const dict = getDictionary(locale);
+  const d = getDictionary(locale);
   return pageMetadata({
     locale,
     path: "/",
-    title: dict.meta.homeTitle,
-    description: dict.meta.homeDescription,
+    title: d.meta.homeTitle,
+    description: d.meta.homeDescription,
   });
 }
-
-// Временная витрина для первого просмотра. Полный ассортимент остаётся в каталоге.
-const homeSlugs = [
-  "kartochki-bezopasnosti",
-  "advent-4-6",
-  "advent-7-9",
-  "kvest-igrushechnyy-gorod",
-  "kvest-missiya-v-magazine",
-  "kvest-organizuem-sobytie",
-];
-const homeProducts = homeSlugs.flatMap((slug) =>
-  catalogProducts.filter((product) => product.slug === slug),
-);
-
 export default async function HomePage({
   params,
 }: {
@@ -59,43 +40,45 @@ export default async function HomePage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
-  const t = dict.redesign;
-  const v = dict.style03;
-  const ages = ["4-6", "7-9", "10-12", "13-16"];
+  const ru = locale === "ru";
+  const featured = [
+    "advent-4-6",
+    "advent-7-9",
+    "advent-10-12",
+    "komplekt-5-6",
+  ].flatMap((slug) => products.filter((p) => p.slug === slug));
   return (
     <>
       <OrganizationJsonLd locale={locale} />
       <FaqJsonLd locale={locale} />
-      <Section className="editorial-hero home-cover home-university">
+      <Section className="editorial-hero home-cover home-gateway">
         <SideNav locale={locale} dict={dict} embedded />
-        <div className="editorial-hero-grid">
-          <div className="editorial-hero-copy home-welcome-heading">
-            <p className="editorial-label">{v.homeLabel}</p>
+        <div className="gateway-grid">
+          <div className="gateway-copy">
+            <p className="editorial-label">RADAR KIDS</p>
             <h1>{dict.hero.title}</h1>
-            <p className="home-welcome-lead">{dict.hero.paragraphs[0]}</p>
-          </div>
-          <div className="home-welcome-body">
-            <div className="home-university-intro">
-              {dict.hero.paragraphs.slice(1).map((line) => (
-                <p key={line}>
-                  <strong>{dict.hero.radarLabel}</strong> {line}
-                </p>
+            <p className="gateway-intro">{dict.hero.paragraphs[0]}</p>
+            <nav
+              className="gateway-entries"
+              aria-label={dict.style03.directions}
+            >
+              {directions.map((item, i) => (
+                <Link
+                  className={`direction-entry ${i === 0 ? "is-primary" : ""}`}
+                  key={item.path}
+                  href={localePath(locale, item.path)}
+                >
+                  <span>
+                    <strong>{loc(item.title, locale)}</strong>
+                    <span>{loc(item.description, locale)}</span>
+                  </span>
+                  <span aria-hidden="true">↗</span>
+                </Link>
               ))}
-            </div>
-            <div className="home-welcome-action">
-              <Button href={localePath(locale, pilotPath)}>
-                {dict.hero.cta} →
-              </Button>
-            </div>
+            </nav>
           </div>
           <div className="home-welcome-art">
             <span className="home-welcome-orbit" aria-hidden="true" />
-            <BrandArt
-              name="mascots/radarik-wave"
-              alt={dict.hero.mascotAlt}
-              priority
-              className="home-welcome-mascot"
-            />
             <BrandArt
               name="scenes/family-walk"
               alt={dict.hero.familyAlt}
@@ -105,158 +88,63 @@ export default async function HomePage({
           </div>
         </div>
       </Section>
-      <Section className="university-pain">
-        <div className="family-situations">
-          <div className="family-situations-intro">
-            <h2 className="section-heading">{dict.pain.title}</h2>
-            <p className="editorial-intro">{dict.pain.intro}</p>
-            <BrandArt
-              name="scenes/child-builds"
-              className="family-situations-art"
-            />
-          </div>
-          <ul className="family-situations-list">
-            {dict.pain.items.map((item, index) => (
-              <li key={item.title}>
-                <span className="family-situation-number" aria-hidden="true">
-                  0{index + 1}
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="family-situations-next">{dict.pain.footer}</p>
-      </Section>
-      <Section id="ages" alt>
-        <p className="editorial-label">{v.ageLabel}</p>
-        <h2 className="section-heading">{dict.university.internshipsTitle}</h2>
-        <div className="age-paths mt-10">
-          {ages.map((age, i) => {
-            const content = (
-              <>
-                <span className="editorial-number">0{i + 1}</span>
-                <h3>{age.replace("-", "–")}</h3>
-                <p className="material-summary mt-2">
-                  {age === "7-9" ? dict.university.pilotLabel : dict.university.soon}
-                </p>
-                <BrandArt name={`age/age-${age}`} />
-              </>
-            );
-            return age === "7-9" ? (
-              <Link key={age} href={localePath(locale, pilotPath)} className="age-path">
-                {content}
-              </Link>
-            ) : (
-              <article key={age} className="age-path">{content}</article>
-            );
-          })}
-        </div>
-      </Section>
-      <Section className="home-materials">
-        <p className="editorial-label">{v.materialsLabel}</p>
-        <h2 className="section-heading">{dict.what.title}</h2>
-        <div className="home-product-types">
-          {dict.what.cards.map((card) => (
-            <article key={card.title}>
-              <h3>{card.title}</h3>
-              <p className="mt-3">{card.text}</p>
-            </article>
+      <Section alt>
+        <p className="editorial-label">{dict.nav.products}</p>
+        <h2 className="section-heading">
+          {ru ? "Один день — одно общее дело" : "One day, one shared task"}
+        </h2>
+        <p className="max-w-[65ch] mb-8">
+          {ru
+            ? "Три адвента на 28 дней для разных возрастов и комплект для детей 5–6 лет. Посмотрите реальные страницы, состав и участие взрослого."
+            : "Three 28-day advents for different ages and a set for ages 5–6. Explore actual page previews, contents and the adult’s role."}
+        </p>
+        <div className="gateway-products">
+          {featured.map((p) => (
+            <ProductCard key={p.slug} product={p} locale={locale} dict={dict} />
           ))}
         </div>
-        <div className="home-materials-grid">
-          <article className="editorial-feature home-safety-feature">
-            <h2 className="section-heading">
-              {locale === "ru" ? "Карточки безопасности" : "Safety cards"}
-            </h2>
-            <p>{t.safetyDescription} {dict.catalog.waitlist}.</p>
-            <BrandArt name="scenes/store-help" alt={v.safetyScene} />
-            <Button
-              href={localePath(locale, "/produkty/kartochki-bezopasnosti")}
-            >
-              {t.viewSafety} →
-            </Button>
-          </article>
-          <article className="editorial-feature home-family-feature">
-            <h2 className="section-heading">{v.familyTitle}</h2>
-            <p>{v.familyText}</p>
-            <BrandArt name="scenes/family-table" />
-            <Button href={localePath(locale, "/produkty")}>
-              {v.familyAction} →
-            </Button>
-          </article>
-        </div>
-      </Section>
-      <Section id="catalog" alt>
-        <Suspense fallback={<h2>{t.catalogTitle}</h2>}>
-          <Catalog
-            products={homeProducts}
-            locale={locale}
-            dict={dict}
-            title={t.catalogTitle}
-            compact
-          />
-        </Suspense>
-      </Section>
-      <Section id="sample" className="bg-sky">
-        <p className="eyebrow mb-3">{t.sampleEyebrow}</p>
-        <h2 className="section-heading">{t.sampleTitle}</h2>
-        <p className="mb-8 max-w-[65ch] text-text-muted">{t.sampleIntro}</p>
-        <SafetySample locale={locale} dict={dict} />
+        <Link className="text-link mt-8" href={localePath(locale, "/produkty")}>
+          {ru ? "Все семейные материалы" : "All family materials"} →
+        </Link>
       </Section>
       <Section>
-        <h2 className="section-heading">{dict.how.title}</h2>
-        <ol className="steps-list journey-steps mt-8">
-          {dict.how.steps.map((step) => (
-            <li key={step}>
-              <p>{step}</p>
-            </li>
-          ))}
-        </ol>
-        <Link
-          href={localePath(locale, "/universitet")}
-          className="text-link mt-6"
-        >
-          {dict.journey.enter} →
-        </Link>
-      </Section>
-      <StorySection
-        title={dict.memo.title}
-        eyebrow={v.approachLabel}
-        image="scenes/child-builds"
-        imageAlt={t.heroAlt}
-        alt
-      >
-        {dict.memo.paragraphs.map((line) => (
-          <p key={line}><strong>{dict.hero.radarLabel}</strong> {line}</p>
-        ))}
-        <Link href={localePath(locale, "/podhod")} className="text-link">
-          {dict.memo.more}
-        </Link>
-      </StorySection>
-      <Section>
-        <h2 className="section-heading mb-8">{t.teamTitle}</h2>
-        <TeamGrid locale={locale} />
-        <Link href={localePath(locale, "/o-nas")} className="text-link mt-6">
-          {t.teamLink} →
-        </Link>
-      </Section>
-      <Section className="bg-surface">
-        <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
-          <h2 className="section-heading">{t.faqTitle}</h2>
-          <div className="faq-list">
-            <FaqAccordion items={faqItems} locale={locale} />
-          </div>
-        </div>
-      </Section>
-      <Section id="lead">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="editorial-split items-start">
           <div>
-            <h2 className="section-heading mb-3">{t.finishTitle}</h2>
-            <p className="max-w-[55ch] text-text-muted">{t.finishText}</p>
+            <p className="editorial-label">{dict.nav.university}</p>
+            <h2 className="section-heading">
+              {ru
+                ? "Пробовать, обсуждать, замечать прогресс"
+                : "Try, discuss and notice progress"}
+            </h2>
           </div>
-          <Button href="#sample">{t.finishAction}</Button>
+          <div>
+            <p>
+              {ru
+                ? "В основе подхода — четыре универсальные компетенции и 12 навыков. Ребёнок пробует действие, взрослый поддерживает и обсуждает опыт. Радар помогает семье собрать наблюдения; это не тест."
+                : "Our approach connects four universal competencies with 12 skills. Children try an action, while adults support them and discuss the experience. The radar gathers family observations; it is not a test."}
+            </p>
+            <Link
+              className="text-link mt-6"
+              href={localePath(locale, "/podhod")}
+            >
+              {dict.nav.approach} →
+            </Link>
+          </div>
+        </div>
+      </Section>
+      <Section alt>
+        <h2 className="section-heading">{dict.team.title}</h2>
+        <TeamGrid locale={locale} />
+        <Link className="text-link mt-8" href={localePath(locale, "/o-nas")}>
+          {ru ? "Команда и опыт" : "Team and experience"} →
+        </Link>
+      </Section>
+      <Section>
+        <div className="editorial-split items-start">
+          <h2 className="section-heading">
+            {ru ? "Перед тем как выбрать" : "Before choosing"}
+          </h2>
+          <FaqAccordion items={faqItems} locale={locale} />
         </div>
       </Section>
     </>

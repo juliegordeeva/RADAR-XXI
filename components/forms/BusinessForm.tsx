@@ -1,34 +1,14 @@
-"use client";
-
-import { PreparedRequest } from "@/components/forms/PreparedRequest";
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { businessFormSchema, type BusinessFormInput } from "@/lib/schemas";
 import type { Dictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/i18n";
-import { localePath } from "@/lib/locale-path";
-import { sendFormFromBrowser, withTracking } from "@/lib/submit-form";
-import { collectTracking } from "@/lib/utm";
-import { site } from "@/lib/site";
-import { Button } from "@/components/ui/Button";
-import { Checkbox, Input, Textarea } from "@/components/ui/Input";
-
-export type BusinessFormVariant = "general" | "office" | "hikes" | "diary";
-
-type FormValues = BusinessFormInput;
-
-const productByVariant: Record<BusinessFormVariant, string> = {
-  general: "b2b-program",
-  office: "office-day",
-  hikes: "family-hikes",
-  diary: "ezhednevnik",
-};
-
+import { ContactPanel } from "@/components/forms/ContactPanel";
+export type BusinessFormVariant =
+  | "general"
+  | "office"
+  | "sports"
+  | "hikes"
+  | "diary";
 export function BusinessForm({
   locale,
-  dict,
   variant,
   productName,
 }: {
@@ -37,228 +17,18 @@ export function BusinessForm({
   variant: BusinessFormVariant;
   productName?: string;
 }) {
-  const [prepared, setPrepared] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const schema = useMemo(() => {
-    if (variant === "office") {
-      return businessFormSchema.superRefine((data, ctx) => {
-        if (!data.childrenCount?.trim()) {
-          ctx.addIssue({
-            code: "custom",
-            path: ["childrenCount"],
-            message: "required",
-          });
-        }
-        if (!data.ages?.trim()) {
-          ctx.addIssue({ code: "custom", path: ["ages"], message: "required" });
-        }
-      });
-    }
-    if (variant === "hikes") {
-      return businessFormSchema.superRefine((data, ctx) => {
-        if (!data.familiesCount?.trim()) {
-          ctx.addIssue({
-            code: "custom",
-            path: ["familiesCount"],
-            message: "required",
-          });
-        }
-        if (!data.ages?.trim()) {
-          ctx.addIssue({ code: "custom", path: ["ages"], message: "required" });
-        }
-      });
-    }
-    return businessFormSchema;
-  }, [variant]);
-
-  const form = useForm<FormValues>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      name: "",
-      companyRole: "",
-      contact: "",
-      city: "",
-      date: "",
-      childrenCount: "",
-      familiesCount: "",
-      ages: "",
-      comment: "",
-      product: productByVariant[variant],
-      consent: false,
-      website: "",
-    },
-  });
-
-  const consent = form.watch("consent");
-  const labels = dict.b2bForm;
-  const submitLabel =
-    variant === "office"
-      ? labels.submitOffice
-      : variant === "hikes"
-        ? labels.submitHikes
-        : variant === "diary"
-          ? labels.submitDiary
-          : labels.submitGeneral;
-
-  async function onSubmit(values: FormValues) {
-    if (values.website) {
-      setStatus("success");
-      return;
-    }
-    setStatus("loading");
-    try {
-      const tracking = collectTracking(`dlya-biznesa/${variant}`);
-      const body = await sendFormFromBrowser(
-        `Заявка RADAR KIDS: ${values.product}`,
-        withTracking(
-          {
-            [labels.name]: values.name,
-            [labels.companyRole]: values.companyRole,
-            [labels.contact]: values.contact,
-            [labels.city]: values.city,
-            [labels.date]: values.date,
-            [labels.childrenCount]: values.childrenCount,
-            [labels.familiesCount]: values.familiesCount,
-            [labels.ages]: values.ages,
-            [labels.comment]: values.comment,
-            [dict.forms.product]: productName ?? values.product,
-            [locale === "ru" ? "Статус" : "Status"]: variant === "diary" ? dict.catalog.waitlist : undefined,
-          },
-          tracking,
-        ),
-      );
-      setPrepared(body);
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success" && prepared) {
-    return (
-      <PreparedRequest
-        body={prepared}
-        dict={dict}
-        onEdit={() => setStatus("idle")}
-      />
-    );
-  }
-
-  const fieldError = (name: keyof FormValues) =>
-    form.formState.errors[name] ? dict.forms.required : undefined;
-
+  const names = {
+    general: ["Корпоративные программы", "Corporate programmes"],
+    office: ["Офисные приключения", "Office adventures"],
+    sports: ["Спортивные приключения в Москве", "Sports adventures in Moscow"],
+    hikes: ["Семейный поход", "Family hike"],
+    diary: ["Корпоративный ежедневник", "Corporate diary"],
+  };
   return (
-    <form
-      onSubmit={form.handleSubmit(onSubmit)}
-      className="flex flex-col gap-5"
-      noValidate
-    >
-      <div className="grid gap-5 md:grid-cols-2">
-        <Input
-          label={labels.name}
-          autoComplete="name"
-          {...form.register("name")}
-          error={fieldError("name")}
-        />
-        <Input
-          label={labels.companyRole}
-          autoComplete="organization"
-          {...form.register("companyRole")}
-          error={fieldError("companyRole")}
-        />
-        <Input
-          label={labels.contact}
-          autoComplete="email"
-          {...form.register("contact")}
-          error={
-            form.formState.errors.contact
-              ? dict.forms.invalidContact
-              : undefined
-          }
-        />
-        <Input
-          label={variant === "hikes" ? labels.cityRegion : labels.city}
-          autoComplete="address-level2"
-          {...form.register("city")}
-          error={fieldError("city")}
-        />
-        <Input
-          label={labels.date}
-          {...form.register("date")}
-          error={fieldError("date")}
-        />
-        {variant !== "diary" && (
-          <>
-            {variant === "hikes" ? (
-              <Input
-                label={labels.familiesCount}
-                {...form.register("familiesCount")}
-                error={fieldError("familiesCount")}
-              />
-            ) : (
-              <Input
-                label={labels.childrenCount}
-                {...form.register("childrenCount")}
-                error={fieldError("childrenCount")}
-              />
-            )}
-            <Input
-              label={labels.ages}
-              {...form.register("ages")}
-              error={fieldError("ages")}
-            />
-          </>
-        )}
-      </div>
-      <Textarea
-        label={labels.comment}
-        {...form.register("comment")}
-        error={fieldError("comment")}
-      />
-      <input type="hidden" {...form.register("product")} />
-      <div className="hidden" aria-hidden="true">
-        <label>
-          {dict.forms.honeypot}
-          <input
-            tabIndex={-1}
-            autoComplete="off"
-            {...form.register("website")}
-          />
-        </label>
-      </div>
-      <Checkbox
-        label={
-          <>
-            {labels.consent}{" "}
-            <Link
-              href={localePath(locale, "/politika")}
-              className="underline underline-offset-2"
-            >
-              {labels.consentLink}
-            </Link>
-          </>
-        }
-        {...form.register("consent")}
-        error={form.formState.errors.consent ? dict.forms.required : undefined}
-      />
-      <Button type="submit" disabled={!consent || status === "loading"}>
-        {status === "loading" ? dict.forms.sending : submitLabel}
-      </Button>
-      {status === "error" && (
-        <p className="text-[15px] text-accent" role="alert">
-          {labels.error}{" "}
-          <a
-            href={site.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2"
-          >
-            {dict.cta.telegram}
-          </a>
-        </p>
-      )}
-    </form>
+    <ContactPanel
+      locale={locale}
+      kind="corporate"
+      context={productName ?? names[variant][locale === "ru" ? 0 : 1]}
+    />
   );
 }

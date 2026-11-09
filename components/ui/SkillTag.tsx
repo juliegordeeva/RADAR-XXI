@@ -31,7 +31,7 @@ export function SkillTag({
           sectorDotClass[skill.sector],
         )}
       />
-      {skill.code} {loc(skill.title, locale)}
+      {loc(skill.title, locale)}
     </Link>
   );
 }

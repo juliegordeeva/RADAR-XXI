@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/o-nas",
     "/dlya-biznesa",
     "/dlya-biznesa/office-day",
+    "/dlya-biznesa/sportivnye-priklyucheniya",
     "/dlya-biznesa/family-hikes",
     "/dlya-biznesa/ezhednevnik",
     "/kontakty",

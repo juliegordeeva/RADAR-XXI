@@ -102,7 +102,12 @@ export function Catalog({
     sector,
   });
 
-  const displayed = compact ? visible.slice(0, 3) : visible;
+  const ordered = [...visible].sort(
+    (a, b) => Number(Boolean(b.primary)) - Number(Boolean(a.primary)),
+  );
+  const displayed = compact ? ordered.slice(0, 3) : ordered;
+  const primary = displayed.filter((product) => product.primary);
+  const other = displayed.filter((product) => !product.primary);
   const catalogQuery = new URLSearchParams();
   if (childAge) catalogQuery.set("age", childAge);
   if (sector) catalogQuery.set("sector", sector);
@@ -223,22 +228,46 @@ export function Catalog({
               </Button>
             </div>
           ) : (
-            <div
-              className={
-                compact
-                  ? "grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-                  : "catalog-products grid gap-6 md:grid-cols-2"
-              }
-            >
-              {displayed.map((product) => (
-                <ProductCard
-                  key={product.slug}
-                  product={product}
-                  locale={locale}
-                  dict={dict}
-                />
-              ))}
-            </div>
+            <>
+              <div
+                className={
+                  compact
+                    ? "grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+                    : "catalog-products grid gap-6 md:grid-cols-2"
+                }
+              >
+                {(compact || childAge || sector ? displayed : primary).map(
+                  (product) => (
+                    <ProductCard
+                      key={product.slug}
+                      product={product}
+                      locale={locale}
+                      dict={dict}
+                    />
+                  ),
+                )}
+              </div>
+              {!compact && !childAge && !sector && other.length > 0 && (
+                <details className="content-fold mt-10">
+                  <summary>
+                    {locale === "ru"
+                      ? "Другие семейные материалы"
+                      : "Other family materials"}
+                    <span className="fold-indicator" aria-hidden="true" />
+                  </summary>
+                  <div className="catalog-products grid gap-6 md:grid-cols-2">
+                    {other.map((product) => (
+                      <ProductCard
+                        key={product.slug}
+                        product={product}
+                        locale={locale}
+                        dict={dict}
+                      />
+                    ))}
+                  </div>
+                </details>
+              )}
+            </>
           )}
         </>
       )}
