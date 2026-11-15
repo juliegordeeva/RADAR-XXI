@@ -2787,3 +2787,45 @@ a {
     font-size: 34px;
   }
 }
+
+/* The two featured materials open the family catalogue before the filters. */
+.style03 .family-catalog-start h1 {
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 1.1;
+}
+.family-catalog-start .editorial-intro {
+  max-width: 65ch;
+  margin-top: 20px;
+}
+.family-catalog-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 20px;
+}
+.catalog-priority {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 767px) {
+  .catalog-priority {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.style03 .family-catalog-start {
+  padding-block: 32px 40px;
+}
+.family-catalog-links .text-link {
+  padding-block: 4px;
+}
+.style03 .catalog-priority .product-thumb {
+  height: 300px;
+}
+@media (max-width: 767px) {
+  .style03 .catalog-priority .product-thumb {
+    height: 280px;
+  }
+}

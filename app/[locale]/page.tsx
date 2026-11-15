@@ -42,6 +42,8 @@ export default async function HomePage({
   const dict = getDictionary(locale);
   const ru = locale === "ru";
   const featured = [
+    "kartochki-bezopasnosti",
+    "brelok-samoorganizacii-4-6",
     "advent-4-6",
     "advent-7-9",
     "advent-10-12",
@@ -95,8 +97,8 @@ export default async function HomePage({
         </h2>
         <p className="max-w-[65ch] mb-8">
           {ru
-            ? "Три адвента на 28 дней для разных возрастов и комплект для детей 5–6 лет. Посмотрите реальные страницы, состав и участие взрослого."
-            : "Three 28-day advents for different ages and a set for ages 5–6. Explore actual page previews, contents and the adult’s role."}
+            ? "Карточки безопасности, брелки самоорганизации, адвенты и комплект для детей 5–6 лет. Посмотрите реальные страницы, состав и участие взрослого."
+            : "Safety cards, self-organisation keyrings, advents and a set for ages 5–6. Explore actual page previews, contents and the adult’s role."}
         </p>
         <div className="gateway-products">
           {featured.map((p) => (

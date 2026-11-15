@@ -272,6 +272,7 @@ export const familyBundle: Product = {
 };
 export const materialUpdates: Record<string, Partial<Product>> = {};
 materialUpdates["kartochki-bezopasnosti"] = {
+  catalogPriority: 1,
   ageLabel: l("3–6 лет", "Ages 3–6"),
   title: l(
     "Карточки безопасности для детей 3–6 лет",
@@ -320,6 +321,78 @@ materialUpdates["kartochki-bezopasnosti"] = {
       title: "45 safety cards for children aged 3–6 | RADAR KIDS",
       description:
         "45 double-sided safety cards for children aged 3–6, with adult guidance. Part of the ages 5–6 set; actual page previews are available.",
+    },
+  },
+};
+materialUpdates["brelok-samoorganizacii-4-6"] = {
+  catalogPriority: 2,
+  comingSoon: false,
+  developmentStatus: "draft",
+  ageLabel: l("5–6 лет", "Ages 5–6"),
+  title: l(
+    "Брелок самоорганизации для детей 5–6 лет",
+    "Self-organisation keyring for children aged 5–6",
+  ),
+  tagline: l(
+    "Карточки с подсказками для повседневных дел. В младшем выпуске — 23 двусторонние карточки, вкладыш для родителей и 24 пиктограммы/наклейки.",
+    "Visual reminders for everyday tasks. The younger edition contains 23 double-sided cards, a parent insert and 24 pictograms/stickers.",
+  ),
+  audience: l(
+    "Для детей 5–6 лет вместе со взрослым. Сейчас можно посмотреть макет; окончательный файл для печати готовится.",
+    "For children aged 5–6 with an adult. A review layout is available; the final printable file is being prepared.",
+  ),
+  result: l(
+    "Ребёнок сверяется с подсказками, а взрослый помогает обсудить последовательность действий.",
+    "Children refer to the visual reminders, with an adult helping them discuss the sequence of actions.",
+  ),
+  format: l(
+    "23 двусторонние карточки · PDF-макет",
+    "23 double-sided cards · Russian-language PDF review layout",
+  ),
+  bullets: [
+    l("23 двусторонние карточки", "23 double-sided cards"),
+    l("Вкладыш для родителей", "Parent insert"),
+    l("24 пиктограммы/наклейки", "24 pictograms/stickers"),
+  ],
+  composition: [
+    l("23 двусторонние карточки", "23 double-sided cards"),
+    l("Вкладыш для родителей", "Parent insert"),
+    l("24 пиктограммы/наклейки", "24 pictograms/stickers"),
+  ],
+  howTo: [],
+  delivery: preparing,
+  previews: [
+    {
+      file: "keyring-5-6-0.webp",
+      caption: l(
+        "Брелок 5–6 лет: макет для просмотра",
+        "Ages 5–6 keyring: review layout",
+      ),
+    },
+    {
+      file: "keyring-5-6-1.webp",
+      caption: l(
+        "Пример карточки из макета",
+        "Sample card from the review layout",
+      ),
+    },
+  ],
+  sampleTitle: l("Как выглядят карточки", "What the cards look like"),
+  sampleBody: l(
+    "На превью — настоящие страницы PDF, помеченного как макет для просмотра. Увеличенные стороны не являются окончательной раскладкой для печати. Отдельная покупка пока не открыта.",
+    "The previews show actual pages of the PDF marked as a review layout. The enlarged sides are not the final print layout. Separate purchase is not open yet.",
+  ),
+  related: ["kartochki-bezopasnosti", "komplekt-5-6", "advent-4-6"],
+  seo: {
+    ru: {
+      title: "Брелок самоорганизации 5–6 лет: 23 карточки | RADAR KIDS",
+      description:
+        "23 двусторонние карточки, вкладыш для родителей и 24 пиктограммы/наклейки. Настоящие превью младшего выпуска; финальный файл готовится.",
+    },
+    en: {
+      title: "Self-organisation keyring ages 5–6: 23 cards | RADAR KIDS",
+      description:
+        "23 double-sided cards, a parent insert and 24 pictograms/stickers. Actual previews of the younger edition; the final file is being prepared.",
     },
   },
 };

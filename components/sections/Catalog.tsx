@@ -96,11 +96,23 @@ export function Catalog({
     [params, pathname, router],
   );
 
-  const visible = filterCatalogProducts(products, {
-    audience: parentView ? "parents" : "children",
-    age: childAge,
-    sector,
-  });
+  const priority =
+    !compact && !parentView
+      ? products
+          .filter((product) => product.catalogPriority !== undefined)
+          .sort((a, b) => a.catalogPriority! - b.catalogPriority!)
+      : [];
+  const visible = filterCatalogProducts(
+    products.filter(
+      (product) =>
+        compact || parentView || product.catalogPriority === undefined,
+    ),
+    {
+      audience: parentView ? "parents" : "children",
+      age: childAge,
+      sector,
+    },
+  );
 
   const ordered = [...visible].sort(
     (a, b) => Number(Boolean(b.primary)) - Number(Boolean(a.primary)),
@@ -125,8 +137,16 @@ export function Catalog({
 
   const content = (
     <div className={compact ? "catalog-compact" : "catalog-full"}>
-      <h2 className={compact ? "section-heading" : "sr-only"}>
-        {parentView ? dict.catalog.parentProductsTitle : title}
+      <h2
+        className={compact || priority.length ? "section-heading" : "sr-only"}
+      >
+        {parentView
+          ? dict.catalog.parentProductsTitle
+          : priority.length
+            ? locale === "ru"
+              ? "Другие семейные материалы"
+              : "Other family materials"
+            : title}
       </h2>
       {parentView ? (
         <>
@@ -299,7 +319,28 @@ export function Catalog({
   return (
     <>
       {queryReader}
-      <CatalogHero locale={locale} dict={dict} parentView={parentView} />
+      <CatalogHero
+        locale={locale}
+        dict={dict}
+        parentView={parentView}
+        featured={
+          priority.length ? (
+            <div className="catalog-priority">
+              <h2 className="sr-only">
+                {locale === "ru" ? "Карточки и брелки" : "Cards and keyrings"}
+              </h2>
+              {priority.map((product) => (
+                <ProductCard
+                  key={product.slug}
+                  product={product}
+                  locale={locale}
+                  dict={dict}
+                />
+              ))}
+            </div>
+          ) : undefined
+        }
+      />
       <Section
         id="catalog-materials"
         className={

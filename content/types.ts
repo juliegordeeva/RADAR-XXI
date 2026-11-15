@@ -36,6 +36,7 @@ export type Product = {
   image: string;
   featured: boolean;
   primary?: boolean;
+  catalogPriority?: number;
   ageLabel?: Localized;
   duration?: Localized;
   previews?: { file: string; caption: Localized }[];
